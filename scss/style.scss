@@ -10,11 +10,14 @@
         display: flex;
         flex-direction: row;
         position: relative;
+        height: 100vh;
         &-container{
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
             background-image: url('../img/bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
             z-index: 1;
         }
         &-wrapper {
@@ -25,27 +28,29 @@
             background-color: $form-wrapper-background-color;
             z-index: 2;
             &_sign-up {
-                padding: 17vh 5vw 8vh 5vw;
+                padding: 16.4vh 5vw 7.5vh 5vw;
                 gap: 11.5vh;
             }
             &_sign-in {
-                padding: 23vh 5vw 8vh 5vw;
+                padding: 25.7vh 5vw 7.5vh 5vw;
             }
             &_restore-password {
                 padding: 25.7vh 5vw 45vh 5vw;  
             }
             &_restore-confirm {
-                padding: 24.5vh 5vw 65vh 5vw;
+                padding: 25.7vh 7vw 45vh 7vw;
             }
         }
         &-form {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: $fields-of-forms-tablet-desktop-size;
             gap: 4vh;
             &__title {
-                @include font (Poppins, 600, 15px, 130%);
-                width: $fields-of-forms-tablet-desktop-size;
+                @include font (Poppins, 600, 24px, 24px);
+                align-self: center;
+                width: 100%;
                 display: flex;
                 align-items: center;
                 color: $text-title-color;
@@ -54,7 +59,7 @@
         &-submit {
             display: flex;
             align-self: start;
-            width: $fields-of-forms-tablet-desktop-size;
+            width: 100%;
             &__btn {
                 @include font (Poppins, 600, 15px, 130%);
                 margin-top: 8px;
@@ -76,7 +81,7 @@
             flex-direction: row;
             align-items: flex-start;
             justify-content: flex-start;
-            width: $fields-of-forms-tablet-desktop-size;
+            width: 100%;
             gap: 16px;
             text-decoration: none;
             color: $text-title-color;
@@ -86,10 +91,10 @@
             position: relative;
             gap: 16px;
             align-items: center;
-            width: 19vw;
+            width: 100%;
             height: 6vh;
             border-radius: 7px;
-            border: $input-color;
+            border: $input-border;
             padding: 8px 16px;
             background: $input-color;
             &:hover {
@@ -99,24 +104,24 @@
                 @include font (Poppins, 400, 17px, 140%);
                 border: none;
                 background-color: transparent;
+                width: 100%;
                 color: $text-color;
                 &:focus {
                     outline: none;
                 }
             }
             &__btn {
-                position: absolute;
-                right: 16px;
+                pointer-events: none;
             }
         }
         &-message {
             @include font (Poppins, 400, 13px, 120%);
             display: flex;
-            width: $fields-of-forms-tablet-desktop-size;
-            align-self: center;
-            justify-self: flex-start;
+            width: 100%;
             color:  $alert-message-color;
             letter-spacing: -0.24px;
+            align-self: center;
+            justify-self: flex-start;
             &_restore {
                 @include font (Poppins, 400, 15px, 130%);
                 color: $text-color;
@@ -130,6 +135,7 @@
         &-buttons {
             display: flex;
             flex-direction: column;
+            width: $fields-of-forms-tablet-desktop-size;
             gap: 11.5vh;
             &_sign-in {
                 gap: 25vh;
@@ -145,8 +151,7 @@
             flex-direction: row;
             gap: 1.5vw;
             &__quest {
-                @include font (Poppins, 600, 15px, 140%);
-                font-family: Poppins;
+                @include font (Poppins, 400, 15px, 140%);
                 display: flex;
                 align-items: center;
                 color: $text-color;
@@ -165,47 +170,49 @@
     .feedback {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
         position: relative;
+        height: 100vh;
         &-container{
+            z-index: 1;
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
             background-image: url('../img/bg.png');
-            z-index: 1;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         &-wrapper {
             display: flex;
             flex-direction: column;
-            width: 50vw;
+            align-items: center;
+            width: 40vw;
             gap: 6.25vh;
             background-color: $form-wrapper-background-color;
             z-index: 2;
             &_sign-up {
-                padding: 16vh 7vw 9vh 7vw;
+                padding: 16.4vh 5vw 7.5vh 5vw;
                 gap: 11.5vh;
             }
             &_sign-in {
-                padding: 26.3vh 5vw 12.5vh 5vw;
+                padding: 25.7vh 5vw 7.5vh 5vw;
             }
             &_restore-password {
                 padding: 25.5vh 7vw 45vh 7vw;  
             }
             &_restore-confirm {
-                padding: 24.5vh 5vw 65vh 5vw;
+                padding: 25.7vh 7vw 45vh 7vw;
             }
         }
         &-form {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            width: $fields-of-forms-tablet-desktop-size;
             gap: 4vh;
             &__title {
                 @include font (Poppins, 600, 24px, 24px);
-                align-self: flex-start;
                 align-self: center;
-                width: 368px;
+                width: 100%;
                 display: flex;
                 align-items: center;
                 color: $text-title-color;
@@ -213,12 +220,12 @@
         }
         &-restore-password {
             @include font (Poppins, 600, 20px, 24px);
-            align-self: center;
             display: flex;
             flex-direction: row;
             align-items: flex-start;
             justify-content: flex-start;
-            width: $fields-of-forms-tablet-desktop-size;
+            align-self: center;
+            width: 100%;
             gap: 16px;
             text-decoration: none;
             color: $text-title-color;
@@ -229,7 +236,7 @@
             gap: 8px;
             align-items: center;
             align-self: center;
-            width: $fields-of-forms-tablet-desktop-size;
+            width: 100%;
             height: 6vh;
             border-radius: 7px;
             border: $input-border;
@@ -242,14 +249,11 @@
                 @include font (Poppins, 400, 17px, 140%);
                 border: none;
                 background-color: transparent;
+                width: 100%;
                 color: $text-color;
                 &:focus {
                     outline: none;
                 }
-            }
-            &__btn {
-                position: absolute;
-                right: 16px;
             }
             &__link {
                 @include font (Poppins, 600, 15px, 130%);
@@ -258,7 +262,7 @@
             }
         }
         &-submit {
-            width: $fields-of-forms-tablet-desktop-size;
+            width: 100%;
             align-self: center;
             &__btn {
                 @include font (Poppins, 600, 15px, 130%);
@@ -277,7 +281,7 @@
         &-message {
             @include font (Poppins, 400, 13px, 120%);
             display: flex;
-            width: $fields-of-forms-tablet-desktop-size;
+            width: 100%;
             align-self: center;
             justify-self: flex-start;
             color:  $alert-message-color;
@@ -295,6 +299,7 @@
             display: flex;
             flex-direction: column;
             align-self: center;
+            width: $fields-of-forms-tablet-desktop-size;
             gap: 11.5vh;
             &_sign-in {
                 gap: 13.8vh;
@@ -330,52 +335,55 @@
 @media (min-width: 768px) and (max-width: 1023px){
     .feedback {
         display: flex;
-        flex-direction: row;
         position: relative;
+        height: 100vh;
         &-container{
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
             background-image: url('../img/bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
             z-index: 1;
         }
         &-wrapper {
             display: flex;
             flex-direction: column;
-            width: 73%;
+            align-items: center;
+            width: 73vw;
             gap: 6.25vh;
-            padding: 20vh 12.5vw 6vh 12.5vw;
             background-color: $form-wrapper-background-color;
             z-index: 2;
             &_sign-up {
-                padding: 16vh 10vw 9vh 10vw;
+                padding: 16.4vh 10vw 7.5vh 10vw;
                 gap: 11.5vh;
             }
             &_sign-in {
-                padding: 20vh 12.5vw 7.5vh 12.5vw;
+                padding: 25.7vh 10vw 7.5vh 10vw;
             }
             &_restore-password {
-                padding: 25.5vh 12.5vw 45vh 12.5vw;  
+                padding: 25.7vh 12.5vw 45vh 12.5vw;  
             }
             &_restore-confirm {
-                padding: 24vh 10vw 65vh 10vw;
+                padding: 25.7vh 7vw 45vh 7vw;
             }
         }
         &-form {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: $fields-of-forms-tablet-desktop-size;
             gap: 4vh;
             &__title {
                 @include font (Poppins, 600, 24px, 24px);
-                width: $fields-of-forms-tablet-desktop-size;
+                width: 100%;
                 display: flex;
                 align-items: center;
                 color: $text-title-color;
             }
         }
         &-submit {
-            width: 368px;
+            width: 100%;
             &__btn {
                 @include font (Poppins, 600, 15px, 130%);
                 margin-top: 8px;
@@ -397,7 +405,7 @@
             flex-direction: row;
             align-items: flex-start;
             justify-content: flex-start;
-            width: $fields-of-forms-tablet-desktop-size;
+            width: 100%;
             gap: 16px;
             text-decoration: none;
             color: $text-title-color;
@@ -407,7 +415,7 @@
             position: relative;
             gap: 16px;
             align-items: center;
-            width: $fields-of-forms-tablet-desktop-size;
+            width: 100%;
             height: 6vh;
             border-radius: 7px;
             border: $input-border;
@@ -420,14 +428,11 @@
                 @include font (Poppins, 400, 17px, 140%);
                 border: none;
                 background-color: transparent;
+                width: 100%;
                 color: $text-color;
                 &:focus {
                     outline: none;
                 }
-            }
-            &__btn {
-                position: absolute;
-                right: 16px;
             }
         }
         &-message {
@@ -435,7 +440,7 @@
             display: flex;
             align-self: center;
             justify-self: flex-start;
-            width: $fields-of-forms-tablet-desktop-size;
+            width: 100%;
             color:  $alert-message-color;
             letter-spacing: -0.24px;
             &_restore {
@@ -451,6 +456,7 @@
             display: flex;
             flex-direction: column;
             align-self: center;
+            width: $fields-of-forms-tablet-desktop-size;
             gap: 11.5vh;
             &_sign-in {
                 gap: 25vh;
@@ -488,15 +494,21 @@
         display: flex;
         flex-direction: column;
         position: relative;
+        height: 100vh;
         &-container{
+            display: flex;
+            flex-direction: column-reverse;
             width: 100%;
+            height: 100vh;
             background-image: url('./../img/bg.png');
-            background-size: contain;
             z-index: 1;
+            background-repeat: no-repeat;
         }
         &-wrapper {
+            height: 100vh;
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 4.5vh;
             margin-top: 20%;
             background-color: $form-wrapper-background-color;
@@ -504,7 +516,7 @@
             border-top-left-radius: 30px;
             border-top-right-radius: 30px;
             &_sign-up {
-                padding: 5vh 10vw 7vh 10vw;
+                padding: 5vh 10vw 6vh 10vw;
                 gap: 10vh;
             }
             &_sign-in {
@@ -521,17 +533,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: $fields-of-forms-mobile-size;
             gap: 3.5vh;
             &__title {
                 @include font (Poppins, 600, 20px, 24px);
-                width: 256px;
+                width: 100%;
                 display: flex;
                 align-items: center;
                 color: $text-title-color;
             }
         }
         &-submit {
-            width: 256px;
+            width: 100%;
             &__btn {
                 @include font (Poppins, 600, 15px, 130%);
                 margin-top: 8px;
@@ -553,7 +566,7 @@
             flex-direction: row;
             align-items: flex-start;
             justify-content: flex-start;
-            width: $fields-of-forms-mobile-size;
+            width: 100%;
             gap: 16px;
             text-decoration: none;
             color: $text-title-color;
@@ -564,7 +577,7 @@
             gap: 8px;
             align-items: center;
             position: relative;
-            width: $fields-of-forms-mobile-size;
+            width: 100%;
             height: 6vh;
             border-radius: 7px;
             border: $input-border;
@@ -576,15 +589,12 @@
             &__input {
                 @include font (Poppins, 500, 15px, 140%);
                 border: none;
+                width: 100%;
                 background-color: transparent;
                 color: $text-color;
                 &:focus {
                     outline: none;
                 }
-            }
-            &__btn {
-                position: absolute;
-                right: 8px;
             }
         }
         &-message {
@@ -592,7 +602,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: $alert-message-color;
+            width: 100%;
             color:  $alert-message-color;
             letter-spacing: -0.24px;
             align-self: center;
@@ -610,6 +620,7 @@
             display: flex;
             flex-direction: column;
             align-self: center;
+            width: $fields-of-forms-mobile-size;
             gap: 10vh;
             &_sign-in {
                 gap: 15vh;
@@ -624,7 +635,7 @@
             display: flex;
             flex-direction: column; 
             align-self: flex-start;
-            width: $fields-of-forms-mobile-size;
+            width: 100%;
             gap: 5px;
             &__quest {
                 @include font (Poppins, 400, 15px, 140%);
