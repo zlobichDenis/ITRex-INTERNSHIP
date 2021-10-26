@@ -40,7 +40,7 @@ export default class RestorePasswordConfirm extends AbstractComponent {
         this._onChangeActiveAuthState(element);
     }
 
-    __onChangeActiveAuthState(element) {
+    _onChangeActiveAuthState(element) {
         element.querySelector('.feedback-restore__btn').addEventListener('click', () => this._onChangeActiveAuthStateHandler(AuthState.SIGN_IN));
     }
 }
