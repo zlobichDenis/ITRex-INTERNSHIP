@@ -26,7 +26,7 @@ const createRestorePasswordMarkup = (emailValue = '') => {
                     <input value="${emailValue}" id="feedback-field__input_email" class="feedback-field__input" type="email" placeholder="Email" name="email">
                 </div>
                 <div class="feedback-message feedback-message_email">
-                    <p class="feedback-message_text">Email contain unsupported characters</p>
+                    <p class="feedback-message_text">Enter the correct email</p>
                 </div>
             <div class="feedback-submit">
                 <button class="feedback-submit__btn" type="submit">

@@ -27,7 +27,7 @@ const createSignUpMarkup = (emailValue = '', passwordValue = '') => {
                     <input value="${emailValue}" id="feedback-field__input_email" class="feedback-field__input" type="email" placeholder="Email" name="email">
                 </div>
                 <div class="feedback-message feedback-message_email">
-                    <p class="feedback-message_text">Email contain unsupported characters</p>
+                    <p class="feedback-message_text">Enter the correct email</p>
                 </div>
                 <div class="feedback-field">
                     <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
