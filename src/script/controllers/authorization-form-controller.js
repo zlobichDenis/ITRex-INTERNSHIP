@@ -1,5 +1,5 @@
 import { render } from "../common/render";
-import { RenderPosition } from "../common/const";
+import { AuthState, RenderPosition } from "../common/const";
 
 
 export default class AuthorizationFormController {
@@ -13,6 +13,7 @@ export default class AuthorizationFormController {
         this.onChangeActiveAuthState = this.onChangeActiveAuthState.bind(this);
         this._renderActiveAuthStateComponent = this._renderActiveAuthStateComponent.bind(this);
 
+        this._model._setActiveAuthState(AuthState.SIGN_UP);
         this._model._setAuthStateChangeHandler(this._renderActiveAuthStateComponent);
     }  
 
@@ -38,13 +39,15 @@ export default class AuthorizationFormController {
 
     onChangeActiveAuthState(authState) {
         history.pushState({activeState: authState}, `${authState}-page`, `${authState}`);
-        console.log(history)
-        // this._model._setActiveAuthState(authState);
     }
 
     _initRouting(authState) {
         history.pushState({activeState: authState}, `${authState}-page`, `${authState}`);
         window.addEventListener('popstate', () => {
+            if (location.pathname === '/') {
+                this._model._setActiveAuthState(AuthState.SIGN_UP);
+                return;
+            }
             this._model._setActiveAuthState(location.pathname);
         })
     }

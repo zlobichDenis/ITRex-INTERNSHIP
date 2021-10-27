@@ -311,9 +311,6 @@
             &_show {
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                align-self: center;
-                justify-self: flex-start;
             }
             &_restore {
                 @include font (Poppins, 400, 15px, 130%);
@@ -658,9 +655,6 @@
             &_show {
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                align-self: center;
-                justify-self: flex-start;
             }
             &_restore {
                 @include font (Poppins, 400, 15px, 130%);

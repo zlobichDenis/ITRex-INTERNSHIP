@@ -9,7 +9,7 @@ const rootContainer = document.getElementById('root');
 const authorizationFormView = new AuthorizationFormContainer();
 const authorizationFormModel = new AuthorizationFormModel();
 const authorizationFormController = new AuthorizationFormController(authorizationFormModel, authorizationFormView);
-authorizationFormModel._setActiveAuthState(AuthState.SIGN_UP);
+
 
 
 const renderActiveScreen = (activeScreen = ActiveScreen.AUTH) => {

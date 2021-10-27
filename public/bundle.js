@@ -111,6 +111,8 @@ var AuthorizationFormController = /*#__PURE__*/function () {
     this.onChangeActiveAuthState = this.onChangeActiveAuthState.bind(this);
     this._renderActiveAuthStateComponent = this._renderActiveAuthStateComponent.bind(this);
 
+    this._model._setActiveAuthState(_common_const__WEBPACK_IMPORTED_MODULE_1__.AuthState.SIGN_UP);
+
     this._model._setAuthStateChangeHandler(this._renderActiveAuthStateComponent);
   }
 
@@ -146,7 +148,6 @@ var AuthorizationFormController = /*#__PURE__*/function () {
       history.pushState({
         activeState: authState
       }, "".concat(authState, "-page"), "".concat(authState));
-      console.log(history); // this._model._setActiveAuthState(authState);
     }
   }, {
     key: "_initRouting",
@@ -157,6 +158,12 @@ var AuthorizationFormController = /*#__PURE__*/function () {
         activeState: authState
       }, "".concat(authState, "-page"), "".concat(authState));
       window.addEventListener('popstate', function () {
+        if (location.pathname === '/') {
+          _this._model._setActiveAuthState(_common_const__WEBPACK_IMPORTED_MODULE_1__.AuthState.SIGN_UP);
+
+          return;
+        }
+
         _this._model._setActiveAuthState(location.pathname);
       });
     }
@@ -8314,8 +8321,6 @@ var rootContainer = document.getElementById('root');
 var authorizationFormView = new _script_view_authorization_form_authorization_form__WEBPACK_IMPORTED_MODULE_0__["default"]();
 var authorizationFormModel = new _script_model_authorization_form_model__WEBPACK_IMPORTED_MODULE_3__["default"]();
 var authorizationFormController = new _script_controllers_authorization_form_controller__WEBPACK_IMPORTED_MODULE_1__["default"](authorizationFormModel, authorizationFormView);
-
-authorizationFormModel._setActiveAuthState(_script_common_const__WEBPACK_IMPORTED_MODULE_2__.AuthState.SIGN_UP);
 
 var renderActiveScreen = function renderActiveScreen() {
   var activeScreen = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _script_common_const__WEBPACK_IMPORTED_MODULE_2__.ActiveScreen.AUTH;
