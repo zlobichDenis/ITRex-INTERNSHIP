@@ -75,6 +75,7 @@ export default class SignIn extends AbstractComponent {
 
         this._onChangeActiveAuthState(element);
         this._inputsValidation(element);
+        this._showHidePasswordToggle(element);
     }
 
     _onChangeActiveAuthState(element) {
