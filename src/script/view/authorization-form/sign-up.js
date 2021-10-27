@@ -77,7 +77,7 @@ export default class SignUp extends AbstractComponent {
     }
 
     getTemplate() {
-        return createSignUpMarkup(this.email, this.password);
+        return createSignUpMarkup();
     }
 
     recoveryListeners() {
@@ -106,13 +106,11 @@ export default class SignUp extends AbstractComponent {
 
     _inputsValidation(element) {
         element.querySelector('#feedback-field__input_email').addEventListener('input', (evt) => {
-            this.email = evt.target.value;
             this._isValidEmail = validator.isEmail(evt.target.value) || validator.isEmpty(evt.target.value);
             this._isShowingAlertMessage(element, this._isValidEmail, 'email');
         });
 
         element.querySelector('#feedback-field__input_pass').addEventListener('input', (evt) => {
-            this.password = evt.target.value;
             this._isValidPass = !validator.isAlpha(evt.target.value) || validator.isEmpty(evt.target.value);
             this._isShowingAlertMessage(element, this._isValidPass, 'password');
         });
