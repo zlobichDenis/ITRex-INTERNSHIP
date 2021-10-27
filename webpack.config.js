@@ -2,6 +2,7 @@ const path = require(`path`);
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const miniCss = require('mini-css-extract-plugin');
 const devServer = require('webpack-dev-server');
+const webpack = require('webpack')
 
 // postcss.config.js
 module.exports = {
@@ -13,7 +14,7 @@ module.exports = {
 }
 
 module.exports = {
-    target: `node`,
+    target: `web`,
     mode: `development`,
     entry: `./src/main.js`,
     output: {
