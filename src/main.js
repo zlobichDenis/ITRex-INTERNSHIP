@@ -12,7 +12,6 @@ const authorizationFormController = new AuthorizationFormController(authorizatio
 authorizationFormModel._setActiveAuthState(AuthState.SIGN_UP);
 
 
-
 const renderActiveScreen = (activeScreen = ActiveScreen.AUTH) => {
     switch (activeScreen) {
         case ActiveScreen.AUTH:

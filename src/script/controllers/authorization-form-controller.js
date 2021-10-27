@@ -19,6 +19,8 @@ export default class AuthorizationFormController {
     render(container) {
         this._container = container;
         this._activeAuthState = this._model._getActiveAuthState();
+        this._initRouting(this._activeAuthState);
+
         render(container, this._view, RenderPosition.BEFOREEND);
 
         this._view._setOnChangeActiveAuthStateHandler(this.onChangeActiveAuthState);
@@ -34,7 +36,16 @@ export default class AuthorizationFormController {
         this._model._setActiveAuthState(authState);
     }
 
-    onChangeActiveAuthState(authComponent) {
-        this._model._setActiveAuthState(authComponent);
+    onChangeActiveAuthState(authState) {
+        history.pushState({activeState: authState}, `${authState}-page`, `${authState}`);
+        console.log(history)
+        // this._model._setActiveAuthState(authState);
+    }
+
+    _initRouting(authState) {
+        history.pushState({activeState: authState}, `${authState}-page`, `${authState}`);
+        window.addEventListener('popstate', () => {
+            this._model._setActiveAuthState(location.pathname);
+        })
     }
 }

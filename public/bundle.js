@@ -23,10 +23,10 @@ var ActiveScreen = {
   DOCTOR_VIEW: 'DOCTOR_VIEW'
 };
 var AuthState = {
-  SIGN_UP: 'SIGN_UP',
-  SIGN_IN: 'SIGN_IN',
-  RESTORE: 'RESTORE',
-  RESTORE_CONFIRM: 'RESTORE_CONFIRM'
+  SIGN_UP: '/SIGN_UP',
+  SIGN_IN: '/SIGN_IN',
+  RESTORE: '/RESTORE',
+  RESTORE_CONFIRM: '/RESTORE_CONFIRM'
 };
 
 /***/ }),
@@ -120,6 +120,8 @@ var AuthorizationFormController = /*#__PURE__*/function () {
       this._container = container;
       this._activeAuthState = this._model._getActiveAuthState();
 
+      this._initRouting(this._activeAuthState);
+
       (0,_common_render__WEBPACK_IMPORTED_MODULE_0__.render)(container, this._view, _common_const__WEBPACK_IMPORTED_MODULE_1__.RenderPosition.BEFOREEND);
 
       this._view._setOnChangeActiveAuthStateHandler(this.onChangeActiveAuthState);
@@ -140,8 +142,23 @@ var AuthorizationFormController = /*#__PURE__*/function () {
     }
   }, {
     key: "onChangeActiveAuthState",
-    value: function onChangeActiveAuthState(authComponent) {
-      this._model._setActiveAuthState(authComponent);
+    value: function onChangeActiveAuthState(authState) {
+      history.pushState({
+        activeState: authState
+      }, "".concat(authState, "-page"), "".concat(authState));
+      console.log(history); // this._model._setActiveAuthState(authState);
+    }
+  }, {
+    key: "_initRouting",
+    value: function _initRouting(authState) {
+      var _this = this;
+
+      history.pushState({
+        activeState: authState
+      }, "".concat(authState, "-page"), "".concat(authState));
+      window.addEventListener('popstate', function () {
+        _this._model._setActiveAuthState(location.pathname);
+      });
     }
   }]);
 
