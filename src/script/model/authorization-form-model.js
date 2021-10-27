@@ -1,14 +1,30 @@
-import SignIn from "../view/authorization-form/sign-in";
-import SignUp from "../view/authorization-form/sign-up";
+import { AuthState } from "../common/const";
 
 export default class AuthorizationFormModel {
     constructor(view) {
         this._view = view;
-        this.activeAuthState = null;
+
+        this._activeAuthStateChangeHandlers = [];
+
+        this._activeAuthState = AuthState.SIGN_UP;
+    }
+
+    _getActiveAuthState() {
+        return this._activeAuthState;
     }
 
     _setActiveAuthState(authState) {
-        this.activeAuthState = authState;
-        this._view._renderActiveAuthState(this.activeAuthState);
+        this._activeAuthState = authState;
+        // this._view._renderActiveAuthState(this.activeAuthState);
+        this._callHandlers(this._activeAuthStateChangeHandlers);
+    }
+
+
+    _callHandlers(handlers) {
+        handlers.forEach((handler) => handler());
+    }
+
+    _setAuthStateChangeHandler(handler) {
+        this._activeAuthStateChangeHandlers.push(handler);
     }
 }

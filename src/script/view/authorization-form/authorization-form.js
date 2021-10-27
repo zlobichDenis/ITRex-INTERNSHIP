@@ -56,7 +56,7 @@ export default class AuthorizationFormContainer extends AbstractComponent {
         }
     }
 
-    _setOnChangeActiveAuthStateComponent(handler) {
+    _setOnChangeActiveAuthStateHandler(handler) {
         this._onChangeActiveAuthState = handler;
     }
 }

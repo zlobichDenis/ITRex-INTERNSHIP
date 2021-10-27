@@ -107,19 +107,31 @@ var AuthorizationFormController = /*#__PURE__*/function () {
     this._model = model;
     this._view = view;
     this._container = null;
+    this._activeAuthState = null;
     this.onChangeActiveAuthState = this.onChangeActiveAuthState.bind(this);
+    this._renderActiveAuthStateComponent = this._renderActiveAuthStateComponent.bind(this);
+
+    this._model._setAuthStateChangeHandler(this._renderActiveAuthStateComponent);
   }
 
   _createClass(AuthorizationFormController, [{
     key: "render",
     value: function render(container) {
       this._container = container;
+      this._activeAuthState = this._model._getActiveAuthState();
 
       (0,_common_render__WEBPACK_IMPORTED_MODULE_0__.render)(container, this._view, _common_const__WEBPACK_IMPORTED_MODULE_1__.RenderPosition.BEFOREEND);
 
-      this._view._setOnChangeActiveAuthStateComponent(this.onChangeActiveAuthState);
+      this._view._setOnChangeActiveAuthStateHandler(this.onChangeActiveAuthState);
 
-      this._model._setActiveAuthState(_common_const__WEBPACK_IMPORTED_MODULE_1__.AuthState.SIGN_UP);
+      this._view._renderActiveAuthState(this._activeAuthState);
+    }
+  }, {
+    key: "_renderActiveAuthStateComponent",
+    value: function _renderActiveAuthStateComponent() {
+      this._activeAuthState = this._model._getActiveAuthState();
+
+      this._view._renderActiveAuthState(this._activeAuthState);
     }
   }, {
     key: "_setActiveAuthStateComponent",
@@ -150,8 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AuthorizationFormModel)
 /* harmony export */ });
-/* harmony import */ var _view_authorization_form_sign_in__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../view/authorization-form/sign-in */ "./src/script/view/authorization-form/sign-in.js");
-/* harmony import */ var _view_authorization_form_sign_up__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../view/authorization-form/sign-up */ "./src/script/view/authorization-form/sign-up.js");
+/* harmony import */ var _common_const__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/const */ "./src/script/common/const.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -160,21 +171,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
-
 var AuthorizationFormModel = /*#__PURE__*/function () {
   function AuthorizationFormModel(view) {
     _classCallCheck(this, AuthorizationFormModel);
 
     this._view = view;
-    this.activeAuthState = null;
+    this._activeAuthStateChangeHandlers = [];
+    this._activeAuthState = _common_const__WEBPACK_IMPORTED_MODULE_0__.AuthState.SIGN_UP;
   }
 
   _createClass(AuthorizationFormModel, [{
+    key: "_getActiveAuthState",
+    value: function _getActiveAuthState() {
+      return this._activeAuthState;
+    }
+  }, {
     key: "_setActiveAuthState",
     value: function _setActiveAuthState(authState) {
-      this.activeAuthState = authState;
+      this._activeAuthState = authState; // this._view._renderActiveAuthState(this.activeAuthState);
 
-      this._view._renderActiveAuthState(this.activeAuthState);
+      this._callHandlers(this._activeAuthStateChangeHandlers);
+    }
+  }, {
+    key: "_callHandlers",
+    value: function _callHandlers(handlers) {
+      handlers.forEach(function (handler) {
+        return handler();
+      });
+    }
+  }, {
+    key: "_setAuthStateChangeHandler",
+    value: function _setAuthStateChangeHandler(handler) {
+      this._activeAuthStateChangeHandlers.push(handler);
     }
   }]);
 
@@ -359,8 +387,8 @@ var AuthorizationFormContainer = /*#__PURE__*/function (_AbstractComponent) {
       }
     }
   }, {
-    key: "_setOnChangeActiveAuthStateComponent",
-    value: function _setOnChangeActiveAuthStateComponent(handler) {
+    key: "_setOnChangeActiveAuthStateHandler",
+    value: function _setOnChangeActiveAuthStateHandler(handler) {
       this._onChangeActiveAuthState = handler;
     }
   }]);
@@ -8192,26 +8220,24 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script_view_authorization_form_authorization_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./script/view/authorization-form/authorization-form */ "./src/script/view/authorization-form/authorization-form.js");
 /* harmony import */ var _script_controllers_authorization_form_controller__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./script/controllers/authorization-form-controller */ "./src/script/controllers/authorization-form-controller.js");
-/* harmony import */ var _script_view_authorization_form_sign_up__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./script/view/authorization-form/sign-up */ "./src/script/view/authorization-form/sign-up.js");
-/* harmony import */ var _script_common_render__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./script/common/render */ "./src/script/common/render.js");
-/* harmony import */ var _script_common_const__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./script/common/const */ "./src/script/common/const.js");
-/* harmony import */ var _script_model_authorization_form_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./script/model/authorization-form-model */ "./src/script/model/authorization-form-model.js");
-
-
+/* harmony import */ var _script_common_const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./script/common/const */ "./src/script/common/const.js");
+/* harmony import */ var _script_model_authorization_form_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./script/model/authorization-form-model */ "./src/script/model/authorization-form-model.js");
 
 
 
 
 var rootContainer = document.getElementById('root');
 var authorizationFormView = new _script_view_authorization_form_authorization_form__WEBPACK_IMPORTED_MODULE_0__["default"]();
-var authorizationFormModel = new _script_model_authorization_form_model__WEBPACK_IMPORTED_MODULE_5__["default"](authorizationFormView);
+var authorizationFormModel = new _script_model_authorization_form_model__WEBPACK_IMPORTED_MODULE_3__["default"](authorizationFormView);
 var authorizationFormController = new _script_controllers_authorization_form_controller__WEBPACK_IMPORTED_MODULE_1__["default"](authorizationFormModel, authorizationFormView);
 
+authorizationFormModel._setActiveAuthState(_script_common_const__WEBPACK_IMPORTED_MODULE_2__.AuthState.SIGN_UP);
+
 var renderActiveScreen = function renderActiveScreen() {
-  var activeScreen = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _script_common_const__WEBPACK_IMPORTED_MODULE_4__.ActiveScreen.AUTH;
+  var activeScreen = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _script_common_const__WEBPACK_IMPORTED_MODULE_2__.ActiveScreen.AUTH;
 
   switch (activeScreen) {
-    case _script_common_const__WEBPACK_IMPORTED_MODULE_4__.ActiveScreen.AUTH:
+    case _script_common_const__WEBPACK_IMPORTED_MODULE_2__.ActiveScreen.AUTH:
       authorizationFormController.render(rootContainer);
   }
 };
