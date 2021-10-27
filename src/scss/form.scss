@@ -11,13 +11,13 @@
         flex-direction: row;
         position: relative;
         height: 100vh;
+        background: url('../img/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
         &-container{
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
-            background-image: url('../img/bg.png');
-            background-repeat: no-repeat;
-            background-size: cover;
             z-index: 1;
         }
         &-wrapper {
@@ -100,6 +100,16 @@
             &:hover {
                 border: $input-hover-border;
             }
+            &__icon {
+                width: 24px;
+                height: 24px;
+                background-image: url('../img/eye-blocked.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                &_show {
+                    background-image: url('../img/eye.png');
+                }
+            }
             &__input {
                 @include font (Poppins, 400, 17px, 140%);
                 border: none;
@@ -116,12 +126,17 @@
         }
         &-message {
             @include font (Poppins, 400, 13px, 120%);
-            display: flex;
+            display: none;
             width: 100%;
             color:  $alert-message-color;
             letter-spacing: -0.24px;
-            align-self: center;
-            justify-self: flex-start;
+            &_show {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: center;
+                justify-self: flex-start;
+            }
             &_restore {
                 @include font (Poppins, 400, 15px, 130%);
                 color: $text-color;
@@ -131,7 +146,6 @@
                 color: $form-button-link-color;
             }
         }
-        
         &-buttons {
             display: flex;
             flex-direction: column;
@@ -172,14 +186,14 @@
         flex-direction: row;
         position: relative;
         height: 100vh;
+        background: url('../img/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
         &-container{
             z-index: 1;
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
-            background-image: url('../img/bg.png');
-            background-repeat: no-repeat;
-            background-size: cover;
         }
         &-wrapper {
             display: flex;
@@ -245,6 +259,16 @@
             &:hover {
                 border: $input-hover-border;
             }
+            &__icon {
+                width: 24px;
+                height: 24px;
+                background-image: url('../img/eye-blocked.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                &_show {
+                    background-image: url('../img/eye.png');
+                }
+            }
             &__input {
                 @include font (Poppins, 400, 17px, 140%);
                 border: none;
@@ -280,12 +304,17 @@
         }
         &-message {
             @include font (Poppins, 400, 13px, 120%);
-            display: flex;
+            display: none;
             width: 100%;
-            align-self: center;
-            justify-self: flex-start;
             color:  $alert-message-color;
             letter-spacing: -0.24px;
+            &_show {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: center;
+                justify-self: flex-start;
+            }
             &_restore {
                 @include font (Poppins, 400, 15px, 130%);
                 color: $text-color;
@@ -337,13 +366,13 @@
         display: flex;
         position: relative;
         height: 100vh;
+        background: url('../img/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
         &-container{
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
-            background-image: url('../img/bg.png');
-            background-repeat: no-repeat;
-            background-size: cover;
             z-index: 1;
         }
         &-wrapper {
@@ -424,6 +453,16 @@
             &:hover {
                 border: $input-hover-border;
             }
+            &__icon {
+                width: 24px;
+                height: 24px;
+                background-image: url('../img/eye-blocked.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                &_hide {
+                    background-image: url('../img/eye.png');
+                }
+            }
             &__input {
                 @include font (Poppins, 400, 17px, 140%);
                 border: none;
@@ -437,14 +476,19 @@
         }
         &-message {
             @include font (Poppins, 400, 13px, 120%);
-            display: flex;
-            align-self: center;
-            justify-self: flex-start;
+            display: none;
             width: 100%;
             color:  $alert-message-color;
             letter-spacing: -0.24px;
+            &_show {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: center;
+                justify-self: flex-start;
+            }
             &_restore {
-                @include font (Poppins, 500, 15px, 130%);
+                @include font (Poppins, 400, 15px, 130%);
                 color: $text-color;
             }
             &__email {
@@ -494,14 +538,13 @@
         flex-direction: column;
         position: relative;
         height: 100vh;
+        background: url('../img/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
         &-container{
             display: flex;
             flex-direction: column-reverse;
             width: 100%;
-            height: 100vh;
-            background-image: url('./../img/bg.png');
-            z-index: 1;
-            background-repeat: no-repeat;
         }
         &-wrapper {
             height: 100vh;
@@ -516,7 +559,7 @@
             border-top-right-radius: 30px;
             &_sign-up {
                 padding: 32px 32px 0 32px;
-                gap: 72px;
+                gap: 20%;
             }
             &_sign-in {
                 padding: 32px 32px 0 32px;
@@ -585,6 +628,16 @@
             &:hover {
                 border: $input-hover-border;
             }
+            &__icon {
+                width: 24px;
+                height: 24px;
+                background-image: url('../img/eye-blocked.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                &_show {
+                    background-image: url('../img/eye.png');
+                }
+            }
             &__input {
                 @include font (Poppins, 500, 15px, 140%);
                 border: none;
@@ -598,14 +651,17 @@
         }
         &-message {
             @include font (Poppins, 400, 13px, 120%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: none;
             width: 100%;
             color:  $alert-message-color;
             letter-spacing: -0.24px;
-            align-self: center;
-            justify-self: flex-start;
+            &_show {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: center;
+                justify-self: flex-start;
+            }
             &_restore {
                 @include font (Poppins, 400, 15px, 130%);
                 color: $text-color;

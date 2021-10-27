@@ -1,8 +1,7 @@
 import { AuthState } from "../common/const";
 
 export default class AuthorizationFormModel {
-    constructor(view) {
-        this._view = view;
+    constructor() {
 
         this._activeAuthStateChangeHandlers = [];
 
@@ -15,7 +14,6 @@ export default class AuthorizationFormModel {
 
     _setActiveAuthState(authState) {
         this._activeAuthState = authState;
-        // this._view._renderActiveAuthState(this.activeAuthState);
         this._callHandlers(this._activeAuthStateChangeHandlers);
     }
 

@@ -1,5 +1,5 @@
 import { render } from "../common/render";
-import { RenderPosition, AuthState } from "../common/const";
+import { RenderPosition } from "../common/const";
 
 
 export default class AuthorizationFormController {

@@ -7,7 +7,7 @@ import AuthorizationFormModel from "./script/model/authorization-form-model";
 const rootContainer = document.getElementById('root');
 
 const authorizationFormView = new AuthorizationFormContainer();
-const authorizationFormModel = new AuthorizationFormModel(authorizationFormView);
+const authorizationFormModel = new AuthorizationFormModel();
 const authorizationFormController = new AuthorizationFormController(authorizationFormModel, authorizationFormView);
 authorizationFormModel._setActiveAuthState(AuthState.SIGN_UP);
 
