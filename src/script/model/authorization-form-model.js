@@ -5,14 +5,14 @@ export default class AuthorizationFormModel {
 
         this._activeAuthStateChangeHandlers = [];
 
-        this._activeAuthState = AuthState.SIGN_UP;
+        this._activeAuthState = null;
     }
 
-    _getActiveAuthState() {
+    getActiveAuthState() {
         return this._activeAuthState;
     }
 
-    _setActiveAuthState(authState) {
+    setActiveAuthState(authState) {
         this._activeAuthState = authState;
         this._callHandlers(this._activeAuthStateChangeHandlers);
     }
@@ -22,7 +22,7 @@ export default class AuthorizationFormModel {
         handlers.forEach((handler) => handler());
     }
 
-    _setAuthStateChangeHandler(handler) {
+    setAuthStateChangeHandler(handler) {
         this._activeAuthStateChangeHandlers.push(handler);
     }
 }

@@ -20,14 +20,14 @@ export default class AuthorizationFormContainer extends AbstractComponent {
         super();
 
         this._activeAuthStateComponent = null;
-        this._renderActiveAuthState = this._renderActiveAuthState.bind(this);
+        this._renderActiveAuthState = this.renderActiveAuthState.bind(this);
     }
 
     getTemplate() {
         return createAuthorizationFormContainerMarkup();
     }
 
-    _renderActiveAuthState(authState) {
+    renderActiveAuthState(authState) {
         if (this._activeAuthStateComponent) {
             remove(this._activeAuthStateComponent);
         }
@@ -56,7 +56,7 @@ export default class AuthorizationFormContainer extends AbstractComponent {
         }
     }
 
-    _setOnChangeActiveAuthStateHandler(handler) {
+    setOnChangeActiveAuthStateHandler(handler) {
         this._onChangeActiveAuthState = handler;
     }
 }
