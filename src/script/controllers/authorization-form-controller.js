@@ -38,17 +38,17 @@ export default class AuthorizationFormController {
     }
 
     onChangeActiveAuthState(authState) {
-        history.pushState({activeState: authState}, `${authState}-page`, `${authState}`);
+        history.pushState({activeState: authState}, `${authState}`, `${authState}`);
     }
 
     _initRouting(authState) {
         history.pushState({activeState: authState}, `${authState}-page`, `${authState}`);
         window.addEventListener('popstate', () => {
             if (location.pathname === '/') {
-                this._model._setActiveAuthState(AuthState.SIGN_UP);
+                this._setActiveAuthStateComponent(AuthState.SIGN_UP);
                 return;
             }
-            this._model._setActiveAuthState(location.pathname);
+            this._setActiveAuthStateComponent(location.pathname);
         })
     }
 }
