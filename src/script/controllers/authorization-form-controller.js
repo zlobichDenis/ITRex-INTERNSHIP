@@ -30,7 +30,7 @@ export default class AuthorizationFormController {
 
     _renderActiveAuthStateComponent() {
         this._activeAuthState = this._model.getActiveAuthState();
-        this._view._renderActiveAuthState(this._activeAuthState);
+        this._view.renderActiveAuthState(this._activeAuthState);
     }
 
     _setActiveAuthStateComponent(authState) {

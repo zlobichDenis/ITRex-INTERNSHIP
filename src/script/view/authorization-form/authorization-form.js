@@ -20,7 +20,7 @@ export default class AuthorizationFormContainer extends AbstractComponent {
         super();
 
         this._activeAuthStateComponent = null;
-        this._renderActiveAuthState = this.renderActiveAuthState.bind(this);
+        this.renderActiveAuthState = this.renderActiveAuthState.bind(this);
     }
 
     getTemplate() {
