@@ -1,0 +1,50 @@
+@import './../common/reset.scss';
+@import './../common/variables.scss';
+@import './../common/fonts.scss';
+@import './../common/mixins.scss';
+
+.doctor-cabinet {
+    &__control-panel {
+        @extend %bold-title;
+    }
+    &__doctor {
+        &-name {
+            @extend %bold-text;
+        }
+        &-specialty {
+            @extend %semi-bold-text;
+        }
+    }
+    &__wrapper {
+        @extend %patients-list-border-radius;
+    }
+    &__tab {
+        @extend %button-text; 
+        &_active{
+            @extend %bold-text;
+        }
+    }
+    &__search-field {
+        @extend %input-text;
+    }
+    &__sort-types-list {
+        &-option {
+            @extend %input-text;
+        }
+    }
+    &__patients-list-empty-message {
+        @extend %input-text;
+    }
+    &__patient-name {
+        @extend %patient-name;
+    }
+    &__patient-status {
+        @extend %patient-status;
+    }
+    &__patient-date {
+        @extend %bold-text;
+    }
+    &__patient-message {
+        @extend %button-text;
+    }
+}
