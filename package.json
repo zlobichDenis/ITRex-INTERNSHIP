@@ -1,45 +1,47 @@
 {
-  "name": "itrex-internship",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "webpack-dev-server --open",
-    "eslint": "eslint src/**/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zlobichDenis/ITRex-INTERNSHIP.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/zlobichDenis/ITRex-INTERNSHIP/issues"
-  },
-  "homepage": "https://github.com/zlobichDenis/ITRex-INTERNSHIP#readme",
+  "name": "palm-clinic",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "webpack": "5.59.1",
-    "webpack-cli": "4.9.1",
-    "webpack-dev-server": "4.3.1"
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "babel-loader": "^8.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "eslint": "eslint --ext .jsx --ext .js src/",
+    "test-lint": "npm run eslint"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/preset-env": "^7.15.8",
-    "approvejs": "^3.1.2",
-    "babel-loader": "^8.2.3",
-    "clean-webpack-plugin": "^4.0.0",
-    "css-loader": "^6.5.0",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.4.3",
-    "node-sass": "^6.0.1",
-    "postcss-loader": "^6.2.0",
-    "postcss-preset-env": "^6.7.0",
-    "sass": "^1.43.4",
-    "sass-loader": "^12.2.0",
-    "style-loader": "^3.3.1",
-    "validator": "^13.6.0"
+    "eslint-plugin-react": "^7.26.1"
   }
 }
