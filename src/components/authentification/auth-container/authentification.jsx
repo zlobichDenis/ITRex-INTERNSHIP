@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { SignUp } from "../sign-up/sign-up";
 import { SignIn } from "../sign-in/sign-in";
-import { AuthStages } from "../../../common/const";
+import { AuthStages } from "../../../common/const.js";
 import { RestorePass } from "../restore-pass/restore-pass";
 import { RestorePassConfirm } from "../restore-pass-confirm/restore-pass-confirm";
 

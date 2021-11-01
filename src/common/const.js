@@ -4,3 +4,8 @@ export const AuthStages = {
     RESTORE: 'RESTORE',
     RESTORE_CONFIRM: 'RESTORE_CONFIRM',
 };
+
+export const AppScreens = {
+    AUTH: 'AUTH',
+    DOCTOR_VIEW: 'DOCTOR_VIEW',
+};
