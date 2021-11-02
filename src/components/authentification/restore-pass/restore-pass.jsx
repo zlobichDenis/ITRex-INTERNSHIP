@@ -17,12 +17,12 @@ const RestorePassForm = (props) => {
 
     return (
         <Formik 
-        initialValues={{
-            email: '',
-            password: '',
-        }}
-        validationSchema={RestorePassSchema}
-        >
+            initialValues={{
+                email: '',
+                password: '',
+            }}
+            validationSchema={RestorePassSchema}
+            >
             {({ errors, touched }) => (
                 <Form className="feedback-form">
                 <div className="feedback-restore-password">

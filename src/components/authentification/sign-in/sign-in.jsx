@@ -18,6 +18,7 @@ const SignInSchema = Yup.object().shape(({
 const SignInForm = (props) => {
     const { onChangeActiveScreen } = props;
     const [ isShowingPass, showPassToggle ] = useState(false);
+    
     return (
         <Formik 
             initialValues={{
