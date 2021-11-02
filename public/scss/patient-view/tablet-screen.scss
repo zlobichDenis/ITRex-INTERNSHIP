@@ -4,47 +4,17 @@
 @import './../common/mixins.scss';
 
 @media (min-width: 768px) and (max-width: 1919px) {
-    .doctor-view {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100vh;
-        background-color: $doctor-cabinet-background-color;
-    }
-    .doctor-cabinet {
+    .patient-cabinet {
         z-index: 1;
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        width: 100%;
-        height: 100vh;
+
         &__header {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
             width: 90%;
             padding: 24px 0;
             background-color: transparent;
         }
-        &__doctor {
-            display: flex;
-            flex-direction: row;
-            gap: 16px;
-            &-name {
-                display: block;
-                color: $text-title-color;
-            }
-            &-specialty {
-                display: block;
-                color: $text-color;
-            }
-        }
+
         &__wrapper {
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
             width: 90%;
             height: 90%;
             gap: 56px;
@@ -53,197 +23,47 @@
             border-top-right-radius: 30px;
             border-bottom-right-radius: 30px;
             border-bottom-left-radius: 30px;
-            background-color: $doctor-cabinet-info-background-color;
-            background-size: cover;
         }
+
         &__tabs {
-            display: flex;
-            flex-direction: row;
             justify-content: flex-start;
             gap: 12px;
         }
+
         &__tab {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             width: 160px;
             height: 40px;
-            background-color: $doctor-cabinet-inactive-tab-color;
-            color: $doctor-cabinet-inactive-tab-text-color;
-            border-radius: 8px;  
-            &_active{
-                background: $form-button-link-color;
-                color: $doctor-cabinet-active-tab-text-color;
-                border-radius: 8px;
-                border: transparent;
-                text-decoration: none;
-            }
         }
+
         &__info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             gap: 2.5vh;
-            overflow-y: scroll;
+
             &_empty-list {
                 gap: 166px;
             }
         }
-        &__control-panel {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            width: 90%;
-        }
-        &__search-form {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            gap: 24px;
-        }
-        &__input {
-            position: relative;
-            &_search {
-                display: flex;
-                flex-direction: row;
-                gap: 10px;
-            }
-        }
-        &__search-btn {
-            position: relative;
-        }
-        &__search-field {
-            display: none;
-            width: 50%;
-            background-color: transparent;
-            border: none;
-        }
-        &__search-toggle {
-            position: absolute;
-            overflow: hidden;
-            border: none;
-            width: 1px;
-            height: 1px;
-            &:checked + .doctor-cabinet__search-field {
-                display: block;
-            }
-        }
+
         &__search-field {
             width: 180px;
             color: $text-title-color;
         }
-        &__sort-type-toggle {
-            position: absolute;
-            right: 0px;
-            overflow: hidden;
-            border: none;
-            width: 1px;
-            height: 1px;
-            &:checked + .doctor-cabinet__sort-types-list {
-                display: block;
-                padding: 4px;
-            }
-        }
-        &__sort-types-list {
-            display: none;
-            position: absolute;
-            right: 0px;
-            width: 180px;
-            background-color: #FFFF;
-            &-option {
-                padding: 10px 20px;
-                color: $text-title-color;
-                cursor: pointer;
-                &_active {
-                    background-color: #F9FAFF;
-                }
-            }
-        }
-        &__patients-list {
-            display: flex;
+
+        &__doctors-list {
             flex-direction: row;
             flex-wrap: wrap;
+            align-items: flex-start;
             justify-content: center;
             gap: 20px 20px;
-            &-wrapper {
-                overflow-y: scroll;
-            }
-            &-empty {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 32px;
-                &-message {
-                    text-align: center;
-                    color: $text-color;
-                }
-            }
         }
-        &__patient-item {
-            display: flex;
-            flex-direction: column;
+
+        &__doctor-item {
             gap: 2.5vh;
             padding: 32px 34px;
             width: 544px;
-            background-color: #FFFF;
-            border-radius: 12px;
         }    
-        &__patient-header {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-        } 
-        &__patient-info {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            gap: 16px;
-        }
-        &__patient-desc {
-            display: flex;
-            flex-direction: column;
-        }
-        &__patient-status {
- 
-            color: $text-color;
-            &-color {
-                fill: $doctor-cabinet-patient-inactive-color;
-                &_active {
-                    fill: $doctor-cabinet-patient-active-color;
-                }
-            }
-        }
-        &__patient-btn {
-            width: 24px;
-        }
-        &__divider {
-            align-self: center;
-            width: 100%;
-            height: 1px;
-            background-image: url('../img/divider.png');
-        }
-        &__patient-details {
-            display: flex;
-            flex-direction: column;
-            gap: 23px;
-        }
-        &__patient-date {
-            
-            display: flex;
-            flex-direction: row;
-            gap: 24px;
-        }
-        &__patient-message {
-     
-            display: flex;
-            flex-direction: row;
-            gap: 24px;
-            &-icon {
-                padding-left: 2px;
-            }
+
+        &__doctor-details {
+            justify-content: flex-start;
         }
     }
 }
