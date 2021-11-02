@@ -119,9 +119,25 @@
         gap: 24px;
     }
 
+    &__appointment-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 244px;
+        padding: 16px 12px;
+        background: $form-button-link-color;
+        color: $doctor-cabinet-active-tab-text-color;
+        border-radius: 8px;
+        border: transparent;
+        text-decoration: none;
+        @extend %bold-text;
+    }
+
     &__input {
         position: relative;
-
+        align-self: center;
         &_search {
             display: flex;
             flex-direction: row;

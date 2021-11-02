@@ -48,6 +48,10 @@
             color: $text-title-color;
         }
 
+        &__appointment-btn {
+            display: none;
+        }
+
         &__doctors-list {
             flex-direction: row;
             flex-wrap: wrap;

@@ -4,11 +4,14 @@
 @import './../common/mixins.scss';
 
 @media (min-width: 320px) and (max-width: 767px) {
- .doctor-cabinet__patient-name {
-     display: none;
- }
+    .patient-cabinet__patient-name {
+        display: none;
+    }
 
- .doctor-cabinet__patient-specialty {
-     display: none;
- }
+    .patient-cabinet__patient-specialty {
+        display: none;
+    }
+    .patient-cabinet__appointment-btn {
+        display: none;
+    }
 }
