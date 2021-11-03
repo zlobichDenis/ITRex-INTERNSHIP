@@ -45,7 +45,7 @@ const mapStateToProps = (state, ownProps) => {
     });
 };
 
-const mapDispatchToProps = (disptach) => {
+const mapDispatchToProps = () => {
     return {};
 };
 

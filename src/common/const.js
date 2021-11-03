@@ -8,4 +8,5 @@ export const AuthStages = {
 export const AppScreens = {
     AUTH: 'AUTH',
     DOCTOR_VIEW: 'DOCTOR_VIEW',
+    PATIENT_VIEW: 'PATIENT_VIEW',
 };
