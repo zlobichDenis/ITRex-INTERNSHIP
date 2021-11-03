@@ -1,12 +1,12 @@
 export const AuthStages = {
-    SIGN_UP: 'SIGN_UP',
-    SIGN_IN: 'SIGN_IN',
-    RESTORE: 'RESTORE',
-    RESTORE_CONFIRM: 'RESTORE_CONFIRM',
+    SIGN_UP: '/sign-up',
+    SIGN_IN: '/sign-in',
+    RESTORE: '/restore',
+    RESTORE_CONFIRM: '/restore-confirm',
 };
 
 export const AppScreens = {
-    AUTH: 'AUTH',
-    DOCTOR_VIEW: 'DOCTOR_VIEW',
-    PATIENT_VIEW: 'PATIENT_VIEW',
+    AUTH: '/authentification',
+    DOCTOR_VIEW: '/doctor-view',
+    PATIENT_VIEW: '/patient-view',
 };

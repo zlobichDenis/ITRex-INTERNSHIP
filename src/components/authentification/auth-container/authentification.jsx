@@ -3,40 +3,36 @@ import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { SignUp } from "../sign-up/sign-up";
 import { SignIn } from "../sign-in/sign-in";
-import { AuthStages } from "../../../common/const.js";
+import { AppScreens, AuthStages } from "../../../common/const.js";
 import { RestorePass } from "../restore-pass/restore-pass";
 import { RestorePassConfirm } from "../restore-pass-confirm/restore-pass-confirm";
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
 
-const AuthContainerComponent = (props) => {
-    const { authStage } = props;
-    let activeAuthStage = null;
-
-    switch (authStage) {
-        case AuthStages.SIGN_UP:
-            activeAuthStage = <SignUp />;
-            break;
-        case AuthStages.SIGN_IN:
-            activeAuthStage = <SignIn />;
-            break;
-        case AuthStages.RESTORE:
-            activeAuthStage = <RestorePass />
-            break;
-        case AuthStages.RESTORE_CONFIRM:
-            activeAuthStage = <RestorePassConfirm />
-            break;
-    };
-
+const AuthContainerComponent = () => {
+    let  { path } = useRouteMatch();
     return (
-        <section className="feedback">
-            <div className="feedback-container">
-                {activeAuthStage}
-            </div>
-        </section>
+            <section className="feedback">
+                <div className="feedback-container">
+                    <Switch>
+                        <Route exact path={AppScreens.AUTH}>
+                            <SignUp />
+                        </Route>
+                        <Route exact path={`${path}${AuthStages.SIGN_UP}`}>
+                            <SignUp />
+                        </Route>
+                        <Route exact path={`${path}${AuthStages.SIGN_IN}`}>
+                            <SignIn />
+                        </Route>
+                        <Route exact path={`${path}${AuthStages.RESTORE}`}>
+                            <RestorePass />
+                        </Route>
+                        <Route exact path={`${path}${AuthStages.RESTORE_CONFIRM}`}>
+                            <RestorePassConfirm />
+                        </Route>
+                    </Switch>
+                </div>
+            </section>
     );
-};
-
-AuthContainerComponent.propTypes = {
-    authStage: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {

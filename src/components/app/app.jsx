@@ -5,19 +5,24 @@ import { AuthContainer } from "../authentification/auth-container/authentificati
 import { DoctorViewContainer } from "../doctor-view/doctor-view-container/doctor-view-container";
 import { AppScreens } from "../../common/const";
 import { PatientViewContainer } from "../patient-view/patient-view-containet/patient-view-container";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-const AppComponent = (props) => {
-    const { activeScreen } = props;
-    switch (activeScreen) {
-        case AppScreens.AUTH:
-            return <AuthContainer />;
-        case AppScreens.DOCTOR_VIEW:
-            return <DoctorViewContainer />;
-        case AppScreens.PATIENT_VIEW:
-            return <PatientViewContainer />
-        default:
-            return <AuthContainer />; 
-    };
+const AppComponent = () => {
+
+    return (
+        <Switch>
+            <Route path={AppScreens.AUTH}>
+                <AuthContainer />;
+            </Route>
+            <Route path={AppScreens.DOCTOR_VIEW}>
+                <DoctorViewContainer />;
+            </Route>
+            <Route path={AppScreens.PATIENT_VIEW}>
+                <PatientViewContainer />
+            </Route>
+            <Redirect from="/" to={AppScreens.AUTH} />
+        </Switch>
+    )
 };
 
 AppComponent.propTypes = {
@@ -25,9 +30,7 @@ AppComponent.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    return {
-        activeScreen: state.activeScreen,
-    };
+    return Object.assign({}, ownProps);
 };
 
 const mapDispatchToProps = () => {

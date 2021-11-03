@@ -1,10 +1,10 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import { Field, Formik, Form } from "formik";
 import * as Yup from 'yup';
 import { connect } from "react-redux";
 import { authStageActionCreator } from "../../../store/action-creators/auth-stage-action-creator";
-import { AuthStages } from "../../../common/const";
+import { AuthStages, AppScreens } from "../../../common/const";
+import { Link } from 'react-router-dom';
 
 const RestorePassSchema = Yup.object().shape(({
     email: Yup.string()
@@ -12,8 +12,7 @@ const RestorePassSchema = Yup.object().shape(({
         .required('This field is required!'),
 }));
 
-const RestorePassForm = (props) => {
-    const { onChangeAuthStage } = props;
+const RestorePassForm = () => {
 
     return (
         <Formik 
@@ -26,11 +25,11 @@ const RestorePassForm = (props) => {
             {({ errors, touched }) => (
                 <Form className="feedback-form">
                 <div className="feedback-restore-password">
-                    <a onClick={() => onChangeAuthStage(AuthStages.SIGN_IN)} className="feedback-restore__btn" href="#">
+                    <Link to={`${AppScreens.AUTH}${AuthStages.SIGN_IN}`} className="feedback-restore__btn">
                         <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.499951 7.80005L6.19995 13.4C6.59995 13.8 7.19995 13.8 7.59995 13.4C7.99995 13 7.99995 12.4 7.59995 12L2.69995 7.00005L7.59995 2.00005C7.99995 1.60005 7.99995 1.00005 7.59995 0.600049C7.39995 0.400049 7.19995 0.300049 6.89995 0.300049C6.59995 0.300049 6.39995 0.400049 6.19995 0.600049L0.499951 6.20005C0.0999512 6.70005 0.0999512 7.30005 0.499951 7.80005C0.499951 7.70005 0.499951 7.70005 0.499951 7.80005Z" fill="#A1ABC9"/>
-                        </svg>
-                    </a>
+                         </svg>
+                    </Link>
                     <span>Restore password</span>
                 </div>
                 <div className="feedback-message feedback-message_restore">
@@ -55,17 +54,13 @@ const RestorePassForm = (props) => {
                             </div> ) 
                         : null}
                 <div className="feedback-submit">
-                    <button 
-                        onClick={(evt) => {
-                            evt.preventDefault();
-                            onChangeAuthStage(AuthStages.RESTORE_CONFIRM)
-                            }} 
-                        className="feedback-submit__btn" 
-                        type="submit">
-                        <span>Send Reset Link</span>
-                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.53998 6.29004L1.87998 0.640037C1.78702 0.546308 1.67642 0.471914 1.55456 0.421145C1.4327 0.370377 1.30199 0.344238 1.16998 0.344238C1.03797 0.344238 0.907264 0.370377 0.785405 0.421145C0.663546 0.471914 0.552945 0.546308 0.459982 0.640037C0.273731 0.827399 0.169189 1.08085 0.169189 1.34504C0.169189 1.60922 0.273731 1.86267 0.459982 2.05004L5.40998 7.05004L0.459982 12C0.273731 12.1874 0.169189 12.4409 0.169189 12.705C0.169189 12.9692 0.273731 13.2227 0.459982 13.41C0.552597 13.5045 0.663042 13.5797 0.784917 13.6312C0.906792 13.6827 1.03767 13.7095 1.16998 13.71C1.30229 13.7095 1.43317 13.6827 1.55505 13.6312C1.67692 13.5797 1.78737 13.5045 1.87998 13.41L7.53998 7.76004C7.64149 7.66639 7.7225 7.55274 7.7779 7.42624C7.83331 7.29974 7.86191 7.16314 7.86191 7.02504C7.86191 6.88693 7.83331 6.75033 7.7779 6.62383C7.7225 6.49733 7.64149 6.38368 7.53998 6.29004Z" fill="white"/>
-                        </svg>
+                    <button>
+                        <Link to={`${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`} className="feedback-submit__btn">
+                            <span>Send Reset Link</span>
+                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.53998 6.29004L1.87998 0.640037C1.78702 0.546308 1.67642 0.471914 1.55456 0.421145C1.4327 0.370377 1.30199 0.344238 1.16998 0.344238C1.03797 0.344238 0.907264 0.370377 0.785405 0.421145C0.663546 0.471914 0.552945 0.546308 0.459982 0.640037C0.273731 0.827399 0.169189 1.08085 0.169189 1.34504C0.169189 1.60922 0.273731 1.86267 0.459982 2.05004L5.40998 7.05004L0.459982 12C0.273731 12.1874 0.169189 12.4409 0.169189 12.705C0.169189 12.9692 0.273731 13.2227 0.459982 13.41C0.552597 13.5045 0.663042 13.5797 0.784917 13.6312C0.906792 13.6827 1.03767 13.7095 1.16998 13.71C1.30229 13.7095 1.43317 13.6827 1.55505 13.6312C1.67692 13.5797 1.78737 13.5045 1.87998 13.41L7.53998 7.76004C7.64149 7.66639 7.7225 7.55274 7.7779 7.42624C7.83331 7.29974 7.86191 7.16314 7.86191 7.02504C7.86191 6.88693 7.83331 6.75033 7.7779 6.62383C7.7225 6.49733 7.64149 6.38368 7.53998 6.29004Z" fill="white"/>
+                            </svg>
+                        </Link>
                     </button>
                 </div>
             </Form>
@@ -75,22 +70,15 @@ const RestorePassForm = (props) => {
     )
 };
 
-const RestorePassComponent = (props) => {
-    const { onChangeAuthStage } = props;
+const RestorePassComponent = () => {
 
     return (
         <div className="feedback-wrapper feedback-wrapper_restore-password">
-            <RestorePassForm onChangeAuthStage={onChangeAuthStage}/>
+            <RestorePassForm />
         </div>
     )
 }
 
-RestorePassComponent.propTypes = {
-    onChangeAuthStage: PropTypes.func.isRequired,
-};
-RestorePassForm.propTypes = {
-    onChangeAuthStage: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = (state, ownProps) => {
     return Object.assign({}, ownProps, {});

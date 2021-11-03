@@ -82,7 +82,3 @@ export const DoctorViewContainer = () => {
         </section>
     )
 };
-
-DoctorViewContainer.propTypes = {
-    patients: PropTypes.arrayOf(PropTypes.object).isRequired,
-};

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import PropTypes from 'prop-types';
 import { Field, Formik, Form } from "formik";
 import * as Yup from 'yup';
 import { connect } from "react-redux";
-import { authStageActionCreator } from "../../../store/action-creators/auth-stage-action-creator";
 import { AuthStages } from "../../../common/const";
 import { AppScreens } from "../../../common/const";
-import { activeScreenActionCreator } from "../../../store/action-creators/active-screen-action-creator";
+import { Link } from 'react-router-dom';
 
 const SignInSchema = Yup.object().shape(({
     email: Yup.string()
@@ -17,8 +15,7 @@ const SignInSchema = Yup.object().shape(({
         .required('This field is required!'),
 }));
 
-const SignInForm = (props) => {
-    const { onChangeActiveScreen } = props;
+const SignInForm = () => {
     const [ isShowingPass, showPassToggle ] = useState(false);
     
     return (
@@ -66,11 +63,13 @@ const SignInForm = (props) => {
                             </div> ) 
                         : null}
                     <div className="feedback-submit">
-                        <button onClick={() => onChangeActiveScreen(AppScreens.PATIENT_VIEW)} className="feedback-submit__btn" type="submit">
-                            <span>Sign In</span>
-                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.53998 6.29004L1.87998 0.640037C1.78702 0.546308 1.67642 0.471914 1.55456 0.421145C1.4327 0.370377 1.30199 0.344238 1.16998 0.344238C1.03797 0.344238 0.907264 0.370377 0.785405 0.421145C0.663546 0.471914 0.552945 0.546308 0.459982 0.640037C0.273731 0.827399 0.169189 1.08085 0.169189 1.34504C0.169189 1.60922 0.273731 1.86267 0.459982 2.05004L5.40998 7.05004L0.459982 12C0.273731 12.1874 0.169189 12.4409 0.169189 12.705C0.169189 12.9692 0.273731 13.2227 0.459982 13.41C0.552597 13.5045 0.663042 13.5797 0.784917 13.6312C0.906792 13.6827 1.03767 13.7095 1.16998 13.71C1.30229 13.7095 1.43317 13.6827 1.55505 13.6312C1.67692 13.5797 1.78737 13.5045 1.87998 13.41L7.53998 7.76004C7.64149 7.66639 7.7225 7.55274 7.7779 7.42624C7.83331 7.29974 7.86191 7.16314 7.86191 7.02504C7.86191 6.88693 7.83331 6.75033 7.7779 6.62383C7.7225 6.49733 7.64149 6.38368 7.53998 6.29004Z" fill="white"/>
-                            </svg>
+                        <button type="submit">
+                            <Link className="feedback-submit__btn" to={AppScreens.PATIENT_VIEW}>
+                                <span>Sign In</span>
+                                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.53998 6.29004L1.87998 0.640037C1.78702 0.546308 1.67642 0.471914 1.55456 0.421145C1.4327 0.370377 1.30199 0.344238 1.16998 0.344238C1.03797 0.344238 0.907264 0.370377 0.785405 0.421145C0.663546 0.471914 0.552945 0.546308 0.459982 0.640037C0.273731 0.827399 0.169189 1.08085 0.169189 1.34504C0.169189 1.60922 0.273731 1.86267 0.459982 2.05004L5.40998 7.05004L0.459982 12C0.273731 12.1874 0.169189 12.4409 0.169189 12.705C0.169189 12.9692 0.273731 13.2227 0.459982 13.41C0.552597 13.5045 0.663042 13.5797 0.784917 13.6312C0.906792 13.6827 1.03767 13.7095 1.16998 13.71C1.30229 13.7095 1.43317 13.6827 1.55505 13.6312C1.67692 13.5797 1.78737 13.5045 1.87998 13.41L7.53998 7.76004C7.64149 7.66639 7.7225 7.55274 7.7779 7.42624C7.83331 7.29974 7.86191 7.16314 7.86191 7.02504C7.86191 6.88693 7.83331 6.75033 7.7779 6.62383C7.7225 6.49733 7.64149 6.38368 7.53998 6.29004Z" fill="white"/>
+                                    </svg>
+                            </Link>
                         </button>
                     </div>
                 </Form>
@@ -79,43 +78,33 @@ const SignInForm = (props) => {
     )
 };
 
-const SignInComponent = (props) => {
-    const { onChangeAuthStage, onChangeActiveScreen } = props;
+const SignInComponent = () => {
+
     return (
         <div className="feedback-wrapper feedback-wrapper_sign-in">
-            <SignInForm onChangeActiveScreen={onChangeActiveScreen}/>
+            <SignInForm />
             <div className="feedback-buttons feedback-buttons_sign-in">
-                <a onClick={() => onChangeAuthStage(AuthStages.RESTORE)} href="#" className="feedback-buttons__forgot">Forgot password?</a>
+                <Link to={`${AppScreens.AUTH}${AuthStages.RESTORE}`} className="feedback-buttons__forgot">
+                    Forgot password? 
+                </Link>
                 <div className="feedback-text">
                     <p className="feedback-text__quest">Don’t have an account?</p>
-                    <a onClick={() => onChangeAuthStage(AuthStages.SIGN_UP)} className="feedback-text__link" href="#">Sign Up</a>
+                    <Link to={`${AppScreens.AUTH}${AuthStages.SIGN_UP}`} className="feedback-text__link">
+                        Sign Up
+                    </Link>
                 </div>
             </div>
         </div>
     )
 };
 
-SignInComponent.propTypes = {
-    onChangeAuthStage: PropTypes.func.isRequired,
-    onChangeActiveScreen: PropTypes.func.isRequired,
-};
-SignInForm.propTypes = {
-    onChangeActiveScreen: PropTypes.func.isRequired,
-}
 
 const mapStateToProps = (state, ownProps) => {
-    return Object.assign({}, ownProps, {});
+    return Object.assign({}, ownProps);
 };
 
 const mapDispatchToProps = (disptach) => {
-    return {
-        onChangeAuthStage: function(authStage) {
-            disptach(authStageActionCreator(authStage));
-        },
-        onChangeActiveScreen: function(activeScreen) {
-            disptach(activeScreenActionCreator(activeScreen));
-        },
-    }
+    return {}
 };
 
 export const SignIn = connect(mapStateToProps, mapDispatchToProps)(SignInComponent);
