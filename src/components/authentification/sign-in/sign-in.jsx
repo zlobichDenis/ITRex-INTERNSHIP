@@ -93,7 +93,7 @@ const SignInComponent = (props) => {
             </div>
         </div>
     )
-}
+};
 
 SignInComponent.propTypes = {
     onChangeAuthStage: PropTypes.func.isRequired,

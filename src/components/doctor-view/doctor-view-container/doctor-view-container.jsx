@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { EmptyPatientsList } from "../patients-list-empty/patients-list-empty";
 import { PatientsList } from "../patients-list/patients-list";
 
 const DoctorViewHeader = () => {
@@ -67,8 +65,7 @@ const DoctorViewControlPanel = () => {
     )
 }
 
-const DoctorViewContainerComponent = (props) => {
-    const { patients } = props;
+export const DoctorViewContainer = () => {
 
     return (
          <section className="doctor-view">
@@ -78,11 +75,7 @@ const DoctorViewContainerComponent = (props) => {
                     <DoctorViewTabs />
                     <div className="doctor-cabinet__info">
                         <DoctorViewControlPanel />
-                        <div className="doctor-cabinet__patients-list-wrapper">
-                            {patients.length === 0 
-                             ? <EmptyPatientsList /> 
-                             : <PatientsList patients={patients} />}
-                        </div>
+                             <PatientsList />
                     </div>
                 </div>
             </div>
@@ -90,18 +83,6 @@ const DoctorViewContainerComponent = (props) => {
     )
 };
 
-DoctorViewContainerComponent.propTypes = {
+DoctorViewContainer.propTypes = {
     patients: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-const mapStateToProps = (state, ownProps) => {
-    return Object.assign({}, ownProps, {
-        patients: state.patients,
-    });
-;}
-
-const mapDispatchToProps = () => {
-    return {};
-};
-
-export const DoctorViewContainer = connect(mapStateToProps, mapDispatchToProps)(DoctorViewContainerComponent);
