@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { AuthContainer } from "../authentification/auth-container/authentification";
 import { DoctorViewContainer } from "../doctor-view/doctor-view-container/doctor-view-container";
@@ -12,10 +11,10 @@ const AppComponent = () => {
     return (
         <Switch>
             <Route path={AppScreens.AUTH}>
-                <AuthContainer />;
+                <AuthContainer />
             </Route>
             <Route path={AppScreens.DOCTOR_VIEW}>
-                <DoctorViewContainer />;
+                <DoctorViewContainer />
             </Route>
             <Route path={AppScreens.PATIENT_VIEW}>
                 <PatientViewContainer />
@@ -23,10 +22,6 @@ const AppComponent = () => {
             <Redirect from="/" to={AppScreens.AUTH} />
         </Switch>
     )
-};
-
-AppComponent.propTypes = {
-    activeScreen: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {
