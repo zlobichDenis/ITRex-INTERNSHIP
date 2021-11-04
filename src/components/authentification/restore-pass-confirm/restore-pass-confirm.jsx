@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { AuthStages, AppScreens } from "../../../common/const";
+import { AuthStages, AppScreens } from "../../../routes";
 import { Link } from 'react-router-dom';
 
 const RestorePassConfirmComponent = () => {

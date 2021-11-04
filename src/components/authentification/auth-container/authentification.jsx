@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { SignUp } from "../sign-up/sign-up";
 import { SignIn } from "../sign-in/sign-in";
-import { AppScreens, AuthStages } from "../../../common/const.js";
+import { AppScreens, AuthStages } from "../../../routes.js";
 import { RestorePass } from "../restore-pass/restore-pass";
 import { RestorePassConfirm } from "../restore-pass-confirm/restore-pass-confirm";
 import { Switch, Route } from 'react-router-dom';

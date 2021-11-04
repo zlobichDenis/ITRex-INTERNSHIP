@@ -1,0 +1,73 @@
+@import './../common/reset.scss';
+@import './../common/variables.scss';
+@import './../common/fonts.scss';
+@import './../common/mixins.scss';
+
+@media (min-width: 768px) and (max-width: 1919px) {
+    .patient-cabinet {
+        z-index: 1;
+        align-items: center;
+
+        &__header {
+            width: 90%;
+            padding: 24px 0;
+            background-color: transparent;
+        }
+
+        &__wrapper {
+            width: 90%;
+            height: 90%;
+            gap: 56px;
+            padding: 40px 48px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+
+        &__tabs {
+            justify-content: flex-start;
+            gap: 12px;
+        }
+
+        &__tab {
+            width: 160px;
+            height: 40px;
+        }
+
+        &__info {
+            gap: 2.5vh;
+
+            &_empty-list {
+                gap: 166px;
+            }
+        }
+
+        &__search-field {
+            width: 180px;
+            color: $text-title-color;
+        }
+
+        &__appointment-btn {
+            display: none;
+        }
+
+        &__doctors-list {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 20px 20px;
+        }
+
+        &__doctor-item {
+            gap: 2.5vh;
+            padding: 32px 34px;
+            width: 544px;
+        }    
+
+        &__doctor-details {
+            justify-content: flex-start;
+        }
+    }
+}

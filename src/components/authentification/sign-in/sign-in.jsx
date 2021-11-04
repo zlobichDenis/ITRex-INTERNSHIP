@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Field, Formik, Form } from "formik";
 import * as Yup from 'yup';
 import { connect } from "react-redux";
-import { AuthStages } from "../../../common/const";
-import { AppScreens } from "../../../common/const";
+import { AuthStages } from "../../../routes";
+import { AppScreens } from "../../../routes";
 import { Link } from 'react-router-dom';
 
 const SignInSchema = Yup.object().shape(({

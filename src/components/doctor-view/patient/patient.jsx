@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types';
-import { patients } from "../../../mock/patients";
+import { patients } from "../../../core/mock/patients";
 
 export const Patient = (props) => {
     const { patient } = props;

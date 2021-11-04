@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { AuthContainer } from "../authentification/auth-container/authentification";
-import { DoctorViewContainer } from "../doctor-view/doctor-view-container/doctor-view-container";
-import { AppScreens } from "../../common/const";
-import { PatientViewContainer } from "../patient-view/patient-view-containet/patient-view-container";
+import { AuthContainer } from "./components/authentification/auth-container/authentification";
+import { DoctorViewContainer } from "./components/doctor-view/doctor-view-container/doctor-view-container";
+import { AppScreens } from "./routes";
+import { PatientViewContainer } from "./components/patient-view/patient-view-containet/patient-view-container";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 const AppComponent = () => {

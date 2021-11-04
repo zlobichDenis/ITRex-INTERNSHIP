@@ -2,7 +2,7 @@ import React from "react";
 import { Field, Formik, Form } from "formik";
 import * as Yup from 'yup';
 import { connect } from "react-redux";
-import { AuthStages, AppScreens } from "../../../common/const";
+import { AuthStages, AppScreens } from "../../../routes";
 import { Link } from 'react-router-dom';
 
 const RestorePassSchema = Yup.object().shape(({
