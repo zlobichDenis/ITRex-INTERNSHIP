@@ -25,8 +25,16 @@ const SignUpSchema = Yup.object().shape(({
 }));
 
 const SignUpForm = () => {
-    const [ isShowingPass, showPassToggle ] = useState(false);
-    const [ isShowingPassConfirm, showPassConfirmToggle ] = useState(false);
+    const [ isShowingPass, setVisiblePass ] = useState(false);
+    const [ isShowingPassConfirm, setVisiblePassConfirm ] = useState(false);
+
+    const showPassToggle = () => {
+        setVisiblePass((isShowingPass) => !isShowingPass);
+    };
+    const showPassConfirmToggle = () => {
+        setVisiblePassConfirm((isShowingPassConfirm) => !isShowingPassConfirm);
+    };
+
 
     return (
         <Formik 
@@ -99,7 +107,7 @@ const SignUpForm = () => {
                             placeholder="Password"
                             className="feedback-field__input feedback-field__input_password"
                         />                              
-                        <div onClick={() => showPassToggle((prevState) => !prevState)} className={`feedback-field__icon ${isShowingPass ? 'feedback-field__icon_show' : ''} feedback-field__icon_password`}></div> 
+                        <div onClick={showPassToggle} className={`feedback-field__icon ${isShowingPass ? 'feedback-field__icon_show' : ''} feedback-field__icon_password`}></div> 
                     </div> 
                     {errors.password && touched.password
                         ? ( <div className="feedback-message feedback-message_show feedback-message_password">
@@ -119,7 +127,7 @@ const SignUpForm = () => {
                             placeholder="Confirm Password"
                             className="feedback-field__input feedback-field__input_password"
                         />                                 
-                        <div onClick={() => showPassConfirmToggle((prevState) => !prevState)} className={`feedback-field__icon ${isShowingPassConfirm ? 'feedback-field__icon_show' : ''} feedback-field__icon_password-confirm`}></div>  
+                        <div onClick={showPassConfirmToggle} className={`feedback-field__icon ${isShowingPassConfirm ? 'feedback-field__icon_show' : ''} feedback-field__icon_password-confirm`}></div>  
                     </div>
                     {(values.password !== values.passwordConfirm) && touched.passwordConfirm
                         ? ( <div className="feedback-message feedback-message_show feedback-message_password">

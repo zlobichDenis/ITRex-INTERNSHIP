@@ -16,8 +16,11 @@ const SignInSchema = Yup.object().shape(({
 }));
 
 const SignInForm = () => {
-    const [ isShowingPass, showPassToggle ] = useState(false);
-    
+    const [ isShowingPass, setVisiblePass ] = useState(false);
+    const showPassToggle = () => {
+        setVisiblePass((isShowingPass) => !isShowingPass);
+    };
+
     return (
         <Formik 
             initialValues={{
@@ -55,7 +58,7 @@ const SignInForm = () => {
                             placeholder="Password"
                             className="feedback-field__input feedback-field__input_password"
                         />                              
-                        <div onClick={() => showPassToggle((prevState) => !prevState)} className={`feedback-field__icon ${isShowingPass ? 'feedback-field__icon_show' : ''} feedback-field__icon_password`}></div> 
+                        <div onClick={showPassToggle} className={`feedback-field__icon ${isShowingPass ? 'feedback-field__icon_show' : ''} feedback-field__icon_password`}></div> 
                     </div> 
                     {errors.password && touched.password
                         ? ( <div className="feedback-message feedback-message_show feedback-message_password">
