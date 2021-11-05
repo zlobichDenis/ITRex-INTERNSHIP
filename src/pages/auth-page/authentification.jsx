@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { SignUp } from "../sign-up/sign-up";
-import { SignIn } from "../sign-in/sign-in";
-import { AppScreens, AuthStages } from "../../../routes.js";
-import { RestorePass } from "../restore-pass/restore-pass";
-import { RestorePassConfirm } from "../restore-pass-confirm/restore-pass-confirm";
+import { SignUp } from "../../containers/sign-up/sign-up";
+import { SignIn } from "../../containers/sign-in/sign-in";
+import { AppScreens, AuthStages } from "../../routes.js";
+import { RestorePass } from "../../containers/restore-pass/restore-pass";
+import { RestorePassConfirm } from "../../containers/restore-pass-confirm/restore-pass-confirm";
 import { Switch, Route } from 'react-router-dom';
 
 const AuthContainerComponent = () => {

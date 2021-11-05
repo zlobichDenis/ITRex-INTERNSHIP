@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { PatientsList } from "../patients-list/patients-list";
+import { PatientsList } from "../../containers/patients-list/patients-list";
 
 const DoctorViewHeader = () => {
     return (
