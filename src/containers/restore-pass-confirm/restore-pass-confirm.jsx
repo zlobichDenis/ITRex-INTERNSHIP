@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { BackToSignInButton } from "../../components/ui/back-to-sign-in-button/back-to-sign-in-button";
-import { RestoreMessage } from "../../components/ui/restore-message/restore-message";
+import { RestoreMessage } from "../../components/ordinary/restore-message/restore-message";
 
 const RestorePassConfirmComponent = () => {
 

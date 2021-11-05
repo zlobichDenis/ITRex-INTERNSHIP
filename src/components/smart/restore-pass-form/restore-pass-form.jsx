@@ -1,11 +1,12 @@
 import React from "react";
 import { Formik, Form } from "formik";
+import { AppScreens, AuthStages } from "../../../routes/routes";
 import { RestorePassSchema } from "../../../core/schemes/restore-pass-schema";
 import { BackToSignInButton } from "../../ui/back-to-sign-in-button/back-to-sign-in-button";
-import { RestoreMessage } from "../../ui/restore-message/restore-message";
-import { EmailInput } from "../../ui/email-input/email-input";
+import { RestoreMessage } from "../../ordinary/restore-message/restore-message";
 import { AlertMessage } from "../../ordinary/alert-message/alert-message";
-import { RestorePassButton } from "../../ui/restore-pass-button/restore-pass-button";
+import { AuthButton } from "../../ui/auth-button/auth-button";
+import { AuthTextInput } from "../../ui/auth-text-input/auth-text-input";
 
 export const RestorePassForm = () => {
 
@@ -22,12 +23,12 @@ export const RestorePassForm = () => {
                 <BackToSignInButton />
                 <RestoreMessage isConfirm={false}/>
 
-                <EmailInput />
+                <AuthTextInput nameText="email" type="text" placeholderText="Email" icon="email"/>
                 {errors.email && touched.email
                     ? <AlertMessage message={errors.email} /> 
                     : null}
                 
-                <RestorePassButton isActive={isSubmitting}/>
+                <AuthButton isActive={isSubmitting} route={`${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`} textContent='Restore Password'/>
             </Form>
             )}
         </Formik>

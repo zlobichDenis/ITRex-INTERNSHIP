@@ -1,13 +1,12 @@
 import React from "react";
 import { Formik, Form } from "formik";
+import { AppScreens } from "../../../routes/routes";
 import { SignUpSchema } from "../../../core/schemes/sign-up-schema";
-import { FirstNameInput } from "../../ui/firstname-input/firstname-input";
-import { LastNameInput } from "../../ui/lastname-input/lastname-input";
-import { EmailInput } from "../../ui/email-input/email-input";
+import { AuthTextInput } from "../../ui/auth-text-input/auth-text-input";
 import { PasswordInput } from "../../ui/password-input/password-input";
 import { PasswordConfirm } from "../../ui/password-confirm-input/password-confirm";
 import { AlertMessage } from "../../ordinary/alert-message/alert-message";
-import { SignUpButton } from "../../ui/sign-up-button/sign-up-button";
+import { AuthButton } from "../../ui/auth-button/auth-button";
 
 export const SignUpForm = () => {
     return (
@@ -25,17 +24,17 @@ export const SignUpForm = () => {
                 <Form className="feedback-form">
                     <p className="feedback-form__title">Sign Up</p>
 
-                    <FirstNameInput />
+                    <AuthTextInput nameText="firstName" type="text" placeholderText="First Name" icon="name"/>
                     {errors.firstName && touched.firstName 
                         ? <AlertMessage message={errors.firstName} />
                         : null}
 
-                    <LastNameInput />
+                    <AuthTextInput nameText="lastName" type="text" placeholderText="Last Name" icon="name"/>
                     {errors.lastName && touched.lastName 
                         ? <AlertMessage message={errors.lastName} />
                         : null}
 
-                    <EmailInput />
+                    <AuthTextInput nameText="email" type="text" placeholderText="Email" icon="email"/>
                     {errors.email && touched.email
                         ? <AlertMessage message={errors.email} /> 
                         : null}
@@ -50,7 +49,7 @@ export const SignUpForm = () => {
                         ? <AlertMessage message={`Password not match!`} /> 
                         : null}
 
-                    <SignUpButton isActive={isSubmitting}/>
+                    <AuthButton isActive={isSubmitting} route={AppScreens.PATIENT_VIEW} textContent='Sign Up'/>
 
                 </Form>
             )}

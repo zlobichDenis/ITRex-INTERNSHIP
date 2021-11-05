@@ -1,10 +1,11 @@
 import React from "react";
 import { Form, Formik }from "formik";
-import  { SignInSchema } from "../../../core/schemes/sign-in-schema"
-import { EmailInput } from "../../ui/email-input/email-input";
+import { AppScreens } from "../../../routes/routes";
+import { SignInSchema } from "../../../core/schemes/sign-in-schema"
 import { PasswordInput } from "../../ui/password-input/password-input";
 import { AlertMessage } from "../../ordinary/alert-message/alert-message";
-import { SignInButton } from "../../ui/sign-in-button/sign-in-button"
+import { AuthButton } from "../../ui/auth-button/auth-button";
+import { AuthTextInput } from "../../ui/auth-text-input/auth-text-input";
 
 export const SignInForm = () => {
 
@@ -20,7 +21,7 @@ export const SignInForm = () => {
                 <Form className="feedback-form">
                     <p className="feedback-form__title">Sign In</p>
 
-                    <EmailInput />
+                    <AuthTextInput nameText="email" type="text" placeholderText="Email" icon="email"/>
                     {errors.email && touched.email
                         ? <AlertMessage message={errors.email} /> 
                         : null}
@@ -31,7 +32,8 @@ export const SignInForm = () => {
                         ? <AlertMessage message={errors.password} /> 
                         : null}
 
-                    <SignInButton isActive={isSubmitting}/>
+                    <AuthButton isActive={isSubmitting} route={AppScreens.DOCTOR_VIEW} textContent='Sign In'/>
+                    
                 </Form>
             )}
         </Formik>
