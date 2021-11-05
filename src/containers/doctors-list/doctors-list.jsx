@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
-import { Doctor } from "../doctor/doctor";
+import { Doctor } from "../../components/ordinary/doctor/doctor"
 
 const DoctorsListComponent = (props) => {
     const { doctors } = props;

@@ -1,5 +1,5 @@
 import React from "react";
-import { DoctorsList } from "../doctors-list/doctors-list";
+import { DoctorsList } from "../../containers/doctors-list/doctors-list";
 
 
 const PatientViewHeader = () => {
