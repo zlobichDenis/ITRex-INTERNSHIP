@@ -17,10 +17,10 @@ export const AuthRouter = () => {
                 <SignIn />
             </Route>
             <Route exact path={`${AppScreens.AUTH}${AuthStages.RESTORE}`}>
-                <RestorePass />
+                <RestorePass isConfirm={false}/>
             </Route>
             <Route exact path={`${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`}>
-                <RestorePass />
+                <RestorePass isConfirm={true}/>
             </Route>
         </Switch>
     )

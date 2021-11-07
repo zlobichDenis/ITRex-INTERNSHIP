@@ -1,14 +1,16 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
+import { useHistory } from "react-router-dom";
+
 import { AppScreens } from "../../../../routes";
 import { signUpSchema } from "../../../../core";
-import { AuthTextInput } from "../../../../components/AuthTextInput";
-import { PasswordInput } from "../../../../components/PasswordInput";
-import { PasswordConfirm } from "../../../../components/PasswordConfirmInput";
-import { AlertMessage } from "../../../../components/AlertMessage";
-import { AuthButton } from "../../../../components";
+import { AuthTextInput, 
+        PasswordInput,  
+        AlertMessage, 
+        ActionButton  } from "../../../../components";
 
 export const SignUpForm = () => {
+    let history = useHistory();
     return (
         <Formik 
             initialValues={{
@@ -19,37 +21,38 @@ export const SignUpForm = () => {
                 passwordConfirm: '',
             }}
             validationSchema={signUpSchema}
+            onSubmit={() => history.push(`${AppScreens.DOCTOR_VIEW}`)}
             >
-            {({ errors, touched, values, isSubmitting }) => (
+            {({ errors, touched, values }) => (
                 <Form className="feedback-form">
                     <p className="feedback-form__title">Sign Up</p>
 
-                    <AuthTextInput nameText="firstName" type="text" placeholderText="First Name" icon="name"/>
+                    <Field component={AuthTextInput} name="firstName" type="text" placeholder="First Name" icon="name"/>
                     {errors.firstName && touched.firstName 
                         ? <AlertMessage message={errors.firstName} />
                         : null}
 
-                    <AuthTextInput nameText="lastName" type="text" placeholderText="Last Name" icon="name"/>
+                    <Field component={AuthTextInput} name="lastName" type="text" placeholder="Last Name" icon="name"/>
                     {errors.lastName && touched.lastName 
                         ? <AlertMessage message={errors.lastName} />
                         : null}
 
-                    <AuthTextInput nameText="email" type="text" placeholderText="Email" icon="email"/>
+                    <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon="name"/>
                     {errors.email && touched.email
                         ? <AlertMessage message={errors.email} /> 
                         : null}
 
-                    <PasswordInput />
+                    <Field component={PasswordInput} name="password" type="password" placeholder="Password" icon=""/>
                     {errors.password && touched.password
                         ? <AlertMessage message={errors.password} /> 
                         : null}
 
-                    <PasswordConfirm />
+                    <Field component={PasswordInput} name="passwordConfirm" type="password" placeholder="Confirm Password" icon=""/>
                     {(values.password !== values.passwordConfirm) && touched.passwordConfirm
                         ? <AlertMessage message={`Password not match!`} /> 
                         : null}
 
-                    <AuthButton isActive={isSubmitting} route={AppScreens.PATIENT_VIEW} textContent='Sign Up'/>
+                    <ActionButton textContent="Sign Up" />
 
                 </Form>
             )}

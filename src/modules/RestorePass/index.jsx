@@ -1,23 +1,18 @@
 import React from "react";
-import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import { RestorePassForm } from "./components";
+import { RestorePassForm, RestorePassConfirm } from "./components";
 
-const RestorePassComponent = () => {
+export const RestorePass = ({ isConfirm }) => {
     return (
         <div className="feedback-wrapper feedback-wrapper_restore-password">
-            <RestorePassForm />
+            {isConfirm 
+                ? <RestorePassConfirm />
+                : <RestorePassForm />}
         </div>
     )
-}
-
-
-const mapStateToProps = (state, ownProps) => {
-    return Object.assign({}, ownProps);
 };
 
-const mapDispatchToProps = (disptach) => {
-    return {}
+RestorePass.propTypes = {
+    isConfirm: PropTypes.bool,
 };
-
-export const RestorePass = connect(mapStateToProps, mapDispatchToProps)(RestorePassComponent);

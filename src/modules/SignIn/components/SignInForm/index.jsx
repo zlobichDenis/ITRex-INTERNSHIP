@@ -1,14 +1,17 @@
 import React from "react";
-import { Form, Formik } from "formik";
+import { Form, Formik, Field } from "formik";
+import { useHistory } from "react-router";
+
 import { AppScreens } from "../../../../routes";
 import { signInSchema } from "../../../../core";
-import { PasswordInput } from "../../../../components/PasswordInput";
-import { AlertMessage } from "../../../../components/AlertMessage";
-import { AuthButton } from "../../../../components";
-import { AuthTextInput } from "../../../../components/AuthTextInput";
+import { AuthTextInput, 
+         PasswordInput,  
+         AlertMessage, 
+         ActionButton  } from "../../../../components";
 
 
 export const SignInForm = () => {
+    let history = useHistory();
     return (
         <Formik 
             initialValues={{
@@ -16,23 +19,24 @@ export const SignInForm = () => {
                 password: '',
             }}
             validationSchema={signInSchema}
-        >  
-            {({ errors, touched, isSubmitting }) => (
+            onSubmit={() => history.push(AppScreens.DOCTOR_VIEW)}
+            >  
+            {({ errors, touched }) => (
                 <Form className="feedback-form">
                     <p className="feedback-form__title">Sign In</p>
 
-                    <AuthTextInput nameText="email" type="text" placeholderText="Email" icon="email"/>
+                    <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon="name"/>
                     {errors.email && touched.email
                         ? <AlertMessage message={errors.email} /> 
                         : null}
 
 
-                    <PasswordInput />
+                    <Field component={PasswordInput} name="password" type="password" placeholder="Password" icon=""/>
                     {errors.password && touched.password
                         ? <AlertMessage message={errors.password} /> 
                         : null}
 
-                    <AuthButton isActive={isSubmitting} route={AppScreens.DOCTOR_VIEW} textContent='Sign In'/>
+                    <ActionButton textContent='Sign In'/>
                     
                 </Form>
             )}

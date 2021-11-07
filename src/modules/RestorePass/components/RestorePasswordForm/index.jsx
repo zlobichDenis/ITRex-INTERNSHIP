@@ -1,15 +1,17 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
+import { useHistory } from "react-router";
+
 import { AppScreens, AuthStages } from "../../../../routes";
 import { restorePassSchema } from "../../../../core";
-import { BackToSignInButton } from "../../../../components";
-import { RestoreMessage } from "../RestoreMessage";
-import { AlertMessage } from "../../../../components/AlertMessage";
-import { AuthButton } from "../../../../components";
-import { AuthTextInput } from "../../../../components/AuthTextInput";
+import { RestoreMessage } from "..";
+import { AuthTextInput,  
+        AlertMessage, 
+        ActionButton,
+        BackToSignInButton  } from "../../../../components";
 
 export const RestorePassForm = () => {
-
+    let history = useHistory();
     return (
         <Formik 
             initialValues={{
@@ -17,18 +19,21 @@ export const RestorePassForm = () => {
                 password: '',
             }}
             validationSchema={restorePassSchema}
+            onSubmit={() => history.push(`${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`)}
             >
-            {({ errors, touched, isSubmitting }) => (
+            {({ errors, touched }) => (
                 <Form className="feedback-form">
+
                 <BackToSignInButton />
+
                 <RestoreMessage isConfirm={false}/>
 
-                <AuthTextInput nameText="email" type="text" placeholderText="Email" icon="email"/>
+                <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon="name"/>
                 {errors.email && touched.email
                     ? <AlertMessage message={errors.email} /> 
                     : null}
                 
-                <AuthButton isActive={isSubmitting} route={`${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`} textContent='Restore Password'/>
+                <ActionButton textContent='Restore Password'/>
             </Form>
             )}
         </Formik>
