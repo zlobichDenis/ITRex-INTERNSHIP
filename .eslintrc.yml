@@ -7,10 +7,11 @@ env:
 extends: ['plugin:react/recommended']
 
 parserOptions:
-  ecmaFeatures:
-    jsx: true
-  ecmaVersion: 6
-  sourceType: module
+  ecmaVersion: 2020
+  sourceType: 'module'
+  project: './tsconfig.json'
+  tsconfigRootDir: __dirname
+  createDefaultProgram: true
 
 plugins: ['react']
 
