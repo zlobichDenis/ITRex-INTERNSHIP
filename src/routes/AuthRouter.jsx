@@ -1,12 +1,8 @@
 import React from "react";
-// import { SignUp } from "../../containers/sign-up/sign-up";
-// import { SignIn } from "../../containers/sign-in/sign-in";
-// import { AppScreens, AuthStages } from "../../routes/routes.js";
-// import { RestorePass } from "../../containers/restore-pass/restore-pass";
-// import { RestorePassConfirm } from "../../containers/restore-pass-confirm/restore-pass-confirm";
 import { Switch, Route } from "react-router-dom";
 
 import { AppScreens, AuthStages } from "./routes";
+import { SignUp, SignIn, RestorePass } from "../modules";
 
 export const AuthRouter = () => {
     return (
@@ -24,7 +20,7 @@ export const AuthRouter = () => {
                 <RestorePass />
             </Route>
             <Route exact path={`${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`}>
-                <RestorePassConfirm />
+                <RestorePass />
             </Route>
         </Switch>
     )

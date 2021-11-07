@@ -1,5 +1,4 @@
-import { patients } from "../mock/patients";
-import { doctors } from "../mock/doctors";
+import { patients, doctors } from "../core"
 
 export const initialState = {
     patients: patients,

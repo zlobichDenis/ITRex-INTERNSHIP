@@ -1,2 +1,3 @@
-export * from "./appRouter";
-export * from "./authRouter";
+export * from "./AppRouter";
+export * from "./AuthRouter";
+export * from "./routes"
