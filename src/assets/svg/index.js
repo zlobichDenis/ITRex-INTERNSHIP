@@ -9,6 +9,8 @@ import PasswordInputSvg from "./PasswordInput.svg";
 import PasswordConfirmSvg from "./PasswordConfirm.svg";
 import SearchSvg from "./Search.svg";
 import SortSvg from "./Sort.svg";
+import PersonOptionsSvg from "./PersonOptions.svg";
+import AppointmentSvg from "./Appointment.svg"
 
 
 export { BackArrowSvg,
@@ -22,4 +24,6 @@ export { BackArrowSvg,
         PasswordConfirmSvg,
         SearchSvg,
         SortSvg,
+        PersonOptionsSvg,
+        AppointmentSvg
 };
