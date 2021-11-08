@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export const AuthTextInput = ({ field, icon, placeholder }) => {
     return (
         <div className="feedback-field">
-            <img width="21" height="21" src={`./img/icon-${icon}.png`} alt="icon"></img>
+            <img width="21" src={icon} alt="icon" />
             <input 
                 {...field}
                 placeholder={placeholder}
@@ -16,7 +16,7 @@ export const AuthTextInput = ({ field, icon, placeholder }) => {
 
 
 AuthTextInput.propTypes = {
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.string,
     placeholder: PropTypes.string,
     field: PropTypes.object,
     name: PropTypes.string,

@@ -8,6 +8,7 @@ import { AuthTextInput,
          PasswordInput,  
          AlertMessage, 
          ActionButton  } from "../../../../components";
+import { PasswordInputSvg, EmailInputSvg } from "../../../../assets";
 
 
 export const SignInForm = () => {
@@ -19,19 +20,19 @@ export const SignInForm = () => {
                 password: '',
             }}
             validationSchema={signInSchema}
-            onSubmit={() => history.push(AppScreens.DOCTOR_VIEW)}
+            onSubmit={() => history.push(AppScreens.PATIENT_VIEW)}
             >  
             {({ errors, touched }) => (
                 <Form className="feedback-form">
                     <p className="feedback-form__title">Sign In</p>
 
-                    <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon="name"/>
+                    <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon={EmailInputSvg}/>
                     {errors.email && touched.email
                         ? <AlertMessage message={errors.email} /> 
                         : null}
 
 
-                    <Field component={PasswordInput} name="password" type="password" placeholder="Password" icon=""/>
+                    <Field component={PasswordInput} name="password" type="password" placeholder="Password" icon={PasswordInputSvg}/>
                     {errors.password && touched.password
                         ? <AlertMessage message={errors.password} /> 
                         : null}

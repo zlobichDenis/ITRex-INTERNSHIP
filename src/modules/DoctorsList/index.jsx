@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
+
 import { Doctor } from "./components"
 
 const DoctorsListComponent = (props) => {
@@ -24,8 +25,4 @@ const mapStateToProps = (state, ownProps) => {
     });
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {}
-};
-
-export const DoctorsList = connect(mapStateToProps, mapDispatchToProps)(DoctorsListComponent);
+export const DoctorsList = connect(mapStateToProps, {})(DoctorsListComponent);

@@ -1,5 +1,8 @@
 import React from "react";
-import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
+import { Switch,
+         Route,
+         Redirect,
+         BrowserRouter as Router } from 'react-router-dom';
 
 import { Authentification, DoctorView, PatientView } from "../pages";
 import { AppScreens } from "./routes";

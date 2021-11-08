@@ -9,9 +9,12 @@ import { AuthTextInput,
         AlertMessage, 
         ActionButton,
         BackToSignInButton  } from "../../../../components";
+import { EmailInputSvg } from "../../../../assets";
+
 
 export const RestorePassForm = () => {
     let history = useHistory();
+    const backToSignIn = () => history.push(`${AppScreens.AUTH}${AuthStages.SIGN_IN}`);
     return (
         <Formik 
             initialValues={{
@@ -23,12 +26,11 @@ export const RestorePassForm = () => {
             >
             {({ errors, touched }) => (
                 <Form className="feedback-form">
-
-                <BackToSignInButton />
-
+   
+                <BackToSignInButton backToSignIn={backToSignIn}/>
                 <RestoreMessage isConfirm={false}/>
 
-                <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon="name"/>
+                <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon={EmailInputSvg}/>
                 {errors.email && touched.email
                     ? <AlertMessage message={errors.email} /> 
                     : null}

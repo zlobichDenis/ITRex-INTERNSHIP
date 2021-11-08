@@ -28,8 +28,4 @@ const mapStateToProps = (state, ownProps) => {
     });
 ;}
 
-const mapDispatchToProps = () => {
-    return {};
-};
-
-export const PatientsList = connect(mapStateToProps, mapDispatchToProps)(PatientsListComponent);
+export const PatientsList = connect(mapStateToProps, {})(PatientsListComponent);

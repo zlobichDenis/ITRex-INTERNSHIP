@@ -8,6 +8,10 @@ import { AuthTextInput,
         PasswordInput,  
         AlertMessage, 
         ActionButton  } from "../../../../components";
+import { NameInputSvg,
+         PasswordInputSvg,
+         EmailInputSvg,
+         PasswordConfirmSvg} from "../../../../assets";
 
 export const SignUpForm = () => {
     let history = useHistory();
@@ -27,27 +31,27 @@ export const SignUpForm = () => {
                 <Form className="feedback-form">
                     <p className="feedback-form__title">Sign Up</p>
 
-                    <Field component={AuthTextInput} name="firstName" type="text" placeholder="First Name" icon="name"/>
+                    <Field component={AuthTextInput} name="firstName" type="text" placeholder="First Name" icon={NameInputSvg} />
                     {errors.firstName && touched.firstName 
                         ? <AlertMessage message={errors.firstName} />
                         : null}
 
-                    <Field component={AuthTextInput} name="lastName" type="text" placeholder="Last Name" icon="name"/>
+                    <Field component={AuthTextInput} name="lastName" type="text" placeholder="Last Name" icon={NameInputSvg} />
                     {errors.lastName && touched.lastName 
                         ? <AlertMessage message={errors.lastName} />
                         : null}
 
-                    <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon="name"/>
+                    <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon={EmailInputSvg} />
                     {errors.email && touched.email
                         ? <AlertMessage message={errors.email} /> 
                         : null}
 
-                    <Field component={PasswordInput} name="password" type="password" placeholder="Password" icon=""/>
+                    <Field component={PasswordInput} name="password" type="password" placeholder="Password" icon={PasswordInputSvg}/>
                     {errors.password && touched.password
                         ? <AlertMessage message={errors.password} /> 
                         : null}
 
-                    <Field component={PasswordInput} name="passwordConfirm" type="password" placeholder="Confirm Password" icon=""/>
+                    <Field component={PasswordInput} name="passwordConfirm" type="password" placeholder="Confirm Password" icon={PasswordConfirmSvg}/>
                     {(values.password !== values.passwordConfirm) && touched.passwordConfirm
                         ? <AlertMessage message={`Password not match!`} /> 
                         : null}
