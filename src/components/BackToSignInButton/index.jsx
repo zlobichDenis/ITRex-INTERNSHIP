@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { BackArrowSvg } from "../../assets";
+import { BackArrowSvg } from "assets";
 
 export const BackToSignInButton = ({ backToSignIn }) => {
     return (

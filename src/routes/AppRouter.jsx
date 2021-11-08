@@ -4,8 +4,8 @@ import { Switch,
          Redirect,
          BrowserRouter as Router } from 'react-router-dom';
 
-import { Authentification, DoctorView, PatientView } from "../pages";
-import { AppScreens } from "./routes";
+import { Authentification, DoctorView, PatientView } from "pages";
+import { AppScreens } from "routes";
 
 const AppRouter = () => {
     return (

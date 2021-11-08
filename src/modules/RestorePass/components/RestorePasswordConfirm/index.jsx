@@ -1,9 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router";
 
-import { BackToSignInButton } from "../../../../components";
+import { BackToSignInButton } from "components";
 import { RestoreMessage } from "../RestoreMessage";
-import { AppScreens, AuthStages } from "../../../../routes";
+import { AppScreens, AuthStages } from "routes";
 
 export const RestorePassConfirm = () => {
     let history = useHistory();

@@ -1,7 +1,7 @@
 import React from "react";
 
-import { CabinetHeader } from "../../components";
-import { DoctorsList, PatientViewTabs, PatientViewControlPanel } from "../../modules";
+import { CabinetHeader } from "components";
+import { DoctorsList, PatientViewTabs, PatientViewControlPanel } from "modules";
 
 export const PatientView = () => {
     return (

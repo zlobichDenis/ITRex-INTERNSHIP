@@ -1,6 +1,6 @@
 import React from "react";
-import { CabinetHeader } from "../../components";
-import { PatientsList, DoctorViewTabs, DoctorViewControlPanel } from "../../modules";
+import { CabinetHeader } from "components";
+import { PatientsList, DoctorViewTabs, DoctorViewControlPanel } from "modules";
 
 export const DoctorView = () => {
     return (

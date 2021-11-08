@@ -1,13 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
-import { AuthStages } from "../../routes/routes";
-import { AppScreens } from "../../routes/routes";
 import { Link } from 'react-router-dom';
+
+import { AuthStages, AppScreens } from "routes";
 import { SignInForm } from "./components";
 
 
-const SignInComponent = () => {
-    
+export const SignIn = () => {
     return (
         <div className="feedback-wrapper feedback-wrapper_sign-in">
             <SignInForm />
@@ -25,14 +23,3 @@ const SignInComponent = () => {
         </div>
     )
 };
-
-
-const mapStateToProps = (state, ownProps) => {
-    return Object.assign({}, ownProps);
-};
-
-const mapDispatchToProps = (disptach) => {
-    return {}
-};
-
-export const SignIn = connect(mapStateToProps, mapDispatchToProps)(SignInComponent);

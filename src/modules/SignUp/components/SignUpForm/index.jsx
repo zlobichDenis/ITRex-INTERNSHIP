@@ -2,16 +2,16 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { useHistory } from "react-router-dom";
 
-import { AppScreens } from "../../../../routes";
-import { signUpSchema } from "../../../../core";
+import { AppScreens } from "routes";
+import { signUpSchema } from "core";
 import { AuthTextInput, 
         PasswordInput,  
         AlertMessage, 
-        ActionButton  } from "../../../../components";
+        ActionButton  } from "components";
 import { NameInputSvg,
          PasswordInputSvg,
          EmailInputSvg,
-         PasswordConfirmSvg} from "../../../../assets";
+         PasswordConfirmSvg} from "assets";
 
 export const SignUpForm = () => {
     let history = useHistory();

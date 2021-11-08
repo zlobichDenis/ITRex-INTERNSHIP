@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { AppScreens, AuthStages } from "./routes";
-import { SignUp, SignIn, RestorePass } from "../modules";
+import { AppScreens, AuthStages } from "routes";
+import { SignUp, SignIn, RestorePass } from "modules";
 
 export const AuthRouter = () => {
     return (

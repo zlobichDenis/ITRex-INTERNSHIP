@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthRouter } from "../../routes";
+import { AuthRouter } from "routes";
 
 export const Authentification = () => {
     return (

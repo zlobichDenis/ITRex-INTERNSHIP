@@ -1,10 +1,8 @@
 import React from "react"
 import PropTypes from 'prop-types';
 
-export const Patient = (props) => {
-    const { patient } = props;
+export const Patient = ({ patient }) => {
     const { firstName, lastName, photo, date, appointment, isConfirmAppointment } = patient;
-    
     return (
         <li className="doctor-cabinet__patient-item">
         <div className="doctor-cabinet__patient-header">

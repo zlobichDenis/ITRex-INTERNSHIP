@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ButtonArrowSvg } from '../../assets';
+import { ButtonArrowSvg } from 'assets';
 
 export const ActionButton = ({ textContent }) => {
     return (

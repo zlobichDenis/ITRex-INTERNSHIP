@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 import { Patient } from "./components";
-import { EmptyList } from "../../components";
+import { EmptyList } from "components";
 import { connect } from "react-redux";
 
 const PatientsListComponent = (props) => {

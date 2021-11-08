@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-import { AppScreens, AuthStages } from "../../routes/routes";
+import { AppScreens, AuthStages } from "routes";
 import { SignUpForm } from "./components";
 
 

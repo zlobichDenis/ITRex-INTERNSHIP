@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SearchInput, SortSelect } from "../../components";
+import { SearchInput, SortSelect } from "components";
 
 export const DoctorViewControlPanel = () => {
     return (

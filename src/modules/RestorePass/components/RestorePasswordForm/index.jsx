@@ -2,14 +2,14 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { useHistory } from "react-router";
 
-import { AppScreens, AuthStages } from "../../../../routes";
-import { restorePassSchema } from "../../../../core";
+import { AppScreens, AuthStages } from "routes";
+import { restorePassSchema } from "core";
 import { RestoreMessage } from "..";
 import { AuthTextInput,  
         AlertMessage, 
         ActionButton,
-        BackToSignInButton  } from "../../../../components";
-import { EmailInputSvg } from "../../../../assets";
+        BackToSignInButton  } from "components";
+import { EmailInputSvg } from "assets";
 
 
 export const RestorePassForm = () => {
