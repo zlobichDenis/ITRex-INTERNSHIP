@@ -1,16 +1,21 @@
 import React from "react";
 
+import { Header,
+        UserInfo,
+        UserName,
+        UserSpecialty } from "./styles";
+
 export const CabinetHeader = () => {
     return (
-        <div className="doctor-cabinet__header">
+        <Header>
             <img src="./img/logo.png" alt="" />
-            <div className="doctor-cabinet__doctor">
+            <UserInfo>
                 <p>
-                    <span className="doctor-cabinet__doctor-name">Miranda Nelson</span>
-                    <span className="doctor-cabinet__doctor-specialty">Doctor</span>
+                    <UserName className="doctor-cabinet__doctor-name">Miranda Nelson</UserName>
+                    <UserSpecialty className="doctor-cabinet__doctor-specialty">Doctor</UserSpecialty>
                 </p>
                 <img src="img/doctor-photo-1.png" alt="Doctor's photo" />
-            </div>
-        </div>
+            </UserInfo>
+        </Header>
     );
 }

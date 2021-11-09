@@ -1,15 +1,16 @@
 import React from "react";
 
 import { SearchInput, SortSelect } from "components";
+import { ControlPanel, InputsWrapper } from "./styles";
 
 export const DoctorViewControlPanel = () => {
     return (
-        <div className="doctor-cabinet__control-panel">
+        <ControlPanel>
         <h3>My Patients</h3>
-        <div className="doctor-cabinet__search-form">
-            <SearchInput />
-            <SortSelect />
-        </div>
-    </div>
+            <InputsWrapper>
+                <SearchInput />
+                <SortSelect />
+            </InputsWrapper>
+    </ControlPanel>
     )
 };

@@ -1,20 +1,21 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { connect } from "react-redux";
 
 import { Patient } from "./components";
 import { EmptyList } from "components";
-import { connect } from "react-redux";
+import { AppointmentsListWrapper, AppointmentsList } from "./styles";
 
 const PatientsListComponent = (props) => {
     const  { patients } = props;
     return (
-        <div className="doctor-cabinet__patients-list-wrapper">
-            <ul className="doctor-cabinet__patients-list">
+        <AppointmentsListWrapper>
+            <AppointmentsList>
                 {patients.length > 0 
                     ? patients.map((patient) => <Patient key={`patient-${patient.id}`} patient={patient} />)
                     : <EmptyList />}
-            </ul>
-        </div>
+            </AppointmentsList>
+        </AppointmentsListWrapper>
     )
 };
 
