@@ -3,22 +3,30 @@ import { Link } from 'react-router-dom';
 
 import { AppScreens, AuthStages } from "routes";
 import { SignUpForm } from "./components";
+import { FeedbackWrapper, 
+         FeedbackButtons, 
+         FeedbackText,
+         FeedbackTextQuestion,
+         FeedbackTextLink } from "../styles/authentification";
 
 
-const SignUp = () => {
+export const SignUp = () => {
     return (
-        <div className="feedback-wrapper feedback-wrapper_sign-up">
+        <FeedbackWrapper>
             <SignUpForm />
-            <div className="feedback-buttons">
-                <div className="feedback-text">
-                    <p className="feedback-text__quest">Already have an account?</p>
-                    <Link to={`${AppScreens.AUTH}${AuthStages.SIGN_IN}`} className="feedback-text__link">
-                        Sign In
-                    </Link>
-                </div>
-            </div>
-        </div>
+            <FeedbackButtons itsSignIn={false}>
+                <FeedbackText>
+                    <FeedbackTextQuestion>
+                        Already have an account?
+                    </FeedbackTextQuestion>
+                    <FeedbackTextLink>
+                        <Link to={`${AppScreens.AUTH}${AuthStages.SIGN_IN}`}>
+                            Sign In
+                        </Link>
+                    </FeedbackTextLink>
+                </FeedbackText>
+            </FeedbackButtons>
+        </FeedbackWrapper>
     )
 };
 
-export { SignUp };

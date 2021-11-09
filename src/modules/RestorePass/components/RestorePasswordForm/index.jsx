@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Field } from "formik";
 import { useHistory } from "react-router";
 
 import { AppScreens, AuthStages } from "routes";
@@ -10,6 +10,7 @@ import { AuthTextInput,
         ActionButton,
         BackToSignInButton  } from "components";
 import { EmailInputSvg } from "assets";
+import { FeedbackForm } from "modules/styles";
 
 
 export const RestorePassForm = () => {
@@ -24,8 +25,8 @@ export const RestorePassForm = () => {
             validationSchema={restorePassSchema}
             onSubmit={() => history.push(`${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`)}
             >
-            {({ errors, touched }) => (
-                <Form className="feedback-form">
+            {({ errors, touched, handleSubmit }) => (
+                <FeedbackForm onSubmit={handleSubmit}>
    
                 <BackToSignInButton backToSignIn={backToSignIn}/>
                 <RestoreMessage isConfirm={false}/>
@@ -36,7 +37,7 @@ export const RestorePassForm = () => {
                     : null}
                 
                 <ActionButton textContent='Restore Password'/>
-            </Form>
+            </FeedbackForm>
             )}
         </Formik>
        

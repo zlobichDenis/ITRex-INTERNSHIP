@@ -1,16 +1,19 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
+import { InputText } from "styles";
+import { InputField } from "../styles";
+
 export const AuthTextInput = ({ field, icon, placeholder }) => {
     return (
-        <div className="feedback-field">
+        <InputField>
             <img width="21" src={icon} alt="icon" />
-            <input 
+            <InputText
                 {...field}
                 placeholder={placeholder}
-                className="feedback-field__input"
-                />
-        </div>
+                >
+            </InputText>
+        </InputField>
     )
 };
 

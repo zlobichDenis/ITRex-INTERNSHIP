@@ -2,13 +2,15 @@ import React from "react";
 import { Form, Formik, Field } from "formik";
 import { useHistory } from "react-router";
 
-import { AppScreens } from "../../../../routes";
-import { signInSchema } from "../../../../core";
+import { AppScreens } from "routes";
+import { signInSchema } from "core";
 import { AuthTextInput, 
          PasswordInput,  
          AlertMessage, 
-         ActionButton  } from "../../../../components";
-import { PasswordInputSvg, EmailInputSvg } from "../../../../assets";
+         ActionButton  } from "components";
+import { PasswordInputSvg, EmailInputSvg } from "assets";
+import { Tittle } from "styles";
+import { FeedbackForm } from "modules/styles";
 
 
 export const SignInForm = () => {
@@ -22,9 +24,9 @@ export const SignInForm = () => {
             validationSchema={signInSchema}
             onSubmit={() => history.push(AppScreens.PATIENT_VIEW)}
             >  
-            {({ errors, touched }) => (
-                <Form className="feedback-form">
-                    <p className="feedback-form__title">Sign In</p>
+            {({ errors, touched, handleSubmit }) => (
+                <FeedbackForm onSubmit={handleSubmit}>
+                    <Tittle >Sign In</Tittle>
 
                     <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon={EmailInputSvg}/>
                     {errors.email && touched.email
@@ -39,7 +41,7 @@ export const SignInForm = () => {
 
                     <ActionButton textContent='Sign In'/>
                     
-                </Form>
+                </FeedbackForm>
             )}
         </Formik>
     )

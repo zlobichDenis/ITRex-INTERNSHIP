@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
+import { AlertMessageText } from "./styles";
+
 export const AlertMessage = ({ message }) => {
-    
     return (
-        <div className="feedback-message feedback-message_show feedback-message_password">
-            <p className="feedback-message_text">{message}</p>
-        </div> 
+        <AlertMessageText>
+            <p>{message}</p>
+        </AlertMessageText> 
     )
 };
 

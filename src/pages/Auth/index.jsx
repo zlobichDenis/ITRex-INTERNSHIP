@@ -1,12 +1,14 @@
 import React from "react";
+
 import { AuthRouter } from "routes";
+import { Section, MainContainer } from "./styles";
 
 export const Authentification = () => {
     return (
-        <section className="feedback">
-            <div className="feedback-container">
+        <Section>
+            <MainContainer>
                 <AuthRouter />
-            </div>
-        </section>
+            </MainContainer>
+        </Section>
     )
 }
