@@ -4,22 +4,15 @@ import { Switch,
          Redirect,
          BrowserRouter as Router } from 'react-router-dom';
 
-import { Authentification, DoctorView, PatientView } from "pages";
-import { AppScreens } from "routes";
+import  { AppScreens, appRoutes } from "routes";
 
 const AppRouter = () => {
     return (
         <Router>
             <Switch>
-                <Route path={AppScreens.AUTH}>
-                    <Authentification />
-                </Route>
-                <Route path={AppScreens.DOCTOR_VIEW}>
-                    <DoctorView />
-                </Route>
-                <Route path={AppScreens.PATIENT_VIEW}>
-                    <PatientView  />
-                </Route>
+                {appRoutes.map(({ component, path }) => {
+                    return <Route key={`route-to${path}`} component={component} path={path} />
+                })}
                 <Redirect from="/" to={AppScreens.AUTH} />
             </Switch>
         </Router>
