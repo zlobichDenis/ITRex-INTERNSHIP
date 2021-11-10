@@ -40,12 +40,10 @@ export const authRoutes = [
     },
     {
         path: AuthStages.RESTORE,
-        component: RestorePass,
-        isConfirmed: false, 
+        component: RestorePass, 
     },
     {
-        path: AuthStages.SIGN,
-        component: SignUp,
-        isConfirmed: true,
+        path: AuthStages.RESTORE_CONFIRM,
+        component: RestorePass,
     },
 ];

@@ -7,7 +7,7 @@ import { ButtonWrapper, Button } from './styles';
 export const ActionButton = ({ textContent }) => {
     return (
         <ButtonWrapper>
-            <Button >
+            <Button type="submit">
                 <span>{textContent}</span>
                 <img height="21" width="21" src={ButtonArrowSvg} alt="icon" />
             </Button>
