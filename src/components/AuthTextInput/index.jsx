@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import { InputText } from "styles";
+import { InputText } from "elements";
 import { InputField } from "../styles";
 
 export const AuthTextInput = ({ field, icon, placeholder }) => {

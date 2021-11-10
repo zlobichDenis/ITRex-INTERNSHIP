@@ -13,7 +13,7 @@ import { NameInputSvg,
          EmailInputSvg,
          PasswordConfirmSvg} from "assets";
 import { FeedbackForm } from "modules/styles";
-import { Tittle } from "styles";
+import { Tittle } from "elements";
 
 export const SignUpForm = () => {
     let history = useHistory();

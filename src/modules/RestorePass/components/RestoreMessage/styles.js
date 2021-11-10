@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
-import { OrdinaryText, colors } from "styles";
+import { colors } from "styles";
+import { OrdinaryText } from "elements";
 
 export const RestoreMessageText = styled(OrdinaryText)`
     font-size: 15px;

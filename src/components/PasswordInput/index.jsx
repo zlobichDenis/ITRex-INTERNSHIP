@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { InputText } from "styles";
+import { InputText } from "elements";
 import { InputField, InputIcon } from "../styles";
 
 export const PasswordInput = ({ placeholder, field, icon }) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Formik, Field } from "formik";
+import { Formik, Field } from "formik";
 import { useHistory } from "react-router";
 
 import { AppScreens } from "routes";
@@ -9,7 +9,7 @@ import { AuthTextInput,
          AlertMessage, 
          ActionButton  } from "components";
 import { PasswordInputSvg, EmailInputSvg } from "assets";
-import { Tittle } from "styles";
+import { Tittle } from "elements";
 import { FeedbackForm } from "modules/styles";
 
 
