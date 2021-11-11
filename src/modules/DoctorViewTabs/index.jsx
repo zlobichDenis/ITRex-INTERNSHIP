@@ -1,7 +1,7 @@
 import React from "react";
 
 import { CabinetTab } from "components";
-import { Tabs } from "./styles";
+import { Tabs } from "modules/styles";
 
 export const DoctorViewTabs = () => {
     return (

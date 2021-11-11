@@ -1,7 +1,7 @@
 import React from "react";
 
 import { SearchInput, SortSelect } from "components";
-import { ControlPanel, InputsWrapper } from "./styles";
+import { ControlPanel, InputsWrapper } from "modules/styles";
 
 export const DoctorViewControlPanel = () => {
     return (

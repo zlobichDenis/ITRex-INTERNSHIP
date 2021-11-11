@@ -5,6 +5,10 @@ export const ButtonWrapper = styled.div`
     display: flex;
     align-self: flex-start;
     width: 100%;
+
+    @media (min-width: 321px) and (max-width: 768px) {
+        display: ${({ itsUserPatient }) => itsUserPatient ? "none" : "flex"};
+    }
 `;
 
 export const Button = styled.button`
@@ -12,7 +16,6 @@ export const Button = styled.button`
     align-items: center;
     align-self: flex-start;
     gap: 8px;
-    margin-top: 8px;
     padding: 12px 16px;
     border-radius: 8px;
     font-family: "Poppins";

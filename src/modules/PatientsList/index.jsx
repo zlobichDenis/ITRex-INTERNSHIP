@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { Patient } from "./components";
 import { EmptyList } from "components";
-import { AppointmentsListWrapper, AppointmentsList } from "./styles";
+import { AppointmentsListWrapper, AppointmentsList } from "modules/styles";
 
 const PatientsListComponent = (props) => {
     const  { patients } = props;

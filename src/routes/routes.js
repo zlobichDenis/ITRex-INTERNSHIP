@@ -24,7 +24,7 @@ export const appRoutes = [
         component: DoctorView,
     },
     {
-        path: AppScreens.AUTH,
+        path: AppScreens.PATIENT_VIEW,
         component: PatientView,
     }
 ];

@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { ButtonArrowSvg } from 'assets';
 import { ButtonWrapper, Button } from './styles';
 
-export const ActionButton = ({ textContent }) => {
+export const ActionButton = ({ textContent, itsUserPatient = false }) => {
     return (
-        <ButtonWrapper>
-            <Button type="submit">
+        <ButtonWrapper itsUserPatient={itsUserPatient}>
+            <Button>
                 <span>{textContent}</span>
                 <img height="21" width="21" src={ButtonArrowSvg} alt="icon" />
             </Button>
@@ -17,4 +17,5 @@ export const ActionButton = ({ textContent }) => {
 
 ActionButton.propTypes = {
     textContent: PropTypes.string,
+    itsUserPatient: PropTypes.bool,
 };

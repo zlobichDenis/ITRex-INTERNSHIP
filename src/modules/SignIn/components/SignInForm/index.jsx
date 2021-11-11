@@ -39,7 +39,7 @@ export const SignInForm = () => {
                         ? <AlertMessage message={errors.password} /> 
                         : null}
 
-                    <ActionButton textContent='Sign In'/>
+                    <ActionButton type="submit" textContent='Sign In'/>
                     
                 </FeedbackForm>
             )}

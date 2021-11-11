@@ -8,7 +8,6 @@ export const AuthRouter = () => {
     return (
         <Switch>
             {authRoutes.map(({ path, component }) => {
-                console.log(isConfirmed)
                 return <Route exact key={`auth-route-to-${path}`} path={`${AppScreens.AUTH}${path}`} component={component} />
             })}
             <Redirect exact from={AppScreens.AUTH} to={`${AppScreens.AUTH}${AuthStages.SIGN_UP}`}/>
