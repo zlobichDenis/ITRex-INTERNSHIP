@@ -1,0 +1,70 @@
+@import './../common/reset.scss';
+@import './../common/variables.scss';
+@import './../common/fonts.scss';
+@import './../common/mixins.scss';
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+    .doctor-cabinet {
+        align-items: center;
+
+        &__header {
+            width: 95%;
+            padding: 24px 0;
+        }
+
+        &__wrapper {
+            width: 95%;
+            height: 90%;
+            gap: 56px;
+            padding: 40px 48px;
+            border-radius: 30px;
+        }
+
+        &__tabs {
+            justify-content: flex-start;
+            gap: 56px;
+        }
+
+        &__tab {
+            width: 160px;
+            height: 40px;
+        }
+
+        &__info {
+            gap: 32px;
+
+            &_empty-list {
+                gap: 166px;
+            }
+        }
+
+        &__control-panel {
+            width: 100%;
+        }
+
+        &__search-btn {
+            position: relative;
+        }
+
+        &__patients-list {
+            flex-direction: row;
+            align-self: flex-start;
+        }
+
+        &__patient-item {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding: 24px 32px;
+            width: 406px;
+        } 
+
+        &__patient-info {
+            overflow-y: scroll;
+        }
+
+        &__patient-details {
+            justify-content: center;
+        }
+    }
+}

@@ -1,0 +1,701 @@
+@import './../common/reset.scss';
+@import './../common/variables.scss';
+@import './../common/fonts.scss';
+@import './../common/mixins.scss';
+
+
+//---------DESKTOP
+@media (min-width: 1920px) {
+    .feedback {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        height: 100vh;
+        background: url('../img/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        &-container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            z-index: 1;
+        }
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 560px;
+            gap: 72px;
+            background-color: $form-wrapper-background-color;
+            z-index: 2;
+            &_sign-up {
+                padding: 168px 96px 80px 96px;
+                gap: 120px;
+            }
+            &_sign-in {
+                padding: 264px 96px 80px 96px;
+            }
+            &_restore-password {
+                padding: 264px 96px 0 96px;  
+            }
+            &_restore-confirm {
+                padding: 264px 96px 0 96px;
+            }
+        }
+        &-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: $fields-of-forms-tablet-desktop-size;
+            gap: 40px;
+            &__title {
+                @include font (Poppins, 600, 24px, 24px);
+                align-self: center;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                color: $text-title-color;
+            }
+        }
+        &-submit {
+            display: flex;
+            align-self: start;
+            width: 100%;
+            &__btn {
+                @include font (Poppins, 600, 15px, 130%);
+                margin-top: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background: $form-button-link-color;
+                padding: 12px 16px;
+                border-radius: 8px;
+                align-self: flex-start;
+                color: white;
+                text-decoration: none;
+                border: transparent;
+            }
+        }
+        &-restore-password {
+            @include font (Poppins, 600, 20px, 24px);
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 100%;
+            gap: 16px;
+            text-decoration: none;
+            color: $text-title-color;
+        }
+        &-field {
+            display: flex;
+            position: relative;
+            gap: 16px;
+            align-items: center;
+            width: 100%;
+            height: 56px;
+            border-radius: 7px;
+            border: $input-border;
+            padding: 8px 16px;
+            background: $input-color;
+            &:hover {
+                border: $input-hover-border;
+            }
+            &__icon {
+                width: 24px;
+                height: 24px;
+                background-image: url('../img/eye-blocked.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                &_show {
+                    background-image: url('../img/eye.png');
+                }
+            }
+            &__input {
+                @include font (Poppins, 400, 17px, 140%);
+                border: none;
+                background-color: transparent;
+                width: 100%;
+                color: $text-color;
+                &:focus {
+                    outline: none;
+                }
+            }
+            &__btn {
+                pointer-events: none;
+            }
+        }
+        &-message {
+            @include font (Poppins, 400, 13px, 120%);
+            display: none;
+            width: 100%;
+            color:  $alert-message-color;
+            letter-spacing: -0.24px;
+            &_show {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                align-self: center;
+                justify-self: flex-start;
+            }
+            &_restore {
+                @include font (Poppins, 400, 15px, 130%);
+                color: $text-color;
+            }
+            &__email {
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+        &-buttons {
+            display: flex;
+            flex-direction: column;
+            width: $fields-of-forms-tablet-desktop-size;
+            gap: 11.5vh;
+            &_sign-in {
+                gap: 25vh;
+            }
+            &__forgot {
+                @include font (Poppins, 500, 15px, 130%);
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+        &-text {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            &__quest {
+                @include font (Poppins, 400, 15px, 140%);
+                display: flex;
+                align-items: center;
+                color: $text-color;
+            }
+            &__link {
+                @include font (Poppins, 600, 15px, 130%);
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+    }
+}
+
+//---------DESKTOP
+@media (min-width: 1024px) and (max-width: 1919px) {
+    .feedback {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        height: 100vh;
+        background: url('../img/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        &-container{
+            z-index: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 560px;
+            gap: 40px;
+            background-color: $form-wrapper-background-color;
+            z-index: 2;
+            &_sign-up {
+                padding: 168px 96px 0px 96px;
+                gap: 120px;
+            }
+            &_sign-in {
+                padding: 264px 96px 0 96px;
+            }
+            &_restore-password {
+                padding: 264px 96px 0 96px; 
+            }
+            &_restore-confirm {
+                padding: 264px 96px 0 96px;
+            }
+        }
+        &-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: $fields-of-forms-tablet-desktop-size;
+            gap: 40px;
+            &__title {
+                @include font (Poppins, 600, 24px, 24px);
+                align-self: center;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                color: $text-title-color;
+            }
+        }
+        &-restore-password {
+            @include font (Poppins, 600, 20px, 24px);
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            align-self: center;
+            width: 100%;
+            gap: 16px;
+            text-decoration: none;
+            color: $text-title-color;
+        }
+        &-field {
+            display: flex;
+            position: relative;
+            gap: 16px;
+            align-items: center;
+            align-self: center;
+            width: 100%;
+            height: 56px;
+            border-radius: 7px;
+            border: $input-border;
+            padding: 8px 16px;
+            background: $input-color;
+            &:hover {
+                border: $input-hover-border;
+            }
+            &__icon {
+                width: 24px;
+                height: 24px;
+                background-image: url('../img/eye-blocked.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                &_show {
+                    background-image: url('../img/eye.png');
+                }
+            }
+            &__input {
+                @include font (Poppins, 400, 17px, 140%);
+                border: none;
+                background-color: transparent;
+                width: 100%;
+                color: $text-color;
+                &:focus {
+                    outline: none;
+                }
+            }
+            &__link {
+                @include font (Poppins, 600, 15px, 130%);
+                color: white;
+                text-decoration: none;
+            }
+        }
+        &-submit {
+            width: 100%;
+            align-self: center;
+            &__btn {
+                @include font (Poppins, 600, 15px, 130%);
+                margin-top: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background: $form-button-link-color;
+                padding: 12px 16px;
+                border-radius: 8px;
+                color: white;
+                text-decoration: none;
+                border: transparent;
+            }
+        }
+        &-message {
+            @include font (Poppins, 400, 13px, 120%);
+            display: none;
+            width: 100%;
+            color:  $alert-message-color;
+            letter-spacing: -0.24px;
+            &_show {
+                display: flex;
+                align-items: center;
+            }
+            &_restore {
+                @include font (Poppins, 400, 15px, 130%);
+                color: $text-color;
+            }
+            &__email {
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+        &-buttons {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            width: $fields-of-forms-tablet-desktop-size;
+            gap: 32px;
+            &_sign-in {
+                gap: 72px;
+            }
+            &__forgot {
+                @include font (Poppins, 500, 15px, 130%);
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+        &-text {
+            width: $fields-of-forms-tablet-desktop-size;
+            display: flex;
+            flex-direction: row;
+            align-self: flex-start;
+            gap: 16px;
+            &__quest {
+                @include font (Poppins, 400, 15px, 140%);
+                display: flex;
+                align-items: center;
+                color: $text-color;
+            }
+            &__link {
+                @include font (Poppins, 600, 15px, 130%);
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+    }
+}
+
+//---------TABLET
+@media (min-width: 768px) and (max-width: 1023px){
+    .feedback {
+        display: flex;
+        position: relative;
+        height: 100vh;
+        background: url('../img/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        &-container{
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            z-index: 1;
+        }
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 560px;
+            gap: 72px;
+            background-color: $form-wrapper-background-color;
+            z-index: 2;
+            &_sign-up {
+                padding: 168px 96px 0 96px;
+                gap: 120px;
+            }
+            &_sign-in {
+                padding: 264px 96px 0 96px;
+            }
+            &_restore-password {
+                padding: 264px 96px 0 96px;  
+            }
+            &_restore-confirm {
+                padding: 264px 96px 0 96px;
+            }
+        }
+        &-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: $fields-of-forms-tablet-desktop-size;
+            gap: 40px;
+            &__title {
+                @include font (Poppins, 600, 24px, 24px);
+                width: 100%;
+                display: flex;
+                align-items: center;
+                color: $text-title-color;
+            }
+        }
+        &-submit {
+            width: 100%;
+            &__btn {
+                @include font (Poppins, 600, 15px, 130%);
+                margin-top: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background: $form-button-link-color;
+                padding: 12px 16px;
+                border-radius: 8px;
+                align-self: flex-start;
+                color: white;
+                text-decoration: none;
+                border: transparent;
+            }
+        }
+        &-restore-password {
+            @include font (Poppins, 600, 20px, 24px);
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 100%;
+            gap: 16px;
+            text-decoration: none;
+            color: $text-title-color;
+        }
+        &-field {
+            display: flex;
+            position: relative;
+            gap: 16px;
+            align-items: center;
+            width: 100%;
+            height: 56px;
+            border-radius: 7px;
+            border: $input-border;
+            padding: 8px 16px;
+            background: $input-color;
+            &:hover {
+                border: $input-hover-border;
+            }
+            &__icon {
+                width: 24px;
+                height: 24px;
+                background-image: url('../img/eye-blocked.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                &_hide {
+                    background-image: url('../img/eye.png');
+                }
+            }
+            &__input {
+                @include font (Poppins, 400, 17px, 140%);
+                border: none;
+                background-color: transparent;
+                width: 100%;
+                color: $text-color;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        &-message {
+            @include font (Poppins, 400, 13px, 120%);
+            display: none;
+            width: 100%;
+            color:  $alert-message-color;
+            letter-spacing: -0.24px;
+            &_show {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                align-self: center;
+                justify-self: flex-start;
+            }
+            &_restore {
+                @include font (Poppins, 400, 15px, 130%);
+                color: $text-color;
+            }
+            &__email {
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+        &-buttons {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            width: $fields-of-forms-tablet-desktop-size;
+            &_sign-in {
+                gap: 257px;
+            }
+            &__forgot {
+                @include font (Poppins, 500, 15px, 130%);
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+        &-text {
+            display: flex;
+            flex-direction: row;
+            align-self: flex-start;
+            width: $fields-of-forms-tablet-desktop-size;
+            gap: 16px;
+            &__quest {
+                @include font (Poppins, 500, 15px, 140%);
+                display: flex;
+                align-items: center;
+                color: $text-color;
+            }
+            &__link {
+                @include font (Poppins, 500, 15px, 130%);
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+    }
+}
+
+//---------MOBILE
+@media (min-width: 321px) and (max-width: 767px) {
+    .feedback {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 100vh;
+        background: url('../img/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        &-container{
+            display: flex;
+            flex-direction: column-reverse;
+            width: 100%;
+        }
+        &-wrapper {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            margin-top: 20%;
+            background-color: $form-wrapper-background-color;
+            z-index: 2;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            &_sign-up {
+                padding: 32px 32px 0 32px;
+
+            }
+            &_sign-in {
+                padding: 32px 32px 0 32px;
+            }
+            &_restore-password {
+                padding: 32px 32px 0 32px; 
+            }
+            &_restore-confirm {
+                padding: 32px 32px 0 32px;
+            }
+        }
+        &-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: $fields-of-forms-mobile-size;
+            gap: 24px;
+            &__title {
+                @include font (Poppins, 600, 20px, 24px);
+                width: 100%;
+                display: flex;
+                align-items: center;
+                color: $text-title-color;
+            }
+        }
+        &-submit {
+            width: 100%;
+            &__btn {
+                @include font (Poppins, 600, 15px, 130%);
+                margin-top: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background: $form-button-link-color;
+                padding: 12px 16px;
+                border-radius: 8px;
+                align-self: flex-start;
+                color: white;
+                text-decoration: none;
+                border: transparent;
+            }
+        }
+        &-restore-password {
+            @include font (Poppins, 600, 20px, 24px);
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 100%;
+            gap: 16px;
+            text-decoration: none;
+            color: $text-title-color;
+        }
+        &-field {
+            display: flex;
+            position: relative;
+            gap: 16px;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 40px;
+            border-radius: 7px;
+            border: $input-border;
+            padding: 8px 16px;
+            background: $input-color;
+            &:hover {
+                border: $input-hover-border;
+            }
+            &__icon {
+                width: 24px;
+                height: 24px;
+                background-image: url('../img/eye-blocked.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                &_show {
+                    background-image: url('../img/eye.png');
+                }
+            }
+            &__input {
+                @include font (Poppins, 500, 15px, 140%);
+                border: none;
+                width: 100%;
+                background-color: transparent;
+                color: $text-color;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        &-message {
+            @include font (Poppins, 400, 13px, 120%);
+            display: none;
+            width: 100%;
+            color:  $alert-message-color;
+            letter-spacing: -0.24px;
+            &_show {
+                display: flex;
+                align-items: center;
+            }
+            &_restore {
+                @include font (Poppins, 400, 15px, 130%);
+                color: $text-color;
+            }
+            &__email {
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+        &-buttons {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            width: $fields-of-forms-mobile-size;
+            gap: 64px;
+            &_sign-in {
+                gap: 72px;
+            }
+            &__forgot {
+                @include font (Poppins, 500, 15px, 130%);
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+        &-text {
+            display: flex;
+            flex-direction: column; 
+            align-self: flex-start;
+            width: 100%;
+            gap: 5px;
+            &__quest {
+                @include font (Poppins, 400, 15px, 140%);
+                color: $text-color;
+            }
+            &__link {
+                @include font (Poppins, 600, 15px, 130%);
+                text-decoration-line: underline;
+                color: $form-button-link-color;
+            }
+        }
+    }
+}

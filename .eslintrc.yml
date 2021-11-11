@@ -1,0 +1,20 @@
+env:
+  es6: true
+  browser: true
+  commonjs: true
+  jest: true
+
+extends: ['plugin:react/recommended']
+
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: 'module'
+  project: './tsconfig.json'
+  tsconfigRootDir: __dirname
+  createDefaultProgram: true
+
+plugins: ['react']
+
+settings:
+  react:
+    version: '17'
