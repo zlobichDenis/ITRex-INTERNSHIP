@@ -12,6 +12,8 @@ import SortSvg from "./Sort.svg";
 import PersonOptionsSvg from "./PersonOptions.svg";
 import AppointmentSvg from "./Appointment.svg";
 import DividerSvg from "./Divider.svg";
+import ActiveStatusSvg from "./ActiveStatus.svg";
+import InactiveStatusSvg from "./InactiveStatus.svg";
 
 
 export { BackArrowSvg,
@@ -28,4 +30,6 @@ export { BackArrowSvg,
         PersonOptionsSvg,
         AppointmentSvg,
         DividerSvg,
+        ActiveStatusSvg,
+        InactiveStatusSvg,
 };
