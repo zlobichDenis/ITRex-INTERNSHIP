@@ -4,6 +4,7 @@ export const doctors = [
     {
         firstName: 'Jane',
         lastName: 'Cooper',
+        occupation: 'Therapist',
         id: 1,
         photo: 'img/person-photo-1.png',
         date: moment('10/09/2021 09:00:00').format('dddd, MMMM Do YYYY, h:mm:ss'),
@@ -13,6 +14,7 @@ export const doctors = [
     {
         firstName: 'Courtney',
         lastName: 'Henry',
+        occupation: 'Therapist',
         id: 2,
         photo: 'img/person-photo-2.png',
         date: moment('11/09/2021 10:00:00').format('dddd, MMMM Do YYYY, h:mm:ss'),
@@ -22,6 +24,7 @@ export const doctors = [
     {
         firstName: 'Arlene',
         lastName: 'McCoy',
+        occupation: 'Therapist',
         id: 3,
         photo: 'img/person-photo-3.png',
         date: moment('10/09/2021 11:00:00').format('dddd, MMMM Do YYYY, h:mm:ss'),
@@ -31,6 +34,7 @@ export const doctors = [
     {
         firstName: 'Bessie',
         lastName: 'Cooper',
+        occupation: 'Doctor',
         id: 4,
         photo: 'img/person-photo-4.png',
         date: moment('10/09/2021 12:00:00').format('dddd, MMMM Do YYYY, h:mm:ss'),
@@ -40,6 +44,7 @@ export const doctors = [
     {
         firstName: 'Annete',
         lastName: 'Black',
+        occupation: 'Therapist',
         id: 5,
         photo: 'img/person-photo-5.png',
         date: moment('10/09/2021 13:00:00').format('dddd, MMMM Do YYYY, h:mm:ss'),
@@ -49,6 +54,7 @@ export const doctors = [
     {
         firstName: 'Esther',
         lastName: 'Howard',
+        occupation: 'Doctor',
         id: 6,
         photo: 'img/person-photo-6.png',
         date: moment('10/09/2021 14:00:00').format('dddd, MMMM Do YYYY, h:mm:ss'),
@@ -58,6 +64,7 @@ export const doctors = [
     {
         firstName: 'Jerome',
         lastName: 'Bell',
+        occupation: 'Doctor',
         id: 7,
         photo: 'img/person-photo-7.png',
         date: moment('10/09/2021 15:00:00').format('dddd, MMMM Do YYYY, h:mm:ss'),

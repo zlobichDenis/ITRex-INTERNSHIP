@@ -1,4 +1,4 @@
-import { Authentification, DoctorView, PatientView } from "pages";
+import { Authentification, DoctorView, PatientView, UserView } from "pages";
 import { SignUp, SignIn, RestorePass } from "modules";
 
 export const AuthStages = {
@@ -12,6 +12,7 @@ export const AppScreens = {
     AUTH: '/authentification',
     DOCTOR_VIEW: '/doctor-view',
     PATIENT_VIEW: '/patient-view',
+    USER_VIEW: '/user-view',
 };
 
 export const appRoutes = [
@@ -26,7 +27,11 @@ export const appRoutes = [
     {
         path: AppScreens.PATIENT_VIEW,
         component: PatientView,
-    }
+    },
+    {
+        path: AppScreens.USER_VIEW,
+        component: UserView,
+    },
 ];
 
 export const authRoutes = [

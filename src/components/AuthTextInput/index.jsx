@@ -7,7 +7,9 @@ import { InputField } from "../styles";
 export const AuthTextInput = ({ field, icon, placeholder }) => {
     return (
         <InputField>
-            <img width="21" src={icon} alt="icon" />
+            {icon 
+                ? <img width="21" src={icon} alt="icon" />
+                : null}
             <InputText
                 {...field}
                 placeholder={placeholder}

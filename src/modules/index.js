@@ -7,3 +7,5 @@ export * from "./DoctorViewControlPanel";
 export * from "./DoctorViewTabs";
 export * from "./PatientViewTabs";
 export * from "./PatientsViewControlPanel";
+export * from "./AppointmentForm";
+export * from "./UserPath";

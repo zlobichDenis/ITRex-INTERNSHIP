@@ -28,7 +28,7 @@ export const InputText = styled.input`
     }
 `;
 
-export const OrdinaryText = styled.div`
+export const OrdinaryText = styled.span`
     display: flex;
     align-items: center;
     width: 100%;

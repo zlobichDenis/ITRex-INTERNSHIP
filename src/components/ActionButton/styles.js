@@ -3,6 +3,7 @@ import { colors } from "styles";
 
 export const ButtonWrapper = styled.div`
     display: flex;
+    justify-content: ${({ itsUserView }) => itsUserView ? "flex-end" : "flex-start"};
     align-self: flex-start;
     width: 100%;
 
@@ -16,7 +17,7 @@ export const Button = styled.button`
     align-items: center;
     align-self: flex-start;
     gap: 8px;
-    padding: 12px 16px;
+    padding: 16px 40px;
     border-radius: 8px;
     font-family: "Poppins";
     font-weight: 600;
