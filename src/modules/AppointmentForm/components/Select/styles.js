@@ -19,12 +19,24 @@ export const selectStyles = {
         overflowY: "visible",
         overflowY: "scroll",
     }),
+    control: (provided) => ({
+        ...provided,
+        height: "100%",
+    }),
+    input: (provided) => ({
+        ...provided,
+        fontFamily: "Poppins",
+        fontStyle: "normal",
+        fontWeight: "400",
+        fontSize: "15px",
+        lineHeight: "130%",
+    }),
     container: (provided) => ({
         ...provided,
+        height: "56px",
         background: "#FFFFFF",
         border: "1px solid #DCE0EC",
         boxSizing: "border-box",
-
         boxShadow: "0px 4px 32px rgba(218, 228, 255, 0.16)",
         borderRadius: "8px",
     }),
@@ -48,4 +60,4 @@ export const selectStyles = {
         fontSize: "15px",
         lineHeight: "130%",
     })
-}
+};

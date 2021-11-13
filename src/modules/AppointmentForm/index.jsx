@@ -10,37 +10,42 @@ import { CreateAppointmentForm,
         StageCreatingWrapper,
         StageName,
         InputWrapper,
-        InputLabel } from "./styles";
+        InputLabel,
+        DatesList } from "./styles";
 import { ActionButton, AlertMessage, AuthTextInput } from "components";
-import { SelectList } from "./components";
-
+import { SelectList, TimeInputRadio, VisitCalendar } from "./components";
 
 export const AppointmentFormComponent = ({ doctors }) => {
+
     const occupations = doctors
         .reduce((acc, { occupation }) => {
             if (!acc.includes(occupation)) {
                 return [...acc, occupation];
             }
-            return acc
-        },[])
+            return acc }, [])
         .map((occupation) => ({
                 value: occupation,
                 label: occupation,
             }));
 
     const getFilteredDoctors = (doctorOccupation) => {
-        if (doctorOccupation ) {
+        if (doctorOccupation) {
             return doctors
                 .filter(({ occupation }) => occupation === doctorOccupation)
-                .map(({ firstName, lastName }) => ({
+                .map(({ firstName, lastName, id }) => ({
                     label: `${firstName} ${lastName}`,
-                    value: `${firstName} ${lastName}`,
+                    value: id,
                 }));
         }
-        return doctors.map(({ firstName, lastName }) => ({
+        return doctors.map(({ firstName, lastName, id }) => ({
             label: `${firstName} ${lastName}`,
-            value: `${firstName} ${lastName}`,
+            value: id,
         }));
+    };
+
+    const getAvailableTimes = (doctorsId) => {
+        console.log(doctors.find(({ id }) => id === doctorsId).availableTime)
+        return doctors.find(({ id }) => id === doctorsId).availableTime;
     };
 
     return (
@@ -54,16 +59,19 @@ export const AppointmentFormComponent = ({ doctors }) => {
                 note: "",
             }}
             validationSchema={appointmentSchema}
+            validateOnBlur={false}
             >
             {({ values, errors, touched, handleSubmit }) => (
+                console.log(values.date),
                 <CreateAppointmentForm onSubmit={handleSubmit}>
+
                     <StageCreatingWrapper>
                         <StageName>
                             <img width="32" height="32" src={NumberOneSvg} alt="step-1" />
                             <OrdinaryText>Choose a day for an appointment</OrdinaryText>
                         </StageName>
                         <div className="calendar">
-
+                            <Field name="date" id="date" component={VisitCalendar} />
                         </div>
                     </StageCreatingWrapper>
 
@@ -72,11 +80,15 @@ export const AppointmentFormComponent = ({ doctors }) => {
                         <img width="32" height="32" src={NumberTwoSvg} alt="step-2" />
                             <OrdinaryText>Select an available timeslot</OrdinaryText>
                         </StageName>
-                        <ul className="date-list">
-                            <li className="date-list-item"></li>
-                            <li className="date-list-item"></li>
-                            <li className="date-list-item"></li>
-                        </ul>
+                            <DatesList >
+                                {values.doctorName 
+                                 ? Object.keys(getAvailableTimes(values.doctorName)["14/09/2021"]).map((time) => (
+                                       <Field key={`time-${time}`} name="time" component={TimeInputRadio} timeValue={time} />
+                                 ))
+                                : null}
+                                <li className="date-list-item"></li>
+                                <li className="date-list-item"></li>
+                            </DatesList>
                     </StageCreatingWrapper>
 
                     <StageCreatingWrapper>

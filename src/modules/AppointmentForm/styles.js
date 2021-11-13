@@ -45,3 +45,10 @@ export const InputText = styled.input`
     border: 1px solid #DCE0EC;
     border-radius: 8px;
 `;
+
+export const DatesList = styled.ul`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px 16px;
+`;
