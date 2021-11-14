@@ -5,7 +5,6 @@ import { colors } from "styles";
 export const CreateAppointmentForm = styled.form`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
     gap: 104px;
@@ -14,15 +13,10 @@ export const CreateAppointmentForm = styled.form`
 export const StageCreatingWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    width: 468px;
     gap: 40px;
 `;
 
-export const StageName = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-`;
 
 export const InputWrapper = styled.div`
     display: flex;

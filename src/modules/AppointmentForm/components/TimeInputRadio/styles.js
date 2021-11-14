@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { colors } from "styles";
+
 export const RadioWrapper = styled.li`
     display: flex;
     padding: 8px 16px;
@@ -11,7 +13,8 @@ export const RadioWrapper = styled.li`
     font-weight: 600;
     font-size: 15px;
     line-height: 130%;
-    background: #FFFFFF;
+    background: ${colors.INACTIVE_CABINET_TAB_COLOR};
+    color: ${({ isSelected }) => isSelected ? colors.TEXT_LINK_COLOR : colors.TEXT_TITLE_COLOR};
     border: 1px solid #7297FF;
     box-sizing: border-box;
     box-shadow: 0px 4px 32px rgba(218, 228, 255, 0.24);

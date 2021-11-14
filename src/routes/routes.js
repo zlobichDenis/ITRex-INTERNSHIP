@@ -1,5 +1,5 @@
 import { Authentification, DoctorView, PatientView, UserView } from "pages";
-import { SignUp, SignIn, RestorePass } from "modules";
+import { SignUp, SignIn, RestorePass } from "modules/AuthentificationForm";
 
 export const AuthStages = {
     SIGN_UP: '/sign-up',

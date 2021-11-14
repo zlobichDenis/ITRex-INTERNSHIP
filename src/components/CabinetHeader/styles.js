@@ -45,3 +45,9 @@ export const UserSpecialty = styled.span`
     line-height: 130%;
     color: ${colors.TEXT_COLOR};
 `;
+
+export const UserNameWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+`

@@ -1,13 +1,13 @@
 import React from "react";
 
-import { AuthRouter } from "routes";
 import { Section, MainContainer } from "./styles";
+import { AuthentificationForm } from "modules";
 
 export const Authentification = () => {
     return (
         <Section>
             <MainContainer>
-                <AuthRouter />
+                <AuthentificationForm />
             </MainContainer>
         </Section>
     )

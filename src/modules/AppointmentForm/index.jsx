@@ -4,16 +4,14 @@ import { Formik, Field } from "formik";
 import { connect } from "react-redux";
 
 import { NumberOneSvg, NumberTwoSvg, NumberThreeSvg } from "assets";
-import { OrdinaryText } from "elements";
 import { appointmentSchema } from "core";
 import { CreateAppointmentForm,
         StageCreatingWrapper,
-        StageName,
         InputWrapper,
         InputLabel,
         DatesList } from "./styles";
 import { ActionButton, AlertMessage, AuthTextInput } from "components";
-import { SelectList, TimeInputRadio, VisitCalendar } from "./components";
+import { SelectList, TimeInputRadio, VisitCalendar, StageName } from "./components";
 
 export const AppointmentFormComponent = ({ doctors }) => {
 
@@ -28,7 +26,7 @@ export const AppointmentFormComponent = ({ doctors }) => {
                 label: occupation,
             }));
 
-    const getFilteredDoctors = (doctorOccupation) => {
+    const getFilteredDoctorsByOccupation = (doctorOccupation) => {
         if (doctorOccupation) {
             return doctors
                 .filter(({ occupation }) => occupation === doctorOccupation)
@@ -43,9 +41,8 @@ export const AppointmentFormComponent = ({ doctors }) => {
         }));
     };
 
-    const getAvailableTimes = (doctorsId) => {
-        console.log(doctors.find(({ id }) => id === doctorsId).availableTime)
-        return doctors.find(({ id }) => id === doctorsId).availableTime;
+    const getAvailableTime = (doctorsId) => {
+        return Object.key(doctors.find(({ id }) => id === doctorsId).availableTime)
     };
 
     return (
@@ -60,46 +57,18 @@ export const AppointmentFormComponent = ({ doctors }) => {
             }}
             validationSchema={appointmentSchema}
             validateOnBlur={false}
+            onSubmit={() => console.log(values)}
             >
-            {({ values, errors, touched, handleSubmit }) => (
-                console.log(values.date),
+            {({ values, errors, touched, handleSubmit, setFieldValue }) => (
+                console.log(values),
                 <CreateAppointmentForm onSubmit={handleSubmit}>
 
-                    <StageCreatingWrapper>
-                        <StageName>
-                            <img width="32" height="32" src={NumberOneSvg} alt="step-1" />
-                            <OrdinaryText>Choose a day for an appointment</OrdinaryText>
-                        </StageName>
-                        <div className="calendar">
-                            <Field name="date" id="date" component={VisitCalendar} />
-                        </div>
-                    </StageCreatingWrapper>
-
-                    <StageCreatingWrapper>
-                        <StageName>
-                        <img width="32" height="32" src={NumberTwoSvg} alt="step-2" />
-                            <OrdinaryText>Select an available timeslot</OrdinaryText>
-                        </StageName>
-                            <DatesList >
-                                {values.doctorName 
-                                 ? Object.keys(getAvailableTimes(values.doctorName)["14/09/2021"]).map((time) => (
-                                       <Field key={`time-${time}`} name="time" component={TimeInputRadio} timeValue={time} />
-                                 ))
-                                : null}
-                                <li className="date-list-item"></li>
-                                <li className="date-list-item"></li>
-                            </DatesList>
-                    </StageCreatingWrapper>
-
-                    <StageCreatingWrapper>
-                        <StageName>
-                        <img width="32" height="32" src={NumberThreeSvg} alt="step-2" />
-                            <OrdinaryText>Select a doctor and define the reason of your visit</OrdinaryText>
-                        </StageName>
+                <StageCreatingWrapper>
+                        <StageName icon={NumberOneSvg} text="Select a doctor and define the reason of your visit"/>
 
                         <InputWrapper>
                             <InputLabel>Occupation</InputLabel>
-                            <Field component={SelectList} name="occupation" id="occupation" options={occupations} />
+                            <Field component={SelectList} name="occupation" id="occupation" options={occupations} handleReset={setFieldValue}/>
                             {errors.occupation && touched.occupation
                                 ? <AlertMessage message={errors.occupation} />
                                 : null}
@@ -107,7 +76,7 @@ export const AppointmentFormComponent = ({ doctors }) => {
 
                         <InputWrapper>
                             <InputLabel>Doctors name</InputLabel>
-                            <Field component={SelectList} name="doctorName" id="doctorName" options={getFilteredDoctors(values.occupation)} />
+                            <Field component={SelectList} name="doctorName" type="radio" id="doctorName" options={getFilteredDoctorsByOccupation(values.occupation)} handleReset={setFieldValue} />
                             {errors.doctorName && touched.doctorName
                                 ? <AlertMessage message={errors.doctorName} />
                                 : null}
@@ -126,6 +95,25 @@ export const AppointmentFormComponent = ({ doctors }) => {
                             <Field component={AuthTextInput} name="note" id="note"/>
                         </InputWrapper>
                     </StageCreatingWrapper>
+
+                    <StageCreatingWrapper>
+                        <StageName icon={NumberTwoSvg} text="Choose a day for an appointment"/>
+                        { values.doctorName && values.occupation
+                            ? <Field name="date" id="date" availableDates={getAvailableTime(values.doctorName)} component={VisitCalendar} handleReset={setFieldValue}/>
+                            : <AlertMessage message="Choose a doctor first"/>}
+                    </StageCreatingWrapper>
+
+                    <StageCreatingWrapper>
+                        <StageName icon={NumberThreeSvg} text="Select an available timeslot"/>
+                            <DatesList>
+                                {values.doctorName && values.date && values.occupation
+                                    ? getAvailableTime(values.doctorName)[values.date].map((time) => (
+                                        <Field key={`time-${time}`} name="time" component={TimeInputRadio} timeValue={time} selectedTime={values.time}/>
+                                    ))
+                                    : <AlertMessage message="Select a date and doctor first"/>}
+                            </DatesList>
+                    </StageCreatingWrapper>
+
                     <ActionButton type="submit" textContent="Submit" itsUserView icon={null} />
                 </CreateAppointmentForm>
             )}

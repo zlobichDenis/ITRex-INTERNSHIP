@@ -1,17 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useField } from "formik";
 
 import { RadioWrapper, RadioInput } from "./styles";
 
-export const TimeInputRadio = ({ field, timeValue }) => {
+export const TimeInputRadio = ({ timeValue, selectedTime, ...props }) => {
+    const [ field, state, { setValue } ] = useField(props.field);
+    
     return (
-        <RadioWrapper>
-            <label htmlFor="time">{timeValue}</label>
+        <RadioWrapper isSelected={selectedTime === timeValue ? true : false}>
+            <label htmlFor={`time-${timeValue}`}>{timeValue}</label>
             <RadioInput 
                 {...field}
-                id="time"
+                id={`time-${timeValue}`}
                 name="time" 
-                type="checkbox" 
+                type="radio" 
                 value={timeValue}/>
         </RadioWrapper>
     )
@@ -20,5 +23,6 @@ export const TimeInputRadio = ({ field, timeValue }) => {
 TimeInputRadio.propTypes = {
     field: PropTypes.object.isRequired,
     timeValue: PropTypes.string,
+    selectedTime: PropTypes.string,
 };
 

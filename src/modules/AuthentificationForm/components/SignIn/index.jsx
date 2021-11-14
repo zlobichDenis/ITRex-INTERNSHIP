@@ -7,12 +7,12 @@ import { FeedbackWrapper,
          FeedbackButtons, 
          FeedbackText,
          FeedbackTextQuestion,
-         FeedbackTextLink } from "../styles/authentification";
+         FeedbackTextLink } from "../../styles";
 
 
 export const SignIn = () => {
     return (
-        <FeedbackWrapper>
+        <>
         <SignInForm />
         <FeedbackButtons itsSignIn={true}>
                 <FeedbackTextLink>
@@ -31,6 +31,6 @@ export const SignIn = () => {
                     </FeedbackTextLink>
                 </FeedbackText>
         </FeedbackButtons>
-    </FeedbackWrapper>
+    </>
     )
 };
