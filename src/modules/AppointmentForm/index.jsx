@@ -13,7 +13,7 @@ import { CreateAppointmentForm,
 import { ActionButton, AlertMessage, AuthTextInput } from "components";
 import { SelectList, TimeInputRadio, VisitCalendar, StageName } from "./components";
 
-export const AppointmentFormComponent = ({ doctors }) => {
+const AppointmentFormComponent = ({ doctors }) => {
 
     const occupations = doctors
         .reduce((acc, { occupation }) => {
