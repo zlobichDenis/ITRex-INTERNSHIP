@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "styles";
 
-export const RadioWrapper = styled.li`
+export const RadioWrapper = styled.label`
     display: flex;
     padding: 8px 16px;
     flex-direction: row;

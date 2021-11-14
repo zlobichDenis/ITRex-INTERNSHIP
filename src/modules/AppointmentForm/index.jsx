@@ -55,12 +55,14 @@ const AppointmentFormComponent = ({ doctors }) => {
                 reason: "",
                 note: "",
             }}
+            initialErrors={{
+                occupation: 'Select a doctor and define the reason of your visit',
+            }}
             validationSchema={appointmentSchema}
             validateOnBlur={false}
-            onSubmit={() => console.log(values)}
+            onSubmit={( values ) => console.log(values)}
             >
-            {({ values, errors, touched, handleSubmit, setFieldValue }) => (
-                console.log(values),
+            {({ values, errors, touched, handleSubmit, setFieldValue, isValid }) => (
                 <CreateAppointmentForm onSubmit={handleSubmit}>
 
                 <StageCreatingWrapper>
@@ -114,7 +116,7 @@ const AppointmentFormComponent = ({ doctors }) => {
                             </DatesList>
                     </StageCreatingWrapper>
 
-                    <ActionButton type="submit" textContent="Submit" itsUserView icon={null} />
+                    <ActionButton isDisabled={isValid} type="submit" textContent="Submit" itsUserView icon={null} />
                 </CreateAppointmentForm>
             )}
         </Formik>

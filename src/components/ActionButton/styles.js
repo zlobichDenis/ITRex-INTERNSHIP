@@ -23,7 +23,7 @@ export const Button = styled.button`
     font-weight: 600;
     font-size: 15px;
     line-height: 130%;
-    background: ${colors.ACTION_BUTTON_COLOR};
+    background: ${({ isDisabled }) => isDisabled ?colors.ACTION_BUTTON_COLOR : colors.DISABLED_BUTTON};
     border: transparent;
     color: white;
     text-decoration: none;
