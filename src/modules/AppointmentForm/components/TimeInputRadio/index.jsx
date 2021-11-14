@@ -5,7 +5,7 @@ import { useField } from "formik";
 import { RadioWrapper, RadioInput } from "./styles";
 
 export const TimeInputRadio = ({ timeValue, selectedTime, ...props }) => {
-    const [ field, state, { setValue } ] = useField(props.field);
+    const [ field ] = useField(props.field);
     
     return (
         <RadioWrapper isSelected={selectedTime === timeValue ? true : false}>

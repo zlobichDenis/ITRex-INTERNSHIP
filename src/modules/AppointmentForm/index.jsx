@@ -42,7 +42,7 @@ const AppointmentFormComponent = ({ doctors }) => {
     };
 
     const getAvailableTime = (doctorsId) => {
-        return Object.key(doctors.find(({ id }) => id === doctorsId).availableTime)
+        return doctors.find(({ id }) => id === doctorsId).availableTime;
     };
 
     return (
@@ -99,7 +99,7 @@ const AppointmentFormComponent = ({ doctors }) => {
                     <StageCreatingWrapper>
                         <StageName icon={NumberTwoSvg} text="Choose a day for an appointment"/>
                         { values.doctorName && values.occupation
-                            ? <Field name="date" id="date" availableDates={getAvailableTime(values.doctorName)} component={VisitCalendar} handleReset={setFieldValue}/>
+                            ? <Field name="date" id="date" availableDates={Object.keys(getAvailableTime(values.doctorName))} component={VisitCalendar} handleReset={setFieldValue}/>
                             : <AlertMessage message="Choose a doctor first"/>}
                     </StageCreatingWrapper>
 
@@ -107,7 +107,7 @@ const AppointmentFormComponent = ({ doctors }) => {
                         <StageName icon={NumberThreeSvg} text="Select an available timeslot"/>
                             <DatesList>
                                 {values.doctorName && values.date && values.occupation
-                                    ? getAvailableTime(values.doctorName)[values.date].map((time) => (
+                                    ? Object.keys(getAvailableTime(values.doctorName)[values.date]).map((time) => (
                                         <Field key={`time-${time}`} name="time" component={TimeInputRadio} timeValue={time} selectedTime={values.time}/>
                                     ))
                                     : <AlertMessage message="Select a date and doctor first"/>}
