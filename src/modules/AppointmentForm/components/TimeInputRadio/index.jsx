@@ -8,7 +8,6 @@ export const TimeInputRadio = ({ timeValue, selectedTime, ...props }) => {
     const [ field ] = useField(props.field);
     
     return (
-        // <RadioWrapper isSelected={selectedTime === timeValue ? true : false}>
             <RadioWrapper isSelected={selectedTime === timeValue ? true : false} htmlFor={`time-${timeValue}`}>
                 <RadioInput 
                     {...field}
