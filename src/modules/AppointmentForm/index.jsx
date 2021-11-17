@@ -13,6 +13,7 @@ import { CreateAppointmentForm,
 import { ActionButton, AlertMessage, AuthTextInput } from "components";
 import { SelectList, TimeInputRadio, VisitCalendar, StageName } from "./components";
 
+
 const AppointmentFormComponent = ({ doctors }) => {
 
     const occupations = doctors

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { ButtonArrowSvg } from 'assets';
 import { ButtonWrapper, Button } from './styles';
 
-export const ActionButton = ({ textContent, icon, type, isDisabled, itsUserPatient = false, itsUserView = false,  }) => {
+export const ActionButton = ({ textContent, icon, type = "submit", isDisabled, itsUserPatient = false, itsUserView = false,  }) => {
     return (
         <ButtonWrapper itsUserView={itsUserView} itsUserPatient={itsUserPatient}>
             <Button type={type} isDisabled={isDisabled}>
