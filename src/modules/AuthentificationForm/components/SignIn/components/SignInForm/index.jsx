@@ -11,6 +11,7 @@ import { AuthTextInput,
 import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
 import { FeedbackForm } from "modules/styles";
+import { login } from "services";
 
 
 export const SignInForm = () => {
@@ -18,19 +19,25 @@ export const SignInForm = () => {
     return (
         <Formik 
             initialValues={{
-                email: '',
+                userName: '',
                 password: '',
             }}
+            initialErrors={{
+                initialError: "Initial error",
+            }}
             validationSchema={signInSchema}
-            onSubmit={() => history.push(AppScreens.PATIENT_VIEW)}
+            onSubmit={async (values) => { 
+                await login(values);
+                history.push(AppScreens.PATIENT_VIEW)
+            }}
             >  
-            {({ errors, touched, handleSubmit }) => (
+            {({ errors, touched, handleSubmit, isValid }) => (
                 <FeedbackForm onSubmit={handleSubmit}>
                     <Tittle >Sign In</Tittle>
 
-                    <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon={EmailInputSvg}/>
-                    {errors.email && touched.email
-                        ? <AlertMessage message={errors.email} /> 
+                    <Field component={AuthTextInput} name="userName" type="text" placeholder="Email" icon={EmailInputSvg}/>
+                    {errors.userName && touched.userName
+                        ? <AlertMessage message={errors.userName} /> 
                         : null}
 
 
@@ -39,7 +46,7 @@ export const SignInForm = () => {
                         ? <AlertMessage message={errors.password} /> 
                         : null}
 
-                    <ActionButton type="submit" textContent='Sign In'/>
+                    <ActionButton isDisabled={isValid} type="submit" textContent='Sign In'/>
                     
                 </FeedbackForm>
             )}
