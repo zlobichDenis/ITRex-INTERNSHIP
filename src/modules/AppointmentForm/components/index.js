@@ -1,4 +1,4 @@
 export * from "./Select";
-export * from "./TimeInputRadio";
+export * from "./TimeRadioList";
 export * from "./Calendar";
 export * from "./StageName";
