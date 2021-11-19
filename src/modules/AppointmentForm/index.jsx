@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Formik, Field } from "formik";
-import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 
 import { NumberOneSvg, NumberTwoSvg, NumberThreeSvg } from "assets";
@@ -15,7 +14,7 @@ import { ActionButton, AlertMessage, AuthTextInput } from "components";
 import { SelectList, VisitCalendar, StageName, TimeRadioList } from "./components";
 
 
-const AppointmentFormComponent = ({ doctors }) => {
+export const AppointmentForm = () => {
     const [ allSpecializations, setAllSpecializations ] = useState(null);
 
     useEffect(() => {
@@ -114,14 +113,3 @@ const AppointmentFormComponent = ({ doctors }) => {
         )
 };
 
-AppointmentFormComponent.propTypes = {
-    doctors: PropTypes.arrayOf(PropTypes.object),
-}
-
-const mapStateToProps = (state, ownProps) => {
-    return Object.assign({}, ownProps, {
-        doctors: state.doctors,
-    })
-};
-
-export const AppointmentForm = connect(mapStateToProps, {})(AppointmentFormComponent);
