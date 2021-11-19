@@ -14,6 +14,10 @@ import AppointmentSvg from "./Appointment.svg";
 import DividerSvg from "./Divider.svg";
 import ActiveStatusSvg from "./ActiveStatus.svg";
 import InactiveStatusSvg from "./InactiveStatus.svg";
+import NumberOneSvg from "./NumberOne.svg";
+import NumberTwoSvg from "./NumberTwo.svg";
+import NumberThreeSvg from "./NumberThree.svg";
+import RightArrowSvg from "./RightArrow.svg";
 
 
 export { BackArrowSvg,
@@ -32,4 +36,8 @@ export { BackArrowSvg,
         DividerSvg,
         ActiveStatusSvg,
         InactiveStatusSvg,
+        NumberOneSvg,
+        NumberTwoSvg,
+        NumberThreeSvg,
+        RightArrowSvg,
 };

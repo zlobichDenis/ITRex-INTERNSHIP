@@ -14,23 +14,30 @@ import { NameInputSvg,
          PasswordConfirmSvg} from "assets";
 import { FeedbackForm } from "modules/styles";
 import { Tittle } from "elements";
+import { registration } from "services";
 
 export const SignUpForm = () => {
     let history = useHistory();
-
     return (
         <Formik 
             initialValues={{
                 firstName: '',
                 lastName: '',
-                email: '',
+                userName: '',
                 password: '',
                 passwordConfirm: '',
             }}
+            initialErrors={{
+                firstName: 'initial error',
+            }}
             validationSchema={signUpSchema}
-            onSubmit={() => history.push(`${AppScreens.DOCTOR_VIEW}`)}
+            onSubmit={async (values) => { 
+                const { passwordConfirm, ...userData } = values;
+                await registration(userData);
+                history.push(`${AppScreens.DOCTOR_VIEW}`);
+                }}
             >
-            {({ errors, touched, values, handleSubmit }) => (
+            {({ errors, touched, values, handleSubmit, isValid }) => (
                 <FeedbackForm onSubmit={handleSubmit}>
                         <Tittle>Sign Up</Tittle>
 
@@ -44,9 +51,9 @@ export const SignUpForm = () => {
                             ? <AlertMessage message={errors.lastName} />
                             : null}
 
-                        <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon={EmailInputSvg} />
-                        {errors.email && touched.email
-                            ? <AlertMessage message={errors.email} /> 
+                        <Field component={AuthTextInput} name="userName" type="text" placeholder="Email" icon={EmailInputSvg} />
+                        {errors.userName && touched.userName
+                            ? <AlertMessage message={errors.userName} /> 
                             : null}
 
                         <Field component={PasswordInput} name="password" type="password" placeholder="Password" icon={PasswordInputSvg}/>
@@ -55,11 +62,11 @@ export const SignUpForm = () => {
                             : null}
 
                         <Field component={PasswordInput} name="passwordConfirm" type="password" placeholder="Confirm Password" icon={PasswordConfirmSvg}/>
-                        {(values.password !== values.passwordConfirm) && touched.passwordConfirm
+                        {values.passwordConfirm && touched.passwordConfirm
                             ? <AlertMessage message={`Password not match!`} /> 
                             : null}
 
-                        <ActionButton textContent="Sign Up" />
+                        <ActionButton isDisabled={isValid} textContent="Sign Up" />
 
                 </FeedbackForm>
             )}

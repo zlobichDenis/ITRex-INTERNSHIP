@@ -45,10 +45,10 @@ export const InputsWrapper = styled.div`
 `;
 
 export const AppointmentsListWrapper = styled.div`
-    overflow-y: scroll;
+
 `;
 
-export const AppointmentsList = styled.div`
+export const AppointmentsList = styled.ul`
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -16,7 +16,7 @@ export const FeedbackWrapper = styled.div`
     border-top-right-radius: 30px;
 
     @media (min-width: 768px) {
-        padding: 264px 96px 80px 96px;
+        padding: 90px;
         width: 560px;
         gap: 72px;
         margin: 0;

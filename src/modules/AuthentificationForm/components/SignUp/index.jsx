@@ -3,16 +3,15 @@ import { Link } from 'react-router-dom';
 
 import { AppScreens, AuthStages } from "routes";
 import { SignUpForm } from "./components";
-import { FeedbackWrapper, 
-         FeedbackButtons, 
+import { FeedbackButtons, 
          FeedbackText,
          FeedbackTextQuestion,
-         FeedbackTextLink } from "../styles/authentification";
+         FeedbackTextLink } from "../../styles";
 
 
 export const SignUp = () => {
     return (
-        <FeedbackWrapper>
+        <>
             <SignUpForm />
             <FeedbackButtons itsSignIn={false}>
                 <FeedbackText>
@@ -26,7 +25,7 @@ export const SignUp = () => {
                     </FeedbackTextLink>
                 </FeedbackText>
             </FeedbackButtons>
-        </FeedbackWrapper>
+        </>
     )
 };
 
