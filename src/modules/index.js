@@ -7,3 +7,4 @@ export * from "./PatientsViewControlPanel";
 export * from "./AppointmentForm";
 export * from "./UserPath";
 export * from "./AuthentificationForm"
+export * from "./AuthentificationForm/redux"

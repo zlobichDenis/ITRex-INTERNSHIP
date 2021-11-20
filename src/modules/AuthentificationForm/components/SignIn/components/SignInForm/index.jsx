@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
 import { AppScreens } from "routes";
-import { setCurrentUser } from "store";
+import { setCurrentUser } from "modules";
 import { signInSchema } from "core";
 import { AuthTextInput, 
          PasswordInput,  
@@ -13,16 +13,19 @@ import { AuthTextInput,
 import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
 import { FeedbackForm } from "modules/styles";
-import { getUserProfile, login } from "services";
+// import { getUserProfile, login } from "services";
+import { fetchUserProfile } from "modules";
 
 
 
 export const SignInForm = () => {
     let history = useHistory();
     const dispatch = useDispatch();
+    const user = useSelector(state => state.user);
 
-    const redirectToCurrentPage = ({ role_name: roleName }) => {
-        switch (roleName) {
+    const redirectToCurrentPage = () => {
+        console.log(user)
+        switch (user.role_name) {
             case 'Patient':
                 history.push(AppScreens.PATIENT_VIEW);
                 break;
@@ -42,14 +45,9 @@ export const SignInForm = () => {
                 initialError: "Initial error",
             }}
             validationSchema={signInSchema}
-            onSubmit={(values) => { 
-                    login(values)
-                        .then((res) => sessionStorage.setItem('access_token', res.data.access_token))
-                        .then(() => getUserProfile(sessionStorage.getItem('access_token')))
-                        .then((res) => {
-                            dispatch(setCurrentUser(res.data))
-                            redirectToCurrentPage(res.data);
-                        })
+            onSubmit={async (values) => { 
+                    dispatch(fetchUserProfile(values))
+                         redirectToCurrentPage();
                 }}
             >  
             {({ errors, touched, handleSubmit, isValid }) => (

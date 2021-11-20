@@ -19,18 +19,22 @@ export const appRoutes = [
     {
         path: AppScreens.AUTH,
         component: Authentification,
+        isPrivate: false,
     },
     {
         path: AppScreens.DOCTOR_VIEW,
         component: DoctorView,
+        isPrivate: true,
     },
     {
         path: AppScreens.PATIENT_VIEW,
         component: PatientView,
+        isPrivate: true,
     },
     {
         path: AppScreens.USER_VIEW,
         component: UserView,
+        isPrivate: true,
     },
 ];
 

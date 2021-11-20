@@ -4,16 +4,20 @@ import { Switch,
          Redirect,
          BrowserRouter as Router } from 'react-router-dom';
 
-import  { AppScreens, appRoutes } from "routes";
+import  { AppScreens, AuthStages, appRoutes } from "routes";
+import { PrivateRoute } from "./PrivateRouter";
 
 const AppRouter = () => {
     return (
         <Router>
             <Switch>
-                {appRoutes.map(({ component, path }) => {
-                    return <Route key={`route-to${path}`} component={component} path={path} />
-                })}
-                <Redirect from="/" to={AppScreens.AUTH} />
+                {appRoutes.map(({ isPrivate, ...props }, index) => (
+                    isPrivate  
+                        ? <PrivateRoute key={`path-${index}`} {...props}/>
+                        : <Route key={`path-${index}`} {...props} />
+                ))
+                }
+                <Redirect exact from={AppScreens.AUTH} to={`${AppScreens.AUTH}${AuthStages.SIGN_UP}`}/>
             </Switch>
         </Router>
     );
