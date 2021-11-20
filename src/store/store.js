@@ -1,8 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
-import { userReducer } from 'modules';
-import { getUserDataWatcher } from 'modules';
+import { userReducer, getUserDataWatcher } from 'modules';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -13,5 +12,5 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });
 
-sagaMiddleware.run(getUserDataWatcher );
+sagaMiddleware.run(getUserDataWatcher);
 

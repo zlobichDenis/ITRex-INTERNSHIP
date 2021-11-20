@@ -1,7 +1,5 @@
 import { createSlice, createAction } from "@reduxjs/toolkit";
 
-import { login, getUserProfile } from "services";
-
 export const fetchUserProfile = createAction("auth/profile");
 
 const userSlice = createSlice( {
@@ -9,7 +7,7 @@ const userSlice = createSlice( {
     initialState: null,
     reducers: {
         setCurrentUser(_, { payload }) {
-            return payload
+            return { isAuthentificated: true, ...payload }
         }
     }
 });

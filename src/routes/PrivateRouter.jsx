@@ -8,7 +8,6 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
   const renderedComponent = ({ location, ...props }) => {
     // eslint-disable-next-line react/prop-types
     const isAuthentificated = sessionStorage.getItem('access_token');
-    console.log(isAuthentificated)
     const { pathname } = location;
     if (isAuthentificated) {
         return <Component {...props} />;

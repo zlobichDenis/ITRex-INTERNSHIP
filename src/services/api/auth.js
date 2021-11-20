@@ -12,10 +12,5 @@ export const getUserProfile = (token) => (
     api.get("auth/profile", {
         headers: {
             'Authorization': `Bearer ${token}`,
-        }
-    })
-        // .then(({ data }) => {
-        //     sessionStorage.setItem("access_token", data.access_token);
-        //     sessionStorage.setItem("refresh_token", data.refresh_token)
-        // })
+        }})
 );

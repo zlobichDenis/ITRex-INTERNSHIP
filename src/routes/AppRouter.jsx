@@ -17,7 +17,7 @@ const AppRouter = () => {
                         : <Route key={`path-${index}`} {...props} />
                 ))
                 }
-                <Redirect exact from={AppScreens.AUTH} to={`${AppScreens.AUTH}${AuthStages.SIGN_UP}`}/>
+                <Redirect exact from="/" to={`${AppScreens.AUTH}${AuthStages.SIGN_UP}`}/>
             </Switch>
         </Router>
     );
