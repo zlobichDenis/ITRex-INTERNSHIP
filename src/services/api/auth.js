@@ -6,6 +6,8 @@ export const registration = (userData) => (
 
 export const login = (userData) => (
     api.post("auth/login", userData)
+        .then((responce) => ({ responce }))
+        .catch((error) => ({ error }))
 );
 
 export const getUserProfile = (token) => (
@@ -13,4 +15,6 @@ export const getUserProfile = (token) => (
         headers: {
             'Authorization': `Bearer ${token}`,
         }})
+        .then((responce) => ({ responce }))
+        .catch((error) => ({ error }))
 );
