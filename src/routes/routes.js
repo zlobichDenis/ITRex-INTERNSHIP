@@ -1,4 +1,5 @@
 import { Authentification, DoctorView, PatientView, UserView } from "pages";
+import { PatientInfo, AppointmentFormContainer } from "modules/PatientCabinet/components";
 import { SignUp, SignIn, RestorePass } from "modules/AuthentificationForm/components";
 
 export const AuthStages = {
@@ -12,7 +13,11 @@ export const AppScreens = {
     AUTH: '/authentification',
     DOCTOR_VIEW: '/doctor-view',
     PATIENT_VIEW: '/patient-view',
-    USER_VIEW: '/user-view',
+};
+
+export const PatientScreens = {
+    CREATE_APPOINTMENT: '/create-appointment',
+    CABINET: '/patient-cabinet'
 };
 
 export const appRoutes = [
@@ -31,28 +36,41 @@ export const appRoutes = [
         component: PatientView,
         isPrivate: true,
     },
-    {
-        path: AppScreens.USER_VIEW,
-        component: UserView,
-        isPrivate: true,
-    },
 ];
 
 export const authRoutes = [
     {
         path: AuthStages.SIGN_UP,
         component: SignUp,
+        isPrivate: false,
     },
     {
         path: AuthStages.SIGN_IN,
         component: SignIn,
+        isPrivate: false,
     },
     {
         path: AuthStages.RESTORE,
         component: RestorePass, 
+        isPrivate: false,
     },
     {
         path: AuthStages.RESTORE_CONFIRM,
         component: RestorePass,
+        isPrivate: true,
     },
+];
+
+export const patientCabinetRoutes = [
+    {
+        path: AppScreens.PATIENT_VIEW,
+        component: PatientInfo,
+        exact: false,
+    },
+    {
+        path: PatientScreens.CREATE_APPOINTMENT,
+        component: AppointmentFormContainer,
+        isPrivate: true,
+        exact: false,
+    }
 ];

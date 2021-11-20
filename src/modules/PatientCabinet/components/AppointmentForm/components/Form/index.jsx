@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import { Formik, Field } from "formik";
 import Loader from "react-loader-spinner";
 
@@ -9,9 +8,9 @@ import { appointmentSchema } from "core";
 import { CreateAppointmentForm,
         StageCreatingWrapper,
         InputWrapper,
-        InputLabel } from "./styles";
+        InputLabel } from "../../styles";
 import { ActionButton, AlertMessage, AuthTextInput } from "components";
-import { SelectList, VisitCalendar, StageName, TimeRadioList } from "./components";
+import { SelectList, VisitCalendar, StageName, TimeRadioList } from "..";
 
 
 export const AppointmentForm = () => {
@@ -112,4 +111,3 @@ export const AppointmentForm = () => {
             />
         )
 };
-

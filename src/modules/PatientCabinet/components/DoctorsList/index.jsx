@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 import { Doctor } from "./components"
-import { AppointmentsListWrapper, AppointmentsList } from "../styles";
+import { AppointmentsListWrapper, AppointmentsList } from "../../../styles";
 
 export const DoctorsList = () => {
     return (

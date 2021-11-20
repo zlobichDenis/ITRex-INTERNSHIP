@@ -5,7 +5,7 @@ import { Switch,
          BrowserRouter as Router } from 'react-router-dom';
 
 import  { AppScreens, AuthStages, appRoutes } from "routes";
-import { PrivateRoute } from "./PrivateRouter";
+import { PrivateRoute } from "./PrivateRoute";
 
 const AppRouter = () => {
     return (

@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
-import { userReducer, getUserDataWatcher } from 'modules';
+import { userReducer, getUserDataWatcher } from 'modules/AuthentificationForm/redux';
 
 const sagaMiddleware = createSagaMiddleware();
 

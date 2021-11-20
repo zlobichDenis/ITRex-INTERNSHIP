@@ -12,7 +12,7 @@ import { AuthTextInput,
 import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
 import { FeedbackForm } from "modules/styles";
-import { fetchUserProfile } from "modules";
+import { fetchUserProfile } from "modules/AuthentificationForm/redux";
 
 
 

@@ -1,6 +1,6 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 
-import { setCurrentUser, fetchUserProfile } from 'modules';
+import { setCurrentUser, fetchUserProfile } from '..';
 import { login, getUserProfile } from "services";
 
 export function* getUserData({ payload }) {
