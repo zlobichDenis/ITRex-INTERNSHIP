@@ -1,9 +1,6 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import { Formik, Field } from "formik";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
 
-import { AppScreens } from "routes";
 import { signInSchema } from "core";
 import { AuthTextInput, 
          PasswordInput,  
@@ -12,28 +9,12 @@ import { AuthTextInput,
 import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
 import { FeedbackForm } from "modules/styles";
-import { fetchUserProfile } from "modules/AuthentificationForm/redux";
+import { useRedirectToCurrentPage } from "modules/AuthentificationForm/redux";
 
 
 
 export const SignInForm = () => {
-    let history = useHistory();
-    const dispatch = useDispatch();
-    const user = useSelector(state => state.user)
-
-    useEffect(() => {
-        if (user) {
-            switch (user.role_name) {
-                case 'Patient':
-                    history.push(AppScreens.PATIENT_VIEW);
-                    break;
-                case 'Doctor':
-                    history.push(AppScreens.DOCTOR_VIEW)
-                    break;
-            }
-        }
-    }, [user]);
-
+    const { setUserProfile } = useRedirectToCurrentPage();
 
     return (
         <Formik 
@@ -46,7 +27,7 @@ export const SignInForm = () => {
             }}
             validationSchema={signInSchema}
             onSubmit={(values) => { 
-                    dispatch(fetchUserProfile(values));
+                    setUserProfile(values);
                 }}
             >  
             {({ errors, touched, handleSubmit, isValid, isSubmitting }) => (
