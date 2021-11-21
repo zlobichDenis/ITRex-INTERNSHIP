@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { AuthStages, AppScreens } from "routes";
 import { SignInForm } from "./components";
-import { FeedbackWrapper, 
-         FeedbackButtons, 
+import { FeedbackButtons, 
          FeedbackText,
          FeedbackTextQuestion,
          FeedbackTextLink } from "../../styles";

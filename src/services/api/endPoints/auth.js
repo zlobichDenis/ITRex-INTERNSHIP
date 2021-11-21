@@ -1,4 +1,4 @@
-import { api } from "./instance";
+import { api } from "../instance";
 
 export const registration = (userData) => (
     api.post("auth/registration", userData)

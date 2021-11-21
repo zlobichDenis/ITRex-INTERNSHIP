@@ -2,7 +2,6 @@ import React  from "react";
 import { Formik, Field } from "formik";
 
 import { signInSchema } from "core";
-import { login } from "services";
 import { AuthTextInput, 
          PasswordInput,  
          AlertMessage, 

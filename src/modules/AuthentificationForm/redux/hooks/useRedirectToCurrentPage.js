@@ -28,6 +28,6 @@ export const useRedirectToCurrentPage = () => {
         dispatch(fetchUserProfile({ userData, requestType }))
     }, [dispatch]);
 
-    return { setUserProfile }
+    return { user, setUserProfile, }
 };
 

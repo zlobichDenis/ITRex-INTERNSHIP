@@ -18,7 +18,6 @@ export function* getUserData({ payload }) {
             tokenResponce = registrationResponce;
             break;
     }
-    
 
     if (tokenResponce) {
         const { data: tokens } = tokenResponce;
