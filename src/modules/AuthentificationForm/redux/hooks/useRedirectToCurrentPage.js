@@ -11,7 +11,7 @@ export const useRedirectToCurrentPage = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.user)
 
-    const setCurrentPage = useEffect(() => {
+    useEffect(() => {
         if (user) {
             switch (user.role_name) {
                 case 'Patient':
@@ -24,8 +24,8 @@ export const useRedirectToCurrentPage = () => {
         }
     }, [user]);
 
-    const setUserProfile = useCallback((userData) => {
-        dispatch(fetchUserProfile(userData))
+    const setUserProfile = useCallback((userData, requestType) => {
+        dispatch(fetchUserProfile({ userData, requestType }))
     }, [dispatch]);
 
     return { setUserProfile }

@@ -1,8 +1,6 @@
 import React from "react";
 import { Formik,Field } from "formik";
-import { useHistory } from "react-router-dom";
 
-import { AppScreens } from "routes";
 import { signUpSchema } from "core";
 import { AuthTextInput, 
          PasswordInput,  
@@ -14,10 +12,11 @@ import { NameInputSvg,
          PasswordConfirmSvg} from "assets";
 import { FeedbackForm } from "modules/styles";
 import { Tittle } from "elements";
-import { registration } from "services";
+import { useRedirectToCurrentPage } from "modules/AuthentificationForm/redux";
 
 export const SignUpForm = () => {
-    let history = useHistory();
+    const { setUserProfile } = useRedirectToCurrentPage();
+
     return (
         <Formik 
             initialValues={{
@@ -31,13 +30,12 @@ export const SignUpForm = () => {
                 firstName: 'initial error',
             }}
             validationSchema={signUpSchema}
-            onSubmit={async (values) => { 
+            onSubmit={(values) => { 
                 const { passwordConfirm, ...userData } = values;
-                await registration(userData);
-                history.push(`${AppScreens.DOCTOR_VIEW}`);
+                setUserProfile(userData, "registration");
                 }}
             >
-            {({ errors, touched, values, handleSubmit, isValid }) => (
+            {({ errors, touched, handleSubmit, isValid }) => (
                 <FeedbackForm onSubmit={handleSubmit}>
                         <Tittle>Sign Up</Tittle>
 
@@ -62,7 +60,7 @@ export const SignUpForm = () => {
                             : null}
 
                         <Field component={PasswordInput} name="passwordConfirm" type="password" placeholder="Confirm Password" icon={PasswordConfirmSvg}/>
-                        {values.passwordConfirm && touched.passwordConfirm
+                        {errors.passwordConfirm && touched.passwordConfirm
                             ? <AlertMessage message={`Password not match!`} /> 
                             : null}
 

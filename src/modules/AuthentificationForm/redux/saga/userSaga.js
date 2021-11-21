@@ -1,11 +1,25 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 
 import { setCurrentUser, fetchUserProfile } from '..';
-import { login, getUserProfile } from "services";
+import { login, getUserProfile, registration } from "services";
 
 export function* getUserData({ payload }) {
-    const { responce: tokenResponce } = yield call(login, payload);
+    const { userData, requestType } = payload;
+
+    let tokenResponce;
+
+    switch (requestType) {
+        case "login":
+            const { responce: loginRespone } = yield call(login, userData);
+            tokenResponce = loginRespone;
+            break
+        case "registration":
+            const { responce: registrationResponce } = yield call(registration, userData);
+            tokenResponce = registrationResponce;
+            break;
+    }
     
+
     if (tokenResponce) {
         const { data: tokens } = tokenResponce;
         sessionStorage.setItem('access_token', tokens.access_token)

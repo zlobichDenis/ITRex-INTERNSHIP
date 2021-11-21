@@ -2,6 +2,8 @@ import { api } from "./instance";
 
 export const registration = (userData) => (
     api.post("auth/registration", userData)
+        .then((responce) => ({ responce }))
+        .catch((error) => ({ error }))
 );
 
 export const login = (userData) => (

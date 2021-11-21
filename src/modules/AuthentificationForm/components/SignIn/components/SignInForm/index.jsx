@@ -2,6 +2,7 @@ import React  from "react";
 import { Formik, Field } from "formik";
 
 import { signInSchema } from "core";
+import { login } from "services";
 import { AuthTextInput, 
          PasswordInput,  
          AlertMessage, 
@@ -27,7 +28,7 @@ export const SignInForm = () => {
             }}
             validationSchema={signInSchema}
             onSubmit={(values) => { 
-                    setUserProfile(values);
+                    setUserProfile(values, "login");
                 }}
             >  
             {({ errors, touched, handleSubmit, isValid, isSubmitting }) => (
