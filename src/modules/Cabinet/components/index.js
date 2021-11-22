@@ -4,3 +4,4 @@ export * from "./CabinetControlPanel";
 export * from "./CabinetTabs";
 export * from "./DoctorInfo";
 export * from "./PatientInfo";
+export * from "./EmptyList"

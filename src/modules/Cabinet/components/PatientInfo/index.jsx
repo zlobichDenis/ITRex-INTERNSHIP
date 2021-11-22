@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 import { CabinetInfo } from "../../styles";
 import { CabinetControlPanel, UserAppointmentsList, CabinetTabs } from "..";

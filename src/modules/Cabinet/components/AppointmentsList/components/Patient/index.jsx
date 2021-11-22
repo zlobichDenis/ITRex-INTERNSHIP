@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 
 import { PersonOptionsSvg, DateSvg, AppointmentSvg } from "assets";
 import {
@@ -17,15 +18,10 @@ import {
 } from "../styles";
 import { UserStatus, UserStatusIcon } from "./styles";
 
-export const Patient = ({ patient }) => {
-  const {
-    firstName,
-    lastName,
-    photo,
-    date,
-    appointment,
-    isConfirmAppointment,
-  } = patient;
+export const Patient = ({ appointment }) => {
+  const { patient, status, visit_date: date, reason } = appointment;
+  const { first_name: firstName, id, last_name: lastName, photo } = patient
+
   return (
     <AppointmentsItem>
       <AppointmentsItemHeader>
@@ -34,10 +30,8 @@ export const Patient = ({ patient }) => {
           <UserInfo>
             <UserName>{`${firstName} ${lastName}`}.</UserName>
             <UserStatus>
-              <UserStatusIcon isActive={isConfirmAppointment ? true : false} />
-              <span>{`Appointment is ${
-                isConfirmAppointment ? "confirmed" : "canceled"
-              }`}</span>
+              <UserStatusIcon isActive={status} />
+              <span>{`Appointment is ${status}`}</span>
             </UserStatus>
           </UserInfo>
         </UserInfoWrapper>
@@ -49,13 +43,13 @@ export const Patient = ({ patient }) => {
       <UserDetails>
         <VisitDate>
           <img src={DateSvg} width="21" height="21" alt="icon" />
-          <span>{date}</span>
+          <span>{`${moment(date).format("ddd MMM d, YYYY hh:mm A")}-${moment(date).add(1, 'hours').format('hh:mm A')} `}</span>
         </VisitDate>
         <VisitMessage>
           <VisitMessageIcon>
             <img src={AppointmentSvg} width="21" height="21" alt="icon" />
           </VisitMessageIcon>
-          <span>{appointment}</span>
+          <span>{reason}</span>
         </VisitMessage>
       </UserDetails>
     </AppointmentsItem>
@@ -63,5 +57,5 @@ export const Patient = ({ patient }) => {
 };
 
 Patient.propTypes = {
-  patient: PropTypes.object.isRequired,
+  appointment: PropTypes.object.isRequired,
 };

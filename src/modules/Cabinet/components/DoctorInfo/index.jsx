@@ -9,7 +9,7 @@ export const DoctorInfo = () => {
       <CabinetTabs />
       <CabinetInfo>
         <CabinetControlPanel />
-        <UserAppointmentsList itsPatientUser={true} />
+        <UserAppointmentsList itsPatientUser={false} />
       </CabinetInfo>
     </>
   );
