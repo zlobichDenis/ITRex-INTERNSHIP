@@ -8,13 +8,14 @@ export const ActionButton = ({
   textContent,
   icon = ButtonArrowSvg,
   type = "submit",
-  isDisabled,
+  isDisabled = true,
   itsUserPatient = false,
   itsUserView = false,
+  handleClick,
 }) => {
   return (
     <ButtonWrapper itsUserView={itsUserView} itsUserPatient={itsUserPatient}>
-      <Button type={type} isDisabled={isDisabled}>
+      <Button onClick={handleClick} type={type} isDisabled={isDisabled}>
         <span>{textContent}</span>
         {icon ? <img height="21" width="21" src={icon} alt="icon" /> : null}
       </Button>
@@ -29,4 +30,5 @@ ActionButton.propTypes = {
   itsUserView: PropTypes.bool,
   type: PropTypes.string,
   isDisabled: PropTypes.bool,
+  handleClick: PropTypes.func,
 };

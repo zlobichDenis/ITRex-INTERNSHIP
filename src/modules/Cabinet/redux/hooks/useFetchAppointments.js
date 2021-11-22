@@ -16,6 +16,7 @@ export const useFetchAppointments = (itsPatientUser) => {
     } else {
       dispatch(fetchDoctorAppointments([20, 0, token]));
     }
-  }, [])
+  }, [dispatch])
+  
   return { isLoading, appointments, appointmentsError };
 }

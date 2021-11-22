@@ -9,7 +9,7 @@ import { useFetchAppointments } from "../../redux";
 import { createAppointmentsList } from "../../utils";
 
 export const UserAppointmentsList = ({ itsPatientUser }) => {
-  const { isLoading, appointments, authError } = useFetchAppointments();
+  const { isLoading, appointments, authError } = useFetchAppointments(itsPatientUser);
   console.log(authError, appointments)
   return (
     <AppointmentsListWrapper>

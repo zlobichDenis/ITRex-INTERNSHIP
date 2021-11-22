@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 
 import { DateSvg, PersonOptionsSvg, HeartSvg } from "assets";
 import {
@@ -16,8 +17,10 @@ import {
   VisitMessageIcon,
 } from "../styles";
 
-export const Doctor = ({ doctor }) => {
-  const { firstName, lastName, date, appointment, photo } = doctor;
+export const Doctor = ({ appointment }) => {
+  const { doctor, status, visit_date: date, reason } = appointment;
+  const { first_name: firstName, id, last_name: lastName, photo } = doctor;
+
   return (
     <AppointmentsItem>
       <AppointmentsItemHeader>
@@ -37,13 +40,13 @@ export const Doctor = ({ doctor }) => {
           <div>
             <img src={DateSvg} width="21" height="21" alt="icon" />
           </div>
-          <span>{date}</span>
+          <span>{`${moment(date).format("ddd MMM d, YYYY hh:mm A")}-${moment(date).add(1, 'hours').format('hh:mm A')} `}</span>
         </VisitDate>
         <VisitMessage>
           <VisitMessageIcon>
             <img src={HeartSvg} width="21" height="21" alt="icon" />
           </VisitMessageIcon>
-          <span>{appointment}</span>
+          <span>{reason}</span>
         </VisitMessage>
       </UserDetails>
     </AppointmentsItem>
@@ -51,5 +54,5 @@ export const Doctor = ({ doctor }) => {
 };
 
 Doctor.propTypes = {
-  doctor: PropTypes.object.isRequired,
+  appointment: PropTypes.object.isRequired,
 };

@@ -18,6 +18,7 @@ export function* getAppointmentsWorker({ type, payload }) {
       const { responce: patientResponce, error: patientError } = yield call(getAllPatientAppointments, payload);
       responce = patientResponce;
       error = patientError;
+      break;
   }
   
   if (responce) {

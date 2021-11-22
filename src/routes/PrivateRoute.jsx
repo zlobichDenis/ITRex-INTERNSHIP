@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { exact } from "prop-types";
 import { Redirect, Route } from "react-router-dom";
 
 import { AppScreens, AuthStages } from "routes";
 
-export const PrivateRoute = ({ component: Component, ...rest }) => {
-  const renderedComponent = ({ location, ...props }) => {
+export const PrivateRoute = ({ component: Component, path, ...rest }) => {
+  const renderedComponent = ({ location, exact, ...props }) => {
     // eslint-disable-next-line react/prop-types
     const isAuthentificated = localStorage.getItem("access_token");
     const { pathname } = location;
@@ -19,11 +19,11 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
         />
       );
     }
-  };
-
-  return <Route {...rest} component={renderedComponent} />;
+  };  
+  return <Route route={`${AppScreens.PATIENT_VIEW}${path}`} exact {...rest} component={renderedComponent} />;
 };
 
 PrivateRoute.propTypes = {
   component: PropTypes.func,
+  path: PropTypes.string,
 };

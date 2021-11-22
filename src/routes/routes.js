@@ -70,14 +70,15 @@ export const authRoutes = [
 
 export const patientCabinetRoutes = [
   {
-    path: AppScreens.PATIENT_VIEW,
+    path: PatientScreens.CABINET,
     component: PatientInfo,
+    isPrivate: true,
     exact: false,
   },
   {
     path: PatientScreens.CREATE_APPOINTMENT,
     component: AppointmentFormContainer,
     isPrivate: true,
-    exact: false,
+    exact: true,
   },
 ];

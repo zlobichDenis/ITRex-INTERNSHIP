@@ -1,6 +1,6 @@
 import { api } from "services";
 
-export const getAllPatientAppointments = ([ limit, offset, token ]) =>
+export const getAllPatientAppointments = ([ limit, offset, token ]) => (
   api
     .get("/appointments/patient/me", {
       headers: {
@@ -12,4 +12,5 @@ export const getAllPatientAppointments = ([ limit, offset, token ]) =>
       },
     })
     .then((responce) => ({ responce }))
-    .catch((error) => ({ error }));
+    .catch((error) => ({ error }))
+);
