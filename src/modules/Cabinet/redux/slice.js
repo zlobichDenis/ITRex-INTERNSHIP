@@ -1,6 +1,7 @@
 import { createSlice, createAction } from "@reduxjs/toolkit";
 
 export const fetchDoctorAppointments = createAction('doctor/appointments');
+export const fetchPatientAppointments = createAction('patient/appointments');
 
 export const appointmentsSlice = createSlice({
   name: "appointments",

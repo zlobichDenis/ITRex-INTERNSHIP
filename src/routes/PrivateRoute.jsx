@@ -7,7 +7,7 @@ import { AppScreens, AuthStages } from "routes";
 export const PrivateRoute = ({ component: Component, ...rest }) => {
   const renderedComponent = ({ location, ...props }) => {
     // eslint-disable-next-line react/prop-types
-    const isAuthentificated = sessionStorage.getItem("access_token");
+    const isAuthentificated = localStorage.getItem("access_token");
     const { pathname } = location;
     if (isAuthentificated) {
       return <Component {...props} />;

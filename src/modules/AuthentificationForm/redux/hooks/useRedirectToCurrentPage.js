@@ -10,6 +10,7 @@ export const useRedirectToCurrentPage = () => {
   let history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+  const authError = useSelector(state => state.error);
 
   useEffect(() => {
     if (user) {
@@ -31,5 +32,5 @@ export const useRedirectToCurrentPage = () => {
     [dispatch]
   );
 
-  return { user, setUserProfile };
+  return { user, setUserProfile, authError };
 };

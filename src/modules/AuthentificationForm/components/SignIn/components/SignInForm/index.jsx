@@ -14,7 +14,8 @@ import { FeedbackForm } from "modules/Cabinet/styles";
 import { useRedirectToCurrentPage } from "modules/AuthentificationForm/redux";
 
 export const SignInForm = () => {
-  const { setUserProfile } = useRedirectToCurrentPage();
+  const { setUserProfile, authError } = useRedirectToCurrentPage();
+  console.log(authError)
 
   return (
     <Formik

@@ -1,3 +1,4 @@
 export * from "./appointmentForm";
 export * from "./auth";
-export * from "./doctorCabinet"
+export * from "./doctorView";
+export * from "./patientView";
