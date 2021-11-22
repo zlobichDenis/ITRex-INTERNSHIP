@@ -5,6 +5,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 
+import "./calendar.css";
+
 export const VisitCalendar = ({ availableDates, handleReset, ...props }) => {
   const [ field, state, { setValue, setTouched } ] = useField(props.field);
 

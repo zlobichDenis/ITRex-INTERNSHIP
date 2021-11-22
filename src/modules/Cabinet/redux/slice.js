@@ -13,7 +13,7 @@ export const appointmentsSlice = createSlice({
     setUserAppointments: function ({ appointments }, { payload }) {
       return {
         isLoading: false,
-        appointments: [...appointments, ...payload]
+        appointments: [...payload]
       }
     },
   },

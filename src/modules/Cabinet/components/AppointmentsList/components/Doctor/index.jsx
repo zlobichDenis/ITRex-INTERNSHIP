@@ -18,8 +18,8 @@ import {
 } from "../styles";
 
 export const Doctor = ({ appointment }) => {
-  const { doctor, status, visit_date: date, reason } = appointment;
-  const { first_name: firstName, id, last_name: lastName, photo } = doctor;
+  const { doctor, visit_date: date, reason } = appointment;
+  const { first_name: firstName, last_name: lastName, photo } = doctor;
 
   return (
     <AppointmentsItem>

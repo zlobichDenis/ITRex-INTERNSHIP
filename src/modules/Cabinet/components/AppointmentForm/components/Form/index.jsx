@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Field } from "formik";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 import Loader from "react-loader-spinner";
 
 import { NumberOneSvg, NumberTwoSvg, NumberThreeSvg } from "assets";
+import { AppScreens, PatientScreens } from "routes";
 import { getAllSpecializations } from "services";
 import { appointmentSchema } from "core";
 import { CreateAppointmentForm,
@@ -11,10 +14,12 @@ import { CreateAppointmentForm,
         InputLabel } from "../../styles";
 import { ActionButton, AlertMessage, AuthTextInput } from "components";
 import { SelectList, VisitCalendar, StageName, TimeRadioList } from "..";
-
+import { postNewAppointment } from "../../redux";
 
 export const AppointmentForm = () => {
     const [ allSpecializations, setAllSpecializations ] = useState(null);
+    const dispatch = useDispatch();
+    let history = useHistory()
 
     useEffect(() => {
         getAllSpecializations()
@@ -45,7 +50,12 @@ export const AppointmentForm = () => {
                 }}
                 validationSchema={appointmentSchema}
                 validateOnBlur={false}
-                onSubmit={( values ) => console.log(values)}
+                onSubmit={( values ) => { 
+                    const { occupation, date: visitDate, doctorName: doctorID, time: date, ...rest } = values
+                    const appointmentData = { ...rest, doctorID, date }
+                    dispatch(postNewAppointment(appointmentData));
+                    history.push(`${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`)
+                    }}
                 >
                 {({ values, errors, touched, handleSubmit, setFieldValue, isValid }) => (
                     <CreateAppointmentForm onSubmit={handleSubmit}>

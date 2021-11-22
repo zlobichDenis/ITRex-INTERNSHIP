@@ -7,7 +7,7 @@ import moment from "moment";
 
 export const TimeInputRadio = ({ timeValue, selectedTime, ...props }) => {
     const [ field ] = useField(props.field);
-    timeValue = moment(timeValue).format('hh:mm A');
+
     return (
             <RadioWrapper isSelected={selectedTime === timeValue ? true : false} htmlFor={`time-${timeValue}`}>
                 <RadioInput 
@@ -16,7 +16,7 @@ export const TimeInputRadio = ({ timeValue, selectedTime, ...props }) => {
                     name="time" 
                     type="radio" 
                     value={timeValue}/>
-                {timeValue}
+                {moment(timeValue).format('hh:mm A')}
             </RadioWrapper>
     )
 };
