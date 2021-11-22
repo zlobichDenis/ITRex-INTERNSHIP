@@ -10,7 +10,7 @@ import { NameInputSvg,
          PasswordInputSvg,
          EmailInputSvg,
          PasswordConfirmSvg} from "assets";
-import { FeedbackForm } from "modules/styles";
+import { FeedbackForm } from "modules/Cabinet/styles";
 import { Tittle } from "elements";
 import { useRedirectToCurrentPage } from "modules/AuthentificationForm/redux";
 

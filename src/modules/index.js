@@ -1,3 +1,2 @@
 export * from "./AuthentificationForm";
-export * from "./DoctorCabinet";
-export * from "./PatientCabinet";
+export * from "./Cabinet";
