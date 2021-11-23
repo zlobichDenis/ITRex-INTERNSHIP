@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import {
   Header,
@@ -9,19 +10,20 @@ import {
 } from "./styles";
 
 export const CabinetHeader = () => {
+  const { first_name: firstName, last_name: lastName, photo, role_name: roleName } = useSelector(state => state.user);
   return (
     <Header>
       <img src="./img/logo.png" alt="" />
       <UserInfo>
         <UserNameWrapper>
           <UserName className="doctor-cabinet__doctor-name">
-            Miranda Nelson
+            {`${firstName} ${lastName}`}
           </UserName>
           <UserSpecialty className="doctor-cabinet__doctor-specialty">
-            Doctor
+            {roleName}
           </UserSpecialty>
         </UserNameWrapper>
-        <img src="img/doctor-photo-1.png" alt="Doctor's photo" />
+        <img width="48" height="48" src={photo} alt="Doctor's photo" />
       </UserInfo>
     </Header>
   );

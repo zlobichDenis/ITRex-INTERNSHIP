@@ -8,7 +8,7 @@ export const PatientInfo = () => {
     <>
       <CabinetTabs />
       <CabinetInfo>
-        <CabinetControlPanel />
+        <CabinetControlPanel itsPatientUser={true}/>
         <UserAppointmentsList itsPatientUser={true} />
       </CabinetInfo>
     </>

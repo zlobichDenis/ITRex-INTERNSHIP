@@ -14,14 +14,13 @@ export const getAvailableTime = (doctorId, date) =>
     },
   });
 
-export const createAppointment = (data) => {
-  const token = getToken();
-  return api
+export const createAppointment = ([data, token]) => (
+  api
     .post("appointments", data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
     .then((responce) => ({ responce }))
-    .catch((error) => ({ error}))
-}
+    .catch((error) => ({ error }))
+);

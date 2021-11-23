@@ -13,7 +13,6 @@ export const UserAppointmentsList = ({ itsPatientUser }) => {
   console.log(authError, appointments)
   return (
     <AppointmentsListWrapper>
-    <Tittle>My Patients</Tittle>
       <AppointmentsList>
       {!isLoading
         ? appointments.length > 0 

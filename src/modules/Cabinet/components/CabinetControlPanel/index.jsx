@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { ControlPanel } from "./styles";
 import { PatientViewControlPanel, DoctorViewControlPanel } from "./components";
 
-export const CabinetControlPanel = (itsPatientUser) => {
+export const CabinetControlPanel = ({ itsPatientUser }) => {
   return (
   <ControlPanel>
     { itsPatientUser
@@ -12,3 +13,7 @@ export const CabinetControlPanel = (itsPatientUser) => {
   </ControlPanel>
   )
 };
+
+CabinetControlPanel.propTypes = {
+  itsPatientUser: PropTypes.bool.isRequired,
+}
