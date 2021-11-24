@@ -5,7 +5,7 @@ import { fetchDoctorAppointments, fetchPatientAppointments } from "..";
 import * as tokenRepository from "store/tokenRepository";
 
 export const useFetchAppointments = (itsPatientUser) => {
-  const { isLoading, appointments } = useSelector(state => state.appointments);
+  const { fetchStatus, appointments } = useSelector(state => state.appointments);
   const appointmentsError = useSelector(state => state.error);
   const dispatch = useDispatch();
   const token = tokenRepository.getToken();
@@ -18,5 +18,5 @@ export const useFetchAppointments = (itsPatientUser) => {
     }
   }, [dispatch])
   
-  return { isLoading, appointments, appointmentsError };
+  return { fetchStatus, appointments, appointmentsError };
 }

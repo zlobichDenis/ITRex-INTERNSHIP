@@ -1,23 +1,37 @@
 import { createSlice, createAction } from "@reduxjs/toolkit";
+import { FetchStatus } from "const";
 
-export const fetchDoctorAppointments = createAction('doctor/appointments');
-export const fetchPatientAppointments = createAction('patient/appointments');
 
 export const appointmentsSlice = createSlice({
   name: "appointments",
   initialState: {
-    isLoading: true,
+    fetchStatus: null,
     appointments: [],
   },
   reducers: {
-    setUserAppointments: function ({ appointments }, { payload }) {
-      return {
-        isLoading: false,
-        appointments: [...payload]
-      }
+    setUserAppointments: function (state, { payload }) {
+      return { ...state, appointments: payload };
+    },
+    fetchDoctorAppointments: function (state) {
+      return { ...state, fetchStatus: FetchStatus.PENDING };
+    },
+    fetchPatientAppointments: function (state) {
+      return { ...state, fetchStatus: FetchStatus.PENDING };
+    },
+    responceFetchAppointments: function (state) {
+      return { ...state, fetchStatus: FetchStatus.SUCCESS };
+    },
+    rejectFetchAppointments: function (state) {
+      return { ...state, fetchStatus: FetchStatus.FAILED };
     },
   },
 });
 
 export const appointmentsReducer = appointmentsSlice.reducer;
-export const { setUserAppointments } = appointmentsSlice.actions;
+export const {
+  setUserAppointments,
+  fetchDoctorAppointments,
+  fetchPatientAppointments,
+  responceFetchAppointments,
+  rejectFetchAppointments,
+} = appointmentsSlice.actions;

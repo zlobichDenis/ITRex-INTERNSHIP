@@ -1,8 +1,9 @@
-import React, { useEffect} from "react";
+import React from "react";
 import { Formik, Field } from "formik";
 import Loader from "react-loader-spinner";
 
-import { signInSchema } from "core";
+import { signInSchema, useRequestAlert } from "core";
+import { colors } from "styles";
 import { FetchStatus } from "const";
 import {
   AuthTextInput,
@@ -16,12 +17,11 @@ import { Tittle } from "elements";
 import { FeedbackForm } from "modules/Cabinet/styles";
 import {
   useAuthentification,
-  useRequestAlert,
 } from "modules/AuthentificationForm/redux";
 
 
 export const SignInForm = () => {
-  const { setUserProfile, authError, userProfile, fetchStatus } = useAuthentification();
+  const { setUserProfile, authError, fetchStatus } = useAuthentification();
   const { isShowingNotification, closeNotificationHandle } = useRequestAlert(fetchStatus);
 
   return (
@@ -67,11 +67,11 @@ export const SignInForm = () => {
           {fetchStatus === FetchStatus.PENDING
            ? <Loader 
               type="Puff"
-              color="#00BFFF"
+              color={colors.TEXT_LINK_COLOR}
               height={50}
               width={50}
               timeout={3000}
-           />
+            />
            : <ActionButton
               isDisabled={isValid}
               type="submit"

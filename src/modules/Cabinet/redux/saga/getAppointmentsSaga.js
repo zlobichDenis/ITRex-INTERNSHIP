@@ -1,9 +1,15 @@
-import { put, takeEvery, call } from 'redux-saga/effects';
+import { put, takeEvery, call } from "redux-saga/effects";
 
-import { getAllDoctorAppointments, getAllPatientAppointments } from 'services';
-import { setError } from 'store';
+import { getAllDoctorAppointments, getAllPatientAppointments } from "services";
+import { setError } from "store";
 import * as tokenRepository from "store/tokenRepository";
-import { fetchDoctorAppointments, fetchPatientAppointments, setUserAppointments } from '../slice';
+import {
+  fetchDoctorAppointments,
+  fetchPatientAppointments,
+  setUserAppointments,
+  rejectFetchAppointments,
+  responceFetchAppointments,
+} from "../slice";
 
 export function* getAppointmentsWorker({ type, payload }) {
   let responce;
@@ -12,26 +18,34 @@ export function* getAppointmentsWorker({ type, payload }) {
 
   switch (type) {
     case fetchDoctorAppointments.type:
-      const { responce: doctorResponce, error: doctorError } = yield call(getAllDoctorAppointments, [...payload, token]);
+      const { responce: doctorResponce, error: doctorError } = yield call(
+        getAllDoctorAppointments,
+        [...payload, token]
+      );
       responce = doctorResponce;
       error = doctorError;
       break;
     case fetchPatientAppointments.type:
-      const { responce: patientResponce, error: patientError } = yield call(getAllPatientAppointments, [...payload, token]);
+      const { responce: patientResponce, error: patientError } = yield call(
+        getAllPatientAppointments,
+        [...payload, token]
+      );
       responce = patientResponce;
       error = patientError;
       break;
   }
-  
+
   if (responce) {
     const { data: appointments } = responce;
+    yield put(responceFetchAppointments());
     yield put(setUserAppointments(appointments.appointments));
   } else {
+    yield put(rejectFetchAppointments());
     yield put(setError(error.message));
   }
-};
+}
 
 export function* getAppointmentsWatcher() {
   yield takeEvery(fetchDoctorAppointments, getAppointmentsWorker);
-  yield takeEvery(fetchPatientAppointments, getAppointmentsWorker)
-};
+  yield takeEvery(fetchPatientAppointments, getAppointmentsWorker);
+}

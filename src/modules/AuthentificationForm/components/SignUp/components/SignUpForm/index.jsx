@@ -1,7 +1,8 @@
 import React from "react";
 import { Formik, Field } from "formik";
 
-import { signUpSchema } from "core";
+import { signUpSchema, useRequestAlert } from "core";
+import { FetchStatus } from "const";
 import {
   AuthTextInput,
   PasswordInput,
@@ -20,9 +21,9 @@ import { Tittle } from "elements";
 import { useAuthentification } from "modules/AuthentificationForm/redux";
 
 export const SignUpForm = () => {
-  const { setUserProfile, fetchStatus } = useAuthentification();
+  const { setUserProfile, fetchStatus, authError } = useAuthentification();
   const { isShowingNotification, closeNotificationHandle, showNotificationHandle } = useRequestAlert(fetchStatus);
-  
+
   return (
     <Formik
       initialValues={{

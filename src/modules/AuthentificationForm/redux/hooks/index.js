@@ -1,2 +1,2 @@
 export * from "./useAuthentification";
-export * from "./useRequesAlert";
+export * from "../../../../core/hooks/useRequesAlert";
