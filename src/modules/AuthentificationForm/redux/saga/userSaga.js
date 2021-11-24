@@ -25,7 +25,8 @@ export function* getUserData({ payload }) {
 
     if (tokenResponce) {
         const { data: tokens } = tokenResponce;
-        tokenRepository.setToken(tokens.access_token)
+        tokenRepository.setToken(tokens.access_token);
+        tokenRepository.setRefreshToken(tokens.refresh_token);
         const { responce: profileResponce, error: profileError } = yield call(getUserProfile, tokens.access_token);
 
         if (profileResponce) {
