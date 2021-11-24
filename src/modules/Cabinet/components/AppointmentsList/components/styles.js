@@ -6,19 +6,23 @@ export const AppointmentsItem = styled.li`
     flex-direction: column;
     gap: 16px;
     padding: 16px 24px;
-    width: 85%;
+    width: 80vw;
     background-color: #FFFF;
     border-radius: 12px;
 
     @media (min-width: 1920px) {
         gap: 24px;
         padding: 24px 32px;
-        width: 406px;
+        width: 20vw;
     }
 
-    @media (min-width: 768px) and (max-width: 1919px) {
+    @media (min-width: 1024px) and (max-width: 1919px) {
+        width: 30vw;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
         padding: 32px 34px;
-        width: 544px;
+        width: 60vw;
     }
 `;
 

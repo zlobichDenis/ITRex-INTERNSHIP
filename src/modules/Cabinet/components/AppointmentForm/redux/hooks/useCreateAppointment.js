@@ -14,6 +14,7 @@ export const useCreateAppointment = () => {
   const createAppointment = useCallback((formValues) => {
     const { occupation, date: visitDate, doctorName: doctorID, time: date, ...rest } = formValues;
     const appointmentData = { ...rest, doctorID, date }
+    
     dispatch(postNewAppointment(appointmentData));
   }, [fetchStatus]);
 

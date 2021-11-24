@@ -77,7 +77,6 @@ export const SignInForm = () => {
               textContent="Sign In"
             />
           )}
-
           <Notification
             fetchStatus={fetchStatus}
             closeNotificationHandle={closeNotificationHandle}

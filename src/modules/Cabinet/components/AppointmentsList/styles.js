@@ -9,7 +9,7 @@ export const AppointmentsList = styled.ul`
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px 20px;
+    gap: 2vh 2vw;
 
     @media (min-width: 1920px) {
         flex-direction: row;
