@@ -7,3 +7,4 @@ export * from "./PasswordInput";
 export * from "./SearchInput";
 export * from "./SortSelect";
 export * from "./CabinetTab";
+export * from "./Notification";

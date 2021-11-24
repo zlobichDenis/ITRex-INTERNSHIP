@@ -18,6 +18,11 @@ import NumberOneSvg from "./NumberOne.svg";
 import NumberTwoSvg from "./NumberTwo.svg";
 import NumberThreeSvg from "./NumberThree.svg";
 import RightArrowSvg from "./RightArrow.svg";
+import ErrorIconSvg from "./ErrorIcon.svg";
+import SuccessIconSvg from "./SuccessIcon.svg";
+import UnsuccessIconSvg from "./UnsuccessIcon.svg";
+import CloseSvg from "./Close.svg";
+
 
 
 export { BackArrowSvg,
@@ -40,4 +45,8 @@ export { BackArrowSvg,
         NumberTwoSvg,
         NumberThreeSvg,
         RightArrowSvg,
+        ErrorIconSvg,
+        SuccessIconSvg,
+        CloseSvg,
+        UnsuccessIconSvg,
 };

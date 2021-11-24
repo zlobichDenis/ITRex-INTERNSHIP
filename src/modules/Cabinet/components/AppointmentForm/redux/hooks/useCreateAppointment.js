@@ -14,7 +14,7 @@ export const useCreateAppointment = () => {
     const appointmentData = { ...rest, doctorID, date }
     dispatch(postNewAppointment(appointmentData));
     history.push(`${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`)
-  })
+  }, [dispatch]);
 
   return { createAppointment }
 };

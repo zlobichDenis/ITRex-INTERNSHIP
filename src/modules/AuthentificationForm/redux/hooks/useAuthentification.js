@@ -6,7 +6,8 @@ import { useHistory } from "react-router";
 import { fetchUserProfile } from "modules/AuthentificationForm/redux";
 import { AppScreens } from "routes";
 
-export const useRedirectToCurrentPage = () => {
+export const useAuthentification = () => {
+
   let history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -23,14 +24,13 @@ export const useRedirectToCurrentPage = () => {
           break;
       }
     }
-  }, [user]);
+  }, [user, authError]);
 
   const setUserProfile = useCallback(
     (userData, requestType) => {
       dispatch(fetchUserProfile({ userData, requestType }));
     },
-    [dispatch]
-  );
+    [dispatch]);
 
   return { user, setUserProfile, authError };
 };

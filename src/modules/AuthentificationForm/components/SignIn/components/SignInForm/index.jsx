@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Field } from "formik";
 
 import { signInSchema } from "core";
@@ -11,10 +11,13 @@ import {
 import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
 import { FeedbackForm } from "modules/Cabinet/styles";
-import { useRedirectToCurrentPage } from "modules/AuthentificationForm/redux";
+import { useAuthentification, useAuthentificationAlert } from "modules/AuthentificationForm/redux";
+
+import { Notification } from "components";
 
 export const SignInForm = () => {
-  const { setUserProfile, authError } = useRedirectToCurrentPage();
+  const { isShowingNotification, closeNotificationHandle, showNotificationHandle } = useAuthentificationAlert();
+  const { setUserProfile, authError, user } = useAuthentification();
   console.log(authError)
 
   return (
@@ -29,6 +32,7 @@ export const SignInForm = () => {
       validationSchema={signInSchema}
       onSubmit={(values) => {
         setUserProfile(values, "login");
+        showNotificationHandle();
       }}
     >
       {({ errors, touched, handleSubmit, isValid, isSubmitting }) => (
@@ -62,6 +66,9 @@ export const SignInForm = () => {
             type="submit"
             textContent="Sign In"
           />
+          {user
+            ? <Notification handleClose={closeNotificationHandle} isSuccess={true} message={'Success Authorization'} isDisplay={isShowingNotification}/>
+            : <Notification handleClose={closeNotificationHandle} isSuccess={false} message={authError} isDisplay={isShowingNotification}/>}
         </FeedbackForm>
       )}
     </Formik>

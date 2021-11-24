@@ -1,1 +1,2 @@
-export * from "./useRedirectToCurrentPage";
+export * from "./useAuthentification";
+export * from "./useAuthentificationAlert";
