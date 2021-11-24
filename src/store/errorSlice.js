@@ -4,7 +4,7 @@ export const errorSlice = createSlice({
     name: 'error',
     initialState: null,
     reducers: {
-        setError: function(_, { payload }) {
+        setError: function(state, { payload }) {
             return payload;
         }
     }

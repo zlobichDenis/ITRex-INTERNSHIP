@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect} from "react";
 import { Formik, Field } from "formik";
 
 import { signInSchema } from "core";
@@ -7,18 +7,21 @@ import {
   PasswordInput,
   AlertMessage,
   ActionButton,
+  Notification,
 } from "components";
 import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
 import { FeedbackForm } from "modules/Cabinet/styles";
-import { useAuthentification, useAuthentificationAlert } from "modules/AuthentificationForm/redux";
+import {
+  useAuthentification,
+  useRequestAlert,
+} from "modules/AuthentificationForm/redux";
 
-import { Notification } from "components";
+import { FetchStatus } from "const";
 
 export const SignInForm = () => {
-  const { isShowingNotification, closeNotificationHandle, showNotificationHandle } = useAuthentificationAlert();
-  const { setUserProfile, authError, user } = useAuthentification();
-  console.log(authError)
+  const { setUserProfile, authError, userProfile, fetchStatus } = useAuthentification();
+  const { isShowingNotification, closeNotificationHandle } = useRequestAlert(fetchStatus);
 
   return (
     <Formik
@@ -32,7 +35,6 @@ export const SignInForm = () => {
       validationSchema={signInSchema}
       onSubmit={(values) => {
         setUserProfile(values, "login");
-        showNotificationHandle();
       }}
     >
       {({ errors, touched, handleSubmit, isValid, isSubmitting }) => (
@@ -66,9 +68,17 @@ export const SignInForm = () => {
             type="submit"
             textContent="Sign In"
           />
-          {user
-            ? <Notification handleClose={closeNotificationHandle} isSuccess={true} message={'Success Authorization'} isDisplay={isShowingNotification}/>
-            : <Notification handleClose={closeNotificationHandle} isSuccess={false} message={authError} isDisplay={isShowingNotification}/>}
+
+          <Notification
+            fetchStatus={fetchStatus}
+            closeNotificationHandle={closeNotificationHandle}
+            isShow = {isShowingNotification}
+            message={
+              fetchStatus === FetchStatus.SUCCESS
+                ? "Success Authorization"
+                : authError
+            }
+          />
         </FeedbackForm>
       )}
     </Formik>

@@ -10,7 +10,8 @@ import {
 } from "./styles";
 
 export const CabinetHeader = () => {
-  const { first_name: firstName, last_name: lastName, photo, role_name: roleName } = useSelector(state => state.user);
+  const { first_name: firstName, last_name: lastName, photo, role_name: roleName } = useSelector(state => state.user.userProfile);
+  
   return (
     <Header>
       <img src="./img/logo.png" alt="" />

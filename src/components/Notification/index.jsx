@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-import { SuccessIconSvg, UnsuccessIconSvg, CloseSvg } from "assets";
+import { SuccessIconSvg, UnsuccessIconSvg, CloseSvg, WaitingSvg } from "assets";
+import { FetchStatus } from "const";
 import {
   NotificationWrapper,
   NotificationContent,
@@ -11,18 +12,16 @@ import {
   CloseButton,
 } from "./styles";
 
-export const Notification = ({ message, isSuccess, isDisplay, handleClose }) => {
-
+export const Notification = ({ message, fetchStatus, isShow, closeNotificationHandle }) => {
   return (
-    <NotificationWrapper isShowing={isDisplay} isSuccess={isSuccess}>
+    <NotificationWrapper isShowing={isShow} fetchStatus={fetchStatus}>
       <NotificationContent>
         <img
-          src={isSuccess ? SuccessIconSvg : UnsuccessIconSvg}
+          src={fetchStatus === FetchStatus.SUCCESS ? SuccessIconSvg : UnsuccessIconSvg}
           width="20"
           height="20"
           alt="success icon"
         />
-
         <NotificationText>
           <NotificationTextTittle>{message}</NotificationTextTittle>
           <NotificationMessage>
@@ -33,7 +32,7 @@ export const Notification = ({ message, isSuccess, isDisplay, handleClose }) => 
 
         <CloseButton type="button">
           <img
-            onClick={handleClose}
+            onClick={closeNotificationHandle}
             src={CloseSvg}
             width="15"
             height="15"
@@ -47,7 +46,7 @@ export const Notification = ({ message, isSuccess, isDisplay, handleClose }) => 
 
 Notification.propTypes = {
   message: PropTypes.string,
-  isSuccess: PropTypes.bool.isRequired,
-  isDisplay: PropTypes.bool.isRequired,
-  handleClose: PropTypes.func,
+  fetchStatus: PropTypes.string,
+  isShow: PropTypes.bool,
+  closeNotificationHandle: PropTypes.func,
 };

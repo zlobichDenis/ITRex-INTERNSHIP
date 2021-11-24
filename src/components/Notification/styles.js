@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { colors } from "styles";
+import { FetchStatus } from "const";
 
 export const NotificationWrapper = styled.div`
   position: absolute;
@@ -8,8 +9,7 @@ export const NotificationWrapper = styled.div`
   bottom: 32px;
   display: ${({ isShowing }) => (isShowing ? "block" : "none")};
   width: 457px;
-  background-color: ${({ isSuccess }) =>
-    isSuccess ? colors.SUCCESS_NOTIFICATION : colors.UNSUCCESS_NOTIFICATION};
+  background-color: ${({ fetchStatus }) => fetchStatus === FetchStatus.SUCCESS ? colors.SUCCESS_NOTIFICATION : colors.UNSUCCESS_NOTIFICATION};
   border-radius: 12px;
 `;
 

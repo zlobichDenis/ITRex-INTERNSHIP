@@ -7,6 +7,7 @@ import {
   PasswordInput,
   AlertMessage,
   ActionButton,
+  Notification
 } from "components";
 import {
   NameInputSvg,
@@ -19,8 +20,9 @@ import { Tittle } from "elements";
 import { useAuthentification } from "modules/AuthentificationForm/redux";
 
 export const SignUpForm = () => {
-  const { setUserProfile } = useAuthentification();
-
+  const { setUserProfile, fetchStatus } = useAuthentification();
+  const { isShowingNotification, closeNotificationHandle, showNotificationHandle } = useRequestAlert(fetchStatus);
+  
   return (
     <Formik
       initialValues={{
@@ -99,6 +101,17 @@ export const SignUpForm = () => {
           ) : null}
 
           <ActionButton isDisabled={isValid} textContent="Sign Up" />
+
+          <Notification
+            fetchStatus={fetchStatus}
+            closeNotificationHandle={closeNotificationHandle}
+            isShow = {isShowingNotification}
+            message={
+              fetchStatus === FetchStatus.SUCCESS
+                ? "Success Authorization"
+                : authError
+            }
+          />
         </FeedbackForm>
       )}
     </Formik>

@@ -1,21 +1,19 @@
 import { useCallback, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch  } from "react-redux";
 import { useHistory } from "react-router";
 
-import { fetchUserProfile } from "modules/AuthentificationForm/redux";
 import { AppScreens } from "routes";
+import { fetchUserProfile } from "modules/AuthentificationForm/redux";
 
 export const useAuthentification = () => {
-
   let history = useHistory();
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const { userProfile, fetchStatus } = useSelector((state) => state.user);
   const authError = useSelector(state => state.error);
 
   useEffect(() => {
-    if (user) {
-      switch (user.role_name) {
+    if (userProfile) {
+      switch (userProfile.role_name) {
         case "Patient":
           history.push(AppScreens.PATIENT_VIEW);
           break;
@@ -24,7 +22,7 @@ export const useAuthentification = () => {
           break;
       }
     }
-  }, [user, authError]);
+  }, [userProfile]);
 
   const setUserProfile = useCallback(
     (userData, requestType) => {
@@ -32,5 +30,5 @@ export const useAuthentification = () => {
     },
     [dispatch]);
 
-  return { user, setUserProfile, authError };
+  return { userProfile, setUserProfile, authError, fetchStatus };
 };

@@ -1,13 +1,12 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 
-import { setCurrentUser, fetchUserProfile } from '..';
+import { setCurrentUser, fetchUserProfile, responceFetchUserProfile, rejectFetchUserProfile } from '..';
 import { login, getUserProfile, registration } from "services";
 import * as tokenRepository from "store/tokenRepository";
 import { setError } from 'store';
 
 export function* getUserData({ payload }) {
     const { userData, requestType } = payload;
-
     let tokenResponce;
     let tokenError;
 
@@ -30,14 +29,17 @@ export function* getUserData({ payload }) {
         const { responce: profileResponce, error: profileError } = yield call(getUserProfile, tokens.access_token);
 
         if (profileResponce) {
+            yield put(responceFetchUserProfile());
             const { data: userProfile } = profileResponce;
             yield put(setCurrentUser(userProfile));
         } else {
+            yield put(rejectFetchUserProfile());
             yield put(setCurrentUser(profileError.message));
         }
 
     } else {
         yield put(setError(tokenError.message));
+        yield put(rejectFetchUserProfile());
     }
 };
 

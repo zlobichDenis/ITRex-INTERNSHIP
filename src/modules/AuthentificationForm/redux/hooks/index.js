@@ -1,2 +1,2 @@
 export * from "./useAuthentification";
-export * from "./useAuthentificationAlert";
+export * from "./useRequesAlert";

@@ -1,16 +1,30 @@
 import { createSlice, createAction } from "@reduxjs/toolkit";
 
-export const fetchUserProfile = createAction("auth/profile");
+import { FetchStatus } from "const";
+
+// export const fetchUserProfile = createAction('auth/profile');
 
 const userSlice = createSlice({
   name: "user",
-  initialState: null,
+  initialState: {
+    fetchStatus: null,
+    userProfile: null,
+  },
   reducers: {
-    setCurrentUser(_, { payload }) {
-      return { isAuthentificated: true, ...payload };
+    setCurrentUser(state, { payload }) {
+      return {...state, userProfile: payload};
     },
+    fetchUserProfile(state) {
+      return {...state, fetchStatus: FetchStatus.PENDING}
+    },
+    responceFetchUserProfile(state) {
+      return {...state, fetchStatus: FetchStatus.SUCCESS};
+    },
+    rejectFetchUserProfile(state) {
+      return {...state, fetchStatus: FetchStatus.FAILED};
+    }
   },
 });
 
 export const userReducer = userSlice.reducer;
-export const { setCurrentUser } = userSlice.actions;
+export const { setCurrentUser, responceFetchUserProfile, fetchUserProfile, rejectFetchUserProfile } = userSlice.actions;
