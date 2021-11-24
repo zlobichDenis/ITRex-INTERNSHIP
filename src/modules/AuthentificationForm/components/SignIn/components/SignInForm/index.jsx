@@ -15,14 +15,12 @@ import {
 import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
 import { FeedbackForm } from "modules/Cabinet/styles";
-import {
-  useAuthentification,
-} from "modules/AuthentificationForm/redux";
-
+import { useAuthentification } from "modules/AuthentificationForm/redux";
 
 export const SignInForm = () => {
   const { setUserProfile, authError, fetchStatus } = useAuthentification();
-  const { isShowingNotification, closeNotificationHandle } = useRequestAlert(fetchStatus);
+  const { isShowingNotification, closeNotificationHandle } =
+    useRequestAlert(fetchStatus);
 
   return (
     <Formik
@@ -64,24 +62,26 @@ export const SignInForm = () => {
             <AlertMessage message={errors.password} />
           ) : null}
 
-          {fetchStatus === FetchStatus.PENDING
-           ? <Loader 
+          {fetchStatus === FetchStatus.PENDING && fetchStatus ? (
+            <Loader
               type="Puff"
               color={colors.TEXT_LINK_COLOR}
               height={50}
               width={50}
               timeout={3000}
             />
-           : <ActionButton
+          ) : (
+            <ActionButton
               isDisabled={isValid}
               type="submit"
               textContent="Sign In"
-            />}
+            />
+          )}
 
           <Notification
             fetchStatus={fetchStatus}
             closeNotificationHandle={closeNotificationHandle}
-            isShow = {isShowingNotification}
+            isShow={isShowingNotification}
             message={
               fetchStatus === FetchStatus.SUCCESS
                 ? "Success Authorization"
