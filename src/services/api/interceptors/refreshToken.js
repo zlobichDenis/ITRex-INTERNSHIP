@@ -1,13 +1,13 @@
-import { api } from "services";
+// import { api } from "services";
 
-import * as tokenRepository from "store/tokenRepository";
-import updateAccessToken from "../interceptors";
+// import * as tokenRepository from "store/tokenRepository";
+// import { updateAccessToken } from "../endPoints";
 
-api.interceptors.request.use((responce) => {
-    return responce
-}, async (error) => {
-    if (error.responce.status === 403) {
-        const newAccesToken = updateAccessToken(tokenRepository.getRefreshToken());
-        tokenRepository.setToken(newAccesToken);
-    }
-})
+// api.interceptors.request.use((responce) => {
+//     return responce
+// }, async (error) => {
+//     if (error.responce.status === 403) {
+//         const newAccesToken = updateAccessToken(tokenRepository.getRefreshToken());
+//         tokenRepository.setToken(newAccesToken);
+//     }
+// })
