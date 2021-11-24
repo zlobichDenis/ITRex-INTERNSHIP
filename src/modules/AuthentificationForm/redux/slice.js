@@ -7,6 +7,7 @@ const userSlice = createSlice({
   initialState: {
     fetchStatus: null,
     userProfile: null,
+    tokens: {},
   },
   reducers: {
     setCurrentUser(state, { payload }) {
@@ -20,9 +21,12 @@ const userSlice = createSlice({
     },
     rejectFetchUserProfile(state) {
       return {...state, fetchStatus: FetchStatus.FAILED};
-    }
+    },
+    setTokens(state, { payload }) {
+      return {...state, tokens: payload}
+    },
   },
 });
 
 export const userReducer = userSlice.reducer;
-export const { setCurrentUser, responceFetchUserProfile, fetchUserProfile, rejectFetchUserProfile } = userSlice.actions;
+export const { setCurrentUser, responceFetchUserProfile, fetchUserProfile, rejectFetchUserProfile, setTokens } = userSlice.actions;
