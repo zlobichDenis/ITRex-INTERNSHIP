@@ -8,6 +8,7 @@ import { rootWatcher } from "./rootWatcher";
 import { errorReducer } from "./errorSlice";
 import { userReducer } from "modules/AuthentificationForm/redux";
 import { appointmentsReducer } from "modules/Cabinet/redux";
+import { createAppointmentReducer } from "modules/Cabinet/components/AppointmentForm/redux";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -21,9 +22,10 @@ export const store = configureStore({
     user: persistReducer(authentificationPersistConfig, userReducer),
     appointments: appointmentsReducer,
     error: errorReducer,
+    createdAppointment: createAppointmentReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(sagaMiddleware),
+    getDefaultMiddleware({ serializableCheck: false }).concat(sagaMiddleware),
 });
 
 export const persistor = persistStore(store);

@@ -3,22 +3,25 @@ import { Formik, Field } from "formik";
 import Loader from "react-loader-spinner";
 
 import { NumberOneSvg, NumberTwoSvg, NumberThreeSvg } from "assets";
+import { useRequestAlert, appointmentSchema } from "core";
 import { getAllSpecializations } from "services";
-import { appointmentSchema } from "core";
+import { colors } from "styles";
 import {
   CreateAppointmentForm,
   StageCreatingWrapper,
   InputWrapper,
   InputLabel,
 } from "../../styles";
-import { ActionButton, AlertMessage, AuthTextInput } from "components";
+import { ActionButton, AlertMessage, AuthTextInput, Notification } from "components";
 import { SelectList, VisitCalendar, StageName, TimeRadioList } from "..";
 import { useCreateAppointment } from "../../redux";
+import { FetchStatus } from "const";
 
 export const AppointmentForm = () => {
   const [allSpecializations, setAllSpecializations] = useState(null);
+  const { createAppointment, fetchStatus } = useCreateAppointment();
+  const { isShowingNotification, closeNotificationHandle } = useRequestAlert(fetchStatus);
 
-  const { createAppointment } = useCreateAppointment();
   useEffect(() => {
     getAllSpecializations().then((responce) =>
       setAllSpecializations(responce.data)
@@ -31,7 +34,7 @@ export const AppointmentForm = () => {
       label: specialization_name,
     }));
   };
-
+  console.log(fetchStatus)
   return allSpecializations ? (
     <Formik
       initialValues={{
@@ -130,12 +133,31 @@ export const AppointmentForm = () => {
             )}
           </StageCreatingWrapper>
 
-          <ActionButton
-            isDisabled={isValid}
-            type="submit"
-            textContent="Submit"
-            itsUserView
-            icon={null}
+          {fetchStatus === FetchStatus.PENDING
+           ? <Loader
+              type="Puff"
+              color={colors.TEXT_LINK_COLOR}
+              height={50}
+              width={50}
+              timeout={3000}
+            />
+            : <ActionButton
+                isDisabled={isValid}
+                type="submit"
+                textContent="Submit"
+                itsUserView
+                icon={null}
+              />}
+
+          <Notification
+            fetchStatus={fetchStatus}
+            closeNotificationHandle={closeNotificationHandle}
+            isShow={isShowingNotification}
+            message={
+              fetchStatus === FetchStatus.SUCCESS
+                ? "Success Authorization"
+                : "Something going wrong"
+            }
           />
         </CreateAppointmentForm>
       )}
