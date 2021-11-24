@@ -1,7 +1,9 @@
 import React, { useEffect} from "react";
 import { Formik, Field } from "formik";
+import Loader from "react-loader-spinner";
 
 import { signInSchema } from "core";
+import { FetchStatus } from "const";
 import {
   AuthTextInput,
   PasswordInput,
@@ -17,7 +19,6 @@ import {
   useRequestAlert,
 } from "modules/AuthentificationForm/redux";
 
-import { FetchStatus } from "const";
 
 export const SignInForm = () => {
   const { setUserProfile, authError, userProfile, fetchStatus } = useAuthentification();
@@ -63,11 +64,19 @@ export const SignInForm = () => {
             <AlertMessage message={errors.password} />
           ) : null}
 
-          <ActionButton
-            isDisabled={isValid}
-            type="submit"
-            textContent="Sign In"
-          />
+          {fetchStatus === FetchStatus.PENDING
+           ? <Loader 
+              type="Puff"
+              color="#00BFFF"
+              height={50}
+              width={50}
+              timeout={3000}
+           />
+           : <ActionButton
+              isDisabled={isValid}
+              type="submit"
+              textContent="Sign In"
+            />}
 
           <Notification
             fetchStatus={fetchStatus}
