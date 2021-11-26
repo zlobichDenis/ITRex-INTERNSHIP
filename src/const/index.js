@@ -1,2 +1,4 @@
 import { FetchStatus } from "./fetchStatus";
-export { FetchStatus } ;
+import { UserRoles } from "./userRoles";
+
+export { FetchStatus, UserRoles } ;

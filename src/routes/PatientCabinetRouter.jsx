@@ -7,11 +7,11 @@ import { PrivateRoute } from "./PrivateRoute";
 export const PatientCabinetRouter = () => {
   return (
     <Switch>
-      {patientCabinetRoutes.map(({ isPrivate, path, ...props }, index) =>
-        isPrivate ? (
-          <PrivateRoute key={`path-${index}`} path={`${AppScreens.PATIENT_VIEW}${path}`} {...props} />
+      {patientCabinetRoutes.map(({ isPrivate, forRole, path, ...props }, index) =>
+        (isPrivate && forRole) ? (
+          <PrivateRoute key={`path-${index}`} role={forRole} path={path} {...props} />
         ) : (
-          <Route exact key={`path-${index}`} {...props} />
+          <Route key={`path-${index}`} path={path} {...props} />
         )
       )}
       <Redirect from={`${AppScreens.PATIENT_VIEW}`} to={`${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`} />

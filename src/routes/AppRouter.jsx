@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Switch,
   Route,
@@ -13,11 +14,11 @@ const AppRouter = () => {
   return (
     <Router>
       <Switch>
-        {appRoutes.map(({ isPrivate, ...props }, index) =>
-          isPrivate ? (
-            <PrivateRoute key={`path-${index}`} {...props} />
+        {appRoutes.map(({ isPrivate, forRole, path, ...props }, index) =>
+          forRole ? (
+            <PrivateRoute role={forRole} key={`path-${index}`} path={path} {...props} />
           ) : (
-            <Route key={`path-${index}`} {...props} />
+            <Route key={`path-${index}`} path={path} {...props} />
           )
         )}
         <Redirect

@@ -1,4 +1,5 @@
 import { Authentification, DoctorView, PatientView } from "pages";
+import { UserRoles } from "const";
 import {
   PatientInfo,
   AppointmentFormContainer,
@@ -32,53 +33,62 @@ export const appRoutes = [
     path: AppScreens.AUTH,
     component: Authentification,
     isPrivate: false,
+    forRole: null,
   },
   {
     path: AppScreens.DOCTOR_VIEW,
     component: DoctorView,
     isPrivate: true,
+    forRole: UserRoles.DOCTOR,
   },
   {
     path: AppScreens.PATIENT_VIEW,
     component: PatientView,
     isPrivate: true,
+    forRole: UserRoles.PATIENT,
   },
 ];
 
 export const authRoutes = [
   {
-    path: AuthStages.SIGN_UP,
+    path: `${AppScreens.AUTH}${AuthStages.SIGN_UP}`,
     component: SignUp,
     isPrivate: false,
+    forRole: null,
   },
   {
-    path: AuthStages.SIGN_IN,
+    path: `${AppScreens.AUTH}${AuthStages.SIGN_IN}`,
     component: SignIn,
     isPrivate: false,
+    forRole: null,
   },
   {
-    path: AuthStages.RESTORE,
+    path: `${AppScreens.AUTH}${AuthStages.RESTORE}`,
     component: RestorePass,
     isPrivate: false,
+    forRole: null,
   },
   {
-    path: AuthStages.RESTORE_CONFIRM,
+    path: `${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`,
     component: RestorePass,
     isPrivate: true,
+    forRole: null,
   },
 ];
 
 export const patientCabinetRoutes = [
   {
-    path: PatientScreens.CABINET,
+    path: `${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`,
     component: PatientInfo,
     isPrivate: true,
     exact: false,
+    forRole: UserRoles.PATIENT
   },
   {
-    path: PatientScreens.CREATE_APPOINTMENT,
+    path: `${AppScreens.PATIENT_VIEW}${PatientScreens.CREATE_APPOINTMENT}`,
     component: AppointmentFormContainer,
     isPrivate: true,
-    exact: true,
+    exact: false,
+    forRole: UserRoles.PATIENT,
   },
 ];

@@ -18,7 +18,7 @@ import { FeedbackForm } from "modules/Cabinet/styles";
 import { useAuthentification } from "modules/AuthentificationForm/redux";
 
 export const SignInForm = () => {
-  const { setUserProfile, authError, fetchStatus } = useAuthentification();
+  const { setUserProfile, fetchStatus } = useAuthentification();
   const { isShowingNotification, closeNotificationHandle } =
     useRequestAlert(fetchStatus);
 
@@ -84,7 +84,7 @@ export const SignInForm = () => {
             message={
               fetchStatus === FetchStatus.SUCCESS
                 ? "Success Authorization"
-                : authError
+                : "Unsuccess Authorization"
             }
           />
         </FeedbackForm>

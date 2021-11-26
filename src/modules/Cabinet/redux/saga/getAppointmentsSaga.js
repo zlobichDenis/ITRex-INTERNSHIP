@@ -1,7 +1,6 @@
 import { put, takeEvery, call } from "redux-saga/effects";
 
 import { getAllDoctorAppointments, getAllPatientAppointments } from "services";
-import { setError } from "store";
 import * as tokenRepository from "store/tokenRepository";
 import {
   fetchDoctorAppointments,
@@ -41,7 +40,6 @@ export function* getAppointmentsWorker({ type, payload }) {
     yield put(setUserAppointments(appointments.appointments));
   } else {
     yield put(rejectFetchAppointments());
-    yield put(setError(error.message));
   }
 }
 

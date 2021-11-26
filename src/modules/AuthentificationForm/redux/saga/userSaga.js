@@ -3,7 +3,6 @@ import { put, takeEvery, call } from 'redux-saga/effects';
 import { setCurrentUser, fetchUserProfile, responceFetchUserProfile, rejectFetchUserProfile, setTokens } from '..';
 import { login, getUserProfile, registration } from "services";
 import * as tokenRepository from "store/tokenRepository";
-import { setError } from 'store';
 
 export function* getUserData({ payload }) {
     const { userData, requestType } = payload;
@@ -41,7 +40,6 @@ export function* getUserData({ payload }) {
         }
 
     } else {
-        yield put(setError(tokenError.message));
         yield put(rejectFetchUserProfile());
     }
 };

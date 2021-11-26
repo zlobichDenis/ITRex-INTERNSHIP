@@ -10,9 +10,8 @@ export const AuthRouter = () => {
       {authRoutes.map(({ path, component }) => {
         return (
           <Route
-            exact
             key={`auth-route-to-${path}`}
-            path={`${AppScreens.AUTH}${path}`}
+            path={path}
             component={component}
           />
         );

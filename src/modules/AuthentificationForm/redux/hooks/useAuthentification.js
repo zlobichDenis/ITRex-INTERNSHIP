@@ -9,7 +9,6 @@ export const useAuthentification = () => {
   let history = useHistory();
   const dispatch = useDispatch();
   const { userProfile, fetchStatus } = useSelector((state) => state.user);
-  const authError = useSelector(state => state.error);
 
   useEffect(() => {
     if (userProfile) {
@@ -30,5 +29,5 @@ export const useAuthentification = () => {
     },
     [dispatch]);
 
-  return { userProfile, setUserProfile, authError, fetchStatus };
+  return { userProfile, setUserProfile, fetchStatus };
 };

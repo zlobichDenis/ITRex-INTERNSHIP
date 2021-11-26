@@ -21,7 +21,7 @@ import { Tittle } from "elements";
 import { useAuthentification } from "modules/AuthentificationForm/redux";
 
 export const SignUpForm = () => {
-  const { setUserProfile, fetchStatus, authError } = useAuthentification();
+  const { setUserProfile, fetchStatus } = useAuthentification();
   const { isShowingNotification, closeNotificationHandle, showNotificationHandle } = useRequestAlert(fetchStatus);
 
   return (
@@ -110,7 +110,7 @@ export const SignUpForm = () => {
             message={
               fetchStatus === FetchStatus.SUCCESS
                 ? "Success Authorization"
-                : authError
+                : "Unsuccess Authorization"
             }
           />
         </FeedbackForm>
