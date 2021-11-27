@@ -8,13 +8,15 @@ import { AppScreens, AuthStages } from "routes";
 export const PrivateRoute = ({ component: Component, path, role, ...rest }) => {
   const renderedComponent = ({ location, exact, ...props }) => {
     // eslint-disable-next-line react/prop-types
-    const user = useSelector((state) => state.user);
-    console.log(user, role)
-    if (user.userProfile.role_name === role) {
+    const { userProfile } = useSelector((state) => state.user);
+    const roleName = userProfile ? userProfile.role_name : null;
+
+    if (roleName === role) {
       return <Component {...props} />;
-    } else {
+    } 
+    else {
       return (
-        <Redirect to={{ pathname: `${AppScreens.AUTH}${AuthStages.SIGN_IN}`, state: location }} />
+        <Redirect push to={{ pathname: `${AppScreens.AUTH}${AuthStages.SIGN_IN}`, state: location }} />
       );
     }
   };  

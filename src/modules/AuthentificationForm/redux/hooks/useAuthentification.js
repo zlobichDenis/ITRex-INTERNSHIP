@@ -1,33 +1,19 @@
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useSelector, useDispatch  } from "react-redux";
-import { useHistory } from "react-router";
 
-import { AppScreens } from "routes";
-import { fetchUserProfile } from "modules/AuthentificationForm/redux";
+import { fetchLogin, fetchRegistration } from "..";
 
 export const useAuthentification = () => {
-  let history = useHistory();
   const dispatch = useDispatch();
   const { userProfile, fetchStatus } = useSelector((state) => state.user);
 
-  useEffect(() => {
-    if (userProfile) {
-      switch (userProfile.role_name) {
-        case "Patient":
-          history.push(AppScreens.PATIENT_VIEW);
-          break;
-        case "Doctor":
-          history.push(AppScreens.DOCTOR_VIEW);
-          break;
-      }
-    }
-  }, [userProfile]);
+  const loginRequest = useCallback((userData) => {
+    dispatch(fetchLogin(userData))
+  }, [dispatch]);
 
-  const setUserProfile = useCallback(
-    (userData, requestType) => {
-      dispatch(fetchUserProfile({ userData, requestType }));
-    },
-    [dispatch]);
+  const registrationRequest = useCallback((userData) => {
+    dispatch(fetchRegistration(userData))
+  }, [dispatch]);
 
-  return { userProfile, setUserProfile, fetchStatus };
+  return { userProfile, fetchStatus, registrationRequest, loginRequest };
 };

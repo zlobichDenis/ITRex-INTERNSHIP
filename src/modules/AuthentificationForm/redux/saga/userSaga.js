@@ -1,49 +1,62 @@
-import { put, takeEvery, call } from 'redux-saga/effects';
+import { put, takeLatest, call } from "redux-saga/effects";
+import { push } from "connected-react-router";
 
-import { setCurrentUser, fetchUserProfile, responceFetchUserProfile, rejectFetchUserProfile, setTokens } from '..';
+import {
+  setCurrentUser,
+  fetchUserProfile,
+  responceFetchUserProfile,
+  rejectFetchUserProfile,
+  fetchLogin,
+  fetchRegistration,
+} from "..";
 import { login, getUserProfile, registration } from "services";
 import * as tokenRepository from "store/tokenRepository";
+import { getCorrectPage } from "../common";
 
-export function* getUserData({ payload }) {
-    const { userData, requestType } = payload;
-    let tokenResponce;
-    let tokenError;
 
-    switch (requestType) {
-        case "login":
-            const { responce: loginRespone, error: loginError } = yield call(login, userData);
-            tokenResponce = loginRespone;
-            tokenError = loginError;
-            break
-        case "registration":
-            const { responce: registrationResponce } = yield call(registration, userData);
-            tokenResponce = registrationResponce;
-            break;
-    }
 
-    if (tokenResponce) {
-        const { data: tokens } = tokenResponce;
-        yield put(setTokens(tokens));
+function* registrationWorker({ payload }) {
+  const { responce: tokenResponce, error } = yield call(registration, payload);
 
-        tokenRepository.setToken(tokens.access_token);
-        tokenRepository.setRefreshToken(tokens.refresh_token);
-        
-        const { responce: profileResponce, error: profileError } = yield call(getUserProfile, tokens.access_token);
+  if (tokenResponce) {
+    tokenRepository.setToken(tokenResponce.data.access_token);
+    tokenRepository.setRefreshToken(tokenResponce.data.refresh_token);
+    yield put(fetchUserProfile());
+  } else {
+    console.log(error)
+    yield put(rejectFetchUserProfile());
+  }
+}
 
-        if (profileResponce) {
-            yield put(responceFetchUserProfile());
-            const { data: userProfile } = profileResponce;
-            yield put(setCurrentUser(userProfile));
-        } else {
-            yield put(rejectFetchUserProfile());
-            yield put(setCurrentUser(profileError.message));
-        }
+function* loginWorker({ payload }) {
+  const { responce: tokenResponce, error }  = yield call(login, payload);
 
-    } else {
-        yield put(rejectFetchUserProfile());
-    }
-};
+  if (tokenResponce) {
+    tokenRepository.setToken(tokenResponce.data.access_token);
+    tokenRepository.setRefreshToken(tokenResponce.data.refresh_token);
+    yield put(fetchUserProfile());
+  } else {
+    console.log(error)
+    yield put(rejectFetchUserProfile());
+  }
+}
+
+function* getUserProfileWorker() {
+  const { responce: userProfileResponce, error } = yield call(getUserProfile);
+
+  if (userProfileResponce) {
+    yield put(responceFetchUserProfile());
+    const {data: userProfile } = userProfileResponce;
+    yield put(setCurrentUser(userProfile));
+    yield put(push(getCorrectPage(userProfile)));
+  } else {
+    console.log(error)
+    yield put(rejectFetchUserProfile());
+  }
+}
 
 export function* getUserDataWatcher() {
-    yield takeEvery(fetchUserProfile, getUserData);
-};
+  yield takeLatest(fetchRegistration, registrationWorker);
+  yield takeLatest(fetchLogin, loginWorker);
+  yield takeLatest(fetchUserProfile, getUserProfileWorker);
+}

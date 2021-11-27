@@ -21,8 +21,8 @@ import { Tittle } from "elements";
 import { useAuthentification } from "modules/AuthentificationForm/redux";
 
 export const SignUpForm = () => {
-  const { setUserProfile, fetchStatus } = useAuthentification();
-  const { isShowingNotification, closeNotificationHandle, showNotificationHandle } = useRequestAlert(fetchStatus);
+  const { registrationRequest, fetchStatus } = useAuthentification();
+  const { isShowingNotification, closeNotificationHandle } = useRequestAlert(fetchStatus);
 
   return (
     <Formik
@@ -39,7 +39,7 @@ export const SignUpForm = () => {
       validationSchema={signUpSchema}
       onSubmit={(values) => {
         const { passwordConfirm, ...userData } = values;
-        setUserProfile(userData, "registration");
+        registrationRequest(userData);
       }}
     >
       {({ errors, touched, handleSubmit, isValid }) => (

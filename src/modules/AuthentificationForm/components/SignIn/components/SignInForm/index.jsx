@@ -18,7 +18,7 @@ import { FeedbackForm } from "modules/Cabinet/styles";
 import { useAuthentification } from "modules/AuthentificationForm/redux";
 
 export const SignInForm = () => {
-  const { setUserProfile, fetchStatus } = useAuthentification();
+  const { loginRequest, fetchStatus } = useAuthentification();
   const { isShowingNotification, closeNotificationHandle } =
     useRequestAlert(fetchStatus);
 
@@ -33,7 +33,7 @@ export const SignInForm = () => {
       }}
       validationSchema={signInSchema}
       onSubmit={(values) => {
-        setUserProfile(values, "login");
+        loginRequest(values);
       }}
     >
       {({ errors, touched, handleSubmit, isValid, isSubmitting }) => (

@@ -12,12 +12,8 @@ export const login = (userData) =>
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
-export const getUserProfile = (token) =>
+export const getUserProfile = () =>
   api
-    .get("auth/profile", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    .get("auth/profile")
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));

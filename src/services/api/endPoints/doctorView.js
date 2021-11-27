@@ -1,11 +1,8 @@
 import { api } from "services";
 
-export const getAllDoctorAppointments = ([ limit, offset, token ]) => (
+export const getAllDoctorAppointments = ({ limit, offset }) => (
   api
     .get("/appointments/doctor/me", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
       params: {
         offset: offset,
         limit: limit,

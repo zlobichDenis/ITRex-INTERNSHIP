@@ -1,5 +1,4 @@
 import { api } from "services";
-import { getToken } from "store";
 
 export const getAllSpecializations = () => api.get("specializations");
 
@@ -14,13 +13,9 @@ export const getAvailableTime = (doctorId, date) =>
     },
   });
 
-export const createAppointment = ([data, token]) => (
+export const createAppointment = (data) => (
   api
-    .post("appointments", data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    .post("appointments", data)
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }))
 );

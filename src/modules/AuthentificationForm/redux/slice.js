@@ -1,6 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAction } from "@reduxjs/toolkit";
 
 import { FetchStatus } from "const";
+
+export const fetchRegistration = createAction('auth/registration');
+export const fetchLogin = createAction('auth-login');
 
 const userSlice = createSlice({
   name: "user",
