@@ -7,7 +7,7 @@ import { createBrowserHistory } from 'history'
 
 import { rootWatcher } from "./rootWatcher";
 import { userReducer } from "modules/AuthentificationForm/redux";
-import { appointmentsReducer } from "modules/Cabinet/redux";
+import { appointmentsReducer } from "modules/Cabinet/components/AppointmentsList/redux";
 import { createAppointmentReducer } from "modules/Cabinet/components/AppointmentForm/redux";
 
 const sagaMiddleware = createSagaMiddleware();

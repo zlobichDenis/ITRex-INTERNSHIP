@@ -1,40 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Field } from "formik";
+import { useSelector, useDispatch } from "react-redux";
 import Loader from "react-loader-spinner";
 
 import { NumberOneSvg, NumberTwoSvg, NumberThreeSvg } from "assets";
 import { useRequestAlert, appointmentSchema } from "core";
-import { getAllSpecializations } from "services";
 import { colors } from "styles";
+import { FetchStatus } from "const";
+import { ActionButton, AlertMessage, AuthTextInput, Notification } from "components";
 import {
   CreateAppointmentForm,
   StageCreatingWrapper,
   InputWrapper,
   InputLabel,
 } from "../../styles";
-import { ActionButton, AlertMessage, AuthTextInput, Notification } from "components";
-import { SelectList, VisitCalendar, StageName, TimeRadioList } from "..";
-import { useCreateAppointment } from "../../redux";
-import { FetchStatus } from "const";
+import { VisitCalendar, StageName, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
+import { useCreateAppointment, fetchSpecializations } from "../../redux";
 
 export const AppointmentForm = () => {
-  const [allSpecializations, setAllSpecializations] = useState(null);
+  const dispatch = useDispatch();
+  const { specializations: allSpecializations } = useSelector((state) => state.createdAppointment);
+  
   const { createAppointment, fetchStatus } = useCreateAppointment();
   const { isShowingNotification, closeNotificationHandle } = useRequestAlert(fetchStatus);
 
   useEffect(() => {
-    getAllSpecializations().then((responce) =>
-      setAllSpecializations(responce.data)
-    );
+    dispatch(fetchSpecializations());
   }, []);
 
   const getSpezialisationsOptions = () => {
-    return allSpecializations.map(({ id, specialization_name }) => ({
-      value: id,
-      label: specialization_name,
-    }));
+    if(allSpecializations) {
+      return allSpecializations.map(({ id, specialization_name }) => ({
+        value: id,
+        label: specialization_name,
+      }));
+    }
   };
-  console.log(fetchStatus)
+
   return allSpecializations ? (
     <Formik
       initialValues={{
@@ -65,7 +67,7 @@ export const AppointmentForm = () => {
             <InputWrapper>
               <InputLabel>Occupation</InputLabel>
               <Field
-                component={SelectList}
+                component={SpecializationSelect}
                 name="occupation"
                 id="occupation"
                 options={getSpezialisationsOptions()}
@@ -79,7 +81,7 @@ export const AppointmentForm = () => {
             <InputWrapper>
               <InputLabel>Doctors name</InputLabel>
               <Field
-                component={SelectList}
+                component={DoctorSelect}
                 name="doctorName"
                 type="radio"
                 id="doctorName"

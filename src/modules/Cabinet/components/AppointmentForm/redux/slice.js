@@ -6,6 +6,10 @@ export const createAppointmentSlice = createSlice({
   name: "create-appointment",
   initialState: {
     fetchStatus: null,
+    specializations: null,
+    doctors: null,
+    date: null,
+    availableTimes: null,
   },
   reducers: {
     postNewAppointment: function (state) {
@@ -17,6 +21,16 @@ export const createAppointmentSlice = createSlice({
     rejectPostAppointment: function (state) {
       return { ...state, fetchStatus: FetchStatus.FAILED };
     },
+
+    setSpecializations: function(state, { payload }) {
+      return { ...state, specializations: payload };
+    },
+    setDoctorPerSpecialization: function(state, { payload }) {
+      return { ...state, doctors: payload };
+    },
+    setAvailableTimes: function(state, { payload }) {
+      return { ...state, availableTimes: payload };
+    },
   },
 });
 
@@ -25,4 +39,7 @@ export const {
   postNewAppointment,
   responcePostAppointment,
   rejectPostAppointment,
+  setAvailableTimes,
+  setDoctorPerSpecialization,
+  setSpecializations
 } = createAppointmentSlice.actions;
