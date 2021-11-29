@@ -1,54 +1,94 @@
-import { Authentification, DoctorView, PatientView, UserView } from "pages";
-import { SignUp, SignIn, RestorePass } from "modules/AuthentificationForm/components";
+import { Authentification, DoctorView, PatientView } from "pages";
+import { UserRoles } from "const";
+import {
+  PatientInfo,
+} from "modules/Cabinet/components";
+import { AppointmentFormContainer } from "modules/AppointmentForm";
+import {
+  SignUp,
+  SignIn,
+  RestorePass,
+} from "modules/AuthentificationForm/components";
 
 export const AuthStages = {
-    SIGN_UP: '/sign-up',
-    SIGN_IN: '/sign-in',
-    RESTORE: '/restore',
-    RESTORE_CONFIRM: '/restore-confirm',
+  SIGN_UP: "/sign-up",
+  SIGN_IN: "/sign-in",
+  RESTORE: "/restore",
+  RESTORE_CONFIRM: "/restore-confirm",
 };
 
 export const AppScreens = {
-    AUTH: '/authentification',
-    DOCTOR_VIEW: '/doctor-view',
-    PATIENT_VIEW: '/patient-view',
-    USER_VIEW: '/user-view',
+  AUTH: "/authentification",
+  DOCTOR_VIEW: "/doctor-view",
+  PATIENT_VIEW: "/patient-view",
+};
+
+export const PatientScreens = {
+  CREATE_APPOINTMENT: "/create-appointment",
+  CABINET: "/patient-cabinet",
 };
 
 export const appRoutes = [
-    {
-        path: AppScreens.AUTH,
-        component: Authentification,
-    },
-    {
-        path: AppScreens.DOCTOR_VIEW,
-        component: DoctorView,
-    },
-    {
-        path: AppScreens.PATIENT_VIEW,
-        component: PatientView,
-    },
-    {
-        path: AppScreens.USER_VIEW,
-        component: UserView,
-    },
+  {
+    path: AppScreens.AUTH,
+    component: Authentification,
+    isPrivate: false,
+    forRole: null,
+  },
+  {
+    path: AppScreens.DOCTOR_VIEW,
+    component: DoctorView,
+    isPrivate: true,
+    forRole: UserRoles.DOCTOR,
+  },
+  {
+    path: AppScreens.PATIENT_VIEW,
+    component: PatientView,
+    isPrivate: true,
+    forRole: UserRoles.PATIENT,
+  },
 ];
 
 export const authRoutes = [
-    {
-        path: AuthStages.SIGN_UP,
-        component: SignUp,
-    },
-    {
-        path: AuthStages.SIGN_IN,
-        component: SignIn,
-    },
-    {
-        path: AuthStages.RESTORE,
-        component: RestorePass, 
-    },
-    {
-        path: AuthStages.RESTORE_CONFIRM,
-        component: RestorePass,
-    },
+  {
+    path: `${AppScreens.AUTH}${AuthStages.SIGN_UP}`,
+    component: SignUp,
+    isPrivate: false,
+    forRole: null,
+  },
+  {
+    path: `${AppScreens.AUTH}${AuthStages.SIGN_IN}`,
+    component: SignIn,
+    isPrivate: false,
+    forRole: null,
+  },
+  {
+    path: `${AppScreens.AUTH}${AuthStages.RESTORE}`,
+    component: RestorePass,
+    isPrivate: false,
+    forRole: null,
+  },
+  {
+    path: `${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`,
+    component: RestorePass,
+    isPrivate: true,
+    forRole: null,
+  },
+];
+
+export const patientCabinetRoutes = [
+  {
+    path: `${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`,
+    component: PatientInfo,
+    isPrivate: true,
+    exact: false,
+    forRole: UserRoles.PATIENT
+  },
+  {
+    path: `${AppScreens.PATIENT_VIEW}${PatientScreens.CREATE_APPOINTMENT}`,
+    component: AppointmentFormContainer,
+    isPrivate: true,
+    exact: false,
+    forRole: UserRoles.PATIENT,
+  },
 ];

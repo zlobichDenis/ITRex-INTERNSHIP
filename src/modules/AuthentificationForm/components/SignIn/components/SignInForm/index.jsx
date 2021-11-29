@@ -1,48 +1,94 @@
 import React from "react";
 import { Formik, Field } from "formik";
-import { useHistory } from "react-router";
+import Loader from "react-loader-spinner";
 
-import { AppScreens } from "routes";
-import { signInSchema } from "core";
-import { AuthTextInput, 
-         PasswordInput,  
-         AlertMessage, 
-         ActionButton  } from "components";
+import { signInSchema, useRequestAlert } from "core";
+import { colors } from "styles";
+import { FetchStatus } from "const";
+import {
+  AuthTextInput,
+  PasswordInput,
+  AlertMessage,
+  ActionButton,
+  Notification,
+} from "components";
 import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
-import { FeedbackForm } from "modules/styles";
-
+import { FeedbackForm } from "modules/Cabinet/styles";
+import { useAuthentification } from "modules/AuthentificationForm/redux";
 
 export const SignInForm = () => {
-    let history = useHistory();
-    return (
-        <Formik 
-            initialValues={{
-                email: '',
-                password: '',
-            }}
-            validationSchema={signInSchema}
-            onSubmit={() => history.push(AppScreens.PATIENT_VIEW)}
-            >  
-            {({ errors, touched, handleSubmit }) => (
-                <FeedbackForm onSubmit={handleSubmit}>
-                    <Tittle >Sign In</Tittle>
+  const { loginRequest, fetchStatus } = useAuthentification();
+  const { isShowingNotification, closeNotificationHandle } =
+    useRequestAlert(fetchStatus);
 
-                    <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon={EmailInputSvg}/>
-                    {errors.email && touched.email
-                        ? <AlertMessage message={errors.email} /> 
-                        : null}
+  return (
+    <Formik
+      initialValues={{
+        userName: "",
+        password: "",
+      }}
+      initialErrors={{
+        initialError: "Initial error",
+      }}
+      validationSchema={signInSchema}
+      onSubmit={(values) => {
+        loginRequest(values);
+      }}
+    >
+      {({ errors, touched, handleSubmit, isValid, isSubmitting }) => (
+        <FeedbackForm onSubmit={handleSubmit}>
+          <Tittle>Sign In</Tittle>
 
+          <Field
+            component={AuthTextInput}
+            name="userName"
+            type="text"
+            placeholder="Email"
+            icon={EmailInputSvg}
+          />
+          {errors.userName && touched.userName ? (
+            <AlertMessage message={errors.userName} />
+          ) : null}
 
-                    <Field component={PasswordInput} name="password" type="password" placeholder="Password" icon={PasswordInputSvg}/>
-                    {errors.password && touched.password
-                        ? <AlertMessage message={errors.password} /> 
-                        : null}
+          <Field
+            component={PasswordInput}
+            name="password"
+            type="password"
+            placeholder="Password"
+            icon={PasswordInputSvg}
+          />
+          {errors.password && touched.password ? (
+            <AlertMessage message={errors.password} />
+          ) : null}
 
-                    <ActionButton type="submit" textContent='Sign In'/>
-                    
-                </FeedbackForm>
-            )}
-        </Formik>
-    )
+          {fetchStatus === FetchStatus.PENDING && fetchStatus ? (
+            <Loader
+              type="Puff"
+              color={colors.TEXT_LINK_COLOR}
+              height={50}
+              width={50}
+              timeout={3000}
+            />
+          ) : (
+            <ActionButton
+              isDisabled={isValid}
+              type="submit"
+              textContent="Sign In"
+            />
+          )}
+          <Notification
+            fetchStatus={fetchStatus}
+            closeNotificationHandle={closeNotificationHandle}
+            isShow={isShowingNotification}
+            message={
+              fetchStatus === FetchStatus.SUCCESS
+                ? "Success Authorization"
+                : "Unsuccess Authorization"
+            }
+          />
+        </FeedbackForm>
+      )}
+    </Formik>
+  );
 };

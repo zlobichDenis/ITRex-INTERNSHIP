@@ -1,25 +1,16 @@
 import React from "react";
-import { CabinetHeader } from "components";
-import { PatientsList, DoctorViewTabs, DoctorViewControlPanel } from "modules";
 
-import { CabinetSection, 
-        Cabinet, 
-        CabinetContentWrapper, 
-        CabinetInfo } from "../styles";
+import { CabinetHeader } from "components";
+import { UserCabinet } from "modules";
+import { CabinetSection, Cabinet } from "../styles";
 
 export const DoctorView = () => {
-    return (
-         <CabinetSection>
-            <Cabinet>
-                <CabinetHeader  />
-                <CabinetContentWrapper>
-                    <DoctorViewTabs />
-                    <CabinetInfo>
-                        <DoctorViewControlPanel />
-                             <PatientsList />
-                    </CabinetInfo>
-                </CabinetContentWrapper>
-            </Cabinet>
-        </CabinetSection>
-    )
+  return (
+    <CabinetSection>
+      <Cabinet>
+        <CabinetHeader />
+        <UserCabinet/>
+      </Cabinet>
+    </CabinetSection>
+  );
 };

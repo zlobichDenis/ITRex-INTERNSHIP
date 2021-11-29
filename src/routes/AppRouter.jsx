@@ -1,22 +1,34 @@
 import React from "react";
-import { Switch,
-         Route,
-         Redirect,
-         BrowserRouter as Router } from 'react-router-dom';
+import { ConnectedRouter } from "connected-react-router";
+import {
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
-import  { AppScreens, appRoutes } from "routes";
+import { AppScreens, AuthStages, appRoutes } from "routes";
+import { history } from "store";
+import { PrivateRoute } from "./PrivateRoute";
 
 const AppRouter = () => {
-    return (
-        <Router>
-            <Switch>
-                {appRoutes.map(({ component, path }) => {
-                    return <Route key={`route-to${path}`} component={component} path={path} />
-                })}
-                <Redirect from="/" to={AppScreens.AUTH} />
-            </Switch>
-        </Router>
-    );
+  return (
+    <ConnectedRouter history={history}>
+        <Switch>
+          {appRoutes.map(({ isPrivate, forRole, path, ...props }, index) =>
+            forRole ? (
+              <PrivateRoute role={forRole} key={`path-${index}`} path={path} {...props} />
+            ) : (
+              <Route key={`path-${index}`} path={path} {...props} />
+            )
+          )}
+          <Redirect
+            exact
+            from="/"
+            to={`${AppScreens.AUTH}${AuthStages.SIGN_UP}`}
+          />
+        </Switch>
+      </ConnectedRouter>
+  );
 };
 
 export { AppRouter };

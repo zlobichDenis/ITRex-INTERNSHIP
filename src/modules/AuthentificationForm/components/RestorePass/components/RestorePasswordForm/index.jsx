@@ -10,7 +10,7 @@ import { AuthTextInput,
         ActionButton,
         BackToSignInButton  } from "components";
 import { EmailInputSvg } from "assets";
-import { FeedbackForm } from "modules/styles";
+import { FeedbackForm } from "modules/Cabinet/styles";
 
 
 export const RestorePassForm = () => {

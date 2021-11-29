@@ -18,26 +18,36 @@ import NumberOneSvg from "./NumberOne.svg";
 import NumberTwoSvg from "./NumberTwo.svg";
 import NumberThreeSvg from "./NumberThree.svg";
 import RightArrowSvg from "./RightArrow.svg";
+import ErrorIconSvg from "./ErrorIcon.svg";
+import SuccessIconSvg from "./SuccessIcon.svg";
+import UnsuccessIconSvg from "./UnsuccessIcon.svg";
+import CloseSvg from "./Close.svg";
+import WaitingSvg from "./Waiting.svg";
 
-
-export { BackArrowSvg,
-        ButtonArrowSvg,
-        DateSvg,
-        EmailInputSvg,
-        EmptyListSvg,
-        HeartSvg,
-        NameInputSvg,
-        PasswordInputSvg,
-        PasswordConfirmSvg,
-        SearchSvg,
-        SortSvg,
-        PersonOptionsSvg,
-        AppointmentSvg,
-        DividerSvg,
-        ActiveStatusSvg,
-        InactiveStatusSvg,
-        NumberOneSvg,
-        NumberTwoSvg,
-        NumberThreeSvg,
-        RightArrowSvg,
+export {
+  BackArrowSvg,
+  ButtonArrowSvg,
+  DateSvg,
+  EmailInputSvg,
+  EmptyListSvg,
+  HeartSvg,
+  NameInputSvg,
+  PasswordInputSvg,
+  PasswordConfirmSvg,
+  SearchSvg,
+  SortSvg,
+  PersonOptionsSvg,
+  AppointmentSvg,
+  DividerSvg,
+  ActiveStatusSvg,
+  InactiveStatusSvg,
+  NumberOneSvg,
+  NumberTwoSvg,
+  NumberThreeSvg,
+  RightArrowSvg,
+  ErrorIconSvg,
+  SuccessIconSvg,
+  CloseSvg,
+  UnsuccessIconSvg,
+  WaitingSvg,
 };
