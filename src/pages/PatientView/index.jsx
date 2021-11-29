@@ -9,7 +9,7 @@ export const PatientView = () => {
     <CabinetSection>
       <Cabinet>
         <CabinetHeader />
-        <UserCabinet itsPatientUser={true} />
+        <UserCabinet />
       </Cabinet>
     </CabinetSection>
   );

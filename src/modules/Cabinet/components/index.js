@@ -1,4 +1,3 @@
-export * from "./AppointmentForm";
 export * from "./AppointmentsList";
 export * from "./CabinetControlPanel";
 export * from "./CabinetTabs";

@@ -4,7 +4,7 @@ import { getAppointmentsWatcher } from "modules/Cabinet/components/AppointmentsL
 import {
   createAppointmentWatcher,
   getFormaDataWatcher,
-} from "modules/Cabinet/components/AppointmentForm/redux";
+} from "modules/AppointmentForm/redux";
 
 export function* rootWatcher() {
   yield all([

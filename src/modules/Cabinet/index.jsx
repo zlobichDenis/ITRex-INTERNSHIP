@@ -1,21 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
+import { UserRoles } from "const";
 import { PatientCabinetRouter } from "routes";
 import { DoctorInfo } from "./components";
 import { CabinetContentWrapper } from "./styles";
 
 
-export const UserCabinet = ({ itsPatientUser }) => {
+export const UserCabinet = () => {
+    const { role_name: roleName } = useSelector(state => state.user.userProfile);
+
     return (
         <CabinetContentWrapper>
-            { itsPatientUser 
+            {roleName === UserRoles.PATIENT
                 ? <PatientCabinetRouter />
                 : <DoctorInfo />}
         </CabinetContentWrapper>
     )
 };
 
-UserCabinet.propTypes = {
-    itsPatientUser: PropTypes.bool.isRequired,
-}

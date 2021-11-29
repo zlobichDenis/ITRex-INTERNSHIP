@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Loader from "react-loader-spinner";
 
 import { FetchStatus } from "const";
@@ -8,15 +7,15 @@ import { AppointmentsListWrapper, AppointmentsList } from "./styles";
 import { useFetchAppointments } from "./redux";
 import { createAppointmentsList } from "../../utils";
 
-export const UserAppointmentsList = ({ itsPatientUser }) => {
-  const { fetchStatus, appointments, authError } = useFetchAppointments(itsPatientUser);
-  console.log(authError, appointments)
+export const UserAppointmentsList = () => {
+  const { fetchStatus, appointments, roleName } = useFetchAppointments();
+
   return (
     <AppointmentsListWrapper>
       <AppointmentsList>
       {fetchStatus !== FetchStatus.PENDING
         ? appointments.length > 0 
-            ? createAppointmentsList(appointments, itsPatientUser)
+            ? createAppointmentsList(appointments, roleName)
             : <EmptyList />
         : <Loader 
             type="Puff"
@@ -29,6 +28,4 @@ export const UserAppointmentsList = ({ itsPatientUser }) => {
   );
 };
 
-UserAppointmentsList.propTypes = {
-  itsPatientUser: PropTypes.bool.isRequired,
-};
+

@@ -2,8 +2,8 @@ import { Authentification, DoctorView, PatientView } from "pages";
 import { UserRoles } from "const";
 import {
   PatientInfo,
-  AppointmentFormContainer,
 } from "modules/Cabinet/components";
+import { AppointmentFormContainer } from "modules/AppointmentForm";
 import {
   SignUp,
   SignIn,
