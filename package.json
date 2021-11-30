@@ -52,6 +52,7 @@
     "file-loader": "^6.1.1",
     "formik": "^2.2.9",
     "moment": "^2.29.1",
+    "msw": "^0.35.0",
     "prop-types": "^15.7.2",
     "react-flatpickr": "^3.10.7",
     "react-inlinesvg": "^2.3.0",

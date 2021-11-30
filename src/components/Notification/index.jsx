@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-import { SuccessIconSvg, UnsuccessIconSvg, CloseSvg, WaitingSvg } from "assets";
+import { SuccessIconSvg, UnsuccessIconSvg, CloseSvg } from "assets";
 import { FetchStatus } from "const";
 import {
   NotificationWrapper,

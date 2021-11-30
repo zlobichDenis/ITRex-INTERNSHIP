@@ -4,9 +4,6 @@ import PropTypes from "prop-types";
 import { ButtonArrowSvg } from "assets";
 import { ButtonWrapper, Button } from "./styles";
 
-import Loader from "react-loader-spinner";
-import { colors } from "styles";
-
 
 export const ActionButton = ({
   textContent,

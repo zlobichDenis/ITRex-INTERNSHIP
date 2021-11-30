@@ -9,9 +9,9 @@ import { createAppointmentsList } from "../../utils";
 
 export const UserAppointmentsList = () => {
   const { fetchStatus, appointments, roleName } = useFetchAppointments();
-
+  console.log(appointments, roleName)
   return (
-    <AppointmentsListWrapper>
+    <AppointmentsListWrapper data-testid="appointments-list">
       <AppointmentsList>
       {fetchStatus !== FetchStatus.PENDING
         ? appointments.length > 0 

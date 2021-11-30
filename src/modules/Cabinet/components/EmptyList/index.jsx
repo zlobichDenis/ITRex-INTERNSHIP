@@ -5,7 +5,7 @@ import { EmptyListContainer, TittleWrapper, EmptyListContent, EmptyListMessage }
 
 export const EmptyList = () => {
   return (
-    <EmptyListContainer>
+    <EmptyListContainer data-testid="empty-appointments-list">
       {/* <TittleWrapper>
         <h3>My Patients</h3>
       </TittleWrapper> */}
