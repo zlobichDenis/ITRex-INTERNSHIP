@@ -42,6 +42,7 @@ export const SignInForm = () => {
 
           <Field
             component={AuthTextInput}
+            role="email-input"
             name="userName"
             type="text"
             placeholder="Email"
@@ -53,6 +54,7 @@ export const SignInForm = () => {
 
           <Field
             component={PasswordInput}
+            role="password-input"
             name="password"
             type="password"
             placeholder="Password"
@@ -72,6 +74,7 @@ export const SignInForm = () => {
             />
           ) : (
             <ActionButton
+              role="submit-button"
               isDisabled={isValid}
               type="submit"
               textContent="Sign In"

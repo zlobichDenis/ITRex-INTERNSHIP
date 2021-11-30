@@ -4,16 +4,17 @@ import PropTypes from "prop-types";
 import { InputText } from "elements";
 import { InputField } from "../styles";
 
-export const AuthTextInput = ({ field, icon, placeholder }) => {
+export const AuthTextInput = ({ field, icon, placeholder, role }) => {
   return (
     <InputField>
       {icon ? <img width="21" src={icon} alt="icon" /> : null}
-      <InputText {...field} placeholder={placeholder}></InputText>
+      <InputText role={role} {...field} placeholder={placeholder}></InputText>
     </InputField>
   );
 };
 
 AuthTextInput.propTypes = {
+  role: PropTypes.string,
   icon: PropTypes.string,
   placeholder: PropTypes.string,
   field: PropTypes.object,

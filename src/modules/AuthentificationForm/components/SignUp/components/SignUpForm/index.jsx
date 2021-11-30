@@ -20,6 +20,7 @@ import { FeedbackForm } from "modules/Cabinet/styles";
 import { Tittle } from "elements";
 import { useAuthentification } from "modules/AuthentificationForm/redux";
 
+
 export const SignUpForm = () => {
   const { registrationRequest, fetchStatus } = useAuthentification();
   const { isShowingNotification, closeNotificationHandle } = useRequestAlert(fetchStatus);
@@ -47,6 +48,7 @@ export const SignUpForm = () => {
           <Tittle>Sign Up</Tittle>
 
           <Field
+            role="first-name-input"
             component={AuthTextInput}
             name="firstName"
             type="text"
@@ -59,6 +61,7 @@ export const SignUpForm = () => {
 
           <Field
             component={AuthTextInput}
+            role="last-name-input"
             name="lastName"
             type="text"
             placeholder="Last Name"
@@ -69,6 +72,7 @@ export const SignUpForm = () => {
           ) : null}
 
           <Field
+            role="email-input"
             component={AuthTextInput}
             name="userName"
             type="text"
@@ -80,6 +84,7 @@ export const SignUpForm = () => {
           ) : null}
 
           <Field
+            role="password-input"
             component={PasswordInput}
             name="password"
             type="password"
@@ -91,6 +96,7 @@ export const SignUpForm = () => {
           ) : null}
 
           <Field
+            role="password-confirm-input"
             component={PasswordInput}
             name="passwordConfirm"
             type="password"
@@ -101,7 +107,7 @@ export const SignUpForm = () => {
             <AlertMessage message={`Password not match!`} />
           ) : null}
 
-          <ActionButton isDisabled={isValid} textContent="Sign Up" />
+          <ActionButton role="submit-button" isDisabled={isValid} textContent="Sign Up" />
 
           <Notification
             fetchStatus={fetchStatus}

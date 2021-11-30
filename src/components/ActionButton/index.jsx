@@ -7,6 +7,7 @@ import { ButtonWrapper, Button } from "./styles";
 
 export const ActionButton = ({
   textContent,
+  role,
   icon = ButtonArrowSvg,
   type = "submit",
   isDisabled = true,
@@ -16,7 +17,7 @@ export const ActionButton = ({
 }) => {
   return (
     <ButtonWrapper itsUserView={itsUserView} itsUserPatient={itsUserPatient}>
-      <Button onClick={handleClick} type={type} isDisabled={isDisabled}>
+      <Button role={role} onClick={handleClick} type={type} isDisabled={isDisabled}>
         <span>{textContent}</span>
         {icon ? <img height="21" width="21" src={icon} alt="icon" /> : null}
       </Button>
@@ -25,6 +26,7 @@ export const ActionButton = ({
 };
 
 ActionButton.propTypes = {
+  role: PropTypes.string,
   textContent: PropTypes.string,
   icon: PropTypes.string,
   itsUserPatient: PropTypes.bool,
