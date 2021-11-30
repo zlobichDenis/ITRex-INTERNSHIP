@@ -16,17 +16,19 @@ import {
 } from "../../styles";
 import { VisitCalendar, StageName, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
 import { useCreateAppointment, fetchSpecializations } from "../../redux";
+import { useGetFormData } from "modules/AppointmentForm/redux/hooks";
+
 
 export const AppointmentForm = () => {
-  const dispatch = useDispatch();
-  const { specializations: allSpecializations } = useSelector((state) => state.createdAppointment);
-  
+  // const dispatch = useDispatch();
+  // const { specializations: allSpecializations } = useSelector((state) => state.createdAppointment);
+  const { allSpecializations } = useGetFormData(fetchSpecializations);
   const { createAppointment, fetchStatus } = useCreateAppointment();
   const { isShowingNotification, closeNotificationHandle } = useRequestAlert(fetchStatus);
 
-  useEffect(() => {
-    dispatch(fetchSpecializations());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchSpecializations());
+  // }, []);
 
   const getSpezialisationsOptions = () => {
     if(allSpecializations) {
