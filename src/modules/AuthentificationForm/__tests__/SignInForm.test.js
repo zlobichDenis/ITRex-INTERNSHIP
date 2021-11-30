@@ -7,7 +7,7 @@ import { SignInForm } from "../components/SignIn/components/SignInForm";
 import * as useAuthentification from "../redux/hooks/useAuthentification";
 
 
-describe("SignIn", () => {
+describe("SignIn form", () => {
   it('should take correct parameters', async () => {
     const loginMock = jest.fn((values) => console.log(values))
     jest.spyOn(useAuthentification, 'useAuthentification').mockImplementation(() => {
@@ -27,4 +27,5 @@ describe("SignIn", () => {
       })
     })
   })
+
 })
