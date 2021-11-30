@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { push } from "connected-react-router";
 
 import { AppScreens, PatientScreens } from "routes";
 import { FetchStatus } from "const";
@@ -20,7 +21,7 @@ export const useCreateAppointment = () => {
 
   useEffect(() => {
     if (fetchStatus === FetchStatus.SUCCESS) {
-      history.push(`${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`)
+      dispatch(push(`${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`))
     }
   }, [ fetchStatus ]);
 

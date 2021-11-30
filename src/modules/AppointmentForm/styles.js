@@ -32,6 +32,7 @@ export const InputLabel = styled.label`
     line-height: 130%;
 `;
 
+
 export const InputText = styled.input`
     width: 624px;
     height: 56px;

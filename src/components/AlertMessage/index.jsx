@@ -3,14 +3,15 @@ import PropTypes from "prop-types";
 
 import { AlertMessageText } from "./styles";
 
-export const AlertMessage = ({ message }) => {
+export const AlertMessage = ({ message, role }) => {
   return (
-    <AlertMessageText>
+    <AlertMessageText role={role}>
       <p>{message}</p>
     </AlertMessageText>
   );
 };
 
 AlertMessage.propTypes = {
+  role: PropTypes.string,
   message: PropTypes.string.isRequired,
 };
