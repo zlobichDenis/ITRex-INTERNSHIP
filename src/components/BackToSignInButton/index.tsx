@@ -1,10 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { BackArrowSvg } from "assets";
 import { RestoreButton } from "./styles";
 
-export const BackToSignInButton = ({ backToSignIn }) => {
+type BackToSignInButtonProps = {
+  backToSignIn(): void,
+}
+
+export function BackToSignInButton ({ backToSignIn }: BackToSignInButtonProps) {
   return (
     <RestoreButton onClick={backToSignIn}>
       <img width="21" height="21" src={BackArrowSvg} alt="icon" />
@@ -13,6 +14,3 @@ export const BackToSignInButton = ({ backToSignIn }) => {
   );
 };
 
-BackToSignInButton.propTypes = {
-  backToSignIn: PropTypes.func,
-};

@@ -1,11 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { ButtonArrowSvg } from "assets";
 import { ButtonWrapper, Button } from "./styles";
 
 
-export const ActionButton = ({
+type ActionButtonProps = {
+  textContent: string, 
+  role: string, 
+  icon: string, 
+  type: any, 
+  isDisabled: boolean, 
+  itsUserPatient: boolean, 
+  itsUserView: boolean, 
+  handleClick(): void,
+}
+
+export function ActionButton ({
   textContent,
   role,
   icon = ButtonArrowSvg,
@@ -14,24 +22,19 @@ export const ActionButton = ({
   itsUserPatient = false,
   itsUserView = false,
   handleClick,
-}) => {
+}: ActionButtonProps) {
   return (
     <ButtonWrapper itsUserView={itsUserView} itsUserPatient={itsUserPatient}>
-      <Button role={role} onClick={handleClick} type={type} isDisabled={isDisabled}>
+      <Button
+        role={role}
+        onClick={handleClick}
+        type={type}
+        isDisabled={isDisabled}
+      >
         <span>{textContent}</span>
         {icon ? <img height="21" width="21" src={icon} alt="icon" /> : null}
       </Button>
     </ButtonWrapper>
   );
-};
+}
 
-ActionButton.propTypes = {
-  role: PropTypes.string,
-  textContent: PropTypes.string,
-  icon: PropTypes.string,
-  itsUserPatient: PropTypes.bool,
-  itsUserView: PropTypes.bool,
-  type: PropTypes.string,
-  isDisabled: PropTypes.bool,
-  handleClick: PropTypes.func,
-};

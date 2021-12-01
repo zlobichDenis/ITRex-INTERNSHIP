@@ -1,10 +1,7 @@
-import React from "react";
-
 import { SortSvg } from "assets";
 import { SortWrapper, SortToggle, SortList, SortListItem } from "./styles";
 
-export const SortSelect = () => {
-
+export function SortSelect () {
   return (
     <SortWrapper>
       <label htmlFor="doctor-cabinet__sort-type-toggle">

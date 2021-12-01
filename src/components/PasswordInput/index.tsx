@@ -1,12 +1,19 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { useState } from "react";
 
 import { InputText } from "elements";
 import { InputField, InputIcon } from "../styles";
 
-export const PasswordInput = ({ placeholder, field, icon, role }) => {
-  const [isShowingPass, setVisiblePass] = useState(false);
-  const showPassToggle = () => {
+type PasswordInputProps = {
+  placeholder: string,
+  field: object,
+  icon: string,
+  role: string,
+}
+
+
+export function PasswordInput ({ placeholder, field, icon, role }: PasswordInputProps) {
+  const [isShowingPass, setVisiblePass] = useState<boolean>(false);
+  const showPassToggle = (): void => {
     setVisiblePass((isShowingPass) => !isShowingPass);
   };
 
@@ -23,11 +30,4 @@ export const PasswordInput = ({ placeholder, field, icon, role }) => {
       <InputIcon onClick={showPassToggle} isShowingPass={isShowingPass} />
     </InputField>
   );
-};
-
-PasswordInput.propTypes = {
-  role: PropTypes.string,
-  placeholder: PropTypes.string,
-  field: PropTypes.object,
-  icon: PropTypes.any,
 };

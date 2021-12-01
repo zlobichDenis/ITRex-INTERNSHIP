@@ -2,7 +2,11 @@ import styled from "styled-components"
 
 import { colors } from "styles"
 
-export const Tab = styled.button`
+type TabProps = {
+    isActive: boolean,
+}
+
+export const Tab = styled.button<TabProps>`
     display: flex;
     align-items: center;
     justify-content: center;

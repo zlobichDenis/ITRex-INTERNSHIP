@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { Redirect, Route } from "react-router-dom";
@@ -6,7 +5,7 @@ import { Redirect, Route } from "react-router-dom";
 import { AppScreens, AuthStages } from "routes";
 
 export const PrivateRoute = ({ component: Component, path, role, ...rest }) => {
-  const renderedComponent = ({ location, exact, ...props }) => {
+  const RenderedComponent = ({ location, exact, ...props }) => {
     // eslint-disable-next-line react/prop-types
     const { userProfile } = useSelector((state) => state.user);
     const roleName = userProfile ? userProfile.role_name : null;
@@ -20,7 +19,7 @@ export const PrivateRoute = ({ component: Component, path, role, ...rest }) => {
       );
     }
   };  
-  return <Route path={path} component={renderedComponent} {...rest} />;
+  return <Route path={path} component={RenderedComponent} {...rest} />;
 };
 
 PrivateRoute.propTypes = {

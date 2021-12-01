@@ -1,6 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { SuccessIconSvg, UnsuccessIconSvg, CloseSvg } from "assets";
 import { FetchStatus } from "const";
 import {
@@ -12,7 +9,14 @@ import {
   CloseButton,
 } from "./styles";
 
-export const Notification = ({ message, fetchStatus, isShow, closeNotificationHandle }) => {
+type NotificationProps = {
+  message: string,
+  fetchStatus: string,
+  isShow: boolean,
+  closeNotificationHandle(): void,
+}
+
+export function Notification ({ message, fetchStatus, isShow, closeNotificationHandle }: NotificationProps) {
   return (
     <NotificationWrapper isShowing={isShow} fetchStatus={fetchStatus}>
       <NotificationContent>
@@ -42,11 +46,4 @@ export const Notification = ({ message, fetchStatus, isShow, closeNotificationHa
       </NotificationContent>
     </NotificationWrapper>
   );
-};
-
-Notification.propTypes = {
-  message: PropTypes.string,
-  fetchStatus: PropTypes.string,
-  isShow: PropTypes.bool,
-  closeNotificationHandle: PropTypes.func,
 };

@@ -3,7 +3,12 @@ import styled from "styled-components";
 import { colors } from "styles";
 import { FetchStatus } from "const";
 
-export const NotificationWrapper = styled.div`
+type NotificationWrapperProps = {
+  isShowing: boolean,
+  fetchStatus: string,
+}
+
+export const NotificationWrapper = styled.div<NotificationWrapperProps>`
   position: absolute;
   left: 32px;
   bottom: 32px;

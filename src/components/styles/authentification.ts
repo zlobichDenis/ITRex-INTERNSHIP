@@ -24,7 +24,11 @@ export const InputField = styled.div`
     }
 `;
 
-export const InputIcon = styled.div`
+type InputIconProps = {
+    isShowingPass: boolean,
+}
+
+export const InputIcon = styled.div<InputIconProps>`
     width: 24px;
     height: 24px;
     background-image: ${({ isShowingPass }) => (

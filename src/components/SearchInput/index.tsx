@@ -1,9 +1,7 @@
-import React from "react";
-
 import { SearchSvg } from "assets";
 import { SearchWrapper, SearchField } from "./styles";
 
-function SearchInput() {
+export function SearchInput() {
   return (
     <SearchWrapper>
       <img width="21" height="21" src={SearchSvg} alt="icon" />
@@ -14,6 +12,4 @@ function SearchInput() {
       />
     </SearchWrapper>
   );
-}
-
-export { SearchInput };
+};
