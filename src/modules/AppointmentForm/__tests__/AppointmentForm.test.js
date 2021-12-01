@@ -1,14 +1,11 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import userEvent from "@testing-library/user-event";
 
 import { FetchStatus } from "const";
 import { AppointmentForm } from "../components/Form";
 import * as useCreateAppointment from "../redux/hooks/useCreateAppointment";
-jest.mock('../redux/hooks/useGetFormaData')
 import * as useGetFormData from "../redux/hooks/useGetFormaData";
-import { allSpecializations, doctorsSurgeon } from "services";
 
 
 describe('Appointment form', () => {
@@ -33,4 +30,5 @@ describe('Appointment form', () => {
     expect(getByRole('no-calendar-message')).toBeInTheDocument();
     expect(getByRole('no-date-and-doctor')).toBeInTheDocument();
   })
+
 })

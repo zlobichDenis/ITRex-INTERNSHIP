@@ -1,6 +1,5 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
 import { push } from "connected-react-router";
 
 import { AppScreens, PatientScreens } from "routes";
@@ -9,7 +8,6 @@ import { postNewAppointment } from "../slice";
 
 export const useCreateAppointment = () => {
   const dispatch = useDispatch();
-  let history = useHistory();
   const { fetchStatus } = useSelector(state => state.createdAppointment);
 
   const createAppointment = useCallback((formValues) => {
@@ -17,7 +15,7 @@ export const useCreateAppointment = () => {
     const appointmentData = { ...rest, doctorID, date }
     
     dispatch(postNewAppointment(appointmentData));
-  }, [fetchStatus]);
+  }, [dispatch]);
 
   useEffect(() => {
     if (fetchStatus === FetchStatus.SUCCESS) {
