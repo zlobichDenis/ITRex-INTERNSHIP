@@ -31,6 +31,8 @@ export const DoctorSelect = ({ id, options, handleReset, ...props }) => {
 
   return (
     <Select
+      id={id}
+      placeholder="select doctor"
       styles={selectStyles}
       onChange={onChange}
       onBlur={setTouched}
