@@ -12,7 +12,7 @@ import { EmailInputSvg } from "assets";
 import { FeedbackForm } from "modules/Cabinet/styles";
 
 
-export const RestorePassForm = () => {
+export function RestorePassForm () {
     let history = useHistory();
     const backToSignIn = () => history.push(`${AppScreens.AUTH}${AuthStages.SIGN_IN}`);
     return (

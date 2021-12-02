@@ -1,5 +1,6 @@
 import { put, takeLatest, call } from "redux-saga/effects";
 import { push } from "connected-react-router";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 import {
   setCurrentUser,
@@ -9,13 +10,14 @@ import {
   fetchLogin,
   fetchRegistration,
 } from "..";
+import { SignUpFormValues, SignInFormValues } from "types";
 import { login, getUserProfile, registration } from "services";
 import * as tokenRepository from "store/tokenRepository";
 import { getCorrectPage } from "../helpers";
 
 
 
-function* registrationWorker({ payload }: any) {
+function* registrationWorker({ payload }: PayloadAction<SignUpFormValues>) {
   const { responce: tokenResponce, error } = yield call(registration, payload);
 
   if (tokenResponce) {
@@ -28,7 +30,7 @@ function* registrationWorker({ payload }: any) {
   }
 }
 
-function* loginWorker({ payload }: any) {
+function* loginWorker({ payload }: PayloadAction<SignInFormValues>) {
   const { responce: tokenResponce, error }  = yield call(login, payload);
 
   if (tokenResponce) {

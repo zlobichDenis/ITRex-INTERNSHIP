@@ -2,7 +2,7 @@ import { Tittle } from "elements";
 import { CabinetInfo } from "modules/Cabinet/styles";
 import { UserPath, AppointmentForm } from "./components";
 
-export const AppointmentFormContainer = () => {
+export function AppointmentFormContainer () {
   return (
     <CabinetInfo >
       <UserPath />

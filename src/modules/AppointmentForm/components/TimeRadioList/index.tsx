@@ -11,7 +11,7 @@ type RequestData = {
   date: string,
 }
 
-export const TimeRadioList = () => {
+export function TimeRadioList () {
   const { values }: any = useFormikContext();
   let requestData: RequestData = {
     doctorId: values.doctorName,

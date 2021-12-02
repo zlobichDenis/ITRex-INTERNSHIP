@@ -1,6 +1,10 @@
 import { RestoreMessageText, RestoreMessageEmail } from "./styles";
 
-export const RestoreMessage = ({ isConfirm }: any) => {
+type RestoreMessageProps = {
+  isConfirm?: boolean,
+}
+
+export function RestoreMessage ({ isConfirm }: RestoreMessageProps) {
   return (
     <RestoreMessageText>
       <p>

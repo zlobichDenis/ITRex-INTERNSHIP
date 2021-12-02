@@ -1,7 +1,7 @@
 import { CabinetTab } from "components";
 import { Tabs } from "./styles";
 
-export const CabinetTabs = () => {
+export function CabinetTabs () {
   return (
     <Tabs>
       <CabinetTab text="Patients" />

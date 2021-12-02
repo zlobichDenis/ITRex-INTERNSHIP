@@ -1,4 +1,5 @@
 import { put, takeLatest, call } from "redux-saga/effects";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 import {
   fetchAvailableTimes,
@@ -13,7 +14,7 @@ import {
   getAvailableTime,
   getDoctorsBySpezialisations,
 } from "services";
-
+import { GetAvailableTimeParams } from "services";
 
 function* getSpecializationWorker() {
   const { responce, error } = yield call(getAllSpecializations);
@@ -26,7 +27,7 @@ function* getSpecializationWorker() {
   }
 }
 
-function* getDoctorsBySpezialisationsWorker({ payload }: any) {
+function* getDoctorsBySpezialisationsWorker({ payload }: PayloadAction<string>) {
   const { responce, error } = yield call(getDoctorsBySpezialisations, payload);
 
   if (responce) {
@@ -37,7 +38,7 @@ function* getDoctorsBySpezialisationsWorker({ payload }: any) {
   }
 }
 
-function* getAvailableTimeWorker({ payload }: any) {
+function* getAvailableTimeWorker({ payload }: PayloadAction<GetAvailableTimeParams>) {
   const { responce, error } = yield call(getAvailableTime, payload);
 
   if (responce) {

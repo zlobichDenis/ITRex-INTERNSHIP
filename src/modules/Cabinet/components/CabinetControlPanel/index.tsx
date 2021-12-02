@@ -1,7 +1,11 @@
 import { ControlPanel } from "./styles";
 import { PatientViewControlPanel, DoctorViewControlPanel } from "./components";
 
-export const CabinetControlPanel = ({ itsPatientUser }: any) => {
+type CabinetControlPanelProps = {
+  itsPatientUser: boolean,
+}
+
+export function CabinetControlPanel ({ itsPatientUser }: CabinetControlPanelProps) {
   return (
   <ControlPanel>
     { itsPatientUser

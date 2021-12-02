@@ -1,5 +1,6 @@
-import { createAction, PayloadAction } from "@reduxjs/toolkit";
+import { createAction } from "@reduxjs/toolkit";
+import { GetAvailableTimeParams } from "services";
 
-export const fetchSpecializations = createAction<PayloadAction>('form/specializations');
-export const fetchDoctorPerSpecialization = createAction<PayloadAction>('form/doctorPerSpecializations');
-export const fetchAvailableTimes = createAction<PayloadAction>('form/availableTime');
+export const fetchSpecializations = createAction('form/specializations');
+export const fetchDoctorPerSpecialization = createAction<string>('form/doctorPerSpecializations');
+export const fetchAvailableTimes = createAction<GetAvailableTimeParams>('form/availableTime');

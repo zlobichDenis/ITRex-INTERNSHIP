@@ -16,7 +16,7 @@ import { Tittle } from "elements";
 import { FeedbackForm } from "modules/Cabinet/styles";
 import { useAuthentification } from "modules/AuthentificationForm/redux";
 
-export const SignInForm = () => {
+export function SignInForm () {
   const { loginRequest, fetchStatus } = useAuthentification();
   const initialValues: SignInFormValues = {
     userName: '',

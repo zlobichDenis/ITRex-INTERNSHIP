@@ -3,21 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 import { DoctorAppointment, PatientAppointment } from "types";
 
 
-interface appointmentSliceState {
+type AppointmentSliceState = {
   fetchStatus: string,
-  appointments: Array<DoctorAppointment | PatientAppointment>,
+  appointments: Array<DoctorAppointment | PatientAppointment> | [],
 }
 
-const initialState = {
+const initialState: AppointmentSliceState = {
   fetchStatus: '',
   appointments: [],
-} as appointmentSliceState
+}
 
 export const appointmentsSlice = createSlice({
   name: "appointments",
   initialState,
   reducers: {
-    setUserAppointments: function (state: appointmentSliceState, { payload }) {
+    setUserAppointments: function (state: AppointmentSliceState, { payload }) {
       return { ...state, appointments: payload };
     },
     fetchDoctorAppointments: function (state, { payload }) {

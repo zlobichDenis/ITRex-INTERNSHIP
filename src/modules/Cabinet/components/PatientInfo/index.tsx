@@ -1,7 +1,7 @@
 import { CabinetInfo } from "../../styles";
 import { CabinetControlPanel, UserAppointmentsList, CabinetTabs } from "..";
 
-export const PatientInfo = () => {
+export function PatientInfo () {
   return (
     <>
       <CabinetTabs />

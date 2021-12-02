@@ -21,7 +21,7 @@ type PatientProps = {
   appointment: DoctorAppointment,
 }
 
-export const Patient = ({ appointment }: PatientProps) => {
+export function Patient ({ appointment }: PatientProps) {
   const { patient, status, visit_date: date, reason } = appointment;
   const { first_name: firstName, last_name: lastName, photo } = patient
 

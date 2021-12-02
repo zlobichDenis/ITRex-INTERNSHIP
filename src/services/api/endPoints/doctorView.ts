@@ -6,16 +6,14 @@ type getAllDoctorAppointmentsParams = {
   offset: number,
 }
 
-type ResponceData = {
+type PatientResponceData = {
   appoinments: Array<DoctorAppointment>,
   total: number,
 }
 
-
-
 export const getAllDoctorAppointments = ({ limit, offset }: getAllDoctorAppointmentsParams) => (
   api
-    .get<ResponceData>("/appointments/doctor/me", {
+    .get<PatientResponceData>("/appointments/doctor/me", {
       params: {
         offset: offset,
         limit: limit,

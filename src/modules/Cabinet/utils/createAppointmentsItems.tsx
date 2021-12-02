@@ -1,7 +1,8 @@
 import { UserRoles } from "const";
 import { Patient, Doctor } from "../components/AppointmentsList/components";
 
-export const createAppointmentsList = (appointments, roleName) => {
+
+export const createAppointmentsList = (appointments: any[], roleName: string | null) => {
   if (roleName === UserRoles.PATIENT) {
     return appointments.map((appointment, index) => (
       <Doctor

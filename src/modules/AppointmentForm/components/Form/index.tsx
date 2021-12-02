@@ -17,12 +17,12 @@ import { useCreateAppointment, fetchSpecializations } from "../../redux";
 import { useGetFormData } from "modules/AppointmentForm/redux/hooks";
 
 
-export const AppointmentForm = () => {
+export function AppointmentForm() {
   const { allSpecializations } = useGetFormData(fetchSpecializations);
   const { createAppointment, fetchStatus } = useCreateAppointment();
 
   const getSpezialisationsOptions = () => {
-    if(allSpecializations) {
+    if (allSpecializations) {
       return allSpecializations.map(({ id, specialization_name }) => ({
         value: id,
         label: specialization_name,
@@ -47,15 +47,14 @@ export const AppointmentForm = () => {
       validateOnBlur={false}
       onSubmit={(values) => {
         createAppointment(values);
-      }}
+      } }
     >
       {({ values, errors, touched, handleSubmit, setFieldValue, isValid }) => (
         <CreateAppointmentForm onSubmit={handleSubmit}>
           <StageCreatingWrapper>
             <StageName
               icon={NumberOneSvg}
-              text="Select a doctor and define the reason of your visit"
-            />
+              text="Select a doctor and define the reason of your visit" />
 
             <InputWrapper>
               <InputLabel>Occupation</InputLabel>
@@ -64,8 +63,7 @@ export const AppointmentForm = () => {
                 name="occupation"
                 id="occupation"
                 options={getSpezialisationsOptions()}
-                handleReset={setFieldValue}
-              />
+                handleReset={setFieldValue} />
               {errors.occupation && touched.occupation ? (
                 <AlertMessage message={errors.occupation} />
               ) : null}
@@ -78,8 +76,7 @@ export const AppointmentForm = () => {
                 name="doctorName"
                 type="radio"
                 id="doctorName"
-                handleReset={setFieldValue}
-              />
+                handleReset={setFieldValue} />
               {errors.doctorName && touched.doctorName ? (
                 <AlertMessage message={errors.doctorName} />
               ) : null}
@@ -102,15 +99,13 @@ export const AppointmentForm = () => {
           <StageCreatingWrapper>
             <StageName
               icon={NumberTwoSvg}
-              text="Choose a day for an appointment"
-            />
+              text="Choose a day for an appointment" />
             {values.doctorName && values.occupation ? (
               <Field
                 name="date"
                 id="date"
                 component={VisitCalendar}
-                handleReset={setFieldValue}
-              />
+                handleReset={setFieldValue} />
             ) : (
               <AlertMessage role="no-calendar-message" message="Choose a doctor first" />
             )}
@@ -119,8 +114,7 @@ export const AppointmentForm = () => {
           <StageCreatingWrapper>
             <StageName
               icon={NumberThreeSvg}
-              text="Select an available timeslot"
-            />
+              text="Select an available timeslot" />
             {values.doctorName && values.occupation && values.date ? (
               <TimeRadioList />
             ) : (
@@ -129,19 +123,17 @@ export const AppointmentForm = () => {
           </StageCreatingWrapper>
 
           {fetchStatus === FetchStatus.PENDING
-           ? <Loader
+            ? <Loader
               type="Puff"
               color={colors.TEXT_LINK_COLOR}
               height={50}
               width={50}
-              timeout={3000}
-            />
+              timeout={3000} />
             : <ActionButton
-                isDisabled={isValid}
-                type="submit"
-                textContent="Submit"
-                itsUserView
-              />}
+              isDisabled={isValid}
+              type="submit"
+              textContent="Submit"
+              itsUserView />}
 
         </CreateAppointmentForm>
       )}
@@ -149,4 +141,4 @@ export const AppointmentForm = () => {
   ) : (
     <Loader type="Puff" color="#00BFFF" height={100} width={100} />
   );
-};
+}

@@ -1,7 +1,9 @@
-import { FetchStatus } from './../../../../const/fetchStatus';
 import { put, takeLatest, call } from "redux-saga/effects";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 import { getAllDoctorAppointments, getAllPatientAppointments } from "services";
+import { AppointmentsPagination } from 'const';
+import { FetchStatus } from 'const';
 import {
   fetchDoctorAppointments,
   fetchPatientAppointments,
@@ -11,7 +13,7 @@ import {
 } from "../slice";
 
 
-function* getPatientAppointmentsWorker({ payload }: any) {
+function* getPatientAppointmentsWorker({ payload }: PayloadAction<AppointmentsPagination>) {
   const { responce: patientResponce } = yield call(getAllPatientAppointments, payload);
 
     if (patientResponce) {
@@ -23,7 +25,7 @@ function* getPatientAppointmentsWorker({ payload }: any) {
   }
 };
 
-function* getDoctorAppointmentsWorker({ payload }: any) {
+function* getDoctorAppointmentsWorker({ payload }: PayloadAction<AppointmentsPagination>) {
   const { responce: doctorResponce, error } = yield call(getAllDoctorAppointments, payload);
 
     if (doctorResponce) {

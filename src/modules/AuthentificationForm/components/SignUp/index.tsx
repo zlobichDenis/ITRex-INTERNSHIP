@@ -9,7 +9,7 @@ import {
   FeedbackTextLink,
 } from "../../styles";
 
-export const SignUp = () => {
+export function SignUp () {
   return (
     <>
       <SignUpForm />

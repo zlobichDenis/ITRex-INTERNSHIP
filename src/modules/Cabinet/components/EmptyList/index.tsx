@@ -1,7 +1,7 @@
 import { EmptyListSvg } from "assets";
 import { EmptyListContainer, EmptyListContent, EmptyListMessage } from "./styles";
 
-export const EmptyList = () => {
+export function EmptyList () {
   return (
     <EmptyListContainer data-testid="empty-appointments-list">
         <EmptyListContent>

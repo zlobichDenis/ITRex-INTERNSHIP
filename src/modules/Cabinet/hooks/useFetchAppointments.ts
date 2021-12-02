@@ -1,9 +1,9 @@
-import { UserRoles } from "const";
 import { useEffect } from "react";
 
 import { useAppSelector, useAppDispatch } from "store";
-import { appointmnetsPagination } from "const"
+import { appointmnetsPagination, UserRoles } from "const"
 import { fetchDoctorAppointments, fetchPatientAppointments } from "../redux";
+
 
 export const useFetchAppointments = () => {
   const { fetchStatus, appointments } = useAppSelector(state => state.appointments);

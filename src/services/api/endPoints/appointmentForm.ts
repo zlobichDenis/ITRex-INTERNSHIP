@@ -1,9 +1,16 @@
 import { api } from "services";
 import { Specialization, Doctor } from "types";
 
-type getAvailableTimeProps = {
+export type GetAvailableTimeParams = {
   doctorId: string,
   date: string,
+}
+
+type CreateAppointmentParams = {
+  date: string,
+  reason: string,
+  note: string,
+  doctorID: string,
 }
 
 
@@ -19,7 +26,7 @@ export const getDoctorsBySpezialisations = (specializationId: string) =>
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
-export const getAvailableTime = ({ doctorId, date }: getAvailableTimeProps) =>
+export const getAvailableTime = ({ doctorId, date }: GetAvailableTimeParams) =>
   api
     .get<Array<string>>("appointments/time/free", {
       params: {
@@ -30,7 +37,7 @@ export const getAvailableTime = ({ doctorId, date }: getAvailableTimeProps) =>
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
-export const createAppointment = (data: any) =>
+export const createAppointment = (data: CreateAppointmentParams) =>
   api
     .post("appointments", data)
     .then((responce) => ({ responce }))

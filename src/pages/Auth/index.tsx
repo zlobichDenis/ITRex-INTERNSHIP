@@ -1,9 +1,7 @@
-import React from "react";
-
 import { Section, MainContainer } from "./styles";
 import { AuthentificationForm } from "modules";
 
-export const Authentification = () => {
+export function Authentification () {
   return (
     <Section>
       <MainContainer>

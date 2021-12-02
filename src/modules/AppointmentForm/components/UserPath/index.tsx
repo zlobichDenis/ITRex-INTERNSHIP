@@ -1,7 +1,7 @@
 import { RightArrowSvg } from "assets";
 import { UserPathWrapper, UserPathLink } from "./styles";
 
-export const UserPath = () => {
+export function UserPath () {
   return (
     <UserPathWrapper>
       <UserPathLink>Doctor</UserPathLink>

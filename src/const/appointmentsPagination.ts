@@ -1,9 +1,9 @@
-type appointmentsPagination = {
+export type AppointmentsPagination = {
   offset: number,
   limit: number
 }
 
-export const appointmnetsPagination = {
+export const appointmnetsPagination: AppointmentsPagination = {
   offset: 0,
   limit: 100,
-} as appointmentsPagination;
+}

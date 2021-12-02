@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Authentification, DoctorView, PatientView } from "pages";
 import { UserRoles } from "const";
 import {
@@ -9,6 +11,15 @@ import {
   SignIn,
   RestorePass,
 } from "modules/AuthentificationForm/components";
+
+
+export type RouteType = {
+  path: string,
+  component: React.FC,
+  isPrivate: boolean,
+  forRole: string | null,
+  exact?: boolean,
+}
 
 export const AuthStages = {
   SIGN_UP: "/sign-up",
@@ -28,7 +39,7 @@ export const PatientScreens = {
   CABINET: "/patient-cabinet",
 };
 
-export const appRoutes = [
+export const appRoutes: Array<RouteType> = [
   {
     path: AppScreens.AUTH,
     component: Authentification,
@@ -49,7 +60,7 @@ export const appRoutes = [
   },
 ];
 
-export const authRoutes = [
+export const authRoutes: Array<RouteType> = [
   {
     path: `${AppScreens.AUTH}${AuthStages.SIGN_UP}`,
     component: SignUp,
@@ -76,7 +87,7 @@ export const authRoutes = [
   },
 ];
 
-export const patientCabinetRoutes = [
+export const patientCabinetRoutes: Array<RouteType> = [
   {
     path: `${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`,
     component: PatientInfo,

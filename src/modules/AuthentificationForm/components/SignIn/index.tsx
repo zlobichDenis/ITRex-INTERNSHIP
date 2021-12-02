@@ -10,7 +10,7 @@ import {
   FeedbackTextLink,
 } from "../../styles";
 
-export const SignIn = () => {
+export function SignIn() {
   return (
     <>
       <SignInForm />

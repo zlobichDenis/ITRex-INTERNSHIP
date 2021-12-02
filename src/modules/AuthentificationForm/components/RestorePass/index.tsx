@@ -1,8 +1,10 @@
+import { Location } from "history";
+
 import { RestorePassForm, RestorePassConfirm } from "./components";
 import { AppScreens, AuthStages } from "routes";
 
 
-export const RestorePass = ({ location }:any) => {
+export function RestorePass ({ location }: any ) {
   return (
     <>
       {location.pathname ===

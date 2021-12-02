@@ -2,7 +2,7 @@ import { CabinetControlPanel, UserAppointmentsList, CabinetTabs } from "..";
 
 import { CabinetInfo } from "../../styles";
 
-export const DoctorInfo = () => {
+export function DoctorInfo () {
   return (
     <>
       <CabinetTabs />

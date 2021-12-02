@@ -19,7 +19,7 @@ import { Tittle } from "elements";
 import { useAuthentification } from "modules/AuthentificationForm/redux";
 
 
-export const SignUpForm = () => {
+export function SignUpForm () {
   const { registrationRequest } = useAuthentification();
   const initialValues: SignUpFormValues = {
     firstName: "",

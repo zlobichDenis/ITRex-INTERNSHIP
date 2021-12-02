@@ -6,7 +6,7 @@ import { AppointmentsListWrapper, AppointmentsList } from "./styles";
 import { useFetchAppointments } from "../../hooks";
 import { createAppointmentsList } from "../../utils";
 
-export const UserAppointmentsList = () => {
+export function UserAppointmentsList () {
   const { fetchStatus, appointments, roleName } = useFetchAppointments();
 
   return (

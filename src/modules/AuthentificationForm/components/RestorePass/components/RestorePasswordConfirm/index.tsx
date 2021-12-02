@@ -5,7 +5,7 @@ import { RestoreMessage } from "../RestoreMessage";
 import { AppScreens, AuthStages } from "routes";
 import { FeedbackForm } from "modules/Cabinet/styles";
 
-export const RestorePassConfirm = () => {
+export function RestorePassConfirm () {
   let history = useHistory();
   const backToSignIn = () =>
     history.push(`${AppScreens.AUTH}${AuthStages.SIGN_IN}`);

@@ -11,12 +11,9 @@ type SpecializationSelectProps = {
   field: FieldHookConfig<string>,
 }
 
-export const SpecializationSelect = ({
-  id,
-  options,
-  handleReset,
-  ...props
-}: SpecializationSelectProps) => {
+export function SpecializationSelect({
+  id, options, handleReset, ...props
+}: SpecializationSelectProps) {
   const [field, state, { setValue, setTouched }] = useField(props.field);
 
   const onChange = ({ value }: any) => {
@@ -32,8 +29,7 @@ export const SpecializationSelect = ({
       placeholder="Select occupation"
       styles={selectStyles}
       onChange={onChange}
-      options={options}
-    />
+      options={options} />
   );
-};
+}
 

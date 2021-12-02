@@ -7,9 +7,9 @@ import {
   UserNameWrapper,
 } from "./styles";
 
-export const CabinetHeader = () => {
+export function CabinetHeader () {
   const { first_name: firstName, last_name: lastName, photo, role_name: roleName } = useAppSelector(state => state.user.userProfile);
-  
+
   return (
     <Header>
       <img src="./img/logo.png" alt="" />
