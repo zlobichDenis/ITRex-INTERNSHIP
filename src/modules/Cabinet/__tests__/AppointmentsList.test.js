@@ -5,7 +5,7 @@ import "@testing-library/jest-dom";
 import { UserAppointmentsList } from "../components/AppointmentsList";
 import { doctorAppointments, patientAppointments } from "services";
 import { FetchStatus, UserRoles } from "const";
-import * as useFetchAppointments from "../redux/hooks/useFetchAppointments";
+import * as useFetchAppointments from "../hooks/useFetchAppointments";
 
 describe("Appointments list", () => {
   it("should render appointments when role is Doctor and list is not empty", () => {

@@ -4,13 +4,13 @@ import { ButtonWrapper, Button } from "./styles";
 
 type ActionButtonProps = {
   textContent: string, 
-  role: string, 
-  icon: string, 
-  type: any, 
-  isDisabled: boolean, 
-  itsUserPatient: boolean, 
-  itsUserView: boolean, 
-  handleClick(): void,
+  role?: string, 
+  icon?: string, 
+  type?: any, 
+  isDisabled?: boolean, 
+  itsUserPatient?: boolean, 
+  itsUserView?: boolean, 
+  handleClick?(): void,
 }
 
 export function ActionButton ({

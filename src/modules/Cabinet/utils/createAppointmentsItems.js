@@ -1,5 +1,3 @@
-import React from "react";
-
 import { UserRoles } from "const";
 import { Patient, Doctor } from "../components/AppointmentsList/components";
 

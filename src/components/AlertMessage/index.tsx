@@ -2,7 +2,7 @@ import { AlertMessageText } from "./styles";
 
 type AlertMessageProps = {
   message: string,
-  role: string,
+  role?: string,
 }
 
 export function AlertMessage ({ message, role }: AlertMessageProps) {

@@ -1,4 +1,3 @@
-import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
@@ -21,7 +20,7 @@ describe('Appointment form', () => {
     })
     jest.spyOn(useCreateAppointment, 'useCreateAppointment').mockImplementation(() => {
       return {
-        createAppointment: () => console.log(values),
+        createAppointment: () => console.log('some'),
         fetchStatus: FetchStatus.SUCCESS,
       }
     })
