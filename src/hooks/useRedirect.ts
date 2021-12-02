@@ -1,9 +1,9 @@
 import { push } from "connected-react-router";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "store";
 
 
 export const useRedirect = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const routeToPath = (path: string) => {
     dispatch(push(path));
   };
