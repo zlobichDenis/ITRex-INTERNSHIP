@@ -3,7 +3,7 @@ import { useField, useFormikContext, FormikHandlers, FieldHookConfig, FormikValu
 
 import { selectStyles } from "../../styles";
 import { fetchDoctorPerSpecialization } from "../../redux";
-import { useGetFormData } from "modules/AppointmentForm/redux/hooks";
+import { useGetFormData } from "modules/AppointmentForm/hooks";
 
 type DoctorSelectProps = {
   id: string,
@@ -16,7 +16,7 @@ export function DoctorSelect ({ id, options, handleReset, ...props }: DoctorSele
   const [field, state, { setValue }] = useField(props.field);
 
   const { values } = useFormikContext<FormikValues>();
-  const { doctors } = useGetFormData(fetchDoctorPerSpecialization, values.occupation)
+  const { doctors } = useGetFormData(fetchDoctorPerSpecialization, values.occupation, values.occupation)
 
   const getDoctorsById = () => {
     if (doctors) {

@@ -2,9 +2,9 @@ import { useCallback, useEffect } from "react";
 import { push } from "connected-react-router";
 
 import { useAppSelector, useAppDispatch } from "store";
-import { AppScreens, PatientScreens } from "routes";
+import { AppScreens, PatientScreens } from "const";
 import { FetchStatus } from "const";
-import { postNewAppointment } from "../slice";
+import { postNewAppointment } from "../redux/slice";
 
 export const useCreateAppointment = () => {
   const dispatch =  useAppDispatch();
@@ -21,7 +21,7 @@ export const useCreateAppointment = () => {
     if (fetchStatus === FetchStatus.SUCCESS) {
       dispatch(push(`${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`))
     }
-  }, [dispatch, fetchStatus]);
+  }, [fetchStatus]);
 
   return { createAppointment, fetchStatus }
 };

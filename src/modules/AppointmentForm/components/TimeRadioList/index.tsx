@@ -1,10 +1,10 @@
-import { Field, useFormikContext } from "formik";
+import { Field, useFormikContext, FormikValues } from "formik";
 
 import { AlertMessage } from "components";
 import { DatesList } from "./styles";
 import { TimeInputRadio } from "./components";
 import { fetchAvailableTimes } from "../../redux";
-import { useGetFormData } from "modules/AppointmentForm/redux/hooks";
+import { useGetFormData } from "modules/AppointmentForm/hooks";
 
 type RequestData = {
   doctorId: string,
@@ -12,12 +12,13 @@ type RequestData = {
 }
 
 export function TimeRadioList () {
-  const { values }: any = useFormikContext();
+  const { values } = useFormikContext<FormikValues>();
   let requestData: RequestData = {
     doctorId: values.doctorName,
-    date: values.data,
+    date: values.date,
   }
-  const { availableHours } = useGetFormData(fetchAvailableTimes, requestData);
+  console.log(values)
+  const { availableHours } = useGetFormData(fetchAvailableTimes, requestData, values.date);
 
   return (
     <DatesList>

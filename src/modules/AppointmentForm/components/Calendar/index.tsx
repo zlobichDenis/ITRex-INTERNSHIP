@@ -13,8 +13,7 @@ type VisiCalendarProps = {
 
 export function VisitCalendar({ availableDates, handleReset, ...props }: VisiCalendarProps) {
   const [field, state, { setValue }] = useField(props.field);
-
-  const onChange = (value: string) => {
+  const onChange = (value: any) => {
     handleReset('time', '');
     setValue(moment(value).toISOString());
   };
@@ -22,7 +21,10 @@ export function VisitCalendar({ availableDates, handleReset, ...props }: VisiCal
   return (
     <DatePicker
       {...field}
-      onChange={(event) => onChange}
+      onChange={(event) => {
+        console.log(event)
+        onChange(event)
+      }}
       inline />
   );
 }

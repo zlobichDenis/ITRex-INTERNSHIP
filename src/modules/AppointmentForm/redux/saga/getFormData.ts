@@ -40,7 +40,6 @@ function* getDoctorsBySpezialisationsWorker({ payload }: PayloadAction<string>) 
 
 function* getAvailableTimeWorker({ payload }: PayloadAction<GetAvailableTimeParams>) {
   const { responce, error } = yield call(getAvailableTime, payload);
-
   if (responce) {
     const { data } = responce;
     yield put(setAvailableTimes(data));

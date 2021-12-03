@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import { patientCabinetRoutes, AppScreens, PatientScreens } from "routes";
+import { patientCabinetRoutes } from "routes";
+import { AppScreens, PatientScreens } from "const";
 import { PrivateRoute } from "./PrivateRoute";
 
 export const PatientCabinetRouter = () => {

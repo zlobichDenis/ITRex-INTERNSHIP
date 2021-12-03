@@ -5,7 +5,8 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { AppScreens, AuthStages, appRoutes } from "routes";
+import { AppScreens, AuthStages } from "const";
+import { appRoutes } from "routes";
 import { history } from "store";
 import { PrivateRoute } from "./PrivateRoute";
 

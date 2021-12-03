@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, Route } from "react-router-dom";
 
 import { useAppSelector } from "store";
-import { AppScreens, AuthStages } from "routes";
+import { AppScreens, AuthStages } from "const";
 
 type PrivateRouteParams = {
   component: React.FC,

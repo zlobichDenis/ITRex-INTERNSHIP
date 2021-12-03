@@ -1,7 +1,9 @@
 import { useEffect } from "react";
+import { ActionCreator } from "redux";
+
 import { useAppSelector, useAppDispatch } from "store";
 
-export const useGetFormData = (actionType: any, actionPayload?: any) => {
+export const useGetFormData = (actionType: ActionCreator<any>, actionPayload?: any, dependencie?: string) => {
   const {
     specializations: allSpecializations,
     fetchStatus,
@@ -13,11 +15,12 @@ export const useGetFormData = (actionType: any, actionPayload?: any) => {
 
   useEffect(() => {
     if(actionPayload) {
+      console.log(actionPayload)
       dispatch(actionType(actionPayload))
     } else {
       dispatch(actionType())
     }
-  }, [actionPayload, actionType, dispatch])
+  }, [dependencie])
 
   return { allSpecializations, fetchStatus, doctors, date, availableHours };
 };

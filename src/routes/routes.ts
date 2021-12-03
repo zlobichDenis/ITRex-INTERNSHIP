@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Authentification, DoctorView, PatientView } from "pages";
-import { UserRoles } from "const";
+import { UserRoles, AppScreens, AuthStages, PatientScreens } from "const";
 import {
   PatientInfo,
 } from "modules/Cabinet/components";
@@ -20,24 +20,6 @@ export type RouteType = {
   forRole: string | null,
   exact?: boolean,
 }
-
-export const AuthStages = {
-  SIGN_UP: "/sign-up",
-  SIGN_IN: "/sign-in",
-  RESTORE: "/restore",
-  RESTORE_CONFIRM: "/restore-confirm",
-};
-
-export const AppScreens = {
-  AUTH: "/authentification",
-  DOCTOR_VIEW: "/doctor-view",
-  PATIENT_VIEW: "/patient-view",
-};
-
-export const PatientScreens = {
-  CREATE_APPOINTMENT: "/create-appointment",
-  CABINET: "/patient-cabinet",
-};
 
 export const appRoutes: Array<RouteType> = [
   {

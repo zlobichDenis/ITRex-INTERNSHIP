@@ -13,8 +13,8 @@ import {
   InputLabel,
 } from "../../styles";
 import { VisitCalendar, StageName, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
-import { useCreateAppointment, fetchSpecializations } from "../../redux";
-import { useGetFormData } from "modules/AppointmentForm/redux/hooks";
+import { fetchSpecializations } from "../../redux";
+import { useGetFormData, useCreateAppointment } from "modules/AppointmentForm/hooks";
 
 
 export function AppointmentForm() {

@@ -3,8 +3,8 @@ import "@testing-library/jest-dom";
 
 import { FetchStatus } from "const";
 import { AppointmentForm } from "../components/Form";
-import * as useCreateAppointment from "../redux/hooks/useCreateAppointment";
-import * as useGetFormData from "../redux/hooks/useGetFormaData";
+import * as useCreateAppointment from "../hooks/useCreateAppointment";
+import * as useGetFormData from "../hooks/useGetFormaData";
 
 
 describe('Appointment form', () => {

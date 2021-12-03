@@ -1,5 +1,5 @@
 import { SortSelect, ActionButton } from "components";
-import { AppScreens, PatientScreens } from "routes";
+import { AppScreens, PatientScreens } from "const";
 import { Tittle } from "elements";
 import { InputsWrapper } from "../styles";
 import { useRedirect } from "hooks";
