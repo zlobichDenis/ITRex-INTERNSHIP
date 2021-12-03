@@ -1,9 +1,11 @@
 import { put, takeLatest, call } from "redux-saga/effects";
+import { PayloadAction } from "@reduxjs/toolkit";
 
-import { createAppointment } from "services";
+import { createAppointment, CreateAppointmentParams } from "services";
 import { postNewAppointment, responcePostAppointment, rejectPostAppointment } from "..";
 
-export function* createAppointmentWorker({ payload }: any) {
+
+export function* createAppointmentWorker({ payload }: PayloadAction<CreateAppointmentParams>) {
   const { responce, error } = yield call(createAppointment, payload);
   
   if (responce) {

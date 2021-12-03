@@ -6,7 +6,7 @@ export type GetAvailableTimeParams = {
   date: string,
 }
 
-type CreateAppointmentParams = {
+export type CreateAppointmentParams = {
   date: string,
   reason: string,
   note: string,
