@@ -21,7 +21,7 @@ export function TimeRadioList () {
   const { availableHours } = useGetFormData(fetchAvailableTimes, requestData, values.date);
 
   return (
-    <DatesList>
+    <DatesList role="hours-list">
       {availableHours ? (
         availableHours.length > 0 ? (
           availableHours.map((hour: string) => (

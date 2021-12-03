@@ -38,7 +38,7 @@ export function AppointmentForm() {
       } }
     >
       {({ values, errors, touched, handleSubmit, setFieldValue, isValid }) => (
-        <CreateAppointmentForm onSubmit={handleSubmit}>
+        <CreateAppointmentForm data-testid="appointment-form" onSubmit={handleSubmit}>
           <StageCreatingWrapper>
             <StageName
               icon={NumberOneSvg}
