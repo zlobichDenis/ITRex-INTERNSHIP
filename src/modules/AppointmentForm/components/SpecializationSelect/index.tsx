@@ -1,4 +1,4 @@
-import { FormikHandlers, FieldHookConfig, useField } from "formik";
+import { FormikHandlers, FieldHookConfig, useField, FieldProps } from "formik";
 import Select from "react-select";
 import { useGetFormData } from "modules/AppointmentForm/hooks";
 
@@ -15,7 +15,7 @@ type SpecializationSelectProps = {
 
 export function SpecializationSelect({
   id, options, handleReset, ...props
-}: SpecializationSelectProps) {
+}: SpecializationSelectProps & FieldProps) {
   const [field, state, { setValue, setTouched }] = useField(props.field);
   const { allSpecializations } = useGetFormData(fetchSpecializations);
 

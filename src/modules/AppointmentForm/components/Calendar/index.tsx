@@ -1,4 +1,4 @@
-import { useField, FormikHandlers, FieldHookConfig } from "formik";
+import { useField, FormikHandlers, FieldHookConfig, FieldProps } from "formik";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
@@ -11,7 +11,7 @@ type VisiCalendarProps = {
   field: FieldHookConfig<string>,
 }
 
-export function VisitCalendar ({ availableDates, handleReset, ...props }: VisiCalendarProps) {
+export function VisitCalendar ({ availableDates, handleReset, ...props }: VisiCalendarProps & FieldProps) {
   const [field, state, { setValue }] = useField(props.field);
   const onChange = (value: any) => {
     handleReset('time', '');

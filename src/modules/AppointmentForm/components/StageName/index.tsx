@@ -6,7 +6,7 @@ type StageNameProps = {
   text: string,
 }
 
-export function StageName  ({ icon, text }:StageNameProps) {
+export function StageName  ({ icon, text }: StageNameProps) {
   return (
     <StageTittle >
       <img width="32" height="32" src={icon} alt="step-2" />

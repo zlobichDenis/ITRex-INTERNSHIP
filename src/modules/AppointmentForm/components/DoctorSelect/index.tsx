@@ -1,5 +1,5 @@
 import Select from "react-select";
-import { useField, useFormikContext, FormikHandlers, FieldHookConfig, FormikValues } from "formik";
+import { useField, useFormikContext, FormikHandlers, FieldHookConfig, FormikValues, FieldProps } from "formik";
 
 import { selectStyles } from "../../styles";
 import { fetchDoctorPerSpecialization } from "../../redux";
@@ -7,12 +7,11 @@ import { useGetFormData } from "modules/AppointmentForm/hooks";
 
 type DoctorSelectProps = {
   id: string,
-  options: Array<object>,
   handleReset(name: string, value: string): FormikHandlers,
   field: FieldHookConfig<string>,
 }
 
-export function DoctorSelect ({ id, options, handleReset, ...props }: DoctorSelectProps) {
+export function DoctorSelect ({ id, handleReset, ...props }: DoctorSelectProps & FieldProps) {
   const [field, state, { setValue }] = useField(props.field);
 
   const { values } = useFormikContext<FormikValues>();
