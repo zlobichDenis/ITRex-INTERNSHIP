@@ -6,7 +6,7 @@ import { postNewAppointment, responcePostAppointment, rejectPostAppointment } fr
 
 
 export function* createAppointmentWorker({ payload }: PayloadAction<CreateAppointmentParams>) {
-  const { responce, error } = yield call(createAppointment, payload);
+  const { responce } = yield call(createAppointment, payload);
   
   if (responce) {
     yield put(responcePostAppointment());

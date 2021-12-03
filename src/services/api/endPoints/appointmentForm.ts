@@ -13,7 +13,6 @@ export type CreateAppointmentParams = {
   doctorID: string,
 }
 
-
 export const getAllSpecializations = () =>
   api
     .get<Array<Specialization>>("specializations")

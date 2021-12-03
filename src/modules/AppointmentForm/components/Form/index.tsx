@@ -18,7 +18,6 @@ import { useCreateAppointment } from "modules/AppointmentForm/hooks";
 
 export function AppointmentForm() {
   const { createAppointment, fetchStatus } = useCreateAppointment();
-
   return (
     <Formik
       initialValues={{
