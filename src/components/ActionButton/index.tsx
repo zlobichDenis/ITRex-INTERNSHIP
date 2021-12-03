@@ -1,3 +1,5 @@
+import React from "react";
+
 import { ButtonArrowSvg } from "assets";
 import { ButtonWrapper, Button } from "./styles";
 
@@ -10,7 +12,7 @@ type ActionButtonProps = {
   isDisabled?: boolean, 
   itsUserPatient?: boolean, 
   itsUserView?: boolean, 
-  handleClick?(): void,
+  handleClick?: React.MouseEventHandler<HTMLButtonElement>,
 }
 
 export function ActionButton ({

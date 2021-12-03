@@ -1,8 +1,10 @@
+import React from "react";
+
 import { BackArrowSvg } from "assets";
 import { RestoreButton } from "./styles";
 
 type BackToSignInButtonProps = {
-  backToSignIn(): void,
+  backToSignIn: React.MouseEventHandler<HTMLButtonElement>,
 }
 
 export function BackToSignInButton ({ backToSignIn }: BackToSignInButtonProps) {

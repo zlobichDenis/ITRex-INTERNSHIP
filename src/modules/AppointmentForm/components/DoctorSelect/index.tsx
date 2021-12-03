@@ -38,7 +38,7 @@ export function DoctorSelect ({ id, options, handleReset, ...props }: DoctorSele
   return (
     <Select
       id={id}
-      placeholder="select doctor"
+      placeholder="Select doctor"
       styles={selectStyles}
       onChange={onChange}
       options={getDoctorsById()}

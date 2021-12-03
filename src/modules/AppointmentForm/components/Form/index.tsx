@@ -13,24 +13,13 @@ import {
   InputLabel,
 } from "../../styles";
 import { VisitCalendar, StageName, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
-import { fetchSpecializations } from "../../redux";
-import { useGetFormData, useCreateAppointment } from "modules/AppointmentForm/hooks";
+import { useCreateAppointment } from "modules/AppointmentForm/hooks";
 
 
 export function AppointmentForm() {
-  const { allSpecializations } = useGetFormData(fetchSpecializations);
   const { createAppointment, fetchStatus } = useCreateAppointment();
 
-  const getSpezialisationsOptions = () => {
-    if (allSpecializations) {
-      return allSpecializations.map(({ id, specialization_name }) => ({
-        value: id,
-        label: specialization_name,
-      }));
-    }
-  };
-
-  return allSpecializations ? (
+  return (
     <Formik
       initialValues={{
         date: "",
@@ -62,7 +51,6 @@ export function AppointmentForm() {
                 component={SpecializationSelect}
                 name="occupation"
                 id="occupation"
-                options={getSpezialisationsOptions()}
                 handleReset={setFieldValue} />
               {errors.occupation && touched.occupation ? (
                 <AlertMessage message={errors.occupation} />
@@ -130,6 +118,7 @@ export function AppointmentForm() {
               width={50}
               timeout={3000} />
             : <ActionButton
+              role="submit-appointment"
               isDisabled={isValid}
               type="submit"
               textContent="Submit"
@@ -138,7 +127,5 @@ export function AppointmentForm() {
         </CreateAppointmentForm>
       )}
     </Formik>
-  ) : (
-    <Loader type="Puff" color="#00BFFF" height={100} width={100} />
-  );
+  ) 
 }

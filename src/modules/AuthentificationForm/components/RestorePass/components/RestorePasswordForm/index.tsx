@@ -1,5 +1,4 @@
 import { Formik, Field } from "formik";
-import { useHistory } from "react-router";
 
 import { AppScreens, AuthStages } from "const";
 import { useRedirect } from "hooks";

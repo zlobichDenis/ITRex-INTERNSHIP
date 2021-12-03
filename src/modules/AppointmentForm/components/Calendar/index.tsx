@@ -11,7 +11,7 @@ type VisiCalendarProps = {
   field: FieldHookConfig<string>,
 }
 
-export function VisitCalendar({ availableDates, handleReset, ...props }: VisiCalendarProps) {
+export function VisitCalendar ({ availableDates, handleReset, ...props }: VisiCalendarProps) {
   const [field, state, { setValue }] = useField(props.field);
   const onChange = (value: any) => {
     handleReset('time', '');
@@ -21,10 +21,7 @@ export function VisitCalendar({ availableDates, handleReset, ...props }: VisiCal
   return (
     <DatePicker
       {...field}
-      onChange={(event) => {
-        console.log(event)
-        onChange(event)
-      }}
+      onChange={(event) => onChange(event)}
       inline />
   );
 }

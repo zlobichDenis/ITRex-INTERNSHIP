@@ -1,5 +1,4 @@
-import React from "react";
-import { getAllByRole, render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import { UserAppointmentsList } from "../components/AppointmentsList";
@@ -24,7 +23,7 @@ describe("Appointments list", () => {
     );
   });
 
-  it("shoul render empty appointment list when role is ", () => {
+  it("should render empty appointment list when role is ", () => {
     jest
       .spyOn(useFetchAppointments, "useFetchAppointments")
       .mockImplementation(() => {

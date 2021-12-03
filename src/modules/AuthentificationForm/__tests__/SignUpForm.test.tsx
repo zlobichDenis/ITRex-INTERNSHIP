@@ -1,5 +1,4 @@
-import React from "react";
-import { getAllByRole, render, screen, waitFor } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 
@@ -11,7 +10,9 @@ describe("SignUp form", () => {
   it('should take correct parameters', async () => {
     const registrationMock = jest.fn((values) => console.log(values))
     jest.spyOn(useAuthentification, 'useAuthentification').mockImplementation(() => {
-      return { registrationRequest: (values) => registrationMock(values) }
+      return ({ 
+        registrationRequest: (values) => registrationMock(values),
+      })
     })
 
     const { getByRole } = render(<SignUpForm />)
