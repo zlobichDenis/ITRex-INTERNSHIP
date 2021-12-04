@@ -10,7 +10,7 @@ export type RegistrationParams = {
   lastName: string;
   userName: string;
   password: string;
-}
+};
 
 export const useAuthentification = () => {
   const dispatch = useAppDispatch();

@@ -17,7 +17,7 @@ export const appointmentsSlice = createSlice({
   name: "appointments",
   initialState,
   reducers: {
-    setUserAppointments: function (state: AppointmentSliceState, { payload }) {
+    setUserAppointments: function (state, { payload }) {
       return { ...state, appointments: payload };
     },
     fetchDoctorAppointments: function (state, { payload }) {

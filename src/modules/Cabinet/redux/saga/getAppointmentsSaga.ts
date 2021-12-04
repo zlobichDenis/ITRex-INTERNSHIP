@@ -12,8 +12,9 @@ import {
   responceFetchAppointments,
 } from "../slice";
 
+type GetAllAppointmentsWorkerParams = AppointmentsPagination;
 
-function* getPatientAppointmentsWorker({ payload }: PayloadAction<AppointmentsPagination>) {
+function* getPatientAppointmentsWorker({ payload }: PayloadAction<GetAllAppointmentsWorkerParams>) {
   const { responce: patientResponce } = yield call(getAllPatientAppointments, payload);
 
     if (patientResponce) {
@@ -25,7 +26,7 @@ function* getPatientAppointmentsWorker({ payload }: PayloadAction<AppointmentsPa
   }
 };
 
-function* getDoctorAppointmentsWorker({ payload }: PayloadAction<AppointmentsPagination>) {
+function* getDoctorAppointmentsWorker({ payload }: PayloadAction<GetAllAppointmentsWorkerParams>) {
   const { responce: doctorResponce, error } = yield call(getAllDoctorAppointments, payload);
 
     if (doctorResponce) {

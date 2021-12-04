@@ -11,6 +11,7 @@ import { allSpecializations, doctorsSurgeon, availableHours } from "services";
 
 describe('Appointment form', () => {
   it('form should render when allSpecialization not false but calendar and time radio list not display', () => {
+    const onSubmit = jest.fn();
     jest.spyOn(useGetFormData, 'useGetFormData').mockImplementation(() => {
       return {
         allSpecializations: [],
@@ -22,7 +23,7 @@ describe('Appointment form', () => {
     })
     jest.spyOn(useCreateAppointment, 'useCreateAppointment').mockImplementation(() => {
       return {
-        createAppointment: () => console.log('some'),
+        createAppointment: () => onSubmit(),
         fetchStatus: FetchStatus.SUCCESS,
       }
     })

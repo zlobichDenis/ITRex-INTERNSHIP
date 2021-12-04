@@ -16,9 +16,10 @@ import { responceNotify, errorNotify, login, getUserProfile, registration } from
 import * as tokenRepository from "store/tokenRepository";
 import { getCorrectPage } from "../helpers";
 
+type RegistartionSagaParams = SignUpFormValues;
+type LoginSagaParams = SignInFormValues;
 
-
-function* registrationWorker({ payload }: PayloadAction<SignUpFormValues>) {
+function* registrationWorker({ payload }: PayloadAction<RegistartionSagaParams>) {
   const { responce: tokenResponce } = yield call(registration, payload);
 
   if (tokenResponce) {
@@ -32,7 +33,7 @@ function* registrationWorker({ payload }: PayloadAction<SignUpFormValues>) {
   }
 }
 
-function* loginWorker({ payload }: PayloadAction<SignInFormValues>) {
+function* loginWorker({ payload }: PayloadAction<LoginSagaParams>) {
   const { responce: tokenResponce }  = yield call(login, payload);
 
   if (tokenResponce) {

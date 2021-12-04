@@ -6,14 +6,14 @@ import { TimeInputRadio } from "./components";
 import { fetchAvailableTimes } from "../../redux";
 import { useGetFormData } from "modules/AppointmentForm/hooks";
 
-type RequestData = {
+export type RequestAvailableTimeData = {
   doctorId: string,
   date: string,
 }
 
 export function TimeRadioList () {
   const { values } = useFormikContext<FormikValues>();
-  let requestData: RequestData = {
+  let requestData: RequestAvailableTimeData = {
     doctorId: values.doctorName,
     date: values.date,
   }
