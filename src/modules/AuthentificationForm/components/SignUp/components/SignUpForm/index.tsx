@@ -16,7 +16,7 @@ import {
 } from "assets";
 import { FeedbackForm } from "modules/Cabinet/styles";
 import { Tittle } from "elements";
-import { useAuthentification } from "modules/AuthentificationForm/redux";
+import { useAuthentification } from "modules/AuthentificationForm/hooks";
 
 
 export function SignUpForm () {

@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 
 import { SignUpForm } from "../components/SignUp/components/SignUpForm";
-import * as useAuthentification from "../redux/hooks/useAuthentification";
+import * as useAuthentification from "../hooks/useAuthentification";
 
 
 describe("SignUp form", () => {

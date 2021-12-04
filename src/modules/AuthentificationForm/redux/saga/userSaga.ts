@@ -11,40 +11,43 @@ import {
   fetchRegistration,
 } from "..";
 import { SignUpFormValues, SignInFormValues } from "types";
-import { login, getUserProfile, registration } from "services";
+import { SuccesMessages, ErrorMessages } from "const/notifyMessages";
+import { responceNotify, errorNotify, login, getUserProfile, registration } from "services";
 import * as tokenRepository from "store/tokenRepository";
 import { getCorrectPage } from "../helpers";
 
 
 
 function* registrationWorker({ payload }: PayloadAction<SignUpFormValues>) {
-  const { responce: tokenResponce, error } = yield call(registration, payload);
+  const { responce: tokenResponce } = yield call(registration, payload);
 
   if (tokenResponce) {
+    responceNotify(SuccesMessages.REGISTRATION);
     tokenRepository.setToken(tokenResponce.data.access_token);
     tokenRepository.setRefreshToken(tokenResponce.data.refresh_token);
     yield put(fetchUserProfile());
   } else {
-    console.log(error)
+    errorNotify(ErrorMessages.REGISTRATION);
     yield put(rejectFetchUserProfile());
   }
 }
 
 function* loginWorker({ payload }: PayloadAction<SignInFormValues>) {
-  const { responce: tokenResponce, error }  = yield call(login, payload);
+  const { responce: tokenResponce }  = yield call(login, payload);
 
   if (tokenResponce) {
+    responceNotify(SuccesMessages.LOGIN);
     tokenRepository.setToken(tokenResponce.data.access_token);
     tokenRepository.setRefreshToken(tokenResponce.data.refresh_token);
     yield put(fetchUserProfile());
   } else {
-    console.log(error)
+    errorNotify(ErrorMessages.LOGIN);
     yield put(rejectFetchUserProfile());
   }
 }
 
 function* getUserProfileWorker() {
-  const { responce: userProfileResponce, error } = yield call(getUserProfile);
+  const { responce: userProfileResponce } = yield call(getUserProfile);
 
   if (userProfileResponce) {
     yield put(responceFetchUserProfile());
@@ -52,7 +55,6 @@ function* getUserProfileWorker() {
     yield put(setCurrentUser(userProfile));
     yield put(push(getCorrectPage(userProfile)));
   } else {
-    console.log(error)
     yield put(rejectFetchUserProfile());
   }
 }

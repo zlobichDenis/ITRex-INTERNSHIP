@@ -1,12 +1,15 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'styles/toastContainer.css';
 
 import { store, persistor } from "store";
 import { AppRouter } from "routes";
 import { GlobalStyles } from "styles";
 
-export function App () {
+export function App() {
   return (
     <React.StrictMode>
       <Provider store={store}>
@@ -14,6 +17,18 @@ export function App () {
           <AppRouter />
           <GlobalStyles />
         </PersistGate>
+        <ToastContainer
+            position="bottom-left"
+            autoClose={5000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            limit={1}
+          />
       </Provider>
     </React.StrictMode>
   );
