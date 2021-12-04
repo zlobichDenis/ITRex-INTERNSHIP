@@ -14,8 +14,9 @@ import {
   getDoctorsBySpezialisations,
 } from "services";
 
+
 function* getSpecializationWorker() {
-  const { responce } = yield call(getAllSpecializations);
+  const { responce, error } = yield call(getAllSpecializations);
 
   if (responce) {
     const { data } = responce;
@@ -46,6 +47,7 @@ function* getAvailableTimeWorker({ payload }) {
     yield put(setAvailableTimes(error));
   }
 }
+
 
 export function* getFormaDataWatcher() {
   yield takeLatest(fetchSpecializations, getSpecializationWorker);

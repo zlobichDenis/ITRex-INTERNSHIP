@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
 import { useField } from "formik";
@@ -22,6 +22,8 @@ export const SpecializationSelect = ({
 
   return (
     <Select
+      id={id}
+      placeholder="Select occupation"
       styles={selectStyles}
       onChange={onChange}
       onBlur={setTouched}

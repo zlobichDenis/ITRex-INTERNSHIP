@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { InputText } from "elements";
 import { InputField, InputIcon } from "../styles";
 
-export const PasswordInput = ({ placeholder, field, icon }) => {
+export const PasswordInput = ({ placeholder, field, icon, role }) => {
   const [isShowingPass, setVisiblePass] = useState(false);
   const showPassToggle = () => {
     setVisiblePass((isShowingPass) => !isShowingPass);
@@ -15,6 +15,7 @@ export const PasswordInput = ({ placeholder, field, icon }) => {
       <img width="21" src={icon} alt="icon" />
       <InputText
         {...field}
+        role={role}
         type={isShowingPass ? "text" : "password"}
         placeholder={placeholder}
         className="feedback-field__input feedback-field__input_password"
@@ -25,6 +26,7 @@ export const PasswordInput = ({ placeholder, field, icon }) => {
 };
 
 PasswordInput.propTypes = {
+  role: PropTypes.string,
   placeholder: PropTypes.string,
   field: PropTypes.object,
   icon: PropTypes.any,

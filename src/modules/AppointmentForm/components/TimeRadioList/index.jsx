@@ -1,23 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Field, useFormikContext } from "formik";
-import { useSelector, useDispatch } from "react-redux";
 
 import { AlertMessage } from "components";
 import { DatesList } from "./styles";
 import { TimeInputRadio } from "./components";
 import { fetchAvailableTimes } from "../../redux";
+import { useGetFormData } from "modules/AppointmentForm/redux/hooks";
 
 export const TimeRadioList = () => {
-  const dispatch = useDispatch();
-  const { availableTimes: availableHours } = useSelector(state => state.createdAppointment);
   const { values } = useFormikContext();
-
-  useEffect(() => {
-    if (values.doctorName) {
-        dispatch(fetchAvailableTimes({ doctorId: values.doctorName, date: values.date }))
-    }
-  }, [values.date]);
-
+  const { availableHours } = useGetFormData(fetchAvailableTimes, { doctorId: values.doctorName, date: values.date });
 
   return (
     <DatesList>

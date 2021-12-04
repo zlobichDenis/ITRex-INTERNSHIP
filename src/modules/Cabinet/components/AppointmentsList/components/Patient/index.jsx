@@ -23,7 +23,7 @@ export const Patient = ({ appointment }) => {
   const { first_name: firstName, id, last_name: lastName, photo } = patient
 
   return (
-    <AppointmentsItem>
+    <AppointmentsItem role="patient">
       <AppointmentsItemHeader>
         <UserInfoWrapper>
           <img width="48" height="48" src={photo} alt="Patient Photo" />

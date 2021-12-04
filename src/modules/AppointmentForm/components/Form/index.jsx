@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React  from "react";
 import { Formik, Field } from "formik";
-import { useSelector, useDispatch } from "react-redux";
 import Loader from "react-loader-spinner";
 
 import { NumberOneSvg, NumberTwoSvg, NumberThreeSvg } from "assets";
@@ -16,17 +15,13 @@ import {
 } from "../../styles";
 import { VisitCalendar, StageName, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
 import { useCreateAppointment, fetchSpecializations } from "../../redux";
+import { useGetFormData } from "modules/AppointmentForm/redux/hooks";
+
 
 export const AppointmentForm = () => {
-  const dispatch = useDispatch();
-  const { specializations: allSpecializations } = useSelector((state) => state.createdAppointment);
-  
+  const { allSpecializations } = useGetFormData(fetchSpecializations);
   const { createAppointment, fetchStatus } = useCreateAppointment();
   const { isShowingNotification, closeNotificationHandle } = useRequestAlert(fetchStatus);
-
-  useEffect(() => {
-    dispatch(fetchSpecializations());
-  }, []);
 
   const getSpezialisationsOptions = () => {
     if(allSpecializations) {
@@ -119,7 +114,7 @@ export const AppointmentForm = () => {
                 handleReset={setFieldValue}
               />
             ) : (
-              <AlertMessage message="Choose a doctor first" />
+              <AlertMessage role="no-calendar-message" message="Choose a doctor first" />
             )}
           </StageCreatingWrapper>
 
@@ -131,7 +126,7 @@ export const AppointmentForm = () => {
             {values.doctorName && values.occupation && values.date ? (
               <TimeRadioList />
             ) : (
-              <AlertMessage message="Select a date and doctor first" />
+              <AlertMessage role="no-date-and-doctor" message="Select a date and doctor first" />
             )}
           </StageCreatingWrapper>
 

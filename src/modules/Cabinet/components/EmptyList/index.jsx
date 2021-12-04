@@ -1,14 +1,11 @@
 import React from "react";
 
 import { EmptyListSvg } from "assets";
-import { EmptyListContainer, TittleWrapper, EmptyListContent, EmptyListMessage } from "./styles";
+import { EmptyListContainer, EmptyListContent, EmptyListMessage } from "./styles";
 
 export const EmptyList = () => {
   return (
-    <EmptyListContainer>
-      {/* <TittleWrapper>
-        <h3>My Patients</h3>
-      </TittleWrapper> */}
+    <EmptyListContainer data-testid="empty-appointments-list">
         <EmptyListContent>
           <img src={EmptyListSvg} alt="icon" />
           <EmptyListMessage>

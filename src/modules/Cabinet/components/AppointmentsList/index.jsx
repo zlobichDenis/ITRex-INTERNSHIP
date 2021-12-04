@@ -4,14 +4,14 @@ import Loader from "react-loader-spinner";
 import { FetchStatus } from "const";
 import { EmptyList } from "../../components";
 import { AppointmentsListWrapper, AppointmentsList } from "./styles";
-import { useFetchAppointments } from "./redux";
+import { useFetchAppointments } from "../../redux";
 import { createAppointmentsList } from "../../utils";
 
 export const UserAppointmentsList = () => {
   const { fetchStatus, appointments, roleName } = useFetchAppointments();
 
   return (
-    <AppointmentsListWrapper>
+    <AppointmentsListWrapper data-testid="appointments-list">
       <AppointmentsList>
       {fetchStatus !== FetchStatus.PENDING
         ? appointments.length > 0 
