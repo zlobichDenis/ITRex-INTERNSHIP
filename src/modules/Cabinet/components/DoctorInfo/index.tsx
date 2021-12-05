@@ -5,10 +5,9 @@ import { CabinetInfo } from "../../styles";
 export function DoctorInfo () {
   return (
     <>
-      <CabinetTabs />
+      <CabinetTabs/>
       <CabinetInfo>
         <CabinetControlPanel itsPatientUser={false}/>
-        {/* <UserAppointmentsList itsPatientUser={false} /> */}
         <UserAppointmentsList />
       </CabinetInfo>
     </>

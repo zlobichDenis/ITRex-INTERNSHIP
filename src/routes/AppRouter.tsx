@@ -1,4 +1,4 @@
-import { ConnectedRouter } from "connected-react-router";
+// import { ConnectedRouter } from "connected-react-router";
 import {
   Switch,
   Route,
@@ -7,12 +7,10 @@ import {
 
 import { AppScreens, AuthStages } from "const";
 import { appRoutes } from "routes";
-import { history } from "store";
 import { PrivateRoute } from "./PrivateRoute";
 
 const AppRouter = () => {
   return (
-    <ConnectedRouter history={history}>
         <Switch>
           {appRoutes.map(({ isPrivate, forRole, path, ...props }, index) =>
             forRole ? (
@@ -27,7 +25,6 @@ const AppRouter = () => {
             to={`${AppScreens.AUTH}${AuthStages.SIGN_UP}`}
           />
         </Switch>
-      </ConnectedRouter>
   );
 };
 

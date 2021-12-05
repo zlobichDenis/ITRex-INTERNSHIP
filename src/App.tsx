@@ -2,6 +2,8 @@ import React from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { ToastContainer } from 'react-toastify';
+import { ConnectedRouter } from "connected-react-router";
+import { history } from "store";
 import 'react-toastify/dist/ReactToastify.css';
 import 'styles/toastContainer.css';
 
@@ -14,7 +16,9 @@ export function App() {
     <React.StrictMode>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <AppRouter />
+          <ConnectedRouter history={history}>
+            <AppRouter />
+          </ConnectedRouter>
           <GlobalStyles />
         </PersistGate>
         <ToastContainer

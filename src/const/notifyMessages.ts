@@ -6,6 +6,6 @@ export const SuccesMessages = {
 
 export const ErrorMessages = {
   CREATED_APPOINTMENTS: 'Something going wrong. Try again.',
-  LOGIN: 'Unsuccess authorization',
-  REGISTRATION: 'Unsuccess authorization',
+  LOGIN: 'Unsuccess login',
+  REGISTRATION: 'Unsuccess registration',
 };
