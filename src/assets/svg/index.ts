@@ -23,6 +23,7 @@ import SuccessIconSvg from "./SuccessIcon.svg";
 import UnsuccessIconSvg from "./UnsuccessIcon.svg";
 import CloseSvg from "./Close.svg";
 import WaitingSvg from "./Waiting.svg";
+import CrossSvg from "./Cross.svg"
 
 export {
   BackArrowSvg,
@@ -50,4 +51,5 @@ export {
   CloseSvg,
   UnsuccessIconSvg,
   WaitingSvg,
+  CrossSvg,
 };

@@ -1,6 +1,8 @@
-import { createSlice, createAction, ActionCreatorWithPayload } from "@reduxjs/toolkit";
+import { createSlice, createAction } from "@reduxjs/toolkit";
 
+import { EditAppointmentWorkerParams } from ".";
 import { DoctorAppointment, PatientAppointment } from "types";
+import { FetchStatus } from 'const';
 
 
 type AppointmentSliceState = {
@@ -14,7 +16,7 @@ const initialState: AppointmentSliceState = {
 }
 
 export const deleteAppointment = createAction<string>('appointments/delete');
-export const editAppointment = createAction<ActionCreatorWithPayload<string>>('appointments/edit');
+// export const editAppointment = createAction<EditAppointmentWorkerParams>('appointments/edit');
 
 export const appointmentsSlice = createSlice({
   name: "appointments",
@@ -23,11 +25,11 @@ export const appointmentsSlice = createSlice({
     setUserAppointments: function (state, { payload }) {
       return { ...state, appointments: payload };
     },
-    fetchDoctorAppointments: function (state, { payload }) {
-      return { ...state, fetchStatus: payload };
+    fetchDoctorAppointments: function (state, _) {
+      return { ...state, fetchStatus: FetchStatus.PENDING };
     },
-    fetchPatientAppointments: function (state, { payload }) {
-      return { ...state, fetchStatus: payload };
+    fetchPatientAppointments: function (state, _) {
+      return { ...state, fetchStatus: FetchStatus.PENDING };
     },
     responceFetchAppointments: function (state, { payload }) {
       return { ...state, fetchStatus: payload };

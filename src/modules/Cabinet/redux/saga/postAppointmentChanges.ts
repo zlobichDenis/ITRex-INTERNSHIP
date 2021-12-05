@@ -3,9 +3,9 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 import { postDeletedAppointment, errorNotify, responceNotify  } from "services";
 import { SuccesMessages, ErrorMessages, appointmnetsPagination } from "const";
-import { deleteAppointment, editAppointment, fetchDoctorAppointments } from "..";
+import { deleteAppointment, fetchDoctorAppointments } from "..";
 
-type EditAppointmentWorkerParams = {
+export type EditAppointmentWorkerParams = {
   status: string,
   date: string,
 };

@@ -11,6 +11,12 @@ type PatientResponceData = {
   total: number;
 };
 
+type PathChangesInAppointmentParams = {
+  id: string,
+  status: string,
+  date: string,
+};
+
 export const getAllDoctorAppointments = ({
   limit,
   offset,
@@ -25,9 +31,14 @@ export const getAllDoctorAppointments = ({
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
-export const postDeletedAppointment = (appointmentId: string) => (
+export const postDeletedAppointment = (appointmentId: string) =>
   api
     .delete<string>(`/appointments/${appointmentId}`)
     .then((responce) => ({ responce }))
-    .catch((error) => ({ error }))
-);
+    .catch((error) => ({ error }));
+
+export const pathChangesInAppointment = ({ id, ...body }: PathChangesInAppointmentParams) =>
+  api
+    .patch<string>(`/appointments/${id}`, body)
+    .then((responce) => ({ responce }))
+    .then((error) => ({ error }));
