@@ -21,7 +21,7 @@ type fetchUserProfileState = {
 }
 
 export const fetchRegistration = createAction<RegistrationPayload>('auth/registration');
-export const fetchLogin = createAction<LoginPayload>('auth-login');
+export const fetchLogin = createAction<LoginPayload>('auth/login');
 
 
 const initialState = {

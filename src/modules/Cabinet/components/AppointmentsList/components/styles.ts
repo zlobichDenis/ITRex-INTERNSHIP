@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { DividerSvg } from "assets";
 
 export const AppointmentsItem = styled.li`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -50,10 +51,6 @@ export const UserName = styled.span`
   font-weight: 600;
   font-size: 17px;
   line-height: 130%;
-`;
-
-export const AppointmentOptions = styled.button`
-  width: 24px;
 `;
 
 export const UserItemDivider = styled.div`

@@ -1,20 +1,21 @@
+import { useState } from "react";
 import moment from "moment";
 
 import { DoctorAppointment } from "types";
-import { PersonOptionsSvg, DateSvg, AppointmentSvg } from "assets";
+import { DateSvg, AppointmentSvg } from "assets";
 import {
   AppointmentsItem,
   AppointmentsItemHeader,
   UserInfoWrapper,
   UserInfo,
   UserName,
-  AppointmentOptions,
   UserItemDivider,
   UserDetails,
   VisitDate,
   VisitMessage,
   VisitMessageIcon,
 } from "../styles";
+import { AppointmentMenu } from "../AppointmentMenu";
 import { UserStatus, UserStatusIcon } from "./styles";
 
 type PatientProps = {
@@ -22,12 +23,13 @@ type PatientProps = {
 }
 
 export function Patient ({ appointment }: PatientProps) {
-  const { patient, status, visit_date: date, reason } = appointment;
-  const { first_name: firstName, last_name: lastName, photo } = patient
+  const { patient, status, id, visit_date: date, reason } = appointment;
+  const { first_name: firstName, last_name: lastName, photo } = patient;
 
   return (
     <AppointmentsItem role="patient">
       <AppointmentsItemHeader>
+
         <UserInfoWrapper>
           <img width="48" height="48" src={photo} alt="Patient Photo" />
           <UserInfo>
@@ -38,9 +40,9 @@ export function Patient ({ appointment }: PatientProps) {
             </UserStatus>
           </UserInfo>
         </UserInfoWrapper>
-        <AppointmentOptions>
-          <img src={PersonOptionsSvg} width="21" height="21" alt="icon" />
-        </AppointmentOptions>
+
+        <AppointmentMenu appointmentId={id}/>
+
       </AppointmentsItemHeader>
       <UserItemDivider></UserItemDivider>
       <UserDetails>

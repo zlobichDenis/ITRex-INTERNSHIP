@@ -8,7 +8,6 @@ import {
   UserInfoWrapper,
   UserInfo,
   UserName,
-  AppointmentOptions,
   UserItemDivider,
   UserDetails,
   VisitDate,
@@ -33,9 +32,9 @@ export const Doctor = ({ appointment }: DoctorProps) => {
             <UserName className="patient-cabinet__doctor-name">{`${firstName} ${lastName}`}</UserName>
           </UserInfo>
         </UserInfoWrapper>
-        <AppointmentOptions className="patient-cabinet__doctor-btn">
+        {/* <AppointmentOptions className="patient-cabinet__doctor-btn">
           <img src={PersonOptionsSvg} width="21" height="21" alt="icon" />
-        </AppointmentOptions>
+        </AppointmentOptions> */}
       </AppointmentsItemHeader>
       <UserItemDivider></UserItemDivider>
       <UserDetails>

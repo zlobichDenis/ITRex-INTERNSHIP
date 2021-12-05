@@ -1,6 +1,6 @@
 import { all } from "@redux-saga/core/effects";
 import { getUserDataWatcher } from "modules/AuthentificationForm/redux";
-import { getAppointmentsWatcher } from "modules/Cabinet/redux";
+import { getAppointmentsWatcher, postAppointmentChangesWatcher } from "modules/Cabinet/redux";
 import {
   createAppointmentWatcher,
   getFormaDataWatcher,
@@ -12,5 +12,6 @@ export function* rootWatcher() {
     getAppointmentsWatcher(),
     createAppointmentWatcher(),
     getFormaDataWatcher(),
+    postAppointmentChangesWatcher(),
   ]);
 }

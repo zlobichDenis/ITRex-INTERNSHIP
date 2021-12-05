@@ -1,17 +1,20 @@
 import { api } from "services";
-import { DoctorAppointment } from 'types';
+import { DoctorAppointment } from "types";
 
 type getAllDoctorAppointmentsParams = {
-  limit: number,
-  offset: number,
-}
+  limit: number;
+  offset: number;
+};
 
 type PatientResponceData = {
-  appoinments: Array<DoctorAppointment>,
-  total: number,
-}
+  appoinments: Array<DoctorAppointment>;
+  total: number;
+};
 
-export const getAllDoctorAppointments = ({ limit, offset }: getAllDoctorAppointmentsParams) => (
+export const getAllDoctorAppointments = ({
+  limit,
+  offset,
+}: getAllDoctorAppointmentsParams) =>
   api
     .get<PatientResponceData>("/appointments/doctor/me", {
       params: {
@@ -19,6 +22,12 @@ export const getAllDoctorAppointments = ({ limit, offset }: getAllDoctorAppointm
         limit: limit,
       },
     })
+    .then((responce) => ({ responce }))
+    .catch((error) => ({ error }));
+
+export const postDeletedAppointment = (appointmentId: string) => (
+  api
+    .delete<string>(`/appointments/${appointmentId}`)
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }))
 );
