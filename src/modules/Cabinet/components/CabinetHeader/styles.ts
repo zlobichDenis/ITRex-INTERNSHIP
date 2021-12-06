@@ -34,7 +34,7 @@ export const UserName = styled.span`
     font-weight: 600;
     font-size: 15px;
     line-height: 130%;
-    color: ${colors.TEXT_TITLE_COLOR};
+    color: ${colors.BLACK};
     
     @media (min-width: 321px) and (max-width: 768px) {
         display: none;
@@ -48,7 +48,7 @@ export const UserSpecialty = styled.span`
     font-weight: 500;
     font-size: 13px;
     line-height: 130%;
-    color: ${colors.TEXT_COLOR};
+    color: ${colors.GREY_MEDIUM};
 
     @media (min-width: 321px) and (max-width: 768px) {
         display: none;

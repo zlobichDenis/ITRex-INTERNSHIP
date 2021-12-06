@@ -30,7 +30,7 @@ export function Patient ({ appointment }: PatientProps) {
       <AppointmentsItemHeader>
 
         <UserInfoWrapper>
-          <img width="48" height="48" src={photo} alt="Patient Photo" />
+          <img width="48" height="48" src={photo} alt="Patient" />
           <UserInfo>
             <UserName>{`${firstName} ${lastName}`}.</UserName>
             <UserStatus>
@@ -40,14 +40,14 @@ export function Patient ({ appointment }: PatientProps) {
           </UserInfo>
         </UserInfoWrapper>
 
-        <AppointmentMenu appointmentId={id}/>
+        <AppointmentMenu appointmentID={id} patient={patient}/>
 
       </AppointmentsItemHeader>
       <UserItemDivider></UserItemDivider>
       <UserDetails>
         <VisitDate>
           <img src={DateSvg} width="21" height="21" alt="icon" />
-          <span>{`${moment(date).format("ddd MMM d, YYYY hh:mm A")}-${moment(date).add(1, 'hours').format('hh:mm A')} `}</span>
+          <span>{`${moment(date).format("ddd MMM D, YYYY hh:mm A")}-${moment(date).add(1, 'hours').format('hh:mm A')} `}</span>
         </VisitDate>
         <VisitMessage>
           <VisitMessageIcon>

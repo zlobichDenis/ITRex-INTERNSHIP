@@ -6,7 +6,7 @@ export const Tittle = styled.h3`
   width: 100%;
   display: flex;
   align-items: center;
-  color: ${colors.TEXT_TITLE_COLOR};
+  color: ${colors.BLACK};
   font-family: "Poppins";
   font-weight: 600;
   font-size: 20px;
@@ -21,7 +21,7 @@ export const InputText = styled.input`
   border: none;
   background-color: transparent;
   width: 100%;
-  color: ${colors.TEXT_COLOR};
+  color: ${colors.GREY_MEDIUM};
 
   &:focus {
     outline: none;
@@ -37,5 +37,5 @@ export const OrdinaryText = styled.span`
   font-size: 13px;
   line-height: 120%;
   letter-spacing: -0.24px;
-  color: ${colors.TEXT_COLOR};
+  color: ${colors.GREY_MEDIUM};
 `;

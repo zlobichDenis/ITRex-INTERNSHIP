@@ -1,8 +1,8 @@
 import { rest, setupWorker } from 'msw';
 import { setupServer } from 'msw/node';
-import { doctorProfile, patientProfile } from 'services';
+import { patientProfile } from 'services';
 
-let worker;
+
 export let server: any;
 
 const mockTokens = {
@@ -29,7 +29,7 @@ export const handlers = [
 ];
 
 if (process.env.NODE_ENV === 'development') {
-  worker = setupWorker(...handlers)
+  setupWorker(...handlers)
 } else {
   server = setupServer(...handlers);
 }

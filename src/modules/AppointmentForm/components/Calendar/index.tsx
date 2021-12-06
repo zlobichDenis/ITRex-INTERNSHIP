@@ -12,7 +12,7 @@ type VisiCalendarProps = {
 }
 
 export function VisitCalendar ({ availableDates, handleReset, ...props }: VisiCalendarProps & FieldProps) {
-  const [field, state, { setValue }] = useField(props.field);
+  const [field, , { setValue }] = useField(props.field);
   const onChange = (value: any) => {
     handleReset('time', '');
     setValue(moment(value).toISOString());

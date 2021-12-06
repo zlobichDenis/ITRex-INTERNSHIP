@@ -1,4 +1,4 @@
 export const formFiledSizes = {
-  DESKTOP: "368px",
-  MOBILE: "256px",
+  DESKTOP_FIELD: "368px",
+  MOBILE_FIELD: "256px",
 };

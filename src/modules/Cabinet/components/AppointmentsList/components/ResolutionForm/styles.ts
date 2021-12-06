@@ -2,12 +2,16 @@ import styled from "styled-components";
 
 import { colors } from "styles";
 
-export const ModalContainer = styled.div`
+type ModalContainerProps = {
+  isDisplay: boolean,
+}
+
+export const ModalContainer = styled.div<ModalContainerProps>`
   position: fixed;
   z-index: 998;
   top: 0;
   right: 0;
-  display: flex;
+  display: ${({ isDisplay }) => isDisplay ? "flex" : "none"};
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -16,7 +20,7 @@ export const ModalContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.25); ;
 `;
 
-export const ResolutionFormContainer = styled.div`
+export const ResolutionFormContainer = styled.form`
   position: relative;
   z-index: 999;
   display: flex;
@@ -47,7 +51,7 @@ export const PatientName = styled.span`
   font-weight: 600;
   font-size: 15px;
   line-height: 130%;
-  color: ${colors.TEXT_TITLE_COLOR};
+  color: ${colors.BLACK};
 `;
 
 export const ResolutionFormTittle = styled.span`
@@ -56,7 +60,7 @@ export const ResolutionFormTittle = styled.span`
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  color: ${colors.TEXT_TITLE_COLOR};
+  color: ${colors.BLACK};
 `;
 
 export const FieldWrapper = styled.div`
@@ -72,10 +76,10 @@ export const FieldName = styled.span`
   font-weight: 500;
   font-size: 13px;
   line-height: 130%;
-  color: ${colors.TEXT_COLOR};
+  color: ${colors.GREY_MEDIUM};
 `;
 
-export const ResolutionFormField = styled.input`
+export const ResolutionFormField = styled.textarea`
   width: 480px;
   height: 160px;
   background: white;
@@ -86,9 +90,7 @@ export const ResolutionFormField = styled.input`
   font-weight: normal;
   font-size: 15px;
   line-height: 140%;
-  display: flex;
-  align-items: center;
-  color: ${colors.TEXT_TITLE_COLOR};
+  color: ${colors.BLACK};
 `;
 
 export const ResolutionFormButtonsWrapper = styled.div`
@@ -96,7 +98,7 @@ export const ResolutionFormButtonsWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 20px 40px;
-  background-color: ${colors.FORM_BACKGROUND_COLOR};
+  background-color: ${colors.GREY_LIGHT};
   border-radius: 12px;
 `;
 
@@ -106,7 +108,7 @@ export const CreateButton = styled.button`
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
-  background-color: ${colors.ACTION_BUTTON_COLOR};
+  background-color: ${colors.BLUE};
   border-radius: 8px;
 `;
 
@@ -125,7 +127,7 @@ export const CancelButton = styled(CreateButton)`
 `;
 
 export const CancelButtonText = styled(CreateButtonText)`
-  color: ${colors.TEXT_COLOR};
+  color: ${colors.GREY_MEDIUM};
 `;
 
 

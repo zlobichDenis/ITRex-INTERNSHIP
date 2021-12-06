@@ -62,7 +62,7 @@ export function SignInForm () {
           {fetchStatus === FetchStatus.PENDING && fetchStatus ? (
             <Loader
               type="Puff"
-              color={colors.TEXT_LINK_COLOR}
+              color={colors.BLUE}
               height={50}
               width={50}
               timeout={3000}

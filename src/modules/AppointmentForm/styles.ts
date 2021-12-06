@@ -34,7 +34,7 @@ export const InputLabel = styled.label`
 export const InputText = styled.input`
   width: 624px;
   height: 56px;
-  background: ${colors.INPUT_COLOR};
+  background: ${colors.WHITE};
   border: 1px solid #dce0ec;
   border-radius: 8px;
 `;
@@ -50,7 +50,7 @@ export const selectStyles = {
     fontWeight: "400",
     fontSize: "15px",
     lineHeight: "130%",
-    color: colors.TEXT_TITLE_COLOR,
+    color: colors.BLACK,
   }),
   menuList: (provided: any) => ({
     ...provided,

@@ -3,7 +3,7 @@ export type AppointmentsPagination = {
   limit: number
 }
 
-export const appointmnetsPagination: AppointmentsPagination = {
+export const appointmnetsPagination = {
   offset: 0,
   limit: 100,
-}
+};

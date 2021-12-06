@@ -22,7 +22,7 @@ export function CabinetHeader () {
             {roleName}
           </UserSpecialty>
         </UserNameWrapper>
-        <img width="48" height="48" src={photo ? photo : ''} alt="Doctor's photo" />
+        <img width="48" height="48" src={photo ? photo : ''} alt="Doctor's" />
       </UserInfo>
     </Header>
   );

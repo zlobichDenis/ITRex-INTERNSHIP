@@ -5,5 +5,5 @@ import { OrdinaryText } from "elements";
 
 export const AlertMessageText = styled(OrdinaryText)`
     font-size: 15px;
-    color: ${colors.ALERT_MESSAGE_COLOR};
+    color: ${colors.RED};
 `;

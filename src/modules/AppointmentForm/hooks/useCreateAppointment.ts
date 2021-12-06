@@ -2,9 +2,9 @@ import { useCallback, useEffect } from "react";
 import { push } from "connected-react-router";
 
 import { useAppSelector, useAppDispatch } from "store";
+import { postNewAppointment, setDefaultFetchStatus } from "../redux";
 import { AppScreens, PatientScreens } from "const";
 import { FetchStatus } from "const";
-import { postNewAppointment } from "../redux/slice";
 
 type CreateNewAppointmentParams = {
   occupation: string,
@@ -29,6 +29,7 @@ export const useCreateAppointment = () => {
   useEffect(() => {
     if (fetchStatus === FetchStatus.SUCCESS) {
       dispatch(push(`${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`))
+      dispatch(setDefaultFetchStatus());
     }
   }, [fetchStatus]);
 

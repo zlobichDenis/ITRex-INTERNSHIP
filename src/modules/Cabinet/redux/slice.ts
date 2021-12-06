@@ -1,6 +1,5 @@
 import { createSlice, createAction } from "@reduxjs/toolkit";
 
-import { EditAppointmentWorkerParams } from ".";
 import { DoctorAppointment, PatientAppointment } from "types";
 import { FetchStatus } from 'const';
 
@@ -10,13 +9,18 @@ type AppointmentSliceState = {
   appointments: Array<DoctorAppointment | PatientAppointment> | [],
 }
 
+export type CreateResolutionPayload = {
+  resolution: string,
+  appointmentID: string,
+}
+
 const initialState: AppointmentSliceState = {
   fetchStatus: '',
   appointments: [],
 }
 
 export const deleteAppointment = createAction<string>('appointments/delete');
-// export const editAppointment = createAction<EditAppointmentWorkerParams>('appointments/edit');
+export const createResolution = createAction<CreateResolutionPayload>('appointment/resolution');
 
 export const appointmentsSlice = createSlice({
   name: "appointments",
@@ -31,11 +35,11 @@ export const appointmentsSlice = createSlice({
     fetchPatientAppointments: function (state, _) {
       return { ...state, fetchStatus: FetchStatus.PENDING };
     },
-    responceFetchAppointments: function (state, { payload }) {
-      return { ...state, fetchStatus: payload };
+    responceFetchAppointments: function (state, _) {
+      return { ...state, fetchStatus: FetchStatus.SUCCESS };
     },
-    rejectFetchAppointments: function (state, { payload }) {
-      return { ...state, fetchStatus: payload };
+    rejectFetchAppointments: function (state, _) {
+      return { ...state, fetchStatus: FetchStatus.FAILED };
     },
 
   },

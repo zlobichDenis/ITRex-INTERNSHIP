@@ -17,7 +17,7 @@ export function TimeRadioList () {
     doctorId: values.doctorName,
     date: values.date,
   }
-  console.log(values)
+
   const { availableHours } = useGetFormData(fetchAvailableTimes, requestData, values.date);
 
   return (

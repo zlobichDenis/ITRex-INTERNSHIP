@@ -14,5 +14,5 @@ export const RestoreButton = styled.button`
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  color: ${colors.TEXT_TITLE_COLOR};
+  color: ${colors.BLACK};
 `;

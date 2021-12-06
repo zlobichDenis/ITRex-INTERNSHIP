@@ -35,6 +35,6 @@ export const EmptyListContent = styled.div`
 
 export const EmptyListMessage = styled.p`
   text-align: center;
-  color: ${colors.TEXT_COLOR};
+  color: ${colors.GREY_MEDIUM};
 `;
 

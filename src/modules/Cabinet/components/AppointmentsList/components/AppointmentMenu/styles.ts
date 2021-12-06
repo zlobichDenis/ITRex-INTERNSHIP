@@ -28,10 +28,10 @@ export const AppointmentMenuListItem = styled.li`
   font-weight: normal;
   font-size: 15px;
   line-height: 140%;
-  color: ${colors.TEXT_TITLE_COLOR};
+  color: ${colors.BLACK};
   cursor: pointer;
 
   &:hover {
-    background-color: ${colors.FORM_BACKGROUND_COLOR};
+    background-color: ${colors.GREY_LIGHT};
   }
 `;

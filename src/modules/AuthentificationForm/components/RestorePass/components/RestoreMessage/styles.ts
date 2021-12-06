@@ -8,5 +8,5 @@ export const RestoreMessageText = styled(OrdinaryText)`
 `;
 
 export const RestoreMessageEmail = styled(OrdinaryText)`
-    color: ${colors.TEXT_LINK_COLOR};
+    color: ${colors.BLUE};
 `;

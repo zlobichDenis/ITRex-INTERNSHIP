@@ -15,7 +15,7 @@ export const FeedbackWrapper = styled.div`
     gap: 24px;
     margin-top: 20%;
     padding: 32px 32px 0 32px;
-    background-color: ${colors.FORM_BACKGROUND_COLOR};
+    background-color: ${colors.GREY_LIGHT};
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 
@@ -32,11 +32,11 @@ export const FeedbackForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: ${formFiledSizes.MOBILE};
+    width: ${formFiledSizes.MOBILE_FIELD};
     gap: 24px;
 
     @media (min-width: 768px) {
-        width: ${formFiledSizes.DESKTOP};
+        width: ${formFiledSizes.DESKTOP_FIELD};
         gap: 40px;
     }
 `;
@@ -46,11 +46,11 @@ export const FeedbackButtons = styled.div<FeedbackButtonProps>`
     flex-direction: column;
     justify-content: flex-start;
     align-self: center;
-    width: ${formFiledSizes.MOBILE};
+    width: ${formFiledSizes.MOBILE_FIELD};
     gap: ${({ itsSignIn }) => itsSignIn ? "72px" : "32px"};
 
     @media (min-width: 768px) {
-        width: ${formFiledSizes.DESKTOP};
+        width: ${formFiledSizes.DESKTOP_FIELD};
         ${({ itsSignIn }) => itsSignIn ? "gap: 256px" : null};
     }
 `;
@@ -64,7 +64,7 @@ export const FeedbackText = styled.div`
 
     @media (min-width: 768px) {
         flex-direction: row;
-        width: ${formFiledSizes.DESKTOP};
+        width: ${formFiledSizes.DESKTOP_FIELD};
     }
 `;
 
@@ -73,7 +73,7 @@ export const FeedbackTextQuestion = styled.p`
     font-weight: 500px;
     font-size: 15px;
     line-height: 140%;
-    color: ${colors.TEXT_COLOR};
+    color: ${colors.GREY_MEDIUM};
 `;
 
 export const FeedbackTextLink = styled.div`
@@ -81,5 +81,5 @@ export const FeedbackTextLink = styled.div`
     font-weight: 600px;
     font-size: 15px;
     line-height: 130%;
-    color: ${colors.TEXT_LINK_COLOR};
+    color: ${colors.BLUE};
 `;

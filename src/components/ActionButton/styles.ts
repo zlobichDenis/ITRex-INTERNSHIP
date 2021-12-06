@@ -34,7 +34,7 @@ export const Button = styled.button<ButtonProps>`
   font-size: 15px;
   line-height: 130%;
   background: ${({ isDisabled }) =>
-    isDisabled ? colors.ACTION_BUTTON_COLOR : colors.DISABLED_BUTTON};
+    isDisabled ? colors.BLUE : colors.GREY_SOLID};
   border: transparent;
   color: white;
   text-decoration: none;

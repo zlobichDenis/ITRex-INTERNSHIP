@@ -12,7 +12,7 @@ export const InputField = styled.div`
     padding: 8px 16px;
     border-radius: 7px;
     border: ${borders.INPUT_BORDER};
-    background: ${colors.INPUT_COLOR};
+    background: ${colors.WHITE};
 
     :hover {
         border: ${borders.INPUT_BORDER_HOVER};

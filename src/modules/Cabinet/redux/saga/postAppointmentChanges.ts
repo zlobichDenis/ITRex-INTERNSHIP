@@ -1,18 +1,21 @@
 import { put, takeLatest, call } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 
-import { postDeletedAppointment, errorNotify, responceNotify  } from "services";
-import { SuccesMessages, ErrorMessages, appointmnetsPagination } from "const";
-import { deleteAppointment, fetchDoctorAppointments } from "..";
+import { postDeletedAppointment, errorNotify, responceNotify, postNewResolution  } from "services";
+import { appointmnetsPagination } from "const";
+import { SuccesMessages, ErrorMessages } from "dictionary";
+import { deleteAppointment, fetchDoctorAppointments, CreateResolutionPayload, createResolution } from "..";
 
 export type EditAppointmentWorkerParams = {
   status: string,
   date: string,
 };
 
+export type CreateResolutionWorkerParams = CreateResolutionPayload;
+
 function* deleteAppointmentWorker({ payload }: PayloadAction<string>) {
-  const { responce: deleteResponce, error: deleteError } = yield call(postDeletedAppointment, payload);
-  console.log(deleteResponce, deleteError)
+  const { responce: deleteResponce } = yield call(postDeletedAppointment, payload);
+
   if (deleteResponce) {
     responceNotify(SuccesMessages.DELETE_APPOINTMENTS);
     yield put(fetchDoctorAppointments(appointmnetsPagination));
@@ -21,11 +24,19 @@ function* deleteAppointmentWorker({ payload }: PayloadAction<string>) {
   }
 };
 
-// function* editAppointmentWorker({ payload }: PayloadAction<EditAppointmentWorkerParams>) {
-//   const { responce, error } = yield call()
-// }
+
+function* createResolutionWorker({ payload }: PayloadAction<CreateResolutionWorkerParams>) {
+  const { responce: resolutionResponce } = yield call(postNewResolution, payload);
+
+  if (resolutionResponce) {
+    responceNotify(SuccesMessages.CREATE_RESOLUTION);
+    yield put(fetchDoctorAppointments(appointmnetsPagination));
+  } else {
+    errorNotify(ErrorMessages.CREATE_RESOLUTION);
+  }
+}
 
 export function* postAppointmentChangesWatcher() {
   yield takeLatest(deleteAppointment, deleteAppointmentWorker);
-  // yield takeLatest(editAppointment)
+  yield takeLatest(createResolution, createResolutionWorker);
 }

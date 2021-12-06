@@ -14,13 +14,13 @@ export const Tab = styled.button<TabProps>`
     height: 40px;
     background-color:${({ isActive }) => (
         isActive
-            ? colors.ACTION_BUTTON_COLOR
-            : colors.INACTIVE_CABINET_TAB_COLOR
+            ? colors.BLUE
+            : colors.WHITE
     )};
     color: ${({ isActive }) => (
         isActive
-            ? colors.INACTIVE_CABINET_TAB_COLOR
-            : colors.ACTION_BUTTON_COLOR
+            ? colors.WHITE
+            : colors.BLUE
     )};
     border-radius: 8px; 
     font-family: Poppins;

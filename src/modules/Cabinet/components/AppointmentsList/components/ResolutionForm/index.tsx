@@ -1,54 +1,93 @@
-import { Formik } from "formik"
+import React from "react";
+import { Field, Formik } from "formik";
 
 import { NameInputSvg, AppointmentSvg, CrossSvg } from "assets"
+import { AlertMessage } from "components";
+import { resolutionFormShema } from "core";
 import {
   ModalContainer,
-  ResolutionFormContainer, 
-  ResolutionFormTittle, 
-  ResolutionFormInfo, 
-  ResolutionFormHeader, 
-  FieldWrapper, 
-  PatientName, 
-  FieldName, 
+  ResolutionFormContainer,
+  ResolutionFormTittle,
+  ResolutionFormInfo,
+  ResolutionFormHeader,
+  FieldWrapper,
+  PatientName,
+  FieldName,
   ResolutionFormField,
   ResolutionFormButtonsWrapper,
   CreateButton,
   CreateButtonText,
   CancelButton,
-  CancelButtonText
+  CancelButtonText,
 } from "./styles"
 
-export function ResolutionForm() {
+type ResolutionFormProps = {
+  createNewResolution(resolution: string): void,
+  closeHandle(): void,
+  isDisplay: boolean,
+  firstName: string,
+  lastName: string,
+}
+
+type ResolutionFormValues = {
+  resolution: string,
+};
+
+export function ResolutionForm({ createNewResolution, isDisplay, closeHandle, lastName, firstName }: ResolutionFormProps) {
+  const initialValues: ResolutionFormValues = {
+    resolution: "",
+  }
+
   return (
-    <ModalContainer>
-      <ResolutionFormContainer >
+    <ModalContainer isDisplay={isDisplay}>
 
-        <ResolutionFormHeader>
-          <ResolutionFormTittle>Create Resolution</ResolutionFormTittle>
-          <ResolutionFormInfo>
-            <img src={NameInputSvg} width="24" height="24" alt="icon"/>
-            <PatientName>Mila Western</PatientName>
-          </ResolutionFormInfo>
-        </ResolutionFormHeader>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={resolutionFormShema}
+          onSubmit={(values) => createNewResolution(values.resolution)}
+        >
+          {({ errors, touched, handleSubmit, handleReset, handleChange }) => (
+            <ResolutionFormContainer onSubmit={handleSubmit} >
+              <ResolutionFormHeader>
+                <ResolutionFormTittle>Create Resolution</ResolutionFormTittle>
+                <ResolutionFormInfo>
+                  <img src={NameInputSvg} width="24" height="24" alt="icon" />
+                  <PatientName>{firstName} {lastName}</PatientName>
+                </ResolutionFormInfo>
+              </ResolutionFormHeader>
 
-        <FieldWrapper>
-          <FieldName>Resolution</FieldName>
-          <ResolutionFormField type="text" />
-        </FieldWrapper>
+                <FieldWrapper >
+                  <FieldName>Resolution</FieldName>
+                  <Field
+                    component={ResolutionFormField}
+                    onChange={handleChange}
+                    type="text"
+                    id="resolution"
+                    name="resolution" />
+                  {errors.resolution && touched.resolution ? (
+                    <AlertMessage message={errors.resolution} />
+                  ) : null}
+                </FieldWrapper>
 
-        <ResolutionFormButtonsWrapper>
-          <CancelButton>
-            <img src={CrossSvg} width="24" height="24" alt="icon"/>
-            <CancelButtonText>Cancel</CancelButtonText>
-          </CancelButton>
+                <ResolutionFormButtonsWrapper>
+                  <CancelButton 
+                    onClick={() => {
+                      closeHandle();
+                      handleReset();
+                    }}>
+                    <img src={CrossSvg} width="24" height="24" alt="icon" />
+                    <CancelButtonText>Cancel</CancelButtonText>
+                  </CancelButton>
 
-          <CreateButton>
-            <img src={AppointmentSvg} width="24" height="24" alt="icon"/>
-            <CreateButtonText>Create</CreateButtonText>
-          </CreateButton>
-        </ResolutionFormButtonsWrapper>
+                  <CreateButton type="submit">
+                    <img src={AppointmentSvg} width="24" height="24" alt="icon" />
+                    <CreateButtonText>Create</CreateButtonText>
+                  </CreateButton>
+                </ResolutionFormButtonsWrapper>
+            </ResolutionFormContainer>
+          )}
+        </Formik>
 
-      </ResolutionFormContainer>
     </ModalContainer>
   )
 };

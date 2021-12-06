@@ -16,7 +16,7 @@ type SpecializationSelectProps = {
 export function SpecializationSelect({
   id, options, handleReset, ...props
 }: SpecializationSelectProps & FieldProps) {
-  const [field, state, { setValue, setTouched }] = useField(props.field);
+  const [, , { setValue }] = useField(props.field);
   const { allSpecializations } = useGetFormData(fetchSpecializations);
 
   const getSpezialisationsOptions = () => {
