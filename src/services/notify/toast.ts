@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 
 export const responceNotify = (message: string) => {
   toast.success(message, {
-    theme: "colored",
+    theme: "colored", 
     position: "bottom-left",
     autoClose: 2000,
     closeOnClick: true,

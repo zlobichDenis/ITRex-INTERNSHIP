@@ -18,13 +18,13 @@ export const PrivateRoute = ({ component: Component, path, role, ...rest }: Priv
 
     if (roleName === role) {
       return <Component {...props} />;
-    } 
+    }
     else {
       return (
         <Redirect push to={{ pathname: `${AppScreens.AUTH}${AuthStages.SIGN_IN}`, state: location }} />
       );
     }
-  };  
+  };
   return <Route path={path} component={RenderedComponent} {...rest} />;
 };
 

@@ -5,7 +5,7 @@ export function PatientInfo () {
   return (
     <>
       <CabinetTabs />
-      <CabinetInfo>
+      <CabinetInfo role="patient-tabs">
         <CabinetControlPanel itsPatientUser={true}/>
         <UserAppointmentsList />
       </CabinetInfo>

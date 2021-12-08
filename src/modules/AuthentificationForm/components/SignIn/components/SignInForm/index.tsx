@@ -21,7 +21,7 @@ export function SignInForm () {
   const initialValues: SignInFormValues = {
     userName: '',
     password: '',
-  }
+  };
 
   return (
     <Formik
@@ -31,8 +31,8 @@ export function SignInForm () {
         loginRequest(values);
       }}
     >
-      {({ errors, touched, handleSubmit, isValid, isSubmitting }) => (
-        <FeedbackForm onSubmit={handleSubmit}>
+      {({ errors, touched, handleSubmit, isValid }) => (
+        <FeedbackForm data-testid="sign-in-form" onSubmit={handleSubmit}>
           <Tittle>Sign In</Tittle>
 
           <Field
