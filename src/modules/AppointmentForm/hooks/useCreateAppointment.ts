@@ -1,10 +1,10 @@
-import { useCallback, useEffect } from "react";
-import { push } from "connected-react-router";
+import { useCallback, useEffect } from 'react';
+import { push } from 'connected-react-router';
 
-import { useAppSelector, useAppDispatch } from "store";
-import { postNewAppointment, setDefaultFetchStatus } from "../redux";
-import { AppScreens, PatientScreens } from "const";
-import { FetchStatus } from "const";
+import { useAppSelector, useAppDispatch } from 'store';
+import { postNewAppointment, setDefaultFetchStatus } from '../redux';
+import { AppScreens, PatientScreens } from 'const';
+import { FetchStatus } from 'const';
 
 type CreateNewAppointmentParams = {
   occupation: string,

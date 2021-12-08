@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch } from "store";
-import { appointmentsPagination, UserRoles } from "const"
-import { fetchDoctorAppointments, fetchPatientAppointments } from "../redux";
+import { useAppSelector, useAppDispatch } from 'store';
+import { appointmentsPagination, UserRoles } from 'const'
+import { fetchDoctorAppointments, fetchPatientAppointments } from '../redux';
 
 
 export const useFetchAppointments = () => {

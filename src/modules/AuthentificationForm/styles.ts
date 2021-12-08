@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import {colors, formFiledSizes, typography} from "styles";
+import {colors, formFiledSizes, typography} from 'styles';
 
 type FeedbackButtonProps = {
   itsSignIn: boolean,
@@ -47,11 +47,11 @@ export const FeedbackButtons = styled.div<FeedbackButtonProps>`
   justify-content: flex-start;
   align-self: center;
   width: ${formFiledSizes.MOBILE_FIELD};
-  gap: ${({itsSignIn}) => itsSignIn ? "72px" : "32px"};
+  gap: ${({itsSignIn}) => itsSignIn ? '72px' : '32px'};
 
   @media (min-width: 768px) {
     width: ${formFiledSizes.DESKTOP_FIELD};
-    ${({itsSignIn}) => itsSignIn ? "gap: 256px" : null};
+    ${({itsSignIn}) => itsSignIn ? 'gap: 256px' : null};
   }
 `;
 

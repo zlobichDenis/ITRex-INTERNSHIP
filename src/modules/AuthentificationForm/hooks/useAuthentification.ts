@@ -1,8 +1,8 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
-import { useAppSelector, useAppDispatch } from "store";
-import { SignInFormValues } from "types";
-import { fetchLogin, fetchRegistration } from "../redux";
+import { useAppSelector, useAppDispatch } from 'store';
+import { SignInFormValues } from 'types';
+import { fetchLogin, fetchRegistration } from '../redux';
 
 export type LoginRequestParams = SignInFormValues;
 export type RegistrationParams = {

@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { typography } from "styles";
+import { typography } from 'styles';
 
 export const ControlPanel = styled.div`
     display: flex;

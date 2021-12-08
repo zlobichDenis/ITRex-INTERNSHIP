@@ -1,6 +1,6 @@
-import { createSlice, createAction } from "@reduxjs/toolkit";
+import { createSlice, createAction } from '@reduxjs/toolkit';
 
-import { DoctorAppointment, PatientAppointment } from "types";
+import { DoctorAppointment, PatientAppointment } from 'types';
 import { FetchStatus } from 'const';
 
 
@@ -23,7 +23,7 @@ export const deleteAppointment = createAction<string>('appointments/delete');
 export const createResolution = createAction<CreateResolutionPayload>('appointment/resolution');
 
 export const appointmentsSlice = createSlice({
-  name: "appointments",
+  name: 'appointments',
   initialState,
   reducers: {
     setUserAppointments: function (state, { payload }) {

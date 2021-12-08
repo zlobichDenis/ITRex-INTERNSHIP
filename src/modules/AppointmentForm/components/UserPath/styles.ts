@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from "styles";
+import { colors } from 'styles';
 
 type UserPathLinkProps = {
   isActive?: boolean;

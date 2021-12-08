@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "styles";
+import styled from 'styled-components';
+import { colors } from 'styles';
 
 type ButtonWrapperProps = {
   itsUserView: boolean,
@@ -9,12 +9,12 @@ type ButtonWrapperProps = {
 export const ButtonWrapper = styled.div<ButtonWrapperProps>`
   display: flex;
   justify-content: ${({ itsUserView }) =>
-    itsUserView ? "flex-end" : "flex-start"};
+    itsUserView ? 'flex-end' : 'flex-start'};
   align-self: flex-start;
   width: 100%;
 
   @media (min-width: 321px) and (max-width: 768px) {
-    display: ${({ itsUserPatient }) => (itsUserPatient ? "none" : "flex")};
+    display: ${({ itsUserPatient }) => (itsUserPatient ? 'none' : 'flex')};
   }
 `;
 

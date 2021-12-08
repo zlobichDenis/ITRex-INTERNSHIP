@@ -1,1 +1,1 @@
-export * from "./cabinet"
+export * from './cabinet'

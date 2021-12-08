@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors, typography } from "styles";
+import { colors, typography } from 'styles';
 
 type AppointmentMenuListProps = {
   isDisplay: boolean,
@@ -14,7 +14,7 @@ export const AppointmentMenuList = styled.ul<AppointmentMenuListProps>`
   position: absolute;
   top: 80px;
   right: 50px;
-  display: ${({ isDisplay }) => isDisplay ? "flex" : 'none'};
+  display: ${({ isDisplay }) => isDisplay ? 'flex' : 'none'};
   flex-direction: column;
   width: 272px;
   padding: 6px;

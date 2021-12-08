@@ -1,6 +1,6 @@
-import { api } from "services";
-import { CreateResolutionPayload } from "modules/Cabinet/redux";
-import { DoctorAppointment } from "types";
+import { api } from 'services';
+import { CreateResolutionPayload } from 'modules/Cabinet/redux';
+import { DoctorAppointment } from 'types';
 
 type getAllDoctorAppointmentsParams = {
   limit: number;
@@ -31,7 +31,7 @@ export const getAllDoctorAppointments = ({
   offset,
 }: getAllDoctorAppointmentsParams) =>
   api
-    .get<PatientResponceData>("/appointments/doctor/me", {
+    .get<PatientResponceData>('/appointments/doctor/me', {
       params: {
         offset: offset,
         limit: limit,
@@ -58,7 +58,7 @@ export const pathChangesInAppointment = ({
 export const postNewResolution = (resolution: PostNewResolutionParams) => {
   console.log(resolution)
   return api
-  .post<PostNewResolutionResponce>("/resolutions", resolution)
-  .then((responce) => ({ responce }))
-  .catch((error) => ({ error }));
+    .post<PostNewResolutionResponce>('/resolutions', resolution)
+    .then((responce) => ({ responce }))
+    .catch((error) => ({ error }));
 }

@@ -1,11 +1,11 @@
-import "@testing-library/jest-dom/extend-expect";
+import '@testing-library/jest-dom/extend-expect';
 
 
 /**************
 * MSW config code
 ***************/
 
-import { server } from "services";
+import { server } from 'services';
 
 
 beforeAll(() => server.listen());

@@ -1,3 +1,3 @@
-export * from "./AuthentificationForm";
-export * from "./Cabinet";
-export * from "./AppointmentForm";
+export * from './AuthentificationForm';
+export * from './Cabinet';
+export * from './AppointmentForm';

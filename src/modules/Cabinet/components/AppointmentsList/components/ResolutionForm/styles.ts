@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors, typography } from "styles";
+import { colors, typography } from 'styles';
 
 type ModalContainerProps = {
   isDisplay: boolean,
@@ -11,7 +11,7 @@ export const ModalContainer = styled.div<ModalContainerProps>`
   z-index: 998;
   top: 0;
   right: 0;
-  display: ${({ isDisplay }) => isDisplay ? "flex" : "none"};
+  display: ${({ isDisplay }) => isDisplay ? 'flex' : 'none'};
   flex-direction: column;
   align-items: center;
   justify-content: center;

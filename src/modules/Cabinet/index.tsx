@@ -6,14 +6,14 @@ import { CabinetContentWrapper } from "./styles";
 
 
 export const UserCabinet = () => {
-    const { role_name: roleName } = useAppSelector(state => state.user.userProfile);
+  const { role_name: roleName } = useAppSelector(state => state.user.userProfile);
 
-    return (
-        <CabinetContentWrapper>
-            {roleName === UserRoles.PATIENT
-                ? <PatientCabinetRouter />
-                : <DoctorInfo />}
-        </CabinetContentWrapper>
-    )
+  return (
+    <CabinetContentWrapper>
+      {roleName === UserRoles.PATIENT
+        ? <PatientCabinetRouter/>
+        : <DoctorInfo/>}
+    </CabinetContentWrapper>
+  )
 };
 

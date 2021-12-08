@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { ActiveStatusSvg, InactiveStatusSvg } from "assets";
-import { typography } from "styles";
+import { ActiveStatusSvg, InactiveStatusSvg } from 'assets';
+import { typography } from 'styles';
 
 type UserStatusIconProps = {
     isActive: boolean,

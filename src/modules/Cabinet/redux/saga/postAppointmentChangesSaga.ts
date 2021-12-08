@@ -1,10 +1,10 @@
-import { put, takeLatest, call } from "redux-saga/effects";
-import { PayloadAction } from "@reduxjs/toolkit";
+import { put, takeLatest, call } from 'redux-saga/effects';
+import { PayloadAction } from '@reduxjs/toolkit';
 
-import { postDeletedAppointment, errorNotify, responceNotify, postNewResolution  } from "services";
-import { appointmentsPagination } from "const";
-import { SuccesMessages, ErrorMessages } from "dictionary";
-import { deleteAppointment, fetchDoctorAppointments, CreateResolutionPayload, createResolution } from "..";
+import { postDeletedAppointment, errorNotify, responceNotify, postNewResolution  } from 'services';
+import { appointmentsPagination } from 'const';
+import { SuccesMessages, ErrorMessages } from 'dictionary';
+import { deleteAppointment, fetchDoctorAppointments, CreateResolutionPayload, createResolution } from '..';
 
 export type EditAppointmentWorkerParams = {
   status: string,
@@ -22,7 +22,7 @@ function* deleteAppointmentWorker({ payload }: PayloadAction<string>) {
   } else {
     errorNotify(ErrorMessages.DELETE_APPOINTMENTS);
   }
-};
+}
 
 
 function* createResolutionWorker({ payload }: PayloadAction<CreateResolutionWorkerParams>) {

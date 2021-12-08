@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from "styles";
+import { colors } from 'styles';
 
 export const CabinetSection = styled.section`
     position: relative;

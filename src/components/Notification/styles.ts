@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from "styles";
-import { FetchStatus } from "const";
+import { colors } from 'styles';
+import { FetchStatus } from 'const';
 
 type NotificationWrapperProps = {
   isShowing: boolean,
@@ -12,7 +12,7 @@ export const NotificationWrapper = styled.div<NotificationWrapperProps>`
   position: absolute;
   left: 32px;
   bottom: 32px;
-  display: ${({ isShowing }) => (isShowing ? "block" : "none")};
+  display: ${({ isShowing }) => (isShowing ? 'block' : 'none')};
   width: 457px;
   background-color: ${({ fetchStatus }) => fetchStatus === FetchStatus.SUCCESS ? colors.GREEN : colors.RED};
   border-radius: 12px;

@@ -1,7 +1,7 @@
 export const allSpecializations = [
   {
-    "id": "c43fca01-3ea9-48f5-b5d8-4d7a4705e30f",
-    "specialization_name": "surgeon"
+    'id': 'c43fca01-3ea9-48f5-b5d8-4d7a4705e30f',
+    'specialization_name': 'surgeon'
   },
   // {
   //   "id": "902240b7-514a-48c3-a67f-6acfb1d35030",

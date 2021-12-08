@@ -1,2 +1,2 @@
-export * from "./getAppointmentsSaga";
-export * from "./postAppointmentChanges";
+export * from './getAppointmentsSaga';
+export * from './postAppointmentChangesSaga';

@@ -1,5 +1,5 @@
-import { PatientAppointment } from "types";
-import { api } from "services";
+import { PatientAppointment } from 'types';
+import { api } from 'services';
 
 type getAllPatientAppointmentsParams = {
   limit: number,
@@ -13,7 +13,7 @@ type ResponceData = {
 
 export const getAllPatientAppointments = ({ limit, offset }: getAllPatientAppointmentsParams) => (
   api
-    .get<ResponceData>("/appointments/patient/me", {
+    .get<ResponceData>('/appointments/patient/me', {
       params: {
         offset: offset,
         limit: limit,

@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { colors } from "styles"
+import { colors } from 'styles'
 
 type TabProps = {
     isActive: boolean,
@@ -13,15 +13,15 @@ export const Tab = styled.button<TabProps>`
     width: 120px;
     height: 40px;
     background-color:${({ isActive }) => (
-        isActive
-            ? colors.BLUE
-            : colors.WHITE
-    )};
+    isActive
+      ? colors.BLUE
+      : colors.WHITE
+  )};
     color: ${({ isActive }) => (
-        isActive
-            ? colors.WHITE
-            : colors.BLUE
-    )};
+    isActive
+      ? colors.WHITE
+      : colors.BLUE
+  )};
     border-radius: 8px; 
     font-family: Poppins;
     font-style: normal;
