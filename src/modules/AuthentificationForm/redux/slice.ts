@@ -1,7 +1,7 @@
-import { createSlice, createAction } from "@reduxjs/toolkit";
+import { createSlice, createAction } from '@reduxjs/toolkit';
 
-import { FetchStatus } from "const";
-import { UserProfile } from "types";
+import { FetchStatus } from 'const';
+import { UserProfile } from 'types';
 
 type RegistrationPayload = {
   userName: string,
@@ -30,7 +30,7 @@ const initialState = {
 } as fetchUserProfileState
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     setCurrentUser(state, { payload }) {

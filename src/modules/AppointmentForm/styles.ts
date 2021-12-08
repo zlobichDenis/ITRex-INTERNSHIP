@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from "styles";
+import { colors } from 'styles';
 
 export const CreateAppointmentForm = styled.form`
   display: flex;
@@ -34,7 +34,7 @@ export const InputLabel = styled.label`
 export const InputText = styled.input`
   width: 624px;
   height: 56px;
-  background: ${colors.INPUT_COLOR};
+  background: ${colors.WHITE};
   border: 1px solid #dce0ec;
   border-radius: 8px;
 `;
@@ -42,60 +42,60 @@ export const InputText = styled.input`
 export const selectStyles = {
   option: (provided: any, state: any) => ({
     ...provided,
-    height: "40px",
-    background: state.isSelected ? "#F9FAFF" : "white",
-    borderRadius: "6px",
-    fontFamily: "Poppins",
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: "15px",
-    lineHeight: "130%",
-    color: colors.TEXT_TITLE_COLOR,
+    height: '40px',
+    background: state.isSelected ? '#F9FAFF' : 'white',
+    borderRadius: '6px',
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '15px',
+    lineHeight: '130%',
+    color: colors.BLACK,
   }),
   menuList: (provided: any) => ({
     ...provided,
-    height: "128px",
-    overflowY: "scroll",
+    height: '128px',
+    overflowY: 'scroll',
   }),
   control: (provided: any) => ({
     ...provided,
-    height: "100%",
+    height: '100%',
   }),
   input: (provided: any) => ({
     ...provided,
-    fontFamily: "Poppins",
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: "15px",
-    lineHeight: "130%",
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '15px',
+    lineHeight: '130%',
   }),
   container: (provided: any) => ({
     ...provided,
-    height: "56px",
-    background: "#FFFFFF",
-    border: "1px solid #DCE0EC",
-    boxSizing: "border-box",
-    boxShadow: "0px 4px 32px rgba(218, 228, 255, 0.16)",
-    borderRadius: "8px",
+    height: '56px',
+    background: '#FFFFFF',
+    border: '1px solid #DCE0EC',
+    boxSizing: 'border-box',
+    boxShadow: '0px 4px 32px rgba(218, 228, 255, 0.16)',
+    borderRadius: '8px',
   }),
   indicatorSeparator: (provided: any) => ({
     ...provided,
-    display: "none",
+    display: 'none',
   }),
   placeholder: (provided: any) => ({
     ...provided,
-    fontFamily: "Poppins",
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: "15px",
-    lineHeight: "130%",
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '15px',
+    lineHeight: '130%',
   }),
   singleValue: (provided: any) => ({
     ...provided,
-    fontFamily: "Poppins",
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: "15px",
-    lineHeight: "130%",
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '15px',
+    lineHeight: '130%',
   }),
 };

@@ -5,14 +5,14 @@ import moment from "moment";
 
 import "./calendar.css";
 
-type VisiCalendarProps = {
+type VisitCalendarProps = {
   availableDates: Array<object>, 
   handleReset(fieldName: string, value: string): FormikHandlers,
   field: FieldHookConfig<string>,
 }
 
-export function VisitCalendar ({ availableDates, handleReset, ...props }: VisiCalendarProps & FieldProps) {
-  const [field, state, { setValue }] = useField(props.field);
+export function VisitCalendar ({ availableDates, handleReset, ...props }: VisitCalendarProps & FieldProps) {
+  const [field, , { setValue }] = useField(props.field);
   const onChange = (value: any) => {
     handleReset('time', '');
     setValue(moment(value).toISOString());

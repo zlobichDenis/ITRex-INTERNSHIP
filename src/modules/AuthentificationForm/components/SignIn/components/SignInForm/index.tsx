@@ -23,9 +23,14 @@ export function SignInForm () {
     password: '',
   };
 
+  const initialErrors = {
+    userName: 'Disabled submit button',
+  };
+
   return (
     <Formik
       initialValues={initialValues}
+      initialErrors={initialErrors}
       validationSchema={signInSchema}
       onSubmit={(values) => {
         loginRequest(values);
@@ -62,7 +67,7 @@ export function SignInForm () {
           {fetchStatus === FetchStatus.PENDING && fetchStatus ? (
             <Loader
               type="Puff"
-              color={colors.TEXT_LINK_COLOR}
+              color={colors.BLUE}
               height={50}
               width={50}
               timeout={3000}

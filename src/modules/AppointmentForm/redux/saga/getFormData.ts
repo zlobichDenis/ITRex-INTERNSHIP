@@ -1,5 +1,5 @@
-import { put, takeLatest, call } from "redux-saga/effects";
-import { PayloadAction } from "@reduxjs/toolkit";
+import { put, takeLatest, call } from 'redux-saga/effects';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 import {
   fetchAvailableTimes,
@@ -8,13 +8,13 @@ import {
   setAvailableTimes,
   setDoctorPerSpecialization,
   setSpecializations,
-} from "..";
+} from '..';
 import {
   getAllSpecializations,
   getAvailableTime,
-  getDoctorsBySpezialisations,
-} from "services";
-import { GetAvailableTimeParams } from "services";
+  getDoctorsBySpecialisations,
+} from 'services';
+import { GetAvailableTimeParams } from 'services';
 
 function* getSpecializationWorker() {
   const { responce, error } = yield call(getAllSpecializations);
@@ -28,11 +28,11 @@ function* getSpecializationWorker() {
 }
 
 function* getDoctorsBySpezialisationsWorker({ payload }: PayloadAction<string>) {
-  const { responce, error } = yield call(getDoctorsBySpezialisations, payload);
+  const { responce, error } = yield call(getDoctorsBySpecialisations, payload);
 
   if (responce) {
-      const { data } = responce;
-      yield put(setDoctorPerSpecialization(data));
+    const { data } = responce;
+    yield put(setDoctorPerSpecialization(data));
   } else {
     yield put(setDoctorPerSpecialization(error));
   }

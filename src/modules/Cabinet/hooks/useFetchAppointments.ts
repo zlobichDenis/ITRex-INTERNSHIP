@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch } from "store";
-import { appointmnetsPagination, UserRoles } from "const"
-import { fetchDoctorAppointments, fetchPatientAppointments } from "../redux";
+import { useAppSelector, useAppDispatch } from 'store';
+import { appointmentsPagination, UserRoles } from 'const'
+import { fetchDoctorAppointments, fetchPatientAppointments } from '../redux';
 
 
 export const useFetchAppointments = () => {
@@ -12,9 +12,9 @@ export const useFetchAppointments = () => {
 
   useEffect(() => {
     if (roleName === UserRoles.PATIENT) {
-      dispatch(fetchPatientAppointments(appointmnetsPagination));
+      dispatch(fetchPatientAppointments(appointmentsPagination));
     } else {
-      dispatch(fetchDoctorAppointments(appointmnetsPagination));
+      dispatch(fetchDoctorAppointments(appointmentsPagination));
     }
   }, [dispatch, roleName])
   

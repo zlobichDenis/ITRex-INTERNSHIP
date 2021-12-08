@@ -1,2 +1,2 @@
-export * from "./DoctorControlPanel"
-export * from "./PatientControlPanel"
+export * from './DoctorControlPanel'
+export * from './PatientControlPanel'

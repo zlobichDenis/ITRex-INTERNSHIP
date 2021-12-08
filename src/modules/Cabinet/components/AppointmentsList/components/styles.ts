@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { DividerSvg } from "assets";
+import styled from 'styled-components';
+import { DividerSvg } from 'assets';
 
 export const AppointmentsItem = styled.li`
   position: relative;

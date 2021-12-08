@@ -1,5 +1,5 @@
-import { appRoutes } from "routes";
-import { UserProfile } from "types";
+import { appRoutes } from 'routes';
+import { UserProfile } from 'types';
 
 type getCorrectPageParams = UserProfile;
 

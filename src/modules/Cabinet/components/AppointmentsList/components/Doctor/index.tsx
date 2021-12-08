@@ -1,7 +1,7 @@
 import moment from "moment";
 
 import { PatientAppointment } from "types";
-import { DateSvg, PersonOptionsSvg, HeartSvg } from "assets";
+import { DateSvg, HeartSvg } from "assets";
 import {
   AppointmentsItem,
   AppointmentsItemHeader,
@@ -27,14 +27,11 @@ export const Doctor = ({ appointment }: DoctorProps) => {
     <AppointmentsItem role="doctor">
       <AppointmentsItemHeader>
         <UserInfoWrapper>
-          <img width="48" height="48" src={photo} alt="Patient Photo" />
+          <img width="48" height="48" src={photo} alt="Patient" />
           <UserInfo>
             <UserName className="patient-cabinet__doctor-name">{`${firstName} ${lastName}`}</UserName>
           </UserInfo>
         </UserInfoWrapper>
-        {/* <AppointmentOptions className="patient-cabinet__doctor-btn">
-          <img src={PersonOptionsSvg} width="21" height="21" alt="icon" />
-        </AppointmentOptions> */}
       </AppointmentsItemHeader>
       <UserItemDivider></UserItemDivider>
       <UserDetails>
@@ -42,7 +39,7 @@ export const Doctor = ({ appointment }: DoctorProps) => {
           <div>
             <img src={DateSvg} width="21" height="21" alt="icon" />
           </div>
-          <span>{`${moment(date).format("ddd MMM d, YYYY hh:mm A")}-${moment(date).add(1, 'hours').format('hh:mm A')} `}</span>
+          <span>{`${moment(date).format("ddd MMM D, YYYY hh:mm A")}-${moment(date).add(1, 'hours').format('hh:mm A')} `}</span>
         </VisitDate>
         <VisitMessage>
           <VisitMessageIcon>

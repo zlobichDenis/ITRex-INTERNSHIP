@@ -1,14 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from "redux-persist/lib/storage";
-import createSagaMiddleware from "redux-saga";
+import storage from 'redux-persist/lib/storage';
+import createSagaMiddleware from 'redux-saga';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory, History } from 'history';
 
-import { rootWatcher } from "./rootWatcher";
-import { userReducer } from "modules/AuthentificationForm/redux";
-import { appointmentsReducer } from "modules/Cabinet/redux";
-import { createAppointmentReducer } from "modules/AppointmentForm/redux";
+import { rootWatcher } from './rootWatcher';
+import { userReducer } from 'modules/AuthentificationForm/redux';
+import { appointmentsReducer } from 'modules/Cabinet/redux';
+import { createAppointmentReducer } from 'modules/AppointmentForm/redux';
 
 const sagaMiddleware = createSagaMiddleware();
 export const history = createBrowserHistory();

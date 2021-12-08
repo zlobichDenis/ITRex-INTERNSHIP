@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import { Authentification, DoctorView, PatientView } from "pages";
-import { UserRoles, AppScreens, AuthStages, PatientScreens } from "const";
+import { Authentification, DoctorView, PatientView } from 'pages';
+import { UserRoles, AppScreens, AuthStages, PatientScreens } from 'const';
 import {
   PatientInfo,
-} from "modules/Cabinet/components";
-import { AppointmentFormContainer } from "modules/AppointmentForm";
+} from 'modules/Cabinet/components';
+import { AppointmentFormContainer } from 'modules/AppointmentForm';
 import {
   SignUp,
   SignIn,
   RestorePass,
-} from "modules/AuthentificationForm/components";
+} from 'modules/AuthentificationForm/components';
 
 
 export type RouteType = {

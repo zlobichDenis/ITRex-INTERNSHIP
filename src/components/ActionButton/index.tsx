@@ -3,7 +3,6 @@ import React from "react";
 import { ButtonArrowSvg } from "assets";
 import { ButtonWrapper, Button } from "./styles";
 
-
 type ActionButtonProps = {
   textContent: string, 
   role?: string, 
@@ -14,6 +13,7 @@ type ActionButtonProps = {
   itsUserView?: boolean, 
   handleClick?: React.MouseEventHandler<HTMLButtonElement>,
 }
+
 
 export function ActionButton ({
   textContent,
@@ -39,4 +39,7 @@ export function ActionButton ({
     </ButtonWrapper>
   );
 }
+
+
+
 

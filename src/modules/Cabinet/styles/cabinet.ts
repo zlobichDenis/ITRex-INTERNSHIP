@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from "styles";
+import { colors } from 'styles';
 
 export const CabinetContentWrapper = styled.div`
   z-index: 2;
@@ -11,7 +11,7 @@ export const CabinetContentWrapper = styled.div`
   gap: 40px;
   padding: 40px 24px;
   border-radius: 30px;
-  background-color: ${colors.CABINET_CONTENT_BACKGROUND_COLOR};
+  background-color: ${colors.GREY_LIGHT};
   background-size: cover;
 
   @media (min-width: 1920px) {

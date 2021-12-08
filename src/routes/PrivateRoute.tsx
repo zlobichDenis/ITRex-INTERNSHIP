@@ -12,7 +12,6 @@ type PrivateRouteParams = {
 
 export const PrivateRoute = ({ component: Component, path, role, ...rest }: PrivateRouteParams) => {
   const RenderedComponent = ({ location, exact, ...props }: any) => {
-    // eslint-disable-next-line react/prop-types
     const { userProfile } = useAppSelector((state) => state.user);
     const roleName = userProfile ? userProfile.role_name : null;
 

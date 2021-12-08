@@ -1,4 +1,4 @@
-import { SortSelect, ActionButton } from "components";
+import { ActionButton } from "components";
 import { AppScreens, PatientScreens } from "const";
 import { Tittle } from "elements";
 import { InputsWrapper } from "../styles";
@@ -14,7 +14,6 @@ export function PatientViewControlPanel () {
     <>
       <Tittle>My Appointments</Tittle>
       <InputsWrapper>
-        <SortSelect />
         <ActionButton
           role={'redirect-button'}
           textContent="Create an appointment"

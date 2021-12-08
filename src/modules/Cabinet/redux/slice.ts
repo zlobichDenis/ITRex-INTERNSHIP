@@ -1,11 +1,17 @@
-import { createSlice, createAction, ActionCreatorWithPayload } from "@reduxjs/toolkit";
+import { createSlice, createAction } from '@reduxjs/toolkit';
 
-import { DoctorAppointment, PatientAppointment } from "types";
+import { DoctorAppointment, PatientAppointment } from 'types';
+import { FetchStatus } from 'const';
 
 
 type AppointmentSliceState = {
   fetchStatus: string,
   appointments: Array<DoctorAppointment | PatientAppointment> | [],
+}
+
+export type CreateResolutionPayload = {
+  resolution: string,
+  appointmentID: string,
 }
 
 const initialState: AppointmentSliceState = {
@@ -14,26 +20,26 @@ const initialState: AppointmentSliceState = {
 }
 
 export const deleteAppointment = createAction<string>('appointments/delete');
-export const editAppointment = createAction<ActionCreatorWithPayload<string>>('appointments/edit');
+export const createResolution = createAction<CreateResolutionPayload>('appointment/resolution');
 
 export const appointmentsSlice = createSlice({
-  name: "appointments",
+  name: 'appointments',
   initialState,
   reducers: {
     setUserAppointments: function (state, { payload }) {
       return { ...state, appointments: payload };
     },
-    fetchDoctorAppointments: function (state, { payload }) {
-      return { ...state, fetchStatus: payload };
+    fetchDoctorAppointments: function (state, _) {
+      return { ...state, fetchStatus: FetchStatus.PENDING };
     },
-    fetchPatientAppointments: function (state, { payload }) {
-      return { ...state, fetchStatus: payload };
+    fetchPatientAppointments: function (state, _) {
+      return { ...state, fetchStatus: FetchStatus.PENDING };
     },
-    responceFetchAppointments: function (state, { payload }) {
-      return { ...state, fetchStatus: payload };
+    responceFetchAppointments: function (state, _) {
+      return { ...state, fetchStatus: FetchStatus.SUCCESS };
     },
-    rejectFetchAppointments: function (state, { payload }) {
-      return { ...state, fetchStatus: payload };
+    rejectFetchAppointments: function (state, _) {
+      return { ...state, fetchStatus: FetchStatus.FAILED };
     },
 
   },

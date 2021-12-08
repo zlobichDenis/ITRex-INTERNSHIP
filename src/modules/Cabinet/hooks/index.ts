@@ -1,1 +1,1 @@
-export * from "./useFetchAppointments";
+export * from './useFetchAppointments';

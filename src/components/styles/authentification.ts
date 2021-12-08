@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors, borders } from "styles";
+import { colors, borders } from 'styles';
 
 export const InputField = styled.div`
     position: relative;
@@ -12,7 +12,7 @@ export const InputField = styled.div`
     padding: 8px 16px;
     border-radius: 7px;
     border: ${borders.INPUT_BORDER};
-    background: ${colors.INPUT_COLOR};
+    background: ${colors.WHITE};
 
     :hover {
         border: ${borders.INPUT_BORDER_HOVER};
@@ -32,9 +32,9 @@ export const InputIcon = styled.div<InputIconProps>`
     width: 24px;
     height: 24px;
     background-image: ${({ isShowingPass }) => (
-        isShowingPass 
-            ? "url('../img/eye.png')" 
-            : "url('../img/eye-blocked.png')")};
+    isShowingPass 
+      ? 'url(\'../img/eye.png\')' 
+      : 'url(\'../img/eye-blocked.png\')')};
     background-size: contain;
     background-repeat: no-repeat;
 `;

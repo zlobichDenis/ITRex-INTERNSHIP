@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
+import { typography } from 'styles';
 
 export const ControlPanel = styled.div`
     display: flex;
@@ -7,10 +9,7 @@ export const ControlPanel = styled.div`
     align-self: center;
     justify-content: space-between;
     width: 90%;
-    font-family: Poppins;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+    ${typography.H1};
 
     @media (min-width: 1920px) {
         width: 100%;

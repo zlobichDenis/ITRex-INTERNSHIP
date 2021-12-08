@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { ActionCreator } from "redux";
+import { useEffect } from 'react';
+import { ActionCreator } from 'redux';
 
-import { useAppSelector, useAppDispatch } from "store";
-import { RequestAvailableTimeData } from '../components/TimeRadioList';
+import { useAppSelector, useAppDispatch } from 'store';
+import { RequestAvailableTimeData } from '../components';
 
 type ActionPayloadType = RequestAvailableTimeData | string;
 
@@ -17,8 +17,7 @@ export const useGetFormData = (actionType: ActionCreator<any>, actionPayload?: A
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if(actionPayload) {
-      console.log(actionPayload)
+    if (actionPayload) {
       dispatch(actionType(actionPayload))
     } else {
       dispatch(actionType())

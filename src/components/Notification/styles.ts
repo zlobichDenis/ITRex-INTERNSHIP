@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from "styles";
-import { FetchStatus } from "const";
+import { colors } from 'styles';
+import { FetchStatus } from 'const';
 
 type NotificationWrapperProps = {
   isShowing: boolean,
@@ -12,9 +12,9 @@ export const NotificationWrapper = styled.div<NotificationWrapperProps>`
   position: absolute;
   left: 32px;
   bottom: 32px;
-  display: ${({ isShowing }) => (isShowing ? "block" : "none")};
+  display: ${({ isShowing }) => (isShowing ? 'block' : 'none')};
   width: 457px;
-  background-color: ${({ fetchStatus }) => fetchStatus === FetchStatus.SUCCESS ? colors.SUCCESS_NOTIFICATION : colors.UNSUCCESS_NOTIFICATION};
+  background-color: ${({ fetchStatus }) => fetchStatus === FetchStatus.SUCCESS ? colors.GREEN : colors.RED};
   border-radius: 12px;
 `;
 
@@ -38,7 +38,7 @@ export const NotificationTextTittle = styled.span`
   font-weight: 600;
   font-size: 17px;
   line-height: 24px;
-  color: ${colors.NOTIFICATION_TEXT_COLOR};
+  color: ${colors.WHITE};
 `;
 
 export const NotificationMessage = styled.span`
@@ -47,7 +47,7 @@ export const NotificationMessage = styled.span`
   font-weight: 500;
   font-size: 13px;
   line-height: 130%;
-  color: ${colors.NOTIFICATION_TEXT_COLOR};
+  color: ${colors.WHITE};
 `;
 
 export const CloseButton = styled.button`

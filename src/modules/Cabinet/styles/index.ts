@@ -1,2 +1,2 @@
-export * from "../../AuthentificationForm/styles";
-export * from "./cabinet";
+export * from '../../AuthentificationForm/styles';
+export * from './cabinet';

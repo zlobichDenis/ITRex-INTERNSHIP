@@ -1,1 +1,1 @@
-export * from "./getCorrectPage";
+export * from './getCorrectPage';

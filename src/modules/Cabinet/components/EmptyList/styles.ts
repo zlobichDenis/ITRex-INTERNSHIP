@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { colors } from "styles";
+import styled from 'styled-components';
+
+import { colors, typography } from 'styles';
 
 export const EmptyListContainer = styled.div`
   display: flex;
@@ -15,10 +16,7 @@ export const TittleWrapper = styled.div`
   align-self: center;
   justify-content: space-between;
   width: 90%;
-  font-family: "Poppins";
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
+  ${typography.H1};
 `;
 
 export const EmptyListContent = styled.div`
@@ -27,14 +25,11 @@ export const EmptyListContent = styled.div`
   align-items: center;
   justify-content: center;
   gap: 32px;
-  font-family: "Poppins";
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 140%;
+  ${typography.NORMAL_TEXT};
 `;
 
 export const EmptyListMessage = styled.p`
   text-align: center;
-  color: ${colors.TEXT_COLOR};
+  color: ${colors.GREY_MEDIUM};
 `;
 

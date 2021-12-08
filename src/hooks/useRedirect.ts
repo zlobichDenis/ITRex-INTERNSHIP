@@ -1,7 +1,7 @@
-import { useCallback } from "react";
-import { push } from "connected-react-router";
+import { useCallback } from 'react';
+import { push } from 'connected-react-router';
 
-import { useAppDispatch } from "store";
+import { useAppDispatch } from 'store';
 
 
 export const useRedirect = () => {

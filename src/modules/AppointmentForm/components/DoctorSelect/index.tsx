@@ -12,7 +12,7 @@ type DoctorSelectProps = {
 }
 
 export function DoctorSelect ({ id, handleReset, ...props }: DoctorSelectProps & FieldProps) {
-  const [field, state, { setValue }] = useField(props.field);
+  const [ , , { setValue }] = useField(props.field);
 
   const { values } = useFormikContext<FormikValues>();
   const { doctors } = useGetFormData(fetchDoctorPerSpecialization, values.occupation, values.occupation)

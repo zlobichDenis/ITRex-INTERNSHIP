@@ -1,1 +1,1 @@
-export * from "./TimeInputRadio";
+export * from './TimeInputRadio';

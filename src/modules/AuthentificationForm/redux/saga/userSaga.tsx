@@ -11,7 +11,7 @@ import {
   fetchRegistration,
 } from "..";
 import { SignUpFormValues, SignInFormValues } from "types";
-import { SuccesMessages, ErrorMessages } from "const/notifyMessages";
+import { SuccesMessages, ErrorMessages } from "dictionary/notifyMessages";
 import { responceNotify, errorNotify, login, getUserProfile, registration } from "services";
 import * as tokenRepository from "store/tokenRepository";
 import { getCorrectPage } from "../helpers";

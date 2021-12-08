@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from "styles";
+import { colors } from 'styles';
 
 type UserPathLinkProps = {
   isActive?: boolean;
@@ -22,5 +22,5 @@ export const UserPathLink = styled.a<UserPathLinkProps>`
   font-size: 17px;
   line-height: 24px;
   color: ${({ isActive }) =>
-    isActive ? colors.TEXT_COLOR : colors.TEXT_LINK_COLOR};
+    isActive ? colors.GREY_MEDIUM : colors.BLUE};
 `;

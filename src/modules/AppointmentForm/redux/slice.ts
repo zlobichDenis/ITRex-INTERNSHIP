@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-import { FetchStatus } from "const";
+import { FetchStatus } from 'const';
 import { Specialization, Doctor } from 'types';
 
 type initialStateValues = {
@@ -20,7 +20,7 @@ const initialState = {
 } as initialStateValues
 
 export const createAppointmentSlice = createSlice({
-  name: "create-appointment",
+  name: 'create-appointment',
   initialState,
   reducers: {
     postNewAppointment: function (state, { payload }) {
@@ -32,7 +32,9 @@ export const createAppointmentSlice = createSlice({
     rejectPostAppointment: function (state) {
       return { ...state, fetchStatus: FetchStatus.FAILED };
     },
-
+    setDefaultFetchStatus: function (state) {
+      return { ...state, fetchStatus: ''}
+    },
     setSpecializations: function(state, { payload }) {
       return { ...state, specializations: payload };
     },
@@ -52,5 +54,6 @@ export const {
   rejectPostAppointment,
   setAvailableTimes,
   setDoctorPerSpecialization,
-  setSpecializations
+  setSpecializations,
+  setDefaultFetchStatus,
 } = createAppointmentSlice.actions;

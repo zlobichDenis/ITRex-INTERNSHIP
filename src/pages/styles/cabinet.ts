@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from "styles";
+import { colors } from 'styles';
 
 export const CabinetSection = styled.section`
     position: relative;
@@ -8,7 +8,7 @@ export const CabinetSection = styled.section`
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    background-color: ${colors.CABINET_BACKGROUND_COLOR};
+    background-color: ${colors.GREY_SOLID};
 
     @media (min-width: 768px) and (max-width: 1919px) {
         z-index: 1;
