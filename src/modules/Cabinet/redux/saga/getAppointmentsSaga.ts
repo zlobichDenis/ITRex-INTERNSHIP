@@ -2,27 +2,27 @@ import { put, takeLatest, call } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 import { getAllDoctorAppointments, getAllPatientAppointments } from 'services';
-import { AppointmentsPagination } from 'const';
-import { FetchStatus } from 'const';
 import {
   fetchDoctorAppointments,
   fetchPatientAppointments,
   setUserAppointments,
   rejectFetchAppointments,
   responceFetchAppointments,
+  FetchAppointmentsPayload
 } from '../slice';
 
-type GetAllAppointmentsWorkerParams = AppointmentsPagination & { sortBy?: string };
+
+export type GetAllAppointmentsWorkerParams = FetchAppointmentsPayload;
 
 function* getPatientAppointmentsWorker({ payload }: PayloadAction<GetAllAppointmentsWorkerParams>) {
   const { responce: patientResponce } = yield call(getAllPatientAppointments, payload);
 
   if (patientResponce) {
     const { data: appointments } = patientResponce;
-    yield put(responceFetchAppointments(FetchStatus.SUCCESS));
+    yield put(responceFetchAppointments());
     yield put(setUserAppointments(appointments.appointments));
   } else {
-    yield put(rejectFetchAppointments(FetchStatus.FAILED));
+    yield put(rejectFetchAppointments());
   }
 }
 
@@ -31,11 +31,10 @@ function* getDoctorAppointmentsWorker({ payload }: PayloadAction<GetAllAppointme
 
   if (doctorResponce) {
     const { data: appointments } = doctorResponce;
-    yield put(responceFetchAppointments(FetchStatus.SUCCESS));
+    yield put(responceFetchAppointments());
     yield put(setUserAppointments(appointments.appointments));
   } else {
-    console.log(error);
-    yield put(rejectFetchAppointments(FetchStatus.FAILED));
+    yield put(rejectFetchAppointments());
   }
 }
 

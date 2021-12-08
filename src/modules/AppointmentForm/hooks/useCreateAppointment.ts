@@ -3,8 +3,13 @@ import { push } from 'connected-react-router';
 
 import { useAppSelector, useAppDispatch } from 'store';
 import { postNewAppointment, setDefaultFetchStatus } from '../redux';
-import { AppScreens, PatientScreens } from 'const';
-import { FetchStatus } from 'const';
+import { AppScreens, PatientScreens, FetchStatus } from 'const';
+
+
+type UseCreateAppointmentReturnValues = {
+  createAppointment(formValues: CreateNewAppointmentParams): void,
+  fetchStatus: string,
+}
 
 type CreateNewAppointmentParams = {
   occupation: string,
@@ -15,7 +20,7 @@ type CreateNewAppointmentParams = {
   reason: string,
 }
 
-export const useCreateAppointment = () => {
+export const useCreateAppointment = (): UseCreateAppointmentReturnValues => {
   const dispatch =  useAppDispatch();
   const { fetchStatus } = useAppSelector(state => state.createdAppointment);
 

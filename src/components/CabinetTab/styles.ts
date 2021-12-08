@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from 'styles'
+import { colors, typography } from 'styles'
 
 type TabProps = {
     isActive: boolean,
@@ -12,20 +12,17 @@ export const Tab = styled.button<TabProps>`
     justify-content: center;
     width: 120px;
     height: 40px;
-    background-color:${({ isActive }) => (
+    background-color:${({ isActive }): string => (
     isActive
       ? colors.BLUE
       : colors.WHITE
   )};
-    color: ${({ isActive }) => (
+    color: ${({ isActive }): string => (
     isActive
       ? colors.WHITE
       : colors.BLUE
   )};
     border-radius: 8px; 
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 400;
+    ${typography.INPUT_TEXT};
     font-size: 15px;
-    line-height: 130%;
 `;

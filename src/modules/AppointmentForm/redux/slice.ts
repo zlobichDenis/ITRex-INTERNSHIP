@@ -1,7 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAction, createSlice } from '@reduxjs/toolkit';
 
 import { FetchStatus } from 'const';
-import { Specialization, Doctor } from 'types';
+import { CreateAppointmentParams, GetAvailableTimeParams } from "services";
+import { Doctor, Specialization } from 'types';
 
 type initialStateValues = {
   fetchStatus: string,
@@ -10,6 +11,7 @@ type initialStateValues = {
   date: Array<string> | null,
   availableTimes: Array<string> | null,
 }
+type PostNewAppointmentPayload = CreateAppointmentParams;
 
 const initialState = {
   fetchStatus: '',
@@ -17,15 +19,17 @@ const initialState = {
   doctors: null,
   date: null,
   availableTimes: null,
-} as initialStateValues
+} as initialStateValues;
+
+export const postNewAppointment = createAction<PostNewAppointmentPayload>('appointments/create')
+export const fetchSpecializations = createAction('form/specializations');
+export const fetchDoctorPerSpecialization = createAction<string>('form/doctorPerSpecializations');
+export const fetchAvailableTimes = createAction<GetAvailableTimeParams>('form/availableTime');
 
 export const createAppointmentSlice = createSlice({
   name: 'create-appointment',
   initialState,
   reducers: {
-    postNewAppointment: function (state, { payload }) {
-      return { ...state, fetchStatus: FetchStatus.PENDING };
-    },
     responcePostAppointment: function (state) {
       return { ...state, fetchStatus: FetchStatus.SUCCESS };
     },
@@ -45,11 +49,16 @@ export const createAppointmentSlice = createSlice({
       return { ...state, availableTimes: payload };
     },
   },
+
+  extraReducers: (builder => {
+    builder.addCase(postNewAppointment, (state) => {
+      return { ...state, fetchStatus: FetchStatus.PENDING };
+    })
+  })
 });
 
 export const createAppointmentReducer = createAppointmentSlice.reducer;
 export const {
-  postNewAppointment,
   responcePostAppointment,
   rejectPostAppointment,
   setAvailableTimes,

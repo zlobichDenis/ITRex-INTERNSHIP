@@ -40,7 +40,7 @@ export const InputText = styled.input`
 `;
 
 export const selectStyles = {
-  option: (provided: any, state: any) => ({
+  option: (provided: any, state: any): any => ({
     ...provided,
     height: '40px',
     background: state.isSelected ? '#F9FAFF' : 'white',
@@ -52,16 +52,16 @@ export const selectStyles = {
     lineHeight: '130%',
     color: colors.BLACK,
   }),
-  menuList: (provided: any) => ({
+  menuList: (provided: any): any => ({
     ...provided,
     height: '128px',
     overflowY: 'scroll',
   }),
-  control: (provided: any) => ({
+  control: (provided: any): any => ({
     ...provided,
     height: '100%',
   }),
-  input: (provided: any) => ({
+  input: (provided: any): any => ({
     ...provided,
     fontFamily: 'Poppins',
     fontStyle: 'normal',
@@ -69,7 +69,7 @@ export const selectStyles = {
     fontSize: '15px',
     lineHeight: '130%',
   }),
-  container: (provided: any) => ({
+  container: (provided: any): any => ({
     ...provided,
     height: '56px',
     background: '#FFFFFF',
@@ -78,11 +78,11 @@ export const selectStyles = {
     boxShadow: '0px 4px 32px rgba(218, 228, 255, 0.16)',
     borderRadius: '8px',
   }),
-  indicatorSeparator: (provided: any) => ({
+  indicatorSeparator: (provided: any): any => ({
     ...provided,
     display: 'none',
   }),
-  placeholder: (provided: any) => ({
+  placeholder: (provided: any): any => ({
     ...provided,
     fontFamily: 'Poppins',
     fontStyle: 'normal',
@@ -90,7 +90,7 @@ export const selectStyles = {
     fontSize: '15px',
     lineHeight: '130%',
   }),
-  singleValue: (provided: any) => ({
+  singleValue: (provided: any): any => ({
     ...provided,
     fontFamily: 'Poppins',
     fontStyle: 'normal',

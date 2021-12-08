@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { colors } from 'styles';
+
+import { colors, typography } from 'styles';
 
 type ButtonWrapperProps = {
   itsUserView: boolean,
@@ -8,13 +9,13 @@ type ButtonWrapperProps = {
 
 export const ButtonWrapper = styled.div<ButtonWrapperProps>`
   display: flex;
-  justify-content: ${({ itsUserView }) =>
+  justify-content: ${({ itsUserView }): string =>
     itsUserView ? 'flex-end' : 'flex-start'};
   align-self: flex-start;
   width: 100%;
 
   @media (min-width: 321px) and (max-width: 768px) {
-    display: ${({ itsUserPatient }) => (itsUserPatient ? 'none' : 'flex')};
+    display: ${({ itsUserPatient }): string => (itsUserPatient ? 'none' : 'flex')};
   }
 `;
 
@@ -29,11 +30,8 @@ export const Button = styled.button<ButtonProps>`
   gap: 8px;
   padding: 16px 40px;
   border-radius: 8px;
-  font-family: "Poppins";
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 130%;
-  background: ${({ isDisabled }) =>
+  ${typography.BOLD_TEXT}
+  background: ${({ isDisabled }): string =>
     isDisabled ? colors.BLUE : colors.GREY_SOLID};
   border: transparent;
   color: white;

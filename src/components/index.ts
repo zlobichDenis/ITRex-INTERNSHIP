@@ -7,4 +7,3 @@ export * from './PasswordInput';
 export * from './SearchInput';
 export * from '../modules/Cabinet/components/SortSelect';
 export * from './CabinetTab';
-export * from './Notification';

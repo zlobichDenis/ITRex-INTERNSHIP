@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { typography, colors } from "styles";
+import { typography, colors } from 'styles';
 
 type SortListProps = {
   isDisplay: boolean,
@@ -25,7 +25,7 @@ export const SortToggle = styled.div`
 
 export const SortList = styled.ul<SortListProps>`
   z-index: 999;
-  display: ${({ isDisplay }) => isDisplay ? "flex" : "none"};
+  display: ${({ isDisplay }) => isDisplay ? 'flex' : 'none'};
   flex-direction: column;
   position: absolute;
   top: 30px;

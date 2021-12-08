@@ -14,6 +14,13 @@ export type CreateResolutionPayload = {
   appointmentID: string,
 }
 
+export type FetchAppointmentsPayload = {
+  offset: number,
+  limit: number,
+  sortBy?: string,
+  order?: string,
+}
+
 const initialState: AppointmentSliceState = {
   fetchStatus: '',
   appointments: [],
@@ -21,35 +28,38 @@ const initialState: AppointmentSliceState = {
 
 export const deleteAppointment = createAction<string>('appointments/delete');
 export const createResolution = createAction<CreateResolutionPayload>('appointment/resolution');
+export const responceFetchAppointments = createAction('appointments/responce');
+export const rejectFetchAppointments = createAction('appointments/reject');
+export const fetchPatientAppointments = createAction<FetchAppointmentsPayload>('appointments/patient');
+export const fetchDoctorAppointments = createAction<FetchAppointmentsPayload>('appointment/doctor');
 
 export const appointmentsSlice = createSlice({
   name: 'appointments',
   initialState,
   reducers: {
-    setUserAppointments: function (state, { payload }) {
+    setUserAppointments: function (state, { payload }){
       return { ...state, appointments: payload };
     },
-    fetchDoctorAppointments: function (state, _) {
-      return { ...state, fetchStatus: FetchStatus.PENDING };
-    },
-    fetchPatientAppointments: function (state, _) {
-      return { ...state, fetchStatus: FetchStatus.PENDING };
-    },
-    responceFetchAppointments: function (state, _) {
+    responceFetchAppointments: function(state) {
       return { ...state, fetchStatus: FetchStatus.SUCCESS };
-    },
-    rejectFetchAppointments: function (state, _) {
-      return { ...state, fetchStatus: FetchStatus.FAILED };
-    },
-
+    }
   },
+
+  extraReducers: (builder => {
+    builder.addCase(responceFetchAppointments, (state) => {
+      return { ...state, fetchStatus: FetchStatus.SUCCESS }
+    })
+    builder.addCase(rejectFetchAppointments, (state) => {
+      return { ...state, fetchStatus: FetchStatus.FAILED };
+    })
+    builder.addCase(fetchPatientAppointments, (state) => {
+      return { ...state, fetchStatus: FetchStatus.PENDING };
+    })
+    builder.addCase(fetchDoctorAppointments, (state) => {
+      return { ...state, fetchStatus: FetchStatus.PENDING };
+    })
+  })
 });
 
 export const appointmentsReducer = appointmentsSlice.reducer;
-export const {
-  setUserAppointments,
-  fetchDoctorAppointments,
-  fetchPatientAppointments,
-  responceFetchAppointments,
-  rejectFetchAppointments,
-} = appointmentsSlice.actions;
+export const { setUserAppointments } = appointmentsSlice.actions;

@@ -31,7 +31,7 @@ type InputIconProps = {
 export const InputIcon = styled.div<InputIconProps>`
     width: 24px;
     height: 24px;
-    background-image: ${({ isShowingPass }) => (
+    background-image: ${({ isShowingPass }): string => (
     isShowingPass 
       ? 'url(\'../img/eye.png\')' 
       : 'url(\'../img/eye-blocked.png\')')};

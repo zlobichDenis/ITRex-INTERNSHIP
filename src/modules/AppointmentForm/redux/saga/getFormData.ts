@@ -16,6 +16,7 @@ import {
 } from 'services';
 import { GetAvailableTimeParams } from 'services';
 
+
 function* getSpecializationWorker() {
   const { responce, error } = yield call(getAllSpecializations);
 

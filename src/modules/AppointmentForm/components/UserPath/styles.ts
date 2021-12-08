@@ -21,6 +21,6 @@ export const UserPathLink = styled.a<UserPathLinkProps>`
   font-weight: normal;
   font-size: 17px;
   line-height: 24px;
-  color: ${({ isActive }) =>
+  color: ${({ isActive }): string =>
     isActive ? colors.GREY_MEDIUM : colors.BLUE};
 `;

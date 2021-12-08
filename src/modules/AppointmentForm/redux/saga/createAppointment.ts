@@ -5,8 +5,9 @@ import { createAppointment, CreateAppointmentParams, responceNotify, errorNotify
 import { SuccesMessages, ErrorMessages } from 'dictionary';
 import { postNewAppointment, responcePostAppointment, rejectPostAppointment } from '..';
 
+type CreateAppointmentWorkerParams = CreateAppointmentParams;
 
-export function* createAppointmentWorker({ payload }: PayloadAction<CreateAppointmentParams>) {
+export function* createAppointmentWorker({ payload }: PayloadAction<CreateAppointmentWorkerParams>) {
   const { responce } = yield call(createAppointment, payload);
   
   if (responce) {
