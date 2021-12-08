@@ -2,7 +2,7 @@ import { put, takeLatest, call } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 import { postDeletedAppointment, errorNotify, responceNotify, postNewResolution  } from "services";
-import { appointmnetsPagination } from "const";
+import { appointmentsPagination } from "const";
 import { SuccesMessages, ErrorMessages } from "dictionary";
 import { deleteAppointment, fetchDoctorAppointments, CreateResolutionPayload, createResolution } from "..";
 
@@ -18,7 +18,7 @@ function* deleteAppointmentWorker({ payload }: PayloadAction<string>) {
 
   if (deleteResponce) {
     responceNotify(SuccesMessages.DELETE_APPOINTMENTS);
-    yield put(fetchDoctorAppointments(appointmnetsPagination));
+    yield put(fetchDoctorAppointments(appointmentsPagination));
   } else {
     errorNotify(ErrorMessages.DELETE_APPOINTMENTS);
   }
@@ -30,7 +30,7 @@ function* createResolutionWorker({ payload }: PayloadAction<CreateResolutionWork
 
   if (resolutionResponce) {
     responceNotify(SuccesMessages.CREATE_RESOLUTION);
-    yield put(fetchDoctorAppointments(appointmnetsPagination));
+    yield put(fetchDoctorAppointments(appointmentsPagination));
   } else {
     errorNotify(ErrorMessages.CREATE_RESOLUTION);
   }

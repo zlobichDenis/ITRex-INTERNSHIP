@@ -19,7 +19,7 @@ export const getAllSpecializations = () =>
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
-export const getDoctorsBySpezialisations = (specializationId: string) =>
+export const getDoctorsBySpecialisations = (specializationId: string) =>
   api
     .get<Array<Doctor>>(`doctors/specialization/${specializationId}`)
     .then((responce) => ({ responce }))

@@ -1,4 +1,3 @@
-// import { ConnectedRouter } from "connected-react-router";
 import {
   Switch,
   Route,
@@ -11,7 +10,7 @@ import { PrivateRoute } from "./PrivateRoute";
 
 const AppRouter = () => {
   return (
-        <Switch>
+      <Switch>
           {appRoutes.map(({ isPrivate, forRole, path, ...props }, index) =>
             forRole ? (
               <PrivateRoute role={forRole} key={`path-${index}`} path={path} {...props} />

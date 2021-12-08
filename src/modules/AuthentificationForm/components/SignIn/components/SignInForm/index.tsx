@@ -23,9 +23,14 @@ export function SignInForm () {
     password: '',
   };
 
+  const initialErrors = {
+    userName: 'Disabled submit button',
+  };
+
   return (
     <Formik
       initialValues={initialValues}
+      initialErrors={initialErrors}
       validationSchema={signInSchema}
       onSubmit={(values) => {
         loginRequest(values);

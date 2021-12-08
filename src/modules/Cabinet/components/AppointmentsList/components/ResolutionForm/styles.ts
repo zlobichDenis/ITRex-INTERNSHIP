@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "styles";
+import { colors, typography } from "styles";
 
 type ModalContainerProps = {
   isDisplay: boolean,
@@ -17,7 +17,7 @@ export const ModalContainer = styled.div<ModalContainerProps>`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.25); ;
+  background-color: ${colors.BLACK_ALPHA_025};
 `;
 
 export const ResolutionFormContainer = styled.form`
@@ -36,7 +36,7 @@ export const ResolutionFormHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 40px 40px 0px 40px;
+  padding: 40px 40px 0 40px;
 `;
 
 export const ResolutionFormInfo = styled.span`
@@ -46,20 +46,13 @@ export const ResolutionFormInfo = styled.span`
 `;
 
 export const PatientName = styled.span`
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 130%;
+  ${typography.BOLD_TEXT}
   color: ${colors.BLACK};
 `;
 
 export const ResolutionFormTittle = styled.span`
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
+  ${typography.H1}
   font-size: 20px;
-  line-height: 24px;
   color: ${colors.BLACK};
 `;
 
@@ -71,9 +64,7 @@ export const FieldWrapper = styled.div`
 `;
 
 export const FieldName = styled.span`
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
+  ${typography.PARAGRAPH};
   font-size: 13px;
   line-height: 130%;
   color: ${colors.GREY_MEDIUM};
@@ -85,11 +76,7 @@ export const ResolutionFormField = styled.textarea`
   background: white;
   border: 1px solid #dce0ec;
   border-radius: 8px;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 140%;
+  ${typography.NORMAL_TEXT}
   color: ${colors.BLACK};
 `;
 
@@ -113,11 +100,7 @@ export const CreateButton = styled.button`
 `;
 
 export const CreateButtonText = styled.span`
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 130%;
+  ${typography.BOLD_TEXT};
   color: white;
 `;
 

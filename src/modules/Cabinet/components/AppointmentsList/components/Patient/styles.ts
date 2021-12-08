@@ -1,16 +1,15 @@
 import styled from "styled-components";
 
 import { ActiveStatusSvg, InactiveStatusSvg } from "assets";
+import { typography } from "styles";
 
 type UserStatusIconProps = {
     isActive: boolean,
 }
 
 export const UserStatus = styled.div`
-    font-family: Poppins;
-    font-weight: 500;
+    ${typography.PARAGRAPH}
     font-size: 13px;
-    line-height: 130%;
 `;
 
 export const UserStatusIcon = styled.div<UserStatusIconProps>`

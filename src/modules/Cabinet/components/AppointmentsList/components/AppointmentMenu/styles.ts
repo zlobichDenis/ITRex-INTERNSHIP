@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "styles";
+import { colors, typography } from "styles";
 
 type AppointmentMenuListProps = {
   isDisplay: boolean,
@@ -23,12 +23,8 @@ export const AppointmentMenuList = styled.ul<AppointmentMenuListProps>`
 
 export const AppointmentMenuListItem = styled.li`
   padding: 10px 20px;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 140%;
   color: ${colors.BLACK};
+  ${typography.NORMAL_TEXT}
   cursor: pointer;
 
   &:hover {

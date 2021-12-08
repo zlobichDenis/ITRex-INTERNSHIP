@@ -12,7 +12,7 @@ import {
 import {
   getAllSpecializations,
   getAvailableTime,
-  getDoctorsBySpezialisations,
+  getDoctorsBySpecialisations,
 } from "services";
 import { GetAvailableTimeParams } from "services";
 
@@ -28,7 +28,7 @@ function* getSpecializationWorker() {
 }
 
 function* getDoctorsBySpezialisationsWorker({ payload }: PayloadAction<string>) {
-  const { responce, error } = yield call(getDoctorsBySpezialisations, payload);
+  const { responce, error } = yield call(getDoctorsBySpecialisations, payload);
 
   if (responce) {
       const { data } = responce;

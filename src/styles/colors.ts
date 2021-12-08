@@ -7,6 +7,7 @@ export const colors = {
   WHITE: "#FFFFFF",
   RED: "#F6657F",
   GREEN: '#34C197',
+  BLACK_ALPHA_025: `rgba(0, 0, 0, 0.25)`,
 };
 
 

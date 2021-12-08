@@ -1,62 +1,54 @@
 import styled from "styled-components";
 
-import { colors } from "styles";
+import {colors, typography} from "styles";
 
 export const Header = styled.div`
-    display: flex;
+  display: flex;
+  width: 95%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background-color: transparent;
+
+  @media (min-width: 1920px) {
     width: 95%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 24px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1919px) {
+    width: 90%;
     background-color: transparent;
-
-    @media (min-width: 1920px) {
-        width: 95%;
-    }
-
-    @media (min-width: 768px) and (max-width: 1919px) {
-        width: 90%;
-        background-color: transparent;
-    }
+  }
 `;
 
 export const UserInfo = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 `;
 
 export const UserName = styled.span`
-    display: block;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 130%;
-    color: ${colors.BLACK};
+  display: block;
+  ${typography.BOLD_TEXT};
+  color: ${colors.BLACK};
     
-    @media (min-width: 321px) and (max-width: 768px) {
-        display: none;
-    }
+  @media (min-width: 321px) and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const UserSpecialty = styled.span`
-    display: block;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 130%;
-    color: ${colors.GREY_MEDIUM};
+  display: block;
+  ${typography.BOLD_TEXT};
+  color: ${colors.GREY_MEDIUM};
 
-    @media (min-width: 321px) and (max-width: 768px) {
-        display: none;
-    }
+  @media (min-width: 321px) and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const UserNameWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `
