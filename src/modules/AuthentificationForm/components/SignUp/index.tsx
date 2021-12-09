@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { AppScreens, AuthStages } from "const";
-import { SignUpForm } from "./components";
+import { SignUpForm } from "..";
 import {
   FeedbackButtons,
   FeedbackText,

@@ -8,4 +8,4 @@ export function CabinetTabs () {
       <CabinetTab text="Resolutions" />
     </Tabs>
   );
-};
+}

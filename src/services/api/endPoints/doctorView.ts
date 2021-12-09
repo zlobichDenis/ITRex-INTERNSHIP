@@ -26,7 +26,7 @@ type PostNewResolutionResponce = {
   resolution: string;
 };
 
-export const getAllDoctorAppointments = ({
+export const fetchAllDoctorAppointments = ({
   limit,
   offset,
 }: getAllDoctorAppointmentsParams) =>

@@ -6,7 +6,7 @@ $alert-message-color: #F6657F;
 $form-wrapper-background-color: #F9FAFF;
 $input-color: #FFFFFF;
 $form-button-link-color: #7297FF;
-/// Doctor-cabinet-color
+/// DoctorAppointment-cabinet-color
 $doctor-cabinet-background-color: #E4EBFF;
 $doctor-cabinet-info-background-color: #F9FAFF;
 $doctor-cabinet-inactive-tab-color: #FFFFFF;
@@ -20,7 +20,7 @@ $doctor-cabinet-patient-inactive-color: red;
 $input-hover-border: 1px solid #7297FF;
 $input-border: 1px solid #DCE0EC;
 
-//Doctor-view 
+//DoctorAppointment-view
 %patients-list-border-radius {
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -34,7 +34,7 @@ $fields-of-forms-mobile-size: 256px;
 $fields-of-forms-tablet-desktop-size: 368px;
 
 // Fonts 
-/// Doctor-view
+/// DoctorAppointment-view
 %bold-text {
     font-family: Poppins;
     font-style: normal;

@@ -4,7 +4,7 @@ import { DoctorAppointment, PatientAppointment } from 'types';
 import { FetchStatus } from 'const';
 
 
-type AppointmentSliceState = {
+export type AppointmentSliceState = {
   fetchStatus: string,
   appointments: Array<DoctorAppointment | PatientAppointment> | [],
 }
@@ -47,7 +47,7 @@ export const appointmentsSlice = createSlice({
 
   extraReducers: (builder => {
     builder.addCase(responceFetchAppointments, (state) => {
-      return { ...state, fetchStatus: FetchStatus.SUCCESS }
+      return { ...state, fetchStatus: FetchStatus.SUCCESS };
     })
     builder.addCase(rejectFetchAppointments, (state) => {
       return { ...state, fetchStatus: FetchStatus.FAILED };

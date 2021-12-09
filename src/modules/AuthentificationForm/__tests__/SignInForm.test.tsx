@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "@testing-library/jest-dom";
 
 import { store } from "store";
-import { SignInForm } from "../components/SignIn/components/SignInForm";
+import { SignInForm } from "../components/SignInForm";
 import * as useAuthentification from "../hooks/useAuthentification";
 
 

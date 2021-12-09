@@ -1,5 +1,6 @@
-import { SearchInput, SortSelect } from "components";
+import { SearchInput} from "components";
 import { Tittle } from "elements";
+import { SortSelect } from "modules/Cabinet/components";
 import { InputsWrapper } from "../styles";
 
 export function DoctorViewControlPanel() {

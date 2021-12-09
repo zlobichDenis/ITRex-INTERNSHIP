@@ -4,7 +4,7 @@ import { AlertMessage } from "components";
 import { DatesList } from "./styles";
 import { TimeInputRadio } from "./components";
 import { fetchAvailableTimes } from "../../redux";
-import { useGetFormData } from "modules/AppointmentForm/hooks";
+import { useFetchFormData } from "modules/AppointmentForm/hooks";
 
 export type RequestAvailableTimeData = {
   doctorId: string,
@@ -18,7 +18,7 @@ export function TimeRadioList () {
     date: values.date,
   }
 
-  const { availableHours } = useGetFormData(fetchAvailableTimes, requestData, values.date);
+  const { availableHours } = useFetchFormData(fetchAvailableTimes, requestData, values.date);
 
   return (
     <DatesList role="hours-list">
@@ -34,7 +34,9 @@ export function TimeRadioList () {
             />
           ))
         ) : (
-          <AlertMessage message="Unfortunately, there is no available time on this date. Choose another convenient date for you." />
+          <AlertMessage
+            message="Unfortunately, there is no available time on this date. Choose another convenient date for you."
+          />
         )
       ) : null}
     </DatesList>

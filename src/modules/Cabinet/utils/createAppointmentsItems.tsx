@@ -1,18 +1,18 @@
 import { UserRoles } from "const";
-import { Patient, Doctor } from "../components/AppointmentsList/components";
+import { PatientAppointment, DoctorAppointment } from "../components";
 
 
 export const createAppointmentsList = (appointments: any[], roleName: string | null) => {
   if (roleName === UserRoles.PATIENT) {
     return appointments.map((appointment, index) => (
-      <Doctor
+      <DoctorAppointment
         key={`doctor-${appointment.id}-${index}`}
         appointment={appointment}
       />
     ))
   } else {
     return appointments.map((appointment, index) => (
-      <Patient
+      <PatientAppointment
         key={`patient-${appointment.id}-${index}`}
         appointment={appointment}
       />

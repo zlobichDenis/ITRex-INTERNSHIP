@@ -5,14 +5,14 @@ import "@testing-library/jest-dom";
 import { FetchStatus } from "const";
 import { AppointmentForm } from "../components/Form";
 import * as useCreateAppointment from "../hooks/useCreateAppointment";
-import * as useGetFormData from "../hooks/useGetFormaData";
+import * as useGetFormData from "../hooks/useFetchFormaData";
 import { allSpecializations, doctorsSurgeon, availableHours } from "services";
 
 
 describe('Appointment form', () => {
   it('form should render when allSpecialization not false but calendar and time radio list not display', () => {
     const onSubmit = jest.fn();
-    jest.spyOn(useGetFormData, 'useGetFormData').mockImplementation(() => {
+    jest.spyOn(useGetFormData, 'useFetchFormData').mockImplementation(() => {
       return {
         allSpecializations: [],
         doctors: null,
@@ -36,7 +36,7 @@ describe('Appointment form', () => {
 
   it('onSumbit button should be disabled when doctor, specialization, time, date not choised', () => {
     const onSubmit = jest.fn();
-    jest.spyOn(useGetFormData, 'useGetFormData').mockImplementation(() => {
+    jest.spyOn(useGetFormData, 'useFetchFormData').mockImplementation(() => {
       return {
         allSpecializations: [],
         doctors: null,
@@ -64,7 +64,7 @@ describe('Appointment form', () => {
 
   it('calendar should render when doctor and occupation are choised', async () => {
     const onSubmit = jest.fn();
-    jest.spyOn(useGetFormData, 'useGetFormData').mockImplementation(() => {
+    jest.spyOn(useGetFormData, 'useFetchFormData').mockImplementation(() => {
       return {
         allSpecializations: allSpecializations,
         doctors: doctorsSurgeon,
@@ -90,7 +90,7 @@ describe('Appointment form', () => {
 
   it('time radio list should render when occupation, doctor and date are choised', async () => {
     const onSubmit = jest.fn();
-    jest.spyOn(useGetFormData, 'useGetFormData').mockImplementation(() => {
+    jest.spyOn(useGetFormData, 'useFetchFormData').mockImplementation(() => {
       return {
         allSpecializations: allSpecializations,
         doctors: doctorsSurgeon,

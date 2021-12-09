@@ -1,2 +1,2 @@
-export * from './getAppointmentsSaga';
+export * from './fetchAppointmentsSaga';
 export * from './postAppointmentChangesSaga';

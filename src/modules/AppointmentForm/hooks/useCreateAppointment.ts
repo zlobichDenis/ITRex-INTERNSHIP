@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { push } from 'connected-react-router';
 
 import { useAppSelector, useAppDispatch } from 'store';
-import { postNewAppointment, setDefaultFetchStatus } from '../redux';
+import { postNewAppointment, setDefaultFetchStatus, getAppointmentFormDataFetchStatus } from '../redux';
 import { AppScreens, PatientScreens, FetchStatus } from 'const';
 
 
@@ -22,7 +22,7 @@ type CreateNewAppointmentParams = {
 
 export const useCreateAppointment = (): UseCreateAppointmentReturnValues => {
   const dispatch =  useAppDispatch();
-  const { fetchStatus } = useAppSelector(state => state.createdAppointment);
+  const fetchStatus = useAppSelector(getAppointmentFormDataFetchStatus);
 
   const createAppointment = useCallback((formValues: CreateNewAppointmentParams) => {
     const { occupation, date: visitDate, doctorName: doctorID, time: date, ...rest } = formValues;

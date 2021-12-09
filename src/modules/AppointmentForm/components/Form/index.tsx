@@ -1,7 +1,6 @@
 import { Formik, Field } from "formik";
 
 import { NumberOneSvg, NumberTwoSvg, NumberThreeSvg } from "assets";
-import { appointmentSchema } from "core";
 import { ActionButton, AlertMessage, AuthTextInput } from "components";
 import {
   CreateAppointmentForm,
@@ -9,7 +8,8 @@ import {
   InputWrapper,
   InputLabel,
 } from "../../styles";
-import { VisitCalendar, StageName, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
+import { VisitCalendar, FormStageName, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
+import { appointmentSchema } from "modules/AppointmentForm/schemes";
 import { useCreateAppointment } from "modules/AppointmentForm/hooks";
 
 
@@ -41,7 +41,7 @@ export function AppointmentForm() {
       {({ values, errors, touched, handleSubmit, setFieldValue, isValid }) => (
         <CreateAppointmentForm data-testid="appointment-form" onSubmit={handleSubmit}>
           <StageCreatingWrapper>
-            <StageName
+            <FormStageName
               icon={NumberOneSvg}
               text="Select a doctor and define the reason of your visit"/>
 
@@ -85,7 +85,7 @@ export function AppointmentForm() {
           </StageCreatingWrapper>
 
           <StageCreatingWrapper>
-            <StageName
+            <FormStageName
               icon={NumberTwoSvg}
               text="Choose a day for an appointment"/>
             {values.doctorName && values.occupation ? (
@@ -100,7 +100,7 @@ export function AppointmentForm() {
           </StageCreatingWrapper>
 
           <StageCreatingWrapper>
-            <StageName
+            <FormStageName
               icon={NumberThreeSvg}
               text="Select an available timeslot"/>
             {values.doctorName && values.occupation && values.date ? (

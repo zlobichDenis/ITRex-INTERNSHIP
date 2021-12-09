@@ -4,7 +4,7 @@ import { FetchStatus } from 'const';
 import { CreateAppointmentParams, GetAvailableTimeParams } from "services";
 import { Doctor, Specialization } from 'types';
 
-type initialStateValues = {
+export type AppointmentFormDataState = {
   fetchStatus: string,
   specializations: Array<Specialization> | null,
   doctors: Array<Doctor> | null,
@@ -19,15 +19,15 @@ const initialState = {
   doctors: null,
   date: null,
   availableTimes: null,
-} as initialStateValues;
+} as AppointmentFormDataState;
 
 export const postNewAppointment = createAction<PostNewAppointmentPayload>('appointments/create')
 export const fetchSpecializations = createAction('form/specializations');
 export const fetchDoctorPerSpecialization = createAction<string>('form/doctorPerSpecializations');
 export const fetchAvailableTimes = createAction<GetAvailableTimeParams>('form/availableTime');
 
-export const createAppointmentSlice = createSlice({
-  name: 'create-appointment',
+export const appointmentFormDataSlice = createSlice({
+  name: 'AppointmentFormData',
   initialState,
   reducers: {
     responcePostAppointment: function (state) {
@@ -57,7 +57,7 @@ export const createAppointmentSlice = createSlice({
   })
 });
 
-export const createAppointmentReducer = createAppointmentSlice.reducer;
+export const createAppointmentReducer = appointmentFormDataSlice.reducer;
 export const {
   responcePostAppointment,
   rejectPostAppointment,
@@ -65,4 +65,4 @@ export const {
   setDoctorPerSpecialization,
   setSpecializations,
   setDefaultFetchStatus,
-} = createAppointmentSlice.actions;
+} = appointmentFormDataSlice.actions;

@@ -22,7 +22,7 @@ const createRootReducer = (history: History<unknown>) => ({
   router: connectRouter(history),
   user: persistReducer(authentificationPersistConfig, userReducer),
   appointments: appointmentsReducer,
-  createdAppointment: createAppointmentReducer,
+  appointmentFormData: createAppointmentReducer,
 });
 
 

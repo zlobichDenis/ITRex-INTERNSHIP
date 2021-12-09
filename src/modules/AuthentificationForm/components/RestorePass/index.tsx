@@ -1,4 +1,4 @@
-import { RestorePassForm, RestorePassConfirm } from "./components";
+import { RestorePassForm, RestorePassConfirm } from "..";
 import { AppScreens, AuthStages } from "const";
 
 

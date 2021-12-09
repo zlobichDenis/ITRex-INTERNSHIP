@@ -1,7 +1,7 @@
 import Loader from "react-loader-spinner";
 
 import { FetchStatus } from "const";
-import { EmptyList } from "..";
+import { EmptyList } from "components";
 import { AppointmentsListWrapper, AppointmentsList } from "./styles";
 import { useFetchAppointments } from "../../hooks";
 import { createAppointmentsList } from "../../utils";

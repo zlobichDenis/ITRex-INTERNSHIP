@@ -8,14 +8,14 @@ export function PatientViewControlPanel () {
   const { routeToPath } = useRedirect();
   const redirectToAppointmentForm = () => {
     routeToPath(`${AppScreens.PATIENT_VIEW}${PatientScreens.CREATE_APPOINTMENT}`)
-  }
+  };
 
   return (
     <>
       <Tittle>My Appointments</Tittle>
       <InputsWrapper>
         <ActionButton
-          role={'redirect-button'}
+          role='redirect-button'
           textContent="Create an appointment"
           itsUserPatient={true}
           handleClick={redirectToAppointmentForm}

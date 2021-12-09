@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { AuthStages, AppScreens } from "const";
-import { SignInForm } from "./components";
+import { SignInForm } from "..";
 import {
   FeedbackButtons,
   FeedbackText,

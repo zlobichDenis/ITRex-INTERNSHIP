@@ -9,10 +9,10 @@ import { DoctorCabinetSortTypes } from "../../const";
 
 
 export function SortSelect () {
-  const [isDisplay, setDisplay] = useState<boolean>(false);
+  const [isDisplaySortList, setDisplaySortList] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-  const toggleVisibleSortList = () => setDisplay(!isDisplay);
-  const closeSortList = () => setDisplay(false);
+  const toggleVisibleSortList = () => setDisplaySortList(!isDisplaySortList);
+  const closeSortList = () => setDisplaySortList(false);
 
   const getAppointmentsByLastName = useCallback(() => {
     closeSortList();
@@ -29,7 +29,7 @@ export function SortSelect () {
         <img width="21" height="21" src={SortSvg} alt="icon" />
       </label>
       <SortToggle id="doctor-cabinet__sort-type-toggle" />
-      <SortList isDisplay={isDisplay}>
+      <SortList isDisplay={isDisplaySortList}>
         <SortListItem onClick={getAppointmentsByLastName}>by name</SortListItem>
         <SortListItem onClick={getAppointmentsByDate}>by date</SortListItem>
       </SortList>

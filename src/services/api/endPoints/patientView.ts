@@ -11,7 +11,7 @@ type ResponceData = {
   total: number,
 }
 
-export const getAllPatientAppointments = ({ limit, offset }: getAllPatientAppointmentsParams) => (
+export const fetchAllPatientAppointments = ({ limit, offset }: getAllPatientAppointmentsParams) => (
   api
     .get<ResponceData>('/appointments/patient/me', {
       params: {

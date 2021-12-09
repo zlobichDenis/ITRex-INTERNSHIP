@@ -6,7 +6,7 @@ export function PatientInfo () {
     <>
       <CabinetTabs />
       <CabinetInfo role="patient-tabs">
-        <CabinetControlPanel itsPatientUser={true}/>
+        <CabinetControlPanel />
         <UserAppointmentsList />
       </CabinetInfo>
     </>

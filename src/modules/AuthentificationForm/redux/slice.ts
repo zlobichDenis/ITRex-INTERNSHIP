@@ -15,7 +15,7 @@ type LoginPayload = {
   password: string,
 }
 
-type fetchUserProfileState = {
+export type UserState = {
   fetchStatus: string,
   userProfile: UserProfile,
 }
@@ -26,7 +26,7 @@ export const fetchLogin = createAction<LoginPayload>('auth/login');
 const initialState = {
   fetchStatus: '',
   userProfile: {},
-} as fetchUserProfileState;
+} as UserState;
 
 const userSlice = createSlice({
   name: 'user',
