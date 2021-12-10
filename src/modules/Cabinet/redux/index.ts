@@ -1,3 +1,4 @@
 export * from './saga';
-export * from './slice';
+export * from './appointmentsSlice';
+export * from './resolutionsSlice';
 export * from './selectors';

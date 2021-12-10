@@ -9,7 +9,7 @@ import {
   rejectFetchAppointments,
   responceFetchAppointments,
   FetchAppointmentsPayload
-} from '../slice';
+} from '../appointmentsSlice';
 
 
 export type GetAllAppointmentsWorkerParams = FetchAppointmentsPayload;
@@ -38,7 +38,7 @@ function* fetchDoctorAppointmentsWorker({ payload }: PayloadAction<GetAllAppoint
   }
 }
 
-export function* getAppointmentsWatcher() {
+export function* fetchAppointmentsWatcher() {
   yield takeLatest(fetchDoctorAppointments, fetchDoctorAppointmentsWorker);
   yield takeLatest(fetchPatientAppointments, fetchPatientAppointmentsWorker);
 }

@@ -40,9 +40,6 @@ export const appointmentsSlice = createSlice({
     setUserAppointments: function (state, { payload }){
       return { ...state, appointments: payload };
     },
-    responceFetchAppointments: function(state) {
-      return { ...state, fetchStatus: FetchStatus.SUCCESS };
-    }
   },
 
   extraReducers: (builder => {
