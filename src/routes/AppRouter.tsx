@@ -4,7 +4,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { AppScreens, AuthStages } from "const";
+import { AppPaths, AuthPath } from "const";
 import { appRoutes } from "routes";
 import { PrivateRoute } from "./PrivateRoute";
 
@@ -21,7 +21,7 @@ const AppRouter = () => {
           <Redirect
             exact
             from="/"
-            to={`${AppScreens.AUTH}${AuthStages.SIGN_UP}`}
+            to={`${AppPaths.AUTH}${AuthPath.SIGN_UP}`}
           />
         </Switch>
   );

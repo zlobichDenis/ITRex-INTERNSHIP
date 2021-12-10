@@ -3,7 +3,7 @@ import selectEvent from 'react-select-event';
 import "@testing-library/jest-dom";
 
 import { FetchStatus } from "const";
-import { AppointmentForm } from "../components/Form";
+import { AppointmentForm } from "../features/Form";
 import * as useCreateAppointment from "../hooks/useCreateAppointment";
 import * as useGetFormData from "../hooks/useFetchFormaData";
 import { allSpecializations, doctorsSurgeon, availableHours } from "services";

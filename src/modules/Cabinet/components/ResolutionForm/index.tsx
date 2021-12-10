@@ -33,7 +33,13 @@ type ResolutionFormValues = {
   resolution: string,
 };
 
-export function ResolutionForm({ createNewResolution, isDisplay, closeHandle, lastName, firstName }: ResolutionFormProps) {
+export function ResolutionForm(
+  { createNewResolution,
+    isDisplay,
+    closeHandle,
+    lastName,
+    firstName
+  }: ResolutionFormProps) {
   const initialValues: ResolutionFormValues = {
     resolution: "",
   }
@@ -46,7 +52,11 @@ export function ResolutionForm({ createNewResolution, isDisplay, closeHandle, la
           validationSchema={resolutionFormShema}
           onSubmit={(values) => createNewResolution(values.resolution)}
         >
-          {({ errors, touched, handleSubmit, handleReset, handleChange }) => (
+          {({ errors,
+              touched,
+              handleSubmit,
+              handleReset,
+              handleChange }) => (
             <ResolutionFormContainer onSubmit={handleSubmit} >
               <ResolutionFormHeader>
                 <ResolutionFormTittle>Create Resolution</ResolutionFormTittle>

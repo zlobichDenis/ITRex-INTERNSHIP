@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, Route } from "react-router-dom";
 
 import { useAppSelector } from "store";
-import { AppScreens, AuthStages } from "const";
+import { AppPaths, AuthPath } from "const";
 import { getUserProfile } from "modules/AuthentificationForm/redux";
 
 type PrivateRouteParams = {
@@ -21,7 +21,7 @@ export const PrivateRoute = ({ component: Component, path, role, ...rest }: Priv
     }
     else {
       return (
-        <Redirect push to={{ pathname: `${AppScreens.AUTH}${AuthStages.SIGN_IN}`, state: location }} />
+        <Redirect push to={{ pathname: `${AppPaths.AUTH}${AuthPath.SIGN_IN}`, state: location }} />
       );
     }
   };

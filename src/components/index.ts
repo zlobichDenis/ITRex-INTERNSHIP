@@ -8,3 +8,4 @@ export * from './SearchInput';
 export * from './CabinetTab';
 export * from './UserPath';
 export * from "./EmptyList";
+export * from './FormStageName';

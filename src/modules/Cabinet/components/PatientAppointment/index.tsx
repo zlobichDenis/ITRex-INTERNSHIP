@@ -16,7 +16,7 @@ import {
   UserStatus,
   UserStatusIcon
 } from "./styles";
-import { AppointmentMenu } from "../AppointmentMenu";
+import { AppointmentMenu } from "modules/Cabinet/features";
 
 type PatientProps = {
   appointment: DoctorAppointment,

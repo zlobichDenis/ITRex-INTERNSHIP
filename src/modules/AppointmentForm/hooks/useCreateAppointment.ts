@@ -3,7 +3,7 @@ import { push } from 'connected-react-router';
 
 import { useAppSelector, useAppDispatch } from 'store';
 import { postNewAppointment, setDefaultFetchStatus, getAppointmentFormDataFetchStatus } from '../redux';
-import { AppScreens, PatientScreens, FetchStatus } from 'const';
+import { AppPaths, PatientPaths, FetchStatus } from 'const';
 
 
 type UseCreateAppointmentReturnValues = {
@@ -33,7 +33,7 @@ export const useCreateAppointment = (): UseCreateAppointmentReturnValues => {
 
   useEffect(() => {
     if (fetchStatus === FetchStatus.SUCCESS) {
-      dispatch(push(`${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`))
+      dispatch(push(`${AppPaths.PATIENT_VIEW}${PatientPaths.CABINET}`))
       dispatch(setDefaultFetchStatus());
     }
   }, [fetchStatus]);

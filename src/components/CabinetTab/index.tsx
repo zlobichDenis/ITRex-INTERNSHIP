@@ -1,13 +1,16 @@
+import { MouseEventHandler } from "react";
+
 import { Tab } from "./styles";
 
 type CabinetTabProps = {
   text: string,
+  handleClick?: MouseEventHandler,
 }
 
-export function CabinetTab ({ text }: CabinetTabProps) {
+export function CabinetTab ({ text, handleClick }: CabinetTabProps) {
   return (
     <li>
-      <Tab isActive={false}>
+      <Tab onClick={handleClick} isActive={false}>
         <span>{text}</span>
       </Tab>
     </li>

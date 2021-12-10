@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-import { UserAppointmentsList } from "../components/AppointmentsList";
+import { UserAppointmentsList } from "../features/AppointmentsList";
 import { doctorAppointments, patientAppointments } from "services";
 import { FetchStatus, UserRoles } from "const";
 import * as useFetchAppointments from "../hooks/useFetchAppointments";
