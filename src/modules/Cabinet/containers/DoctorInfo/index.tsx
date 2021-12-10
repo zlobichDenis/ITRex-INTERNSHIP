@@ -1,4 +1,5 @@
-import { DoctorControlPanel, UserAppointmentsList, DoctorTabs } from "../../features";
+import { DoctorCabinetRouter } from "routes";
+import { DoctorTabs } from "../../features";
 import { CabinetInfo } from "../../styles";
 
 export function DoctorInfo () {
@@ -6,8 +7,7 @@ export function DoctorInfo () {
     <>
       <DoctorTabs />
       <CabinetInfo>
-        <DoctorControlPanel />
-        <UserAppointmentsList />
+        <DoctorCabinetRouter />
       </CabinetInfo>
     </>
   );

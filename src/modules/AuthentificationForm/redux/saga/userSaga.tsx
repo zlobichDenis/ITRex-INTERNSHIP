@@ -14,7 +14,7 @@ import { SignUpFormValues, SignInFormValues } from "types";
 import { SuccesMessages, ErrorMessages } from "dictionary/notifyMessages";
 import { responceNotify, errorNotify, login, getUserProfile, registration } from "services";
 import * as tokenRepository from "store/tokenRepository";
-import { getCorrectPage } from "../helpers";
+import { getCorrectPage } from "../../helpers";
 
 type RegistartionSagaParams = SignUpFormValues;
 type LoginSagaParams = SignInFormValues;

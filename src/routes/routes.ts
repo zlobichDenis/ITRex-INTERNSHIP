@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Authentification, DoctorView, PatientView } from 'pages';
 import { UserRoles, AppPaths, AuthPath, PatientPaths, DoctorPaths } from 'const';
-import { DoctorInfo, PatientInfo } from "modules/Cabinet/containers";
+import { UserAppointmentsList } from "modules/Cabinet/features";
 import { ResolutionsList } from "modules/Cabinet/features";
 import { AppointmentFormContainer } from 'modules/AppointmentForm';
 import {
@@ -71,7 +71,7 @@ export const authRoutes: Array<RouteType> = [
 export const patientCabinetRoutes: Array<RouteType> = [
   {
     path: `${AppPaths.PATIENT_VIEW}${PatientPaths.CABINET}`,
-    component: PatientInfo,
+    component: UserAppointmentsList,
     isPrivate: true,
     exact: false,
     forRole: UserRoles.PATIENT
@@ -95,7 +95,7 @@ export const patientCabinetRoutes: Array<RouteType> = [
 export const doctorCabinetRoutes: Array<RouteType> = [
   {
     path: `${AppPaths.DOCTOR_VIEW}${DoctorPaths.CABINET}`,
-    component: DoctorInfo,
+    component: UserAppointmentsList,
     isPrivate: true,
     exact: false,
     forRole: UserRoles.DOCTOR,

@@ -1,29 +1,36 @@
 import Loader from "react-loader-spinner";
 
-import { FetchStatus } from "const";
+import { FetchStatus, UserRoles } from "const";
 import { EmptyList } from "components";
 import { AppointmentsListWrapper, AppointmentsList } from "./styles";
+import { DoctorControlPanel, PatientControlPanel } from "..";
 import { useFetchAppointments } from "../../hooks";
-import { createAppointmentsList } from "../../utils";
+import { createAppointmentsList } from "../../helpers";
 
-export function UserAppointmentsList () {
+
+export function UserAppointmentsList() {
   const { fetchStatus, appointments, roleName } = useFetchAppointments();
 
   return (
-    <AppointmentsListWrapper data-testid="appointments-list">
-      <AppointmentsList>
-      {fetchStatus !== FetchStatus.PENDING
-        ? appointments.length > 0 
-            ? createAppointmentsList(appointments, roleName)
-            : <EmptyList />
-        : <Loader 
-            type="Puff"
-            color="#00BFFF"
-            height={100}
-            width={100}
-            timeout={3000}/>}
-      </AppointmentsList>
-    </AppointmentsListWrapper>
+    <>
+      { roleName === UserRoles.PATIENT
+        ? <PatientControlPanel />
+        : <DoctorControlPanel/> }
+      <AppointmentsListWrapper data-testid="appointments-list">
+        <AppointmentsList>
+          { fetchStatus !== FetchStatus.PENDING
+            ? appointments.length > 0
+              ? createAppointmentsList(appointments, roleName)
+              : <EmptyList/>
+            : <Loader
+              type="Puff"
+              color="#00BFFF"
+              height={100}
+              width={100}
+              timeout={3000}/> }
+        </AppointmentsList>
+      </AppointmentsListWrapper>
+    </>
   );
 };
 

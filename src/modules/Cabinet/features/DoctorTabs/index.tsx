@@ -8,11 +8,17 @@ import { CabinetTab } from 'components';
 export const DoctorTabs = () => {
   const { routeToPath } = useRedirect();
   const roleName = useAppSelector(getUserRoleName);
-  const routeToResolutionsList = () => routeToPath(`${AppPaths.DOCTOR_VIEW}${DoctorPaths.RESOLUTION_LIST}`);
+
+  const routeToResolutionsList = () => {
+    routeToPath(`${AppPaths.DOCTOR_VIEW}${DoctorPaths.RESOLUTION_LIST}`);
+  };
+  const routeToAppointmentsList = () => {
+    routeToPath(`${AppPaths.DOCTOR_VIEW}${DoctorPaths.CABINET}`);
+  };
 
   return (
     <Tabs>
-      <CabinetTab text="Patients"/>
+      <CabinetTab handleClick={routeToAppointmentsList} text="Patients"/>
       <CabinetTab handleClick={routeToResolutionsList} text="Resolutions"/>
     </Tabs>
   );

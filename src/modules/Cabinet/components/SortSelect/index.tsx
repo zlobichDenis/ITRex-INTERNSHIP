@@ -1,27 +1,17 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, MouseEventHandler } from "react";
 
 import { SortSvg } from "assets";
-import { useAppDispatch } from "store";
-import { appointmentsPagination } from "const";
 import { SortWrapper, SortToggle, SortList, SortListItem } from "./styles";
-import { fetchDoctorAppointments } from "../../redux";
-import { DoctorCabinetSortTypes } from "../../const";
 
+type SortSelectProps = {
+  fetchSortAppointmentsByName: MouseEventHandler,
+  fetchSortAppointmentsByDate: MouseEventHandler,
+}
 
-export function SortSelect () {
+export function SortSelect ({ fetchSortAppointmentsByName, fetchSortAppointmentsByDate }: SortSelectProps) {
   const [isDisplaySortList, setDisplaySortList] = useState<boolean>(false);
-  const dispatch = useAppDispatch();
-  const toggleVisibleSortList = () => setDisplaySortList(!isDisplaySortList);
-  const closeSortList = () => setDisplaySortList(false);
 
-  const getAppointmentsByLastName = useCallback(() => {
-    closeSortList();
-    dispatch(fetchDoctorAppointments({ ...appointmentsPagination, ...DoctorCabinetSortTypes.LAST_NAME }));
-  }, [dispatch]);
-  const getAppointmentsByDate = useCallback(() => {
-    closeSortList();
-    dispatch(fetchDoctorAppointments({ ...appointmentsPagination, ...DoctorCabinetSortTypes.DATE }));
-  }, [dispatch]);
+  const toggleVisibleSortList = () => setDisplaySortList(!isDisplaySortList);
 
   return (
     <SortWrapper>
@@ -30,8 +20,8 @@ export function SortSelect () {
       </label>
       <SortToggle id="doctor-cabinet__sort-type-toggle" />
       <SortList isDisplay={isDisplaySortList}>
-        <SortListItem onClick={getAppointmentsByLastName}>by name</SortListItem>
-        <SortListItem onClick={getAppointmentsByDate}>by date</SortListItem>
+        <SortListItem onClick={fetchSortAppointmentsByName}>by name</SortListItem>
+        <SortListItem onClick={fetchSortAppointmentsByDate}>by date</SortListItem>
       </SortList>
     </SortWrapper>
   );

@@ -1,26 +1,22 @@
 export const resolutionTableColumns = [
   {
     Header: 'First Name',
-    accessor: 'firstName',
+    accessor: 'col1',
   },
   {
     Header: 'Last Name',
-    accessor: 'lastName',
+    accessor: 'col2',
   },
   {
     Header: 'Resolution',
-    accessor: 'resolution',
+    accessor: 'col3',
   },
   {
     Header: 'Visit Date',
-    accessor: 'visitDate',
+    accessor: 'col4',
   },
   {
     Header: 'Next Visit',
-    accessor: 'nextVisit',
-  },
-  {
-    Header: 'Actions',
-    accessor: 'actions',
+    accessor: 'col5',
   },
 ];

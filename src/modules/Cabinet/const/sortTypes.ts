@@ -5,6 +5,6 @@ export const DoctorCabinetSortTypes = {
   },
   DATE: {
     sortBy: 'dateSort',
-    order: 'Asc',
+    order: 'Desc',
   },
 };

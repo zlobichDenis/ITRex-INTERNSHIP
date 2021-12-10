@@ -1,19 +1,19 @@
 import { useAppSelector } from "store";
 import { UserRoles } from "const";
-import { PatientCabinetRouter, DoctorCabinetRouter } from "routes";
+import { PatientInfo, DoctorInfo } from "./containers";
 import { CabinetContentWrapper } from "./styles";
 
 import { getUserRoleName } from "../AuthentificationForm/redux";
 
 
-export const UserCabinet = () => {
+export function UserCabinet() {
   const roleName = useAppSelector(getUserRoleName);
 
   return (
     <CabinetContentWrapper>
       {roleName === UserRoles.PATIENT
-        ? <PatientCabinetRouter/>
-        : <DoctorCabinetRouter />}
+        ? <PatientInfo />
+        : <DoctorInfo />}
     </CabinetContentWrapper>
   )
 };

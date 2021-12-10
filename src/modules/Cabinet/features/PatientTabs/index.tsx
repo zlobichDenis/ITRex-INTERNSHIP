@@ -1,16 +1,13 @@
-import { useAppSelector } from "store";
 import { CabinetTab } from "components";
 import { useRedirect } from "hooks";
-import { AppPaths, DoctorPaths, PatientPaths, UserRoles } from "const";
+import { AppPaths, PatientPaths } from "const";
 import { Tabs } from "./styles";
-import { getUserRoleName } from "modules/AuthentificationForm/redux";
 
 export function PatientTabs () {
   const { routeToPath } = useRedirect();
-  const roleName = useAppSelector(getUserRoleName);
 
   const routeToResolutionsList = () => routeToPath(`${AppPaths.PATIENT_VIEW}${PatientPaths.RESOLUTION_LIST}`);
-  const routeToAppointmentsList = () => routeToPath(`${AppPaths.PATIENT_VIEW}${PatientPaths.RESOLUTION_LIST}`);
+  const routeToAppointmentsList = () => routeToPath(`${AppPaths.PATIENT_VIEW}${PatientPaths.CABINET}`);
 
   return (
     <Tabs>

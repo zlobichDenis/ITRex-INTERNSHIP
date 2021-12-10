@@ -23,7 +23,7 @@ const initialState: ResolutionSliceState = {
 export const fetchDoctorResolutions = createAction<FetchResolutionsPayload>('resolutions/doctor');
 export const fetchPatientResolutions = createAction<FetchResolutionsPayload>('resolutions/patient');
 export const responceFetchResolutions = createAction('resolutions/responce');
-export const rejectFetchResolutions = createAction('resolutionss/reject');
+export const rejectFetchResolutions = createAction('resolutions/reject');
 
 const resolutionsSlice = createSlice({
   name: 'resolutions',
