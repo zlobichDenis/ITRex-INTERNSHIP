@@ -23,11 +23,11 @@ export function UserAppointmentsList() {
               ? createAppointmentsList(appointments, roleName)
               : <EmptyList/>
             : <Loader
-              type="Puff"
-              color="#00BFFF"
-              height={100}
-              width={100}
-              timeout={3000}/> }
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                timeout={3000}/> }
         </AppointmentsList>
       </AppointmentsListWrapper>
     </>

@@ -1,25 +1,25 @@
-import { useRedirect } from 'hooks';
-import { useAppSelector } from 'store';
-import { getUserRoleName } from 'modules/AuthentificationForm/redux';
-import { AppPaths, DoctorPaths, PatientPaths, UserRoles } from 'const';
+import { NavLink, useLocation } from "react-router-dom";
+
+import {AppPaths, DoctorPaths} from "const";
 import { Tabs } from './styles';
 import { CabinetTab } from 'components';
+import { DoctorTabsSchema } from "../../schemes";
 
 export const DoctorTabs = () => {
-  const { routeToPath } = useRedirect();
-  const roleName = useAppSelector(getUserRoleName);
-
-  const routeToResolutionsList = () => {
-    routeToPath(`${AppPaths.DOCTOR_VIEW}${DoctorPaths.RESOLUTION_LIST}`);
-  };
-  const routeToAppointmentsList = () => {
-    routeToPath(`${AppPaths.DOCTOR_VIEW}${DoctorPaths.CABINET}`);
-  };
+  const { pathname } = useLocation();
 
   return (
     <Tabs>
-      <CabinetTab handleClick={routeToAppointmentsList} text="Patients"/>
-      <CabinetTab handleClick={routeToResolutionsList} text="Resolutions"/>
+      <NavLink to={`${AppPaths.DOCTOR_VIEW}${DoctorPaths.APPOINTMENTS}`}>
+        <CabinetTab
+          isActive={pathname === `${AppPaths.DOCTOR_VIEW}${DoctorPaths.APPOINTMENTS}`}
+          text={DoctorTabsSchema.PATIENTS}/>
+      </NavLink>
+      <NavLink to={`${AppPaths.DOCTOR_VIEW}${DoctorPaths.RESOLUTION_LIST}`}>
+        <CabinetTab
+          isActive={pathname === `${AppPaths.DOCTOR_VIEW}${DoctorPaths.RESOLUTION_LIST}`}
+          text={DoctorTabsSchema.RESOLUTIONS}/>
+      </NavLink>
     </Tabs>
   );
 };

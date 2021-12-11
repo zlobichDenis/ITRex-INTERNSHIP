@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { AuthPath, AppPaths } from "const";
 import { SignInForm } from "../../features";
@@ -15,22 +15,22 @@ export function SignIn() {
       <SignInForm />
       <FeedbackButtons itsSignIn={true}>
         <FeedbackTextLink>
-          <Link
+          <NavLink
             to={`${AppPaths.AUTH}${AuthPath.RESTORE}`}
             className="feedback-buttons__forgot"
           >
             Forgot password?
-          </Link>
+          </NavLink>
         </FeedbackTextLink>
         <FeedbackText>
           <FeedbackTextQuestion>Don’t have an account?</FeedbackTextQuestion>
           <FeedbackTextLink>
-            <Link
+            <NavLink
               to={`${AppPaths.AUTH}${AuthPath.SIGN_UP}`}
               className="feedback-text__link"
             >
               Sign Up
-            </Link>
+            </NavLink>
           </FeedbackTextLink>
         </FeedbackText>
       </FeedbackButtons>

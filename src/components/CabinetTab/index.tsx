@@ -4,13 +4,13 @@ import { Tab } from "./styles";
 
 type CabinetTabProps = {
   text: string,
-  handleClick?: MouseEventHandler,
+  isActive: boolean,
 }
 
-export function CabinetTab ({ text, handleClick }: CabinetTabProps) {
+export function CabinetTab ({ text, isActive }: CabinetTabProps) {
   return (
     <li>
-      <Tab onClick={handleClick} isActive={false}>
+      <Tab isActive={isActive}>
         <span>{text}</span>
       </Tab>
     </li>

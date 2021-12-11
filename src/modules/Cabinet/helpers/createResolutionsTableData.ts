@@ -1,3 +1,5 @@
+import moment from "moment";
+
 import { UserRoles } from "const";
 import { ResolutionTableData } from "../features";
 
@@ -18,7 +20,13 @@ export const createResolutionsTableData = (
           index) => {
           const { first_name: firstName, last_name: lastName } = doctor;
 
-          return { col1: firstName, col2: lastName, col3: resolution, col4: visitDate, col5: nextVisit }
+          return {
+            col1: firstName,
+            col2: lastName,
+            col3: resolution,
+            col4: moment(visitDate).format('MM/DD/YY'),
+            col5: moment(nextVisit).format('MM/DD/YY'),
+          }
       })
     } else {
       return resolutions
@@ -32,7 +40,13 @@ export const createResolutionsTableData = (
           index) => {
           const { first_name: firstName, last_name: lastName } = patient;
 
-          return { col1: firstName, col2: lastName, col3: resolution, col4: visitDate, col5: nextVisit }
+          return {
+            col1: firstName,
+            col2: lastName,
+            col3: resolution,
+            col4: moment(visitDate).format('MM/DD/YY'),
+            col5: moment(nextVisit).format('MM/DD/YY'),
+          }
       })
     }
 };

@@ -20,3 +20,5 @@ export const resolutionTableColumns = [
     accessor: 'col5',
   },
 ];
+
+export const RESOLUTION_TABLE_PAGE_SIZE = 8;

@@ -14,7 +14,7 @@ export const DoctorCabinetRouter = () => {
           <Route key={`path-${index}`} path={path} {...props} />
         )
       )}
-      <Redirect from={`${AppPaths.DOCTOR_VIEW}`} to={`${AppPaths.DOCTOR_VIEW}${DoctorPaths.CABINET}`} />
+      <Redirect from={`${AppPaths.DOCTOR_VIEW}`} to={`${AppPaths.DOCTOR_VIEW}${DoctorPaths.APPOINTMENTS}`} />
     </Switch>
   );
 };

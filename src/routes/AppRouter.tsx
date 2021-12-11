@@ -23,7 +23,7 @@ const AppRouter = () => {
             from="/"
             to={`${AppPaths.AUTH}${AuthPath.SIGN_UP}`}
           />
-        </Switch>
+      </Switch>
   );
 };
 

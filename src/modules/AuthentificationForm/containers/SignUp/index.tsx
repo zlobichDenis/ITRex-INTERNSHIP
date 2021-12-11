@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 
 import { AppPaths, AuthPath } from "const";
 import { SignUpForm } from "../../features";
@@ -17,7 +17,9 @@ export function SignUp () {
         <FeedbackText>
           <FeedbackTextQuestion>Already have an account?</FeedbackTextQuestion>
           <FeedbackTextLink>
-            <Link to={`${AppPaths.AUTH}${AuthPath.SIGN_IN}`}>Sign In</Link>
+            <NavLink to={`${AppPaths.AUTH}${AuthPath.SIGN_IN}`}>
+              Sign In
+            </NavLink>
           </FeedbackTextLink>
         </FeedbackText>
       </FeedbackButtons>

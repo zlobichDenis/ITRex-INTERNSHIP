@@ -13,11 +13,11 @@ export const AppPaths = {
 
 export const PatientPaths = {
   CREATE_APPOINTMENT: '/create-appointment',
-  CABINET: '/patient-cabinet',
+  APPOINTMENTS: '/patient-appointments',
   RESOLUTION_LIST: '/patient-resolutions'
 };
 
 export const DoctorPaths = {
-  CABINET: '/doctor-cabinet',
+  APPOINTMENTS: '/doctor-appointments',
   RESOLUTION_LIST: '/doctor-resolutions',
 };

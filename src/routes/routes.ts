@@ -70,7 +70,7 @@ export const authRoutes: Array<RouteType> = [
 
 export const patientCabinetRoutes: Array<RouteType> = [
   {
-    path: `${AppPaths.PATIENT_VIEW}${PatientPaths.CABINET}`,
+    path: `${AppPaths.PATIENT_VIEW}${PatientPaths.APPOINTMENTS}`,
     component: UserAppointmentsList,
     isPrivate: true,
     exact: false,
@@ -94,7 +94,7 @@ export const patientCabinetRoutes: Array<RouteType> = [
 
 export const doctorCabinetRoutes: Array<RouteType> = [
   {
-    path: `${AppPaths.DOCTOR_VIEW}${DoctorPaths.CABINET}`,
+    path: `${AppPaths.DOCTOR_VIEW}${DoctorPaths.APPOINTMENTS}`,
     component: UserAppointmentsList,
     isPrivate: true,
     exact: false,

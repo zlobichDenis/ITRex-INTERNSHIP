@@ -33,7 +33,7 @@ export const useCreateAppointment = (): UseCreateAppointmentReturnValues => {
 
   useEffect(() => {
     if (fetchStatus === FetchStatus.SUCCESS) {
-      dispatch(push(`${AppPaths.PATIENT_VIEW}${PatientPaths.CABINET}`))
+      dispatch(push(`${AppPaths.PATIENT_VIEW}${PatientPaths.APPOINTMENTS}`))
       dispatch(setDefaultFetchStatus());
     }
   }, [fetchStatus]);

@@ -1,18 +1,27 @@
+import { NavLink, useLocation } from "react-router-dom";
+
 import { CabinetTab } from "components";
-import { useRedirect } from "hooks";
 import { AppPaths, PatientPaths } from "const";
 import { Tabs } from "./styles";
+import { PatientTabsSchema } from "../../schemes";
 
-export function PatientTabs () {
-  const { routeToPath } = useRedirect();
-
-  const routeToResolutionsList = () => routeToPath(`${AppPaths.PATIENT_VIEW}${PatientPaths.RESOLUTION_LIST}`);
-  const routeToAppointmentsList = () => routeToPath(`${AppPaths.PATIENT_VIEW}${PatientPaths.CABINET}`);
+export function PatientTabs() {
+  const { pathname } = useLocation();
 
   return (
     <Tabs>
-      <CabinetTab handleClick={routeToAppointmentsList} text="Appointments" />
-      <CabinetTab handleClick={routeToResolutionsList} text="Resolutions" />
+      <NavLink to={`${AppPaths.PATIENT_VIEW}${PatientPaths.APPOINTMENTS}`}>
+        <CabinetTab
+          isActive={pathname === `${AppPaths.PATIENT_VIEW}${PatientPaths.APPOINTMENTS}`}
+          text={PatientTabsSchema.APPOINTMENTS}
+        />
+      </NavLink>
+      <NavLink to={`${AppPaths.PATIENT_VIEW}${PatientPaths.RESOLUTION_LIST}`}>
+        <CabinetTab
+          isActive={pathname === `${AppPaths.PATIENT_VIEW}${PatientPaths.RESOLUTION_LIST}`}
+          text={PatientTabsSchema.RESOLUTIONS}
+        />
+      </NavLink>
     </Tabs>
   );
 }

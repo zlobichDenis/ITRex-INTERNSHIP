@@ -1,2 +1,3 @@
 export * from './createAppointmentsItems';
-export * from './createPatientResolutionsTableData';
+export * from './createResolutionsTableData';
+export * from './createVisiblePagination';
