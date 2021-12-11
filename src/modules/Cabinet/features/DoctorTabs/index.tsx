@@ -1,23 +1,24 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useRouteMatch } from "react-router-dom";
 
-import {AppPaths, DoctorPaths} from "const";
+import { DoctorPaths} from "const";
 import { Tabs } from './styles';
 import { CabinetTab } from 'components';
 import { DoctorTabsSchema } from "../../schemes";
 
 export const DoctorTabs = () => {
   const { pathname } = useLocation();
+  const { path } = useRouteMatch();
 
   return (
     <Tabs>
-      <NavLink to={`${AppPaths.DOCTOR_VIEW}${DoctorPaths.APPOINTMENTS}`}>
+      <NavLink to={`${path}${DoctorPaths.APPOINTMENTS}`}>
         <CabinetTab
-          isActive={pathname === `${AppPaths.DOCTOR_VIEW}${DoctorPaths.APPOINTMENTS}`}
+          isActive={pathname === `${path}${DoctorPaths.APPOINTMENTS}`}
           text={DoctorTabsSchema.PATIENTS}/>
       </NavLink>
-      <NavLink to={`${AppPaths.DOCTOR_VIEW}${DoctorPaths.RESOLUTION_LIST}`}>
+      <NavLink to={`${path}${DoctorPaths.RESOLUTION_LIST}`}>
         <CabinetTab
-          isActive={pathname === `${AppPaths.DOCTOR_VIEW}${DoctorPaths.RESOLUTION_LIST}`}
+          isActive={pathname === `${path}${DoctorPaths.RESOLUTION_LIST}`}
           text={DoctorTabsSchema.RESOLUTIONS}/>
       </NavLink>
     </Tabs>

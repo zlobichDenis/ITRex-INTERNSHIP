@@ -23,7 +23,9 @@ import SuccessIconSvg from './SuccessIcon.svg';
 import UnsuccessIconSvg from './UnsuccessIcon.svg';
 import CloseSvg from './Close.svg';
 import WaitingSvg from './Waiting.svg';
-import CrossSvg from './Cross.svg'
+import CrossSvg from './Cross.svg';
+import EyeSvg from './Eye.svg';
+import EyeBlockSvg from './EyeBlocked.svg';
 
 export {
   BackArrowSvg,
@@ -52,4 +54,6 @@ export {
   UnsuccessIconSvg,
   WaitingSvg,
   CrossSvg,
+  EyeSvg,
+  EyeBlockSvg,
 };

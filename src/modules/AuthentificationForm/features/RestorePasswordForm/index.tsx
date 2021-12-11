@@ -10,7 +10,7 @@ import {
   BackToSignInButton
 } from "components";
 import { EmailInputSvg } from "assets";
-import { FeedbackForm } from "modules/Cabinet/styles";
+import { FeedbackForm } from "../../styles";
 import { restorePassSchema } from "modules/AuthentificationForm/schemes";
 
 

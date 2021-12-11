@@ -30,7 +30,7 @@ export type ResolutionTableData = {
 export function ResolutionsList() {
   const { resolutions, fetchStatus, roleName } = useFetchResolutions();
   const columns = useMemo(() => resolutionTableColumns, []);
-  const data = useMemo(() => createResolutionsTableData(resolutions, roleName), []);
+  const data = useMemo(() => createResolutionsTableData(resolutions, roleName), [fetchStatus]);
 
   const pagesCount = Math.ceil(data.length / RESOLUTION_TABLE_PAGE_SIZE)
   const visiblePagination = createVisiblePagination(pagesCount);

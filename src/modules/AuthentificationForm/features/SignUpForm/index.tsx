@@ -13,7 +13,7 @@ import {
   EmailInputSvg,
   PasswordConfirmSvg,
 } from "assets";
-import { FeedbackForm } from "modules/Cabinet/styles";
+import { FeedbackForm } from "../../styles";
 import { Tittle } from "elements";
 import { signUpSchema } from "modules/AuthentificationForm/schemes";
 import { useAuthentification } from "modules/AuthentificationForm/hooks";

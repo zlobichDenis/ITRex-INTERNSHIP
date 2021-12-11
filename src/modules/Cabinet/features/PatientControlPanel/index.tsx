@@ -1,3 +1,5 @@
+import { useRouteMatch } from "react-router-dom";
+
 import { ActionButton } from "components";
 import { AppPaths, PatientPaths } from "const";
 import { Tittle } from "elements";
@@ -6,8 +8,10 @@ import { useRedirect } from "hooks";
 
 export function PatientControlPanel () {
   const { routeToPath } = useRedirect();
+  const { path } = useRouteMatch();
+
   const redirectToAppointmentForm = () => {
-    routeToPath(`${AppPaths.PATIENT_VIEW}${PatientPaths.CREATE_APPOINTMENT}`);
+    routeToPath(`${path}${PatientPaths.CREATE_APPOINTMENT}`);
   };
 
   return (

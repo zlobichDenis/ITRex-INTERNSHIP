@@ -1,10 +1,12 @@
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
 
 import { doctorCabinetRoutes } from "routes";
 import { AppPaths, DoctorPaths, PatientPaths } from "const";
 import { PrivateRoute } from "./PrivateRoute";
 
 export const DoctorCabinetRouter = () => {
+  const { path } = useRouteMatch();
+
   return (
     <Switch>
       {doctorCabinetRoutes.map(({ isPrivate, forRole, path, ...props }, index) =>
@@ -14,7 +16,7 @@ export const DoctorCabinetRouter = () => {
           <Route key={`path-${index}`} path={path} {...props} />
         )
       )}
-      <Redirect from={`${AppPaths.DOCTOR_VIEW}`} to={`${AppPaths.DOCTOR_VIEW}${DoctorPaths.APPOINTMENTS}`} />
+      <Redirect from={`${AppPaths.DOCTOR_VIEW}`} to={`${path}${DoctorPaths.APPOINTMENTS}`} />
     </Switch>
   );
 };

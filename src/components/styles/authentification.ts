@@ -27,14 +27,3 @@ export const InputField = styled.div`
 type InputIconProps = {
     isShowingPass: boolean,
 }
-
-export const InputIcon = styled.div<InputIconProps>`
-    width: 24px;
-    height: 24px;
-    background-image: ${({ isShowingPass }): string => (
-    isShowingPass 
-      ? 'url(\'../img/eye.png\')' 
-      : 'url(\'../img/eye-blocked.png\')')};
-    background-size: contain;
-    background-repeat: no-repeat;
-`;

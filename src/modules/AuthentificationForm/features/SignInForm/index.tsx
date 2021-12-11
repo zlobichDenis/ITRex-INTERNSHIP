@@ -12,7 +12,7 @@ import {
 } from "components";
 import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
-import { FeedbackForm } from "modules/Cabinet/styles";
+import { FeedbackForm } from "../../styles";
 import { signInSchema } from "modules/AuthentificationForm/schemes";
 import { useAuthentification } from "modules/AuthentificationForm/hooks";
 

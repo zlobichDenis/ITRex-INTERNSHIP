@@ -11,4 +11,4 @@ export function PatientView () {
       </Cabinet>
     </CabinetSection>
   );
-};
+}

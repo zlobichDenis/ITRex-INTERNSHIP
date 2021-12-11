@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useRouteMatch } from "react-router-dom";
 
 import { CabinetTab } from "components";
 import { AppPaths, PatientPaths } from "const";
@@ -7,18 +7,19 @@ import { PatientTabsSchema } from "../../schemes";
 
 export function PatientTabs() {
   const { pathname } = useLocation();
+  const { path } = useRouteMatch();
 
   return (
     <Tabs>
-      <NavLink to={`${AppPaths.PATIENT_VIEW}${PatientPaths.APPOINTMENTS}`}>
+      <NavLink to={`${path}${PatientPaths.APPOINTMENTS}`}>
         <CabinetTab
-          isActive={pathname === `${AppPaths.PATIENT_VIEW}${PatientPaths.APPOINTMENTS}`}
+          isActive={pathname === `${path}${PatientPaths.APPOINTMENTS}`}
           text={PatientTabsSchema.APPOINTMENTS}
         />
       </NavLink>
-      <NavLink to={`${AppPaths.PATIENT_VIEW}${PatientPaths.RESOLUTION_LIST}`}>
+      <NavLink to={`${path}${PatientPaths.RESOLUTION_LIST}`}>
         <CabinetTab
-          isActive={pathname === `${AppPaths.PATIENT_VIEW}${PatientPaths.RESOLUTION_LIST}`}
+          isActive={pathname === `${path}${PatientPaths.RESOLUTION_LIST}`}
           text={PatientTabsSchema.RESOLUTIONS}
         />
       </NavLink>

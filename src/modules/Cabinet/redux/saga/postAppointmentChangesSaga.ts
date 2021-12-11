@@ -6,10 +6,6 @@ import { appointmentsPagination } from 'const';
 import { SuccesMessages, ErrorMessages } from 'dictionary';
 import { deleteAppointment, fetchDoctorAppointments, CreateResolutionPayload, createResolution } from '..';
 
-export type EditAppointmentWorkerParams = {
-  status: string,
-  date: string,
-};
 
 export type CreateResolutionWorkerParams = CreateResolutionPayload;
 
@@ -23,7 +19,6 @@ function* deleteAppointmentWorker({ payload }: PayloadAction<string>) {
     errorNotify(ErrorMessages.DELETE_APPOINTMENTS);
   }
 }
-
 
 function* createResolutionWorker({ payload }: PayloadAction<CreateResolutionWorkerParams>) {
   const { responce: resolutionResponce } = yield call(postNewResolution, payload);
