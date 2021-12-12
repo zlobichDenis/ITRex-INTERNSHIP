@@ -44,7 +44,9 @@ export function RestorePassForm() {
             ? <AlertMessage message={errors.email} />
             : null}
 
-          <ActionButton textContent='Restore Password' />
+          <ActionButton
+            width={150}
+            textContent='Restore Password' />
         </FeedbackForm>
       )}
     </Formik>

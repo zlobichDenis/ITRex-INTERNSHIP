@@ -105,7 +105,11 @@ export function SignUpForm () {
             <AlertMessage message={`Password not match!`} />
           ) : null}
 
-          <ActionButton role="submit-button" isDisabled={isValid} textContent="Sign Up" />
+          <ActionButton
+            width={150}
+            role="submit-button"
+            isDisabled={isValid}
+            textContent="Sign Up" />
 
         </FeedbackForm>
       )}

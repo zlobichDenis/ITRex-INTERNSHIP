@@ -8,10 +8,10 @@ import { useRedirect } from "hooks";
 
 export function PatientControlPanel () {
   const { routeToPath } = useRedirect();
-  const { path } = useRouteMatch();
+  const match = useRouteMatch(`${AppPaths.PATIENT_VIEW}`);
 
   const redirectToAppointmentForm = () => {
-    routeToPath(`${path}${PatientPaths.CREATE_APPOINTMENT}`);
+    routeToPath(`${match?.path}${PatientPaths.CREATE_APPOINTMENT}`);
   };
 
   return (
@@ -19,6 +19,7 @@ export function PatientControlPanel () {
       <Tittle>My Appointments</Tittle>
       <InputsWrapper>
         <ActionButton
+          width={244}
           role='redirect-button'
           textContent="Create an appointment"
           itsUserPatient={true}

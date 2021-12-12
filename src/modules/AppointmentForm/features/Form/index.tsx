@@ -111,11 +111,12 @@ export function AppointmentForm() {
           </StageCreatingWrapper>
 
           <ActionButton
+            width={160}
             role="submit-appointment"
             isDisabled={isValid}
             type="submit"
             textContent="Submit"
-            itsUserView/>
+            position={"flex-end"}/>
 
         </CreateAppointmentForm>
       )}

@@ -74,6 +74,7 @@ export function SignInForm () {
             />
           ) : (
             <ActionButton
+              width={150}
               role="submit-button"
               isDisabled={isValid}
               type="submit"

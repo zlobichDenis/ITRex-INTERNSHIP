@@ -4,7 +4,9 @@ import { ButtonArrowSvg } from "assets";
 import { ButtonWrapper, Button } from "./styles";
 
 type ActionButtonProps = {
-  textContent: string, 
+  textContent: string,
+  width: number,
+  position?: string,
   role?: string, 
   icon?: string, 
   type?: any, 
@@ -20,21 +22,22 @@ export function ActionButton ({
   role,
   icon = ButtonArrowSvg,
   type = "submit",
+  width,
   isDisabled = true,
-  itsUserPatient = false,
-  itsUserView = false,
+  position,
   handleClick,
 }: ActionButtonProps) {
   return (
-    <ButtonWrapper itsUserView={itsUserView} itsUserPatient={itsUserPatient}>
+    <ButtonWrapper position={position}>
       <Button
+        width={width}
         role={role}
         onClick={handleClick}
         type={type}
         isDisabled={isDisabled}
       >
         <span>{textContent}</span>
-        {icon ? <img height="21" width="21" src={icon} alt="icon" /> : null}
+        {icon ? <img height="14" width="7" src={icon} alt="icon" /> : null}
       </Button>
     </ButtonWrapper>
   );
