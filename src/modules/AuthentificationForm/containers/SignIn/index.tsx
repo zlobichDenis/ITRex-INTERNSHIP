@@ -13,7 +13,7 @@ export function SignIn() {
   return (
     <>
       <SignInForm />
-      <FeedbackButtons itsSignIn={true}>
+      <FeedbackButtons>
         <FeedbackTextLink>
           <NavLink
             to={`${AppPaths.AUTH}${AuthPath.RESTORE}`}

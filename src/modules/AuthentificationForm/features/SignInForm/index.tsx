@@ -12,9 +12,9 @@ import {
 } from "components";
 import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
-import { FeedbackForm } from "../../styles";
-import { signInSchema } from "modules/AuthentificationForm/schemes";
-import { useAuthentification } from "modules/AuthentificationForm/hooks";
+import { FeedbackForm, InputFieldWrapper } from "../../styles";
+import { signInSchema } from "../../schemes";
+import { useAuthentification } from "../../hooks";
 
 export function SignInForm () {
   const { loginRequest, fetchStatus } = useAuthentification();
@@ -40,29 +40,33 @@ export function SignInForm () {
         <FeedbackForm data-testid="sign-in-form" onSubmit={handleSubmit}>
           <Tittle>Sign In</Tittle>
 
-          <Field
-            component={AuthTextInput}
-            role="email-input"
-            name="userName"
-            type="text"
-            placeholder="Email"
-            icon={EmailInputSvg}
-          />
-          {errors.userName && touched.userName ? (
-            <AlertMessage message={errors.userName} />
-          ) : null}
+          <InputFieldWrapper>
+            <Field
+              component={AuthTextInput}
+              role="email-input"
+              name="userName"
+              type="text"
+              placeholder="Email"
+              icon={EmailInputSvg}
+            />
+            {errors.userName && touched.userName ? (
+              <AlertMessage message={errors.userName} />
+            ) : null}
+          </InputFieldWrapper>
 
-          <Field
-            component={PasswordInput}
-            role="password-input"
-            name="password"
-            type="password"
-            placeholder="Password"
-            icon={PasswordInputSvg}
-          />
-          {errors.password && touched.password ? (
-            <AlertMessage message={errors.password} />
-          ) : null}
+          <InputFieldWrapper>
+            <Field
+              component={PasswordInput}
+              role="password-input"
+              name="password"
+              type="password"
+              placeholder="Password"
+              icon={PasswordInputSvg}
+            />
+            {errors.password && touched.password ? (
+              <AlertMessage message={errors.password} />
+            ) : null}
+          </InputFieldWrapper>
 
           {fetchStatus === FetchStatus.PENDING && fetchStatus ? (
             <Loader

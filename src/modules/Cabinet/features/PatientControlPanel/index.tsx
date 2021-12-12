@@ -22,7 +22,6 @@ export function PatientControlPanel () {
           width={244}
           role='redirect-button'
           textContent="Create an appointment"
-          itsUserPatient={true}
           handleClick={redirectToAppointmentForm}
         />
       </InputsWrapper>

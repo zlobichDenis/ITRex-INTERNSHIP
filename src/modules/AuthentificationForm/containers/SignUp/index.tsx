@@ -13,7 +13,7 @@ export function SignUp () {
   return (
     <>
       <SignUpForm />
-      <FeedbackButtons itsSignIn={false}>
+      <FeedbackButtons >
         <FeedbackText>
           <FeedbackTextQuestion>Already have an account?</FeedbackTextQuestion>
           <FeedbackTextLink>

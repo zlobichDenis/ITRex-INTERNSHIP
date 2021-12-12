@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
-import {colors, formFiledSizes, typography} from 'styles';
+import { colors, formFiledSizes, typography } from 'styles';
 
-type FeedbackButtonProps = {
-  itsSignIn: boolean,
-}
 
 export const FeedbackWrapper = styled.div`
   z-index: 2;
@@ -41,17 +38,16 @@ export const FeedbackForm = styled.form`
   }
 `;
 
-export const FeedbackButtons = styled.div<FeedbackButtonProps>`
+export const FeedbackButtons = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-self: center;
   width: ${formFiledSizes.MOBILE_FIELD};
-  gap: ${({itsSignIn}) => itsSignIn ? '72px' : '32px'};
+  gap: 72px;
 
   @media (min-width: 768px) {
     width: ${formFiledSizes.DESKTOP_FIELD};
-    ${({itsSignIn}) => itsSignIn ? 'gap: 256px' : null};
   }
 `;
 
@@ -76,4 +72,13 @@ export const FeedbackTextQuestion = styled.p`
 export const FeedbackTextLink = styled.div`
   ${typography.BOLD_TEXT};
   color: ${colors.BLUE};
+`;
+
+export const InputFieldWrapper = styled.div`
+  position: relative;
+  width: ${formFiledSizes.MOBILE_FIELD};
+
+  @media (min-width: 768px) {
+    width: ${formFiledSizes.DESKTOP_FIELD};
+  }
 `;

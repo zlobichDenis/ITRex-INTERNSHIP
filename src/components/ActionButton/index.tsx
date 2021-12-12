@@ -10,9 +10,7 @@ type ActionButtonProps = {
   role?: string, 
   icon?: string, 
   type?: any, 
-  isDisabled?: boolean, 
-  itsUserPatient?: boolean, 
-  itsUserView?: boolean, 
+  isDisabled?: boolean,
   handleClick?: React.MouseEventHandler<HTMLButtonElement>,
 }
 
