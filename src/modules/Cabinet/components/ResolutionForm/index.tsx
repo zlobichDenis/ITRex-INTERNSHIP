@@ -77,7 +77,7 @@ export function ResolutionForm(
                 id="resolution"
                 name="resolution"/>
               {errors.resolution && touched.resolution ? (
-                <AlertMessage position="absolute" message={errors.resolution}/>
+                <AlertMessage position="unset" message={errors.resolution}/>
               ) : null}
             </FieldWrapper>
 

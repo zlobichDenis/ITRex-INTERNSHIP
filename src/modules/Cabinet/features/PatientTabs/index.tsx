@@ -7,19 +7,19 @@ import { PatientTabsSchema } from "../../schemes";
 
 export function PatientTabs() {
   const { pathname } = useLocation();
-  const { path } = useRouteMatch();
+  const { url } = useRouteMatch();
 
   return (
     <Tabs>
-      <NavLink to={`${path}${PatientPaths.APPOINTMENTS}`}>
+      <NavLink to={`${url}${PatientPaths.APPOINTMENTS}`}>
         <CabinetTab
-          isActive={pathname === `${path}${PatientPaths.APPOINTMENTS}`}
+          isActive={pathname === `${url}${PatientPaths.APPOINTMENTS}`}
           text={PatientTabsSchema.APPOINTMENTS}
         />
       </NavLink>
-      <NavLink to={`${path}${PatientPaths.RESOLUTION_LIST}`}>
+      <NavLink to={`${url}${PatientPaths.RESOLUTION_LIST}`}>
         <CabinetTab
-          isActive={pathname === `${path}${PatientPaths.RESOLUTION_LIST}`}
+          isActive={pathname === `${url}${PatientPaths.RESOLUTION_LIST}`}
           text={PatientTabsSchema.RESOLUTIONS}
         />
       </NavLink>

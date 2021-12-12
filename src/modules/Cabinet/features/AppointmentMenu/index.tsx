@@ -1,10 +1,9 @@
 import { useState, useCallback } from "react";
 
 import { PersonOptionsSvg } from "assets";
-import { useAppDispatch } from "store";
 import { PatientData } from "types";
+import { useCreateNewResolution, useDeleteAppointment } from "../../hooks";
 import { ResolutionForm } from "../../components";
-import { deleteAppointment, createResolution } from "modules/Cabinet/redux";
 import { AppointmentMenuList, AppointmentMenuListItem, AppointmentOptions } from "./styles";
 
 type AppointmentMenuProps = {
@@ -15,27 +14,30 @@ type AppointmentMenuProps = {
 export function AppointmentMenu({ appointmentID, patient }: AppointmentMenuProps) {
   const [isDisplayMenu, setDisplayMenu] = useState<boolean>(false);
   const [isDisplayCreateResolutionModal, setDisplayCreateResolutionModal] = useState<boolean>(false);
-  const dispatch = useAppDispatch();
+
+  const { dispatchNewResolution } = useCreateNewResolution(appointmentID);
+  const { dispatchDeleteAppointment } = useDeleteAppointment(appointmentID);
 
   const { first_name: firstName, last_name: lastName } = patient;
 
   const toggleAppointmentMenu = () => setDisplayMenu(!isDisplayMenu);
   const showCreateResolutionForm = () =>  setDisplayCreateResolutionModal(true);
+
   const closeCreateResolutionForm = () => {
     setDisplayMenu(false);
     setDisplayCreateResolutionModal(false);
   };
 
-  const dispatchDeletingAppointment = useCallback(() => {
+  const deleteAppointment = useCallback(() => {
     setDisplayMenu(false);
-    dispatch(deleteAppointment(appointmentID));
-  }, [dispatch]);
+    dispatchDeleteAppointment();
+  }, []);
 
-  const dispatchNewResolution = useCallback((resolution: string) => {
+  const createNewResolution = useCallback((resolution: string) => {
     setDisplayMenu(false);
     closeCreateResolutionForm();
-    dispatch(createResolution({ resolution, appointmentID }))
-  }, [dispatch]);
+    dispatchNewResolution(resolution);
+  }, []);
 
   return (
     <>
@@ -47,11 +49,11 @@ export function AppointmentMenu({ appointmentID, patient }: AppointmentMenuProps
         lastName={lastName} 
         closeHandle={closeCreateResolutionForm} 
         isDisplay={isDisplayCreateResolutionModal} 
-        createNewResolution={dispatchNewResolution} />
+        createNewResolution={createNewResolution} />
         
       <AppointmentMenuList isDisplay={isDisplayMenu}>
         <AppointmentMenuListItem onClick={showCreateResolutionForm}>Create a resolution</AppointmentMenuListItem>
-        <AppointmentMenuListItem onClick={dispatchDeletingAppointment}>Delete</AppointmentMenuListItem>
+        <AppointmentMenuListItem onClick={deleteAppointment}>Delete</AppointmentMenuListItem>
       </AppointmentMenuList>
     </>
   )

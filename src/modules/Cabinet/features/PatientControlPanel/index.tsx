@@ -11,7 +11,7 @@ export function PatientControlPanel () {
   const match = useRouteMatch(`${AppPaths.PATIENT_VIEW}`);
 
   const redirectToAppointmentForm = () => {
-    routeToPath(`${match?.path}${PatientPaths.CREATE_APPOINTMENT}`);
+    routeToPath(`${match?.url}${PatientPaths.CREATE_APPOINTMENT}`);
   };
 
   return (

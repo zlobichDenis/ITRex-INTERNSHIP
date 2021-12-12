@@ -126,4 +126,4 @@ export function SignUpForm () {
       )}
     </Formik>
   );
-};
+}
