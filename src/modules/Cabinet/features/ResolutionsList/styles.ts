@@ -7,8 +7,12 @@ type ResolutionTablePaginationButtonProps = {
 }
 
 export const ResolutionTableContainer = styled.div`
-  width: 90vw;
-  height: 600px;
+  width: 80vw;
+  height: 60vh;
+
+  @media (min-width: 1920px) {
+    width: 90vw;
+  }
 `;
 
 export const ResolutionTable = styled.table`

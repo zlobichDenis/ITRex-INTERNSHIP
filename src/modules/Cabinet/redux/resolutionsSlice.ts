@@ -37,6 +37,9 @@ const resolutionsSlice = createSlice({
     builder.addCase(fetchDoctorResolutions, state => {
       return { ...state, fetchStatus: FetchStatus.PENDING };
     })
+    builder.addCase(fetchPatientResolutions, state => {
+      return { ...state, fetchStatus: FetchStatus.PENDING };
+    })
     builder.addCase(responceFetchResolutions, state => {
       return { ...state, fetchStatus: FetchStatus.SUCCESS };
     })

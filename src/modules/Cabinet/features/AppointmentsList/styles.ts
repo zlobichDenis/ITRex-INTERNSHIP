@@ -2,14 +2,15 @@ import styled from 'styled-components';
 
 export const AppointmentsListWrapper = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 700px;
 `;
 
 export const AppointmentsList = styled.ul`
-  height: 70vh;
+  height: 65vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   flex-wrap: wrap;
   gap: 2vh 2vw;
   overflow-y: scroll;
