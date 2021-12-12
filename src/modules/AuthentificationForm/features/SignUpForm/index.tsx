@@ -55,7 +55,7 @@ export function SignUpForm () {
               icon={NameInputSvg}
             />
             {errors.firstName && touched.firstName ? (
-              <AlertMessage message={errors.firstName} />
+              <AlertMessage position="absolute" message={errors.firstName} />
             ) : null}
           </InputFieldWrapper>
 
@@ -69,7 +69,7 @@ export function SignUpForm () {
               icon={NameInputSvg}
             />
             {errors.lastName && touched.lastName ? (
-              <AlertMessage message={errors.lastName} />
+              <AlertMessage position="absolute" message={errors.lastName} />
             ) : null}
           </InputFieldWrapper>
 
@@ -83,7 +83,7 @@ export function SignUpForm () {
               icon={EmailInputSvg}
             />
             {errors.userName && touched.userName ? (
-              <AlertMessage message={errors.userName} />
+              <AlertMessage position="absolute" message={errors.userName} />
             ) : null}
           </InputFieldWrapper>
 
@@ -97,7 +97,7 @@ export function SignUpForm () {
               icon={PasswordInputSvg}
             />
             {errors.password && touched.password ? (
-              <AlertMessage message={errors.password} />
+              <AlertMessage position="absolute" message={errors.password} />
             ) : null}
           </InputFieldWrapper>
 
@@ -111,7 +111,7 @@ export function SignUpForm () {
               icon={PasswordConfirmSvg}
             />
             {errors.passwordConfirm && touched.passwordConfirm ? (
-              <AlertMessage message={`Password not match!`} />
+              <AlertMessage position="absolute" message={`Password not match!`} />
             ) : null}
           </InputFieldWrapper>
 

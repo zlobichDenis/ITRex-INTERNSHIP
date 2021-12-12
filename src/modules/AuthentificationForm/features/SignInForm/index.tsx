@@ -50,7 +50,7 @@ export function SignInForm () {
               icon={EmailInputSvg}
             />
             {errors.userName && touched.userName ? (
-              <AlertMessage message={errors.userName} />
+              <AlertMessage position="absolute" message={errors.userName} />
             ) : null}
           </InputFieldWrapper>
 
@@ -64,7 +64,7 @@ export function SignInForm () {
               icon={PasswordInputSvg}
             />
             {errors.password && touched.password ? (
-              <AlertMessage message={errors.password} />
+              <AlertMessage position="absolute" message={errors.password} />
             ) : null}
           </InputFieldWrapper>
 

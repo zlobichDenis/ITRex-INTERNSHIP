@@ -57,6 +57,7 @@ export const ResolutionFormTittle = styled.span`
 `;
 
 export const FieldWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;

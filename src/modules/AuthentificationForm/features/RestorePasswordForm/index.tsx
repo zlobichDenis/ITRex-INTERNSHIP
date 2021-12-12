@@ -41,7 +41,7 @@ export function RestorePassForm() {
 
           <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon={EmailInputSvg} />
           {errors.email && touched.email
-            ? <AlertMessage message={errors.email} />
+            ? <AlertMessage position="absolute" message={errors.email} />
             : null}
 
           <ActionButton

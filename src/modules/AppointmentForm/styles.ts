@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors } from 'styles';
+import { colors, typography } from 'styles';
 
 export const CreateAppointmentForm = styled.form`
   display: flex;
@@ -24,11 +24,8 @@ export const InputWrapper = styled.div`
 `;
 
 export const InputLabel = styled.label`
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
+  ${typography.PARAGRAPH}
   font-size: 13px;
-  line-height: 130%;
 `;
 
 export const InputText = styled.input`
