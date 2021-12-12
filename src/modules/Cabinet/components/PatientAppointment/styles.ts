@@ -4,7 +4,7 @@ import { ActiveStatusSvg, DividerSvg, InactiveStatusSvg } from 'assets';
 import { typography } from 'styles';
 
 type UserStatusIconProps = {
-    isActive: boolean,
+  isActive: boolean,
 }
 
 export const AppointmentsItem = styled.li`
@@ -107,10 +107,10 @@ export const VisitMessageIcon = styled.div`
 `;
 
 export const UserStatus = styled.div`
-    ${typography.PARAGRAPH}
-    font-size: 13px;
+  ${typography.PARAGRAPH}
+  font-size: 13px;
 `;
 
 export const UserStatusIcon = styled.div<UserStatusIconProps>`
-    background-color: ${({ isActive }) => isActive ? `url(${ActiveStatusSvg})` : `url(${InactiveStatusSvg})`};
+  background-color: ${({ isActive }) => isActive ? `url(${ActiveStatusSvg})` : `url(${InactiveStatusSvg})`};
 `;

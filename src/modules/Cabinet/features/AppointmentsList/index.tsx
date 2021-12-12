@@ -15,8 +15,8 @@ export function UserAppointmentsList() {
     <>
       { roleName === UserRoles.PATIENT
         ? <PatientControlPanel />
-        : <DoctorControlPanel/> }
-      <AppointmentsListWrapper data-testid="appointments-list">
+        : <DoctorControlPanel /> }
+      {/*<AppointmentsListWrapper data-testid="appointments-list">*/}
         <AppointmentsList>
           { fetchStatus !== FetchStatus.PENDING
             ? appointments.length > 0
@@ -29,7 +29,7 @@ export function UserAppointmentsList() {
                 width={100}
                 timeout={3000}/> }
         </AppointmentsList>
-      </AppointmentsListWrapper>
+      {/*</AppointmentsListWrapper>*/}
     </>
   );
 };
