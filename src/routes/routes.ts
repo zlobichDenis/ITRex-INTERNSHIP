@@ -20,6 +20,7 @@ export type RouteType = {
   exact?: boolean,
 }
 
+
 export const appRoutes: Array<RouteType> = [
   {
     path: AppPaths.AUTH,

@@ -7,6 +7,7 @@ import {
 import { AppPaths, AuthPath } from "const";
 import { appRoutes } from "routes";
 import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 
 const AppRouter = () => {
   return (
@@ -15,7 +16,7 @@ const AppRouter = () => {
         forRole ? (
           <PrivateRoute role={forRole} key={`path-${index}`} path={path} {...props} />
         ) : (
-          <Route key={`path-${index}`} path={path} {...props} />
+          <PublicRoute role="route" key={`path-${index}`} path={path} {...props} />
         )
       )}
       <Redirect
