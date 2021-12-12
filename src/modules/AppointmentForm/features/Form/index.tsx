@@ -95,7 +95,7 @@ export function AppointmentForm() {
                 component={VisitCalendar}
                 handleReset={setFieldValue}/>
             ) : (
-              <AlertMessage position="unset" role="no-calendar-message" message="Choose a doctor first"/>
+              <AlertMessage position="static" role="no-calendar-message" message="Choose a doctor first"/>
             )}
           </StageCreatingWrapper>
 
@@ -106,7 +106,7 @@ export function AppointmentForm() {
             {values.doctorName && values.occupation && values.date ? (
               <TimeRadioList/>
             ) : (
-              <AlertMessage position="unset" role="no-date-and-doctor" message="Select a date and doctor first"/>
+              <AlertMessage position="static" role="no-date-and-doctor" message="Select a date and doctor first"/>
             )}
           </StageCreatingWrapper>
 

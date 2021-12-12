@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 
 import { useAppDispatch } from "store";
-import { deleteAppointment, createResolution } from "../redux";
+import { createResolution } from "../redux";
 
 
 export const useCreateNewResolution = (appointmentID: string) => {

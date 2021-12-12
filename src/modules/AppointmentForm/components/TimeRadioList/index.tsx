@@ -35,7 +35,7 @@ export function TimeRadioList () {
           ))
         ) : (
           <AlertMessage
-            position="absolute"
+            position="static"
             message="Unfortunately, there is no available time on this date. Choose another convenient date for you."
           />
         )

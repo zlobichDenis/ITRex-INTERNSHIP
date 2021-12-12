@@ -14,7 +14,6 @@ type AppointmentMenuProps = {
 export function AppointmentMenu({ appointmentID, patient }: AppointmentMenuProps) {
   const [isDisplayMenu, setDisplayMenu] = useState<boolean>(false);
   const [isDisplayCreateResolutionModal, setDisplayCreateResolutionModal] = useState<boolean>(false);
-
   const { dispatchNewResolution } = useCreateNewResolution(appointmentID);
   const { dispatchDeleteAppointment } = useDeleteAppointment(appointmentID);
 
@@ -31,13 +30,12 @@ export function AppointmentMenu({ appointmentID, patient }: AppointmentMenuProps
   const deleteAppointment = useCallback(() => {
     setDisplayMenu(false);
     dispatchDeleteAppointment();
-  }, []);
-
+  }, [dispatchDeleteAppointment]);
   const createNewResolution = useCallback((resolution: string) => {
     setDisplayMenu(false);
     closeCreateResolutionForm();
     dispatchNewResolution(resolution);
-  }, []);
+  }, [dispatchNewResolution]);
 
   return (
     <>
@@ -49,12 +47,12 @@ export function AppointmentMenu({ appointmentID, patient }: AppointmentMenuProps
         lastName={lastName} 
         closeHandle={closeCreateResolutionForm} 
         isDisplay={isDisplayCreateResolutionModal} 
-        createNewResolution={createNewResolution} />
-        
+        createNewResolution={createNewResolution}
+      />
       <AppointmentMenuList isDisplay={isDisplayMenu}>
         <AppointmentMenuListItem onClick={showCreateResolutionForm}>Create a resolution</AppointmentMenuListItem>
         <AppointmentMenuListItem onClick={deleteAppointment}>Delete</AppointmentMenuListItem>
       </AppointmentMenuList>
     </>
   )
-};
+}
