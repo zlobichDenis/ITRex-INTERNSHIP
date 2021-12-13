@@ -24,7 +24,3 @@ export const InputField = styled.div`
     height: 56px;
   }
 `;
-
-type InputIconProps = {
-  isShowingPass: boolean,
-}

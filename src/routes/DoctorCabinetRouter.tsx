@@ -1,7 +1,7 @@
 import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
 
 import { doctorCabinetRoutes } from "routes";
-import { AppPaths, DoctorPaths, PatientPaths } from "const";
+import { AppPaths, DoctorPaths } from "const";
 import { PrivateRoute } from "./PrivateRoute";
 
 export const DoctorCabinetRouter = () => {

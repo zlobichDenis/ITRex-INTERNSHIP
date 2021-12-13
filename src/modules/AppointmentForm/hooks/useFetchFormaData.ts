@@ -39,6 +39,7 @@ export const useFetchFormData =
       } else {
         dispatch(actionType())
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dependencie])
 
     return { allSpecializations, fetchStatus, doctors, date, availableHours };

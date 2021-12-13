@@ -18,12 +18,13 @@ export const useFetchResolutions = () => {
   const dispatch = useAppDispatch();
 
   const fetchResolutionsWithOffset = useCallback((offset: number) => {
-    const paginationWithOffset = { ... resolutionsPagination, offset}
+    const paginationWithOffset = { ...resolutionsPagination, offset}
     if (roleName === UserRoles.PATIENT) {
       dispatch(fetchPatientResolutions(paginationWithOffset));
     } else {
       dispatch(fetchDoctorResolutions(paginationWithOffset));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   useEffect(() => {
@@ -32,6 +33,7 @@ export const useFetchResolutions = () => {
     } else {
       dispatch(fetchDoctorResolutions(resolutionsPagination));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { fetchStatus, resolutions, roleName, fetchResolutionsWithOffset }

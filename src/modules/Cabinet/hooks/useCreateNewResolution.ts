@@ -9,6 +9,7 @@ export const useCreateNewResolution = (appointmentID: string) => {
 
   const dispatchNewResolution = useCallback((resolution: string) => {
     dispatch(createResolution({ resolution, appointmentID }))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return { dispatchNewResolution };

@@ -8,6 +8,7 @@ export const useDeleteAppointment = (appointmentID: string) => {
 
   const dispatchDeleteAppointment = useCallback(() => {
     dispatch(deleteAppointment(appointmentID));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return { dispatchDeleteAppointment };

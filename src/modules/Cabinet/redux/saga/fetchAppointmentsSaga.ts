@@ -27,7 +27,7 @@ function* fetchPatientAppointmentsWorker({ payload }: PayloadAction<GetAllAppoin
 }
 
 function* fetchDoctorAppointmentsWorker({ payload }: PayloadAction<GetAllAppointmentsWorkerParams>) {
-  const { responce: doctorResponce, error } = yield call(fetchAllDoctorAppointments, payload);
+  const { responce: doctorResponce } = yield call(fetchAllDoctorAppointments, payload);
 
   if (doctorResponce) {
     const { data: appointments } = doctorResponce;

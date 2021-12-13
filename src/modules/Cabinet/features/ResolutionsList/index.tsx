@@ -29,7 +29,9 @@ export type ResolutionTableData = {
 
 export function ResolutionsList() {
   const { resolutions, fetchStatus, roleName } = useFetchResolutions();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => resolutionTableColumns, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const data = useMemo(() => createResolutionsTableData(resolutions, roleName), [fetchStatus]);
 
   const pagesCount = Math.ceil(data.length / RESOLUTION_TABLE_PAGE_SIZE)
@@ -52,7 +54,7 @@ export function ResolutionsList() {
     gotoPage,
     nextPage,
     previousPage,
-    state: { pageIndex, pageSize },
+    state: { pageIndex },
   } = useTable<any>({ columns, data, initialState: initialState }, usePagination);
 
 

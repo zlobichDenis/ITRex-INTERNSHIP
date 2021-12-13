@@ -2,7 +2,7 @@ import { useCallback } from "react";
 
 import { useAppDispatch } from "store";
 import { Tittle } from "elements";
-import { SortSelect } from "modules/Cabinet/components";
+import { SortSelect } from "../../components";
 import { InputsWrapper, ControlPanel } from "./styles";
 import { fetchDoctorAppointments } from "../../redux";
 import { appointmentsPagination, DoctorCabinetSortTypes } from "../../const";

@@ -1,4 +1,4 @@
-import { useState, useCallback, MouseEventHandler } from "react";
+import { useState, MouseEventHandler } from "react";
 
 import { SortSvg } from "assets";
 import { SortWrapper, SortToggle, SortList, SortListItem } from "./styles";

@@ -28,6 +28,7 @@ export const useFetchAppointments = (): UseFetchAppointmentsReturnValues => {
     } else {
       dispatch(fetchDoctorAppointments(appointmentsPagination));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, roleName])
   
   return { fetchStatus, appointments, roleName };

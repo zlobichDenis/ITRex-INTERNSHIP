@@ -38,6 +38,7 @@ export const useCreateAppointment = (): UseCreateAppointmentReturnValues => {
       dispatch(push(`${match?.url}${PatientPaths.APPOINTMENTS}`))
       dispatch(setDefaultFetchStatus());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchStatus]);
 
   return { createAppointment, fetchStatus }

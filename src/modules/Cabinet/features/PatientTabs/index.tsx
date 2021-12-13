@@ -1,7 +1,7 @@
 import { NavLink, useLocation, useRouteMatch } from "react-router-dom";
 
 import { CabinetTab } from "components";
-import { AppPaths, PatientPaths } from "const";
+import { PatientPaths } from "const";
 import { Tabs } from "./styles";
 import { PatientTabsSchema } from "../../schemes";
 
