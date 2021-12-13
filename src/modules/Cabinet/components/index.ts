@@ -1,5 +1,5 @@
-export * from "./SortSelect";
-export * from './ResolutionForm';
-export * from './DoctorAppointment';
-export * from './PatientAppointment';
+export * from './PatientInfo';
+export * from './DoctorInfo';
+export * from './PatientTabs';
+export * from './DoctorTabs';
 

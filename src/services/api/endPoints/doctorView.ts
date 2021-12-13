@@ -1,7 +1,6 @@
 import { api } from 'services';
-import { CreateResolutionPayload } from 'modules/Cabinet/redux';
 import { DoctorAppointment, DoctorsResolution } from 'types';
-import { FetchAppointmentsPayload } from "modules/Cabinet/redux";
+import { FetchAppointmentsPayload, CreateResolutionPayload } from "modules/AppointmentsList/redux";
 
 type fetchAllDoctorAppointmentsParams = FetchAppointmentsPayload;
 
