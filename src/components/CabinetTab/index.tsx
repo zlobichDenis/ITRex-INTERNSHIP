@@ -1,5 +1,3 @@
-import { MouseEventHandler } from "react";
-
 import { Tab } from "./styles";
 
 type CabinetTabProps = {
@@ -9,11 +7,9 @@ type CabinetTabProps = {
 
 export function CabinetTab ({ text, isActive }: CabinetTabProps) {
   return (
-    // <li>
       <Tab isActive={isActive}>
         <span>{text}</span>
       </Tab>
-    // </li>
   );
-};
+}
 

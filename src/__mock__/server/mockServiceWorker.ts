@@ -1,6 +1,6 @@
 import { rest, setupWorker } from 'msw';
 import { setupServer } from 'msw/node';
-import { patientProfile } from 'services';
+import { patientProfile } from '../data';
 
 export let server: any;
 

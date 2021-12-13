@@ -1,7 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import { postDeletedAppointment, errorNotify, responceNotify, postNewResolution  } from 'services';
+import { postDeletedAppointment, postNewResolution  } from 'services';
+import { responceNotify, errorNotify } from "notification";
 import { appointmentsPagination } from 'const';
 import { SuccesMessages, ErrorMessages } from 'dictionary';
 import { deleteAppointment, fetchDoctorAppointments, CreateResolutionPayload, createResolution } from '..';

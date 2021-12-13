@@ -30,7 +30,7 @@ describe("SignIn form", () => {
     })
   })
 
-  it('should render succes notify when login is successs', async () => {
+  it('should render succes notification when login is successs', async () => {
     jest.restoreAllMocks();
 
     render(
@@ -49,7 +49,7 @@ describe("SignIn form", () => {
     })
   })
 
-  it('should render error notify when login is failse', async () => {
+  it('should render error notification when login is failse', async () => {
     jest.restoreAllMocks();
 
     render(
