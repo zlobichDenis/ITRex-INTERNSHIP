@@ -8,7 +8,7 @@ import {
   fetchPatientAppointments,
   getAppointmentsFetchStatus,
   getUserAppointments } from '../redux';
-import { getUserRoleName } from "../../AuthentificationForm/redux";
+import { getUserRoleName } from "modules/AuthentificationForm/redux";
 
 type UseFetchAppointmentsReturnValues = {
   fetchStatus: string,

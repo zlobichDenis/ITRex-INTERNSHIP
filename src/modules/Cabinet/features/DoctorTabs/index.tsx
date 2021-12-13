@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useRouteMatch } from "react-router-dom";
+import { Link, useLocation, useRouteMatch } from "react-router-dom";
 
 import { DoctorPaths} from "const";
 import { Tabs } from './styles';
@@ -11,16 +11,18 @@ export const DoctorTabs = () => {
 
   return (
     <Tabs>
-      <NavLink to={`${url}${DoctorPaths.APPOINTMENTS}`}>
+      <Link to={`${url}${DoctorPaths.APPOINTMENTS}`}>
         <CabinetTab
           isActive={pathname === `${url}${DoctorPaths.APPOINTMENTS}`}
-          text={DoctorTabsSchema.PATIENTS}/>
-      </NavLink>
-      <NavLink to={`${url}${DoctorPaths.RESOLUTION_LIST}`}>
+          text={DoctorTabsSchema.PATIENTS}
+        />
+      </Link>
+      <Link to={`${url}${DoctorPaths.RESOLUTION_LIST}`}>
         <CabinetTab
           isActive={pathname === `${url}${DoctorPaths.RESOLUTION_LIST}`}
-          text={DoctorTabsSchema.RESOLUTIONS}/>
-      </NavLink>
+          text={DoctorTabsSchema.RESOLUTIONS}
+        />
+      </Link>
     </Tabs>
   );
 };

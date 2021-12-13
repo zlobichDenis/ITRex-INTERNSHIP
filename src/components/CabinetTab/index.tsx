@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react";
+
 import { Tab } from "./styles";
 
 type CabinetTabProps = {
