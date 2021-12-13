@@ -1,7 +1,7 @@
 import { NavLink} from "react-router-dom";
 
 import { AppPaths, AuthPath } from "const";
-import { SignUpForm } from "../../features";
+import { SignUpForm } from "../../components";
 import {
   FeedbackButtons,
   FeedbackText,
@@ -25,4 +25,4 @@ export function SignUp () {
       </FeedbackButtons>
     </>
   );
-};
+}

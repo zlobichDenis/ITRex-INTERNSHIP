@@ -1,4 +1,4 @@
 export * from './routePaths';
-export * from '../modules/Cabinet/const/appointmentsPagination';
+export * from '../modules/AppointmentsList/const/appointmentsPagination';
 export * from './fetchStatus';
 export * from './userRoles';

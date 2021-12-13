@@ -1,5 +1,4 @@
-import { RestorePassForm } from "../../features";
-import { RestorePassConfirm } from "../../components";
+import { RestorePassForm, RestorePassConfirm } from "../../components";
 import { AppPaths, AuthPath } from "const";
 
 
