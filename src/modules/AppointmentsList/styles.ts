@@ -7,6 +7,7 @@ export const AppointmentsListWrapper = styled.div`
 `;
 
 export const AppointmentsList = styled.ul`
+  width: 100%;
   height: 65vh;
   display: flex;
   flex-direction: column;

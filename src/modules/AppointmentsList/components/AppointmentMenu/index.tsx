@@ -3,7 +3,7 @@ import { useState, useCallback } from "react";
 import { PersonOptionsSvg } from "assets";
 import { PatientData } from "types";
 import { useCreateNewResolution, useDeleteAppointment } from "../../hooks";
-import { ResolutionForm } from "modules";
+import { ResolutionModal } from "modules";
 import { AppointmentMenuList, AppointmentMenuListItem, AppointmentOptions } from "./styles";
 
 type AppointmentMenuProps = {
@@ -42,7 +42,7 @@ export function AppointmentMenu({ appointmentID, patient }: AppointmentMenuProps
       <AppointmentOptions onClick={toggleAppointmentMenu}>
         <img src={PersonOptionsSvg} width="21" height="21" alt="icon" />
       </AppointmentOptions>
-      <ResolutionForm 
+      <ResolutionModal
         firstName={firstName} 
         lastName={lastName} 
         closeHandle={closeCreateResolutionForm} 
