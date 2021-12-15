@@ -17,10 +17,14 @@ type PatientResolutionResponceData = {
   total: number,
 }
 
+const EndPoints = {
+  fetchAllPatientAppointments: () => `/appointments/patient/me`,
+  fetchAllPatientResolutions: () => `/resolutions/patient/me`,
+} as const;
 
 export const fetchAllPatientAppointments = (pagination: fetchAllPatientAppointmentsParams) => (
   api
-    .get<PatientAppointmentsResponceData>('/appointments/patient/me', {
+    .get<PatientAppointmentsResponceData>(EndPoints.fetchAllPatientAppointments(), {
       params: pagination,
     })
     .then((responce) => ({ responce }))
@@ -29,7 +33,7 @@ export const fetchAllPatientAppointments = (pagination: fetchAllPatientAppointme
 
 export const fetchAllPatientResolutions = (pagination: fetchAllPatientResolutionsParams) => (
   api
-    .get<PatientResolutionResponceData>('/resolutions/patient/me', {
+    .get<PatientResolutionResponceData>(EndPoints.fetchAllPatientResolutions(), {
       params: pagination,
     })
     .then((responce) => ({ responce }))

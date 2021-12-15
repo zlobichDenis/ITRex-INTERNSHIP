@@ -16,8 +16,7 @@ export const createResolutionsTableData = (
             resolution,
             visit_date: visitDate,
             doctor,
-          },
-          index) => {
+          }) => {
           const { first_name: firstName, last_name: lastName } = doctor;
 
           return {
@@ -36,8 +35,7 @@ export const createResolutionsTableData = (
             resolution,
             visit_date: visitDate,
             patient,
-          },
-          index) => {
+          }) => {
           const { first_name: firstName, last_name: lastName } = patient;
 
           return {

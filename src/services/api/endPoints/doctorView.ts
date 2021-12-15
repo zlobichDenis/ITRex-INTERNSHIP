@@ -33,9 +33,16 @@ type DoctorResolutionsResponceData = {
   resolutions: Array<DoctorsResolution> | [],
 }
 
+const EndPoints = {
+  fetchAllDoctorAppointments: () => `/appointments/doctor/me`,
+  postDeletedAppointment: (appointmentId: string) => `/appointments/${appointmentId}`,
+  pathChangesInAppointment: (id: string) => `/appointments/${id}`,
+  fetchAllDoctorResolutions: () => `resolutions/doctor/me`,
+} as const;
+
 export const fetchAllDoctorAppointments = (pagination: fetchAllDoctorAppointmentsParams) =>
   api
-    .get<DoctorAppointmentResponceData>('/appointments/doctor/me', {
+    .get<DoctorAppointmentResponceData>(EndPoints.fetchAllDoctorAppointments(), {
       params: pagination,
     })
     .then((responce) => ({ responce }))
@@ -43,7 +50,7 @@ export const fetchAllDoctorAppointments = (pagination: fetchAllDoctorAppointment
 
 export const postDeletedAppointment = (appointmentId: string) =>
   api
-    .delete<string>(`/appointments/${appointmentId}`)
+    .delete<string>(EndPoints.postDeletedAppointment(appointmentId))
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
@@ -52,7 +59,7 @@ export const pathChangesInAppointment = ({
                                            ...body
                                          }: PathChangesInAppointmentParams) =>
   api
-    .patch<string>(`/appointments/${id}`, body)
+    .patch<string>(EndPoints.pathChangesInAppointment(id), body)
     .then((responce) => ({ responce }))
     .then((error) => ({ error }));
 
@@ -65,7 +72,7 @@ export const postNewResolution = (resolution: PostNewResolutionParams) =>
 
 export const fetchAllDoctorResolutions = (pagination: fetchDoctorResolutionsParams) => (
   api
-    .get<DoctorResolutionsResponceData>('resolutions/doctor/me', {
+    .get<DoctorResolutionsResponceData>(EndPoints.fetchAllDoctorResolutions(), {
     params: pagination,
   })
     .then((responce) => ({ responce }))

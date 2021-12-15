@@ -13,7 +13,7 @@ import {
 import { SignUpFormValues, SignInFormValues } from "types";
 import { responceNotify, errorNotify } from "notification";
 import { SuccesMessages, ErrorMessages } from "dictionary";
-import { login, getUserProfile, registration } from "services";
+import { login, fetchUserData, registration } from "services";
 import * as tokenRepository from "store/tokenRepository";
 import { getCorrectPage } from "../../helpers";
 
@@ -49,7 +49,7 @@ function* loginWorker({ payload }: PayloadAction<LoginSagaParams>) {
 }
 
 function* getUserProfileWorker() {
-  const { responce: userProfileResponce } = yield call(getUserProfile);
+  const { responce: userProfileResponce } = yield call(fetchUserData);
 
   if (userProfileResponce) {
     yield put(responceFetchUserProfile());
