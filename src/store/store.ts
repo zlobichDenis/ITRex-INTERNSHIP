@@ -7,7 +7,8 @@ import { createBrowserHistory, History } from 'history';
 
 import { rootWatcher } from './rootWatcher';
 import { userReducer } from 'modules/AuthentificationForm/redux';
-import { appointmentsReducer } from 'modules/Cabinet/redux';
+import { resolutionsReducer } from 'modules/ResolutionsList/redux';
+import { appointmentsReducer } from "modules/AppointmentsList/redux";
 import { createAppointmentReducer } from 'modules/AppointmentForm/redux';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -23,6 +24,7 @@ const createRootReducer = (history: History<unknown>) => ({
   user: persistReducer(authentificationPersistConfig, userReducer),
   appointments: appointmentsReducer,
   appointmentFormData: createAppointmentReducer,
+  resolutions: resolutionsReducer,
 });
 
 

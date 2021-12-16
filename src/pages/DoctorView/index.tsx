@@ -7,7 +7,7 @@ export function DoctorView () {
     <CabinetSection>
       <Cabinet>
         <CabinetHeader />
-        <UserCabinet/>
+        <UserCabinet />
       </Cabinet>
     </CabinetSection>
   );

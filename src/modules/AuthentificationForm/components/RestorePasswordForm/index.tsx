@@ -1,8 +1,8 @@
 import { Formik, Field } from "formik";
 
-import { AppScreens, AuthStages } from "const";
+import { AppPaths, AuthPath } from "const";
 import { useRedirect } from "hooks";
-import { RestoreMessage } from "..";
+import { RestoreMessage } from "../index";
 import {
   AuthTextInput,
   AlertMessage,
@@ -10,7 +10,7 @@ import {
   BackToSignInButton
 } from "components";
 import { EmailInputSvg } from "assets";
-import { FeedbackForm } from "modules/Cabinet/styles";
+import { FeedbackForm } from "../../styles";
 import { restorePassSchema } from "modules/AuthentificationForm/schemes";
 
 
@@ -18,10 +18,10 @@ export function RestorePassForm() {
   const { routeToPath } = useRedirect();
 
   const backToSignIn = () => {
-    routeToPath(`${AppScreens.AUTH}${AuthStages.SIGN_IN}`)
+    routeToPath(`${AppPaths.AUTH}${AuthPath.SIGN_IN}`)
   };
   const confirmRestorePass = () => {
-    routeToPath(`${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`)
+    routeToPath(`${AppPaths.AUTH}${AuthPath.RESTORE_CONFIRM}`)
   }
 
   return (
@@ -41,13 +41,15 @@ export function RestorePassForm() {
 
           <Field component={AuthTextInput} name="email" type="text" placeholder="Email" icon={EmailInputSvg} />
           {errors.email && touched.email
-            ? <AlertMessage message={errors.email} />
+            ? <AlertMessage position="absolute" message={errors.email} />
             : null}
 
-          <ActionButton textContent='Restore Password' />
+          <ActionButton
+            width={150}
+            textContent='Restore Password' />
         </FeedbackForm>
       )}
     </Formik>
 
   )
-};
+}

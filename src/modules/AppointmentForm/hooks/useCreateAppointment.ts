@@ -1,9 +1,10 @@
 import { useCallback, useEffect } from 'react';
+import { useRouteMatch } from "react-router-dom";
 import { push } from 'connected-react-router';
 
 import { useAppSelector, useAppDispatch } from 'store';
 import { postNewAppointment, setDefaultFetchStatus, getAppointmentFormDataFetchStatus } from '../redux';
-import { AppScreens, PatientScreens, FetchStatus } from 'const';
+import { AppPaths, PatientPaths, FetchStatus } from 'const';
 
 
 type UseCreateAppointmentReturnValues = {
@@ -23,6 +24,7 @@ type CreateNewAppointmentParams = {
 export const useCreateAppointment = (): UseCreateAppointmentReturnValues => {
   const dispatch =  useAppDispatch();
   const fetchStatus = useAppSelector(getAppointmentFormDataFetchStatus);
+  const match = useRouteMatch(AppPaths.PATIENT_VIEW);
 
   const createAppointment = useCallback((formValues: CreateNewAppointmentParams) => {
     const { occupation, date: visitDate, doctorName: doctorID, time: date, ...rest } = formValues;
@@ -33,9 +35,10 @@ export const useCreateAppointment = (): UseCreateAppointmentReturnValues => {
 
   useEffect(() => {
     if (fetchStatus === FetchStatus.SUCCESS) {
-      dispatch(push(`${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`))
+      dispatch(push(`${match?.url}${PatientPaths.APPOINTMENTS}`))
       dispatch(setDefaultFetchStatus());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchStatus]);
 
   return { createAppointment, fetchStatus }

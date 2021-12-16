@@ -19,10 +19,12 @@ export const useAuthentification = () => {
 
   const loginRequest = useCallback((userData: LoginRequestParams) => {
     dispatch(fetchLogin(userData))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   const registrationRequest = useCallback((userData: RegistrationParams) => {
     dispatch(fetchRegistration(userData))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return { userProfile, fetchStatus, registrationRequest, loginRequest };

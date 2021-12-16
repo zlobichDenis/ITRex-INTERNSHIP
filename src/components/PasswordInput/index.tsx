@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 import { InputText } from "elements";
-import { InputField, InputIcon } from "../styles";
+import { EyeSvg, EyeBlockSvg } from "assets";
+import { InputField } from "../styles";
 
 type PasswordInputProps = {
   placeholder: string,
@@ -27,7 +28,9 @@ export function PasswordInput ({ placeholder, field, icon, role }: PasswordInput
         placeholder={placeholder}
         className="feedback-field__input feedback-field__input_password"
       />
-      <InputIcon onClick={showPassToggle} isShowingPass={isShowingPass} />
+      <button>
+        <img onClick={showPassToggle} src={isShowingPass ? EyeSvg : EyeBlockSvg} width="24" height="24" alt="icon"/>
+      </button>
     </InputField>
   );
 };

@@ -1,13 +1,10 @@
 import { api } from 'services';
-import { CreateResolutionPayload } from 'modules/Cabinet/redux';
-import { DoctorAppointment } from 'types';
+import { DoctorAppointment, DoctorsResolution } from 'types';
+import { FetchAppointmentsPayload, CreateResolutionPayload } from "modules/AppointmentsList/redux";
 
-type getAllDoctorAppointmentsParams = {
-  limit: number;
-  offset: number;
-};
+type fetchAllDoctorAppointmentsParams = FetchAppointmentsPayload;
 
-type PatientResponceData = {
+type DoctorAppointmentResponceData = {
   appoinments: Array<DoctorAppointment>;
   total: number;
 };
@@ -26,39 +23,58 @@ type PostNewResolutionResponce = {
   resolution: string;
 };
 
-export const fetchAllDoctorAppointments = ({
-  limit,
-  offset,
-}: getAllDoctorAppointmentsParams) =>
+type fetchDoctorResolutionsParams = {
+  offset: number,
+  limit: number,
+}
+
+type DoctorResolutionsResponceData = {
+  total: number,
+  resolutions: Array<DoctorsResolution> | [],
+}
+
+const EndPoints = {
+  fetchAllDoctorAppointments: () => `/appointments/doctor/me`,
+  postDeletedAppointment: (appointmentId: string) => `/appointments/${appointmentId}`,
+  pathChangesInAppointment: (id: string) => `/appointments/${id}`,
+  fetchAllDoctorResolutions: () => `resolutions/doctor/me`,
+} as const;
+
+export const fetchAllDoctorAppointments = (pagination: fetchAllDoctorAppointmentsParams) =>
   api
-    .get<PatientResponceData>('/appointments/doctor/me', {
-      params: {
-        offset: offset,
-        limit: limit,
-      },
+    .get<DoctorAppointmentResponceData>(EndPoints.fetchAllDoctorAppointments(), {
+      params: pagination,
     })
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
 export const postDeletedAppointment = (appointmentId: string) =>
   api
-    .delete<string>(`/appointments/${appointmentId}`)
+    .delete<string>(EndPoints.postDeletedAppointment(appointmentId))
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
 export const pathChangesInAppointment = ({
-  id,
-  ...body
-}: PathChangesInAppointmentParams) =>
+                                           id,
+                                           ...body
+                                         }: PathChangesInAppointmentParams) =>
   api
-    .patch<string>(`/appointments/${id}`, body)
+    .patch<string>(EndPoints.pathChangesInAppointment(id), body)
     .then((responce) => ({ responce }))
     .then((error) => ({ error }));
 
-export const postNewResolution = (resolution: PostNewResolutionParams) => {
-  console.log(resolution)
-  return api
+export const postNewResolution = (resolution: PostNewResolutionParams) =>
+  api
     .post<PostNewResolutionResponce>('/resolutions', resolution)
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
-}
+
+
+export const fetchAllDoctorResolutions = (pagination: fetchDoctorResolutionsParams) => (
+  api
+    .get<DoctorResolutionsResponceData>(EndPoints.fetchAllDoctorResolutions(), {
+    params: pagination,
+  })
+    .then((responce) => ({ responce }))
+    .catch((error) => ({ error }))
+)

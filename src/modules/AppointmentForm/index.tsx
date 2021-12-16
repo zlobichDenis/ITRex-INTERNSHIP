@@ -1,6 +1,7 @@
 import { Tittle } from "elements";
+import { UserPath } from "components";
 import { CabinetInfo } from "modules/Cabinet/styles";
-import { UserPath, AppointmentForm } from "./components";
+import { AppointmentForm } from "./components";
 
 export function AppointmentFormContainer () {
   return (

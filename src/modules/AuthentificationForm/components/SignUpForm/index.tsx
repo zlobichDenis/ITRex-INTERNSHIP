@@ -13,10 +13,10 @@ import {
   EmailInputSvg,
   PasswordConfirmSvg,
 } from "assets";
-import { FeedbackForm } from "modules/Cabinet/styles";
 import { Tittle } from "elements";
-import { signUpSchema } from "modules/AuthentificationForm/schemes";
-import { useAuthentification } from "modules/AuthentificationForm/hooks";
+import { FeedbackForm, InputFieldWrapper } from "../../styles";
+import { signUpSchema } from "../../schemes";
+import { useAuthentification } from "../../hooks";
 
 
 export function SignUpForm () {
@@ -45,70 +45,85 @@ export function SignUpForm () {
         <FeedbackForm onSubmit={handleSubmit}>
           <Tittle>Sign Up</Tittle>
 
-          <Field
-            role="first-name-input"
-            component={AuthTextInput}
-            name="firstName"
-            type="text"
-            placeholder="First Name"
-            icon={NameInputSvg}
-          />
-          {errors.firstName && touched.firstName ? (
-            <AlertMessage message={errors.firstName} />
-          ) : null}
+          <InputFieldWrapper>
+            <Field
+              role="first-name-input"
+              component={AuthTextInput}
+              name="firstName"
+              type="text"
+              placeholder="First Name"
+              icon={NameInputSvg}
+            />
+            {errors.firstName && touched.firstName ? (
+              <AlertMessage position="absolute" message={errors.firstName} />
+            ) : null}
+          </InputFieldWrapper>
 
-          <Field
-            component={AuthTextInput}
-            role="last-name-input"
-            name="lastName"
-            type="text"
-            placeholder="Last Name"
-            icon={NameInputSvg}
-          />
-          {errors.lastName && touched.lastName ? (
-            <AlertMessage message={errors.lastName} />
-          ) : null}
+          <InputFieldWrapper>
+            <Field
+              component={AuthTextInput}
+              role="last-name-input"
+              name="lastName"
+              type="text"
+              placeholder="Last Name"
+              icon={NameInputSvg}
+            />
+            {errors.lastName && touched.lastName ? (
+              <AlertMessage position="absolute" message={errors.lastName} />
+            ) : null}
+          </InputFieldWrapper>
 
-          <Field
-            role="email-input"
-            component={AuthTextInput}
-            name="userName"
-            type="text"
-            placeholder="Email"
-            icon={EmailInputSvg}
-          />
-          {errors.userName && touched.userName ? (
-            <AlertMessage message={errors.userName} />
-          ) : null}
+          <InputFieldWrapper>
+            <Field
+              role="email-input"
+              component={AuthTextInput}
+              name="userName"
+              type="text"
+              placeholder="Email"
+              icon={EmailInputSvg}
+            />
+            {errors.userName && touched.userName ? (
+              <AlertMessage position="absolute" message={errors.userName} />
+            ) : null}
+          </InputFieldWrapper>
 
-          <Field
-            role="password-input"
-            component={PasswordInput}
-            name="password"
-            type="password"
-            placeholder="Password"
-            icon={PasswordInputSvg}
-          />
-          {errors.password && touched.password ? (
-            <AlertMessage message={errors.password} />
-          ) : null}
+          <InputFieldWrapper>
+            <Field
+              role="password-input"
+              component={PasswordInput}
+              name="password"
+              type="password"
+              placeholder="Password"
+              icon={PasswordInputSvg}
+            />
+            {errors.password && touched.password ? (
+              <AlertMessage position="absolute" message={errors.password} />
+            ) : null}
+          </InputFieldWrapper>
 
-          <Field
-            role="password-confirm-input"
-            component={PasswordInput}
-            name="passwordConfirm"
-            type="password"
-            placeholder="Confirm Password"
-            icon={PasswordConfirmSvg}
-          />
-          {errors.passwordConfirm && touched.passwordConfirm ? (
-            <AlertMessage message={`Password not match!`} />
-          ) : null}
+          <InputFieldWrapper>
+            <Field
+              role="password-confirm-input"
+              component={PasswordInput}
+              name="passwordConfirm"
+              type="password"
+              placeholder="Confirm Password"
+              icon={PasswordConfirmSvg}
+            />
+            {errors.passwordConfirm && touched.passwordConfirm ? (
+              <AlertMessage position="absolute" message={`Password not match!`} />
+            ) : null}
+          </InputFieldWrapper>
 
-          <ActionButton role="submit-button" isDisabled={isValid} textContent="Sign Up" />
+          <ActionButton
+            width={150}
+            role="submit-button"
+            isDisabled={isValid}
+            textContent="Sign Up"
+          />
 
         </FeedbackForm>
       )}
     </Formik>
   );
-};
+}

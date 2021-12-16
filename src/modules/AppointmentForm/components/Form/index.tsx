@@ -1,14 +1,14 @@
 import { Formik, Field } from "formik";
 
 import { NumberOneSvg, NumberTwoSvg, NumberThreeSvg } from "assets";
-import { ActionButton, AlertMessage, AuthTextInput } from "components";
+import { ActionButton, AlertMessage, AuthTextInput, FormStageName } from "components";
 import {
   CreateAppointmentForm,
   StageCreatingWrapper,
   InputWrapper,
   InputLabel,
 } from "../../styles";
-import { VisitCalendar, FormStageName, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
+import { VisitCalendar, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
 import { appointmentSchema } from "modules/AppointmentForm/schemes";
 import { useCreateAppointment } from "modules/AppointmentForm/hooks";
 
@@ -53,7 +53,7 @@ export function AppointmentForm() {
                 id="occupation"
                 handleReset={setFieldValue}/>
               {errors.occupation && touched.occupation ? (
-                <AlertMessage message={errors.occupation}/>
+                <AlertMessage position="unset" message={errors.occupation}/>
               ) : null}
             </InputWrapper>
 
@@ -66,7 +66,7 @@ export function AppointmentForm() {
                 id="doctorName"
                 handleReset={setFieldValue}/>
               {errors.doctorName && touched.doctorName ? (
-                <AlertMessage message={errors.doctorName}/>
+                <AlertMessage position="unset" message={errors.doctorName}/>
               ) : null}
             </InputWrapper>
 
@@ -74,7 +74,7 @@ export function AppointmentForm() {
               <InputLabel>Reason for the visit</InputLabel>
               <Field component={AuthTextInput} name="reason" id="reason"/>
               {errors.reason && touched.reason ? (
-                <AlertMessage message={errors.reason}/>
+                <AlertMessage position="absolute" message={errors.reason}/>
               ) : null}
             </InputWrapper>
 
@@ -95,7 +95,7 @@ export function AppointmentForm() {
                 component={VisitCalendar}
                 handleReset={setFieldValue}/>
             ) : (
-              <AlertMessage role="no-calendar-message" message="Choose a doctor first"/>
+              <AlertMessage position="static" role="no-calendar-message" message="Choose a doctor first"/>
             )}
           </StageCreatingWrapper>
 
@@ -106,16 +106,17 @@ export function AppointmentForm() {
             {values.doctorName && values.occupation && values.date ? (
               <TimeRadioList/>
             ) : (
-              <AlertMessage role="no-date-and-doctor" message="Select a date and doctor first"/>
+              <AlertMessage position="static" role="no-date-and-doctor" message="Select a date and doctor first"/>
             )}
           </StageCreatingWrapper>
 
           <ActionButton
+            width={160}
             role="submit-appointment"
             isDisabled={isValid}
             type="submit"
             textContent="Submit"
-            itsUserView/>
+            position={"flex-end"}/>
 
         </CreateAppointmentForm>
       )}

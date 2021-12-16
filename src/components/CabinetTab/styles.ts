@@ -6,7 +6,7 @@ type TabProps = {
     isActive: boolean,
 }
 
-export const Tab = styled.button<TabProps>`
+export const Tab = styled.span<TabProps>`
     display: flex;
     align-items: center;
     justify-content: center;

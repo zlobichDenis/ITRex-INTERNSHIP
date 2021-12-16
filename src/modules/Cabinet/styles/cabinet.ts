@@ -35,7 +35,6 @@ export const CabinetInfo = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  overflow-y: scroll;
 
   @media (min-width: 1920px) {
     gap: 32px;

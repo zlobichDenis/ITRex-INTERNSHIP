@@ -13,21 +13,28 @@ export type CreateAppointmentParams = {
   doctorID: string,
 }
 
+const EndPoints = {
+  getAllSpecializations: () => `specializations`,
+  getDoctorsBySpecialisations: (specializationId: string) => `doctors/specialization/${specializationId}`,
+  getAvailableTime: () => 'appointments/time/free',
+  postCreatedAppointment: () => 'appointments',
+} as const;
+
 export const getAllSpecializations = () =>
   api
-    .get<Array<Specialization>>('specializations')
+    .get<Array<Specialization>>(EndPoints.getAllSpecializations())
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
 export const getDoctorsBySpecialisations = (specializationId: string) =>
   api
-    .get<Array<Doctor>>(`doctors/specialization/${specializationId}`)
+    .get<Array<Doctor>>(EndPoints.getDoctorsBySpecialisations(specializationId))
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
 export const getAvailableTime = ({ doctorId, date }: GetAvailableTimeParams) =>
   api
-    .get<Array<string>>('appointments/time/free', {
+    .get<Array<string>>(EndPoints.getAvailableTime(), {
       params: {
         doctorId: doctorId,
         date: date,
@@ -36,8 +43,8 @@ export const getAvailableTime = ({ doctorId, date }: GetAvailableTimeParams) =>
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
-export const createAppointment = (data: CreateAppointmentParams) =>
+export const postCreatedAppointment = (data: CreateAppointmentParams) =>
   api
-    .post('appointments', data)
+    .post(EndPoints.postCreatedAppointment(), data)
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));

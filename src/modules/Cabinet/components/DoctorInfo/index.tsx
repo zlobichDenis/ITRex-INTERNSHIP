@@ -1,14 +1,14 @@
-import { CabinetControlPanel, UserAppointmentsList, CabinetTabs } from "..";
+import { DoctorCabinetRouter } from "routes";
+import { DoctorTabs } from "..";
 import { CabinetInfo } from "../../styles";
 
 export function DoctorInfo () {
   return (
     <>
-      <CabinetTabs />
+      <DoctorTabs />
       <CabinetInfo>
-        <CabinetControlPanel />
-        <UserAppointmentsList />
+        <DoctorCabinetRouter />
       </CabinetInfo>
     </>
   );
-};
+}

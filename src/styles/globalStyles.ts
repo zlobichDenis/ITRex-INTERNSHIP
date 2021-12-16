@@ -25,6 +25,11 @@ export const GlobalStyles = createGlobalStyle`
     background-color: transparent;
     cursor: pointer;
     }
+    
+    a{
+      text-underline: none;
+      text-decoration: none;
+    }
 
     html,
     main,

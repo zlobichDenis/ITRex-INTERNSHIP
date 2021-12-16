@@ -8,6 +8,7 @@ import {
 } from "./styles";
 import { getUserProfile } from "modules/AuthentificationForm/redux";
 
+
 export function CabinetHeader() {
   const {
     first_name: firstName,

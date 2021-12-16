@@ -1,16 +1,15 @@
 import React from 'react';
 
 import { Authentification, DoctorView, PatientView } from 'pages';
-import { UserRoles, AppScreens, AuthStages, PatientScreens } from 'const';
-import {
-  PatientInfo,
-} from 'modules/Cabinet/components';
+import { UserRoles, AppPaths, AuthPath, PatientPaths, DoctorPaths } from 'const';
+import { UserAppointmentsList } from "modules/AppointmentsList";
+import { ResolutionsList } from "modules/ResolutionsList";
 import { AppointmentFormContainer } from 'modules/AppointmentForm';
 import {
   SignUp,
   SignIn,
   RestorePass,
-} from 'modules/AuthentificationForm/components';
+} from 'modules/AuthentificationForm/containers';
 
 
 export type RouteType = {
@@ -21,21 +20,22 @@ export type RouteType = {
   exact?: boolean,
 }
 
+
 export const appRoutes: Array<RouteType> = [
   {
-    path: AppScreens.AUTH,
+    path: AppPaths.AUTH,
     component: Authentification,
     isPrivate: false,
     forRole: null,
   },
   {
-    path: AppScreens.DOCTOR_VIEW,
+    path: AppPaths.DOCTOR_VIEW,
     component: DoctorView,
     isPrivate: true,
     forRole: UserRoles.DOCTOR,
   },
   {
-    path: AppScreens.PATIENT_VIEW,
+    path: AppPaths.PATIENT_VIEW,
     component: PatientView,
     isPrivate: true,
     forRole: UserRoles.PATIENT,
@@ -44,25 +44,25 @@ export const appRoutes: Array<RouteType> = [
 
 export const authRoutes: Array<RouteType> = [
   {
-    path: `${AppScreens.AUTH}${AuthStages.SIGN_UP}`,
+    path: `${AppPaths.AUTH}${AuthPath.SIGN_UP}`,
     component: SignUp,
     isPrivate: false,
     forRole: null,
   },
   {
-    path: `${AppScreens.AUTH}${AuthStages.SIGN_IN}`,
+    path: `${AppPaths.AUTH}${AuthPath.SIGN_IN}`,
     component: SignIn,
     isPrivate: false,
     forRole: null,
   },
   {
-    path: `${AppScreens.AUTH}${AuthStages.RESTORE}`,
+    path: `${AppPaths.AUTH}${AuthPath.RESTORE}`,
     component: RestorePass,
     isPrivate: false,
     forRole: null,
   },
   {
-    path: `${AppScreens.AUTH}${AuthStages.RESTORE_CONFIRM}`,
+    path: `${AppPaths.AUTH}${AuthPath.RESTORE_CONFIRM}`,
     component: RestorePass,
     isPrivate: true,
     forRole: null,
@@ -71,17 +71,41 @@ export const authRoutes: Array<RouteType> = [
 
 export const patientCabinetRoutes: Array<RouteType> = [
   {
-    path: `${AppScreens.PATIENT_VIEW}${PatientScreens.CABINET}`,
-    component: PatientInfo,
+    path: `${AppPaths.PATIENT_VIEW}${PatientPaths.APPOINTMENTS}`,
+    component: UserAppointmentsList,
     isPrivate: true,
     exact: false,
     forRole: UserRoles.PATIENT
   },
   {
-    path: `${AppScreens.PATIENT_VIEW}${PatientScreens.CREATE_APPOINTMENT}`,
+    path: `${AppPaths.PATIENT_VIEW}${PatientPaths.CREATE_APPOINTMENT}`,
     component: AppointmentFormContainer,
     isPrivate: true,
     exact: false,
     forRole: UserRoles.PATIENT,
+  },
+  {
+    path: `${AppPaths.PATIENT_VIEW}${PatientPaths.RESOLUTION_LIST}`,
+    component: ResolutionsList,
+    isPrivate: true,
+    exact: false,
+    forRole: UserRoles.PATIENT,
+  },
+];
+
+export const doctorCabinetRoutes: Array<RouteType> = [
+  {
+    path: `${AppPaths.DOCTOR_VIEW}${DoctorPaths.APPOINTMENTS}`,
+    component: UserAppointmentsList,
+    isPrivate: true,
+    exact: false,
+    forRole: UserRoles.DOCTOR,
+  },
+  {
+    path: `${AppPaths.DOCTOR_VIEW}${DoctorPaths.RESOLUTION_LIST}`,
+    component: ResolutionsList,
+    isPrivate: true,
+    exact: false,
+    forRole: UserRoles.DOCTOR,
   },
 ];
