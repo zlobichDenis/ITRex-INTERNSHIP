@@ -25,4 +25,4 @@ export function DoctorView () {
       </Cabinet>
     </CabinetSection>
   );
-};
+}

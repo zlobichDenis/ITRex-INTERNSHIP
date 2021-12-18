@@ -8,7 +8,7 @@ import React from "react";
 type PublicRouteParams = {
   component: React.FC,
   path: string,
-  role: string,
+  role?: string,
 }
 
 export const PublicRoute = ({ component: Component, path, role, ...rest }: PublicRouteParams) => {

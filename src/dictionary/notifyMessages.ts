@@ -8,8 +8,8 @@ export const SuccesMessages = {
 
 export const ErrorMessages = {
   CREATED_APPOINTMENTS: 'Something going wrong. Try again.',
-  LOGIN: 'Unsuccessful login',
-  REGISTRATION: 'Unsuccessful registration',
+  LOGIN: 'Unsuccessful login!',
+  REGISTRATION: 'Unsuccessful registration!',
   DELETE_APPOINTMENTS: 'Something going wrong. Try again.',
   CREATE_RESOLUTION: 'An resolution has already been created for this appointment.',
 };
