@@ -9,7 +9,8 @@ type ResolutionTablePaginationButtonProps = {
 export const ResolutionTableContainer = styled.div`
   width: 80vw;
   height: 60vh;
-
+  overflow-y: scroll;
+  
   @media (min-width: 1920px) {
     width: 90vw;
   }

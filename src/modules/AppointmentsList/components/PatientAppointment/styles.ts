@@ -14,8 +14,10 @@ export const AppointmentsItem = styled.li`
   gap: 16px;
   padding: 16px 24px;
   width: 80vw;
+  height: 264px;
   background-color: #ffff;
   border-radius: 12px;
+  overflow-y: scroll;
 
   @media (min-width: 1920px) {
     gap: 24px;
@@ -96,6 +98,7 @@ export const VisitMessage = styled.div`
   display: flex;
   flex-direction: row;
   gap: 24px;
+  height: 70px;
   font-family: Poppins;
   font-weight: 400;
   font-size: 15px;
@@ -104,6 +107,11 @@ export const VisitMessage = styled.div`
 
 export const VisitMessageIcon = styled.div`
   padding-left: 2px;
+`;
+
+export const VisitMessageText = styled.span`
+  word-break: break-all;
+  overflow-y: scroll;
 `;
 
 export const UserStatus = styled.div`

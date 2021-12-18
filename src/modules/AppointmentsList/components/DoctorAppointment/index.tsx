@@ -13,6 +13,7 @@ import {
   VisitDate,
   VisitMessage,
   VisitMessageIcon,
+  VisitMessageText,
 } from "./styles";
 
 type DoctorProps = {
@@ -39,13 +40,15 @@ export const DoctorAppointment = ({ appointment }: DoctorProps) => {
           <div>
             <img src={DateSvg} width="21" height="21" alt="icon" />
           </div>
-          <span>{`${moment(date).format("ddd MMM D, YYYY hh:mm A")}-${moment(date).add(1, 'hours').format('hh:mm A')} `}</span>
+          <VisitMessageText>
+            {`${moment(date).format("ddd MMM D, YYYY hh:mm A")}-${moment(date).add(1, 'hours').format('hh:mm A')} `}
+          </VisitMessageText>
         </VisitDate>
         <VisitMessage>
           <VisitMessageIcon>
             <img src={HeartSvg} width="21" height="21" alt="icon" />
           </VisitMessageIcon>
-          <span>{reason}</span>
+          <VisitMessageText>{reason}</VisitMessageText>
         </VisitMessage>
       </UserDetails>
     </AppointmentsItem>

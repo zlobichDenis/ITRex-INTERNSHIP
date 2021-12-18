@@ -21,7 +21,6 @@ export const AppointmentsList = styled.ul`
   }
 
   @media (min-width: 768px) and (max-width: 1919px) {
-    height: 50vh;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;

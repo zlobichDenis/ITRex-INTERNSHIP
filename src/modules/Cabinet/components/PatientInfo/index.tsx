@@ -1,6 +1,7 @@
-import { CabinetInfo } from "../../styles";
-import { PatientTabs } from "..";
 import { PatientCabinetRouter } from "routes";
+import { PatientTabs } from "..";
+import { CabinetInfo } from "../../styles";
+
 
 export function PatientInfo () {
   return (

@@ -11,10 +11,10 @@ export function UserCabinet() {
 
   return (
     <CabinetContentWrapper>
-      {roleName === UserRoles.PATIENT
+      { roleName === UserRoles.PATIENT
         ? <PatientInfo />
-        : <DoctorInfo />}
+        : <DoctorInfo /> }
     </CabinetContentWrapper>
   )
-};
+}
 

@@ -26,6 +26,7 @@ import WaitingSvg from './Waiting.svg';
 import CrossSvg from './Cross.svg';
 import EyeSvg from './Eye.svg';
 import EyeBlockSvg from './EyeBlocked.svg';
+import LogoSvg from './Logo.svg';
 
 export {
   BackArrowSvg,
@@ -56,4 +57,5 @@ export {
   CrossSvg,
   EyeSvg,
   EyeBlockSvg,
+  LogoSvg,
 };

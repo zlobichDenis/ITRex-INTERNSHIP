@@ -14,7 +14,8 @@ import {
   VisitMessage,
   VisitMessageIcon,
   UserStatus,
-  UserStatusIcon
+  UserStatusIcon,
+  VisitMessageText
 } from "./styles";
 import { AppointmentMenu } from "..";
 
@@ -48,15 +49,15 @@ export function PatientAppointment ({ appointment }: PatientProps) {
       <UserDetails>
         <VisitDate>
           <img src={DateSvg} width="21" height="21" alt="icon" />
-          <span>
+          <VisitMessageText>
             {`${moment(date).format("ddd MMM D, YYYY hh:mm A")}-${moment(date).add(1, 'hours').format('hh:mm A')} `}
-          </span>
+          </VisitMessageText>
         </VisitDate>
         <VisitMessage>
           <VisitMessageIcon>
             <img src={AppointmentSvg} width="21" height="21" alt="icon" />
           </VisitMessageIcon>
-          <span>{reason}</span>
+          <VisitMessageText>{reason}</VisitMessageText>
         </VisitMessage>
       </UserDetails>
     </AppointmentsItem>

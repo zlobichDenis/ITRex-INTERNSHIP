@@ -1,25 +1,32 @@
-import { useAppSelector } from "store";
+import { MouseEventHandler } from "react";
+
+import { LogoSvg } from "assets";
+import { UserProfile } from "types";
 import {
   Header,
   UserInfo,
   UserName,
   UserSpecialty,
   UserNameWrapper,
+  Logo
 } from "./styles";
-import { getUserProfile } from "modules/AuthentificationForm/redux";
 
+type CabinetHeaderProps = {
+  handleClick: MouseEventHandler,
+  userProfile: UserProfile,
+}
 
-export function CabinetHeader() {
+export function CabinetHeader({ handleClick, userProfile}: CabinetHeaderProps) {
   const {
     first_name: firstName,
     last_name: lastName,
     photo,
     role_name: roleName
-  } = useAppSelector(getUserProfile);
+  } = userProfile;
 
   return (
     <Header>
-      <img src="./img/logo.png" alt=""/>
+      <Logo onClick={handleClick} src={LogoSvg} alt=""/>
       <UserInfo>
         <UserNameWrapper>
           <UserName className="doctor-cabinet__doctor-name">
