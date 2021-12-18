@@ -12,4 +12,4 @@ export function AlertMessage ({ message, role, position }: AlertMessageProps) {
       <p>{message}</p>
     </AlertMessageText>
   );
-};
+}

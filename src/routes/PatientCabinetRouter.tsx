@@ -1,4 +1,4 @@
-import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
+import { Switch, Redirect, useRouteMatch } from "react-router-dom";
 
 import { patientCabinetRoutes } from "routes";
 import { AppPaths, PatientPaths } from "const";

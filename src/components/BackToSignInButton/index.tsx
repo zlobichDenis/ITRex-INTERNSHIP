@@ -14,5 +14,5 @@ export function BackToSignInButton ({ backToSignIn }: BackToSignInButtonProps) {
       <span>Restore password</span>
     </RestoreButton>
   );
-};
+}
 

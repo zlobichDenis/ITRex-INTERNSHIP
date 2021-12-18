@@ -4,15 +4,16 @@ export const AppointmentsListWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 70vh;
 `;
 
 export const AppointmentsList = styled.ul`
   width: 100%;
-  height: 65vh;
+  height: 90%;
   display: flex;
   flex-direction: column;
   gap: 2vh 2vw;
-  overflow-y: scroll;
+  overflow: auto;
 
   @media (min-width: 1920px) {
     flex-direction: row;

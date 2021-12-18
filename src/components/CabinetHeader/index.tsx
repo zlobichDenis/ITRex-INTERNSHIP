@@ -40,4 +40,4 @@ export function CabinetHeader({ handleClick, userProfile}: CabinetHeaderProps) {
       </UserInfo>
     </Header>
   );
-};
+}

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { DividerSvg } from 'assets';
 
+import { typography, colors } from "styles";
+
 export const AppointmentsItem = styled.li`
   position: relative;
   display: flex;
@@ -9,7 +11,7 @@ export const AppointmentsItem = styled.li`
   padding: 16px 24px;
   width: 80vw;
   height: 264px;
-  background-color: #ffff;
+  background-color: ${colors.WHITE};
   border-radius: 12px;
 
   @media (min-width: 1920px) {
@@ -45,13 +47,17 @@ export const UserInfoWrapper = styled.div`
 export const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 5px;
 `;
 
 export const UserName = styled.span`
-  font-family: Poppins;
-  font-weight: 600;
+  ${typography.BOLD_TEXT};
   font-size: 17px;
-  line-height: 130%;
+`;
+
+export const SpecializationName = styled.span`
+  ${typography.ORDINARY_TEXT};
+  color: ${colors.GREY_MEDIUM};
 `;
 
 export const UserItemDivider = styled.div`
@@ -80,11 +86,7 @@ export const VisitDate = styled.div`
   display: flex;
   flex-direction: row;
   gap: 24px;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 130%;
+  ${typography.BOLD_TEXT}
 `;
 
 export const VisitMessage = styled.div`
@@ -92,10 +94,8 @@ export const VisitMessage = styled.div`
   flex-direction: row;
   gap: 24px;
   height: 70px;
-  font-family: Poppins;
-  font-weight: 400;
+  ${typography.ORDINARY_TEXT};
   font-size: 15px;
-  line-height: 140%;
 `;
 
 export const VisitMessageIcon = styled.div`
@@ -104,5 +104,8 @@ export const VisitMessageIcon = styled.div`
 
 export const VisitMessageText = styled.span`
   word-break: break-all;
-  overflow-y: scroll;
+`;
+
+export const VisitReason = styled.span`
+  overflow: auto;
 `;

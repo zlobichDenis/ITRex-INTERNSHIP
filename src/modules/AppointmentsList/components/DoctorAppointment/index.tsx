@@ -14,6 +14,8 @@ import {
   VisitMessage,
   VisitMessageIcon,
   VisitMessageText,
+  SpecializationName,
+  VisitReason
 } from "./styles";
 
 type DoctorProps = {
@@ -22,7 +24,7 @@ type DoctorProps = {
 
 export const DoctorAppointment = ({ appointment }: DoctorProps) => {
   const { doctor, visit_date: date, reason } = appointment;
-  const { first_name: firstName, last_name: lastName, photo } = doctor;
+  const { first_name: firstName, last_name: lastName, photo, specialization_name: specializationName } = doctor;
 
   return (
     <AppointmentsItem role="doctor">
@@ -31,6 +33,7 @@ export const DoctorAppointment = ({ appointment }: DoctorProps) => {
           <img width="48" height="48" src={photo} alt="PatientAppointment" />
           <UserInfo>
             <UserName className="patient-cabinet__doctor-name">{`${firstName} ${lastName}`}</UserName>
+            <SpecializationName>{specializationName}</SpecializationName>
           </UserInfo>
         </UserInfoWrapper>
       </AppointmentsItemHeader>
@@ -48,7 +51,7 @@ export const DoctorAppointment = ({ appointment }: DoctorProps) => {
           <VisitMessageIcon>
             <img src={HeartSvg} width="21" height="21" alt="icon" />
           </VisitMessageIcon>
-          <VisitMessageText>{reason}</VisitMessageText>
+          <VisitReason>{reason}</VisitReason>
         </VisitMessage>
       </UserDetails>
     </AppointmentsItem>

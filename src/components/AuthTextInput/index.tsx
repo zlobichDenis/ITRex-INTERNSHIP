@@ -15,4 +15,4 @@ export function AuthTextInput ({ field, icon, placeholder, role }: AuthTextInput
       <InputText role={role} {...field} placeholder={placeholder}></InputText>
     </InputField>
   );
-};
+}

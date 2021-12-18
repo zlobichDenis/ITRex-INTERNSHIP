@@ -14,4 +14,4 @@ export function EmptyList () {
         </EmptyListContent>
     </EmptyListContainer>
   );
-};
+}

@@ -4,12 +4,10 @@ import { colors } from 'styles';
 
 export const CabinetSection = styled.section`
   position: relative;
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100vh;
   background-color: ${colors.GREY_SOLID};
-  overflow-y: scroll;
+  overflow: auto;
 
   @media (min-width: 768px) and (max-width: 1919px) {
     z-index: 1;
@@ -26,5 +24,6 @@ export const Cabinet = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 100%;  
+  height: 100vh;
 `;
