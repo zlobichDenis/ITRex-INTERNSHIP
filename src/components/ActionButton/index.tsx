@@ -5,7 +5,7 @@ import { ButtonWrapper, Button } from "./styles";
 
 type ActionButtonProps = {
   textContent: string,
-  width: number,
+  padding: string,
   position?: string,
   role?: string, 
   icon?: string, 
@@ -20,7 +20,7 @@ export function ActionButton ({
   role,
   icon = ButtonArrowSvg,
   type = "submit",
-  width,
+  padding,
   isDisabled = true,
   position,
   handleClick,
@@ -28,7 +28,7 @@ export function ActionButton ({
   return (
     <ButtonWrapper position={position}>
       <Button
-        width={width}
+        padding={padding}
         role={role}
         onClick={handleClick}
         type={type}

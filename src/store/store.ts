@@ -27,8 +27,6 @@ const createRootReducer = (history: History<unknown>) => ({
   resolutions: resolutionsReducer,
 });
 
-
-
 export const store = configureStore({
   reducer: createRootReducer(history),
   middleware: (getDefaultMiddleware) =>

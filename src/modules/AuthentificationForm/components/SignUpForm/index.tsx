@@ -1,6 +1,7 @@
 import { Formik, Field } from "formik";
 
 import { SignUpFormValues } from "types";
+import { actionButtonPaddings } from "const";
 import {
   AuthTextInput,
   PasswordInput,
@@ -116,7 +117,7 @@ export function SignUpForm () {
           </InputFieldWrapper>
 
           <ActionButton
-            width={150}
+            padding={actionButtonPaddings.AUTH}
             role="submit-button"
             isDisabled={isValid}
             textContent="Sign Up"

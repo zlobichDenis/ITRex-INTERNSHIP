@@ -2,6 +2,8 @@ import { put, takeLatest, call } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchAllDoctorAppointments, fetchAllPatientAppointments } from 'services';
+import { errorNotify } from "notification";
+import { ErrorMessages } from "dictionary";
 import {
   fetchDoctorAppointments,
   fetchPatientAppointments,
@@ -22,6 +24,7 @@ function* fetchPatientAppointmentsWorker({ payload }: PayloadAction<GetAllAppoin
     yield put(responceFetchAppointments());
     yield put(setUserAppointments(appointments.appointments));
   } else {
+    errorNotify(ErrorMessages.FETCH_DATA);
     yield put(rejectFetchAppointments());
   }
 }
@@ -34,6 +37,7 @@ function* fetchDoctorAppointmentsWorker({ payload }: PayloadAction<GetAllAppoint
     yield put(responceFetchAppointments());
     yield put(setUserAppointments(appointments.appointments));
   } else {
+    errorNotify(ErrorMessages.FETCH_DATA);
     yield put(rejectFetchAppointments());
   }
 }

@@ -12,4 +12,5 @@ export const ErrorMessages = {
   REGISTRATION: 'Unsuccessful registration!',
   DELETE_APPOINTMENTS: 'Something going wrong. Try again.',
   CREATE_RESOLUTION: 'An resolution has already been created for this appointment.',
+  FETCH_DATA: 'Your session is probably up. Please restart the page.',
 };

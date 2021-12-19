@@ -8,7 +8,7 @@ type ButtonWrapperProps = {
 
 type ButtonProps = {
   isDisabled: boolean,
-  width: number,
+  padding: string,
 }
 
 export const ButtonWrapper = styled.div<ButtonWrapperProps>`
@@ -23,13 +23,13 @@ export const ButtonWrapper = styled.div<ButtonWrapperProps>`
 `;
 
 export const Button = styled.button<ButtonProps>`
-  width: ${({ width }) => width}px;
-  height: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: flex-start;
   gap: 8px;
+  height: 56px;
+  padding: ${({ padding }) => padding};
   border-radius: 8px;
   ${typography.BOLD_TEXT}
   background: ${({ isDisabled }): string =>

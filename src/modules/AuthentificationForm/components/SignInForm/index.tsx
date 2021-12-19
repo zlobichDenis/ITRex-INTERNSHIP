@@ -3,7 +3,7 @@ import Loader from "react-loader-spinner";
 
 import { SignInFormValues } from "types";
 import { colors } from "styles";
-import { FetchStatus } from "const";
+import { actionButtonPaddings, FetchStatus } from "const";
 import {
   AuthTextInput,
   PasswordInput,
@@ -78,7 +78,7 @@ export function SignInForm () {
             />
           ) : (
             <ActionButton
-              width={150}
+              padding={actionButtonPaddings.AUTH}
               role="submit-button"
               isDisabled={isValid}
               type="submit"

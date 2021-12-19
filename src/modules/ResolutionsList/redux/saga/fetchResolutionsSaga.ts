@@ -2,6 +2,8 @@ import { put, call, takeLatest } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 import { fetchAllDoctorResolutions, fetchAllPatientResolutions } from "services";
+import { errorNotify } from "notification";
+import { ErrorMessages} from "dictionary";
 import {
   setUserResolutions,
   fetchDoctorResolutions,
@@ -18,6 +20,7 @@ function* fetchDoctorResolutionsWorker({ payload }: PayloadAction<FetchResolutio
     yield put(setUserResolutions(resolutions.resolutions));
     yield put(responceFetchResolutions());
   } else {
+    errorNotify(ErrorMessages.FETCH_DATA);
     yield put(rejectFetchResolutions());
   }
 }
@@ -30,6 +33,7 @@ function* fetchPatientResolutionsWorker({ payload }: PayloadAction<FetchResoluti
     yield put(setUserResolutions(resolutions.resolutions));
     yield put(responceFetchResolutions());
   } else {
+    errorNotify(ErrorMessages.FETCH_DATA);
     yield put(rejectFetchResolutions());
   }
 }

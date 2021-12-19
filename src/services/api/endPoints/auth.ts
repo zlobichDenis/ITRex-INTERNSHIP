@@ -6,6 +6,7 @@ const EndPoints = {
   registration: () => `auth/registration`,
   login: () => `auth/login`,
   fetchUserData: () => `auth/profile`,
+
 } as const;
 
 export const registration = (userData: RegistrationParams) =>
@@ -25,3 +26,4 @@ export const fetchUserData = () =>
     .get<UserProfile>(EndPoints.fetchUserData())
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
+

@@ -6,7 +6,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 
 export const PatientCabinetRouter = () => {
-  const { path } = useRouteMatch();
+  const { url } = useRouteMatch();
 
   return (
     <Switch>
@@ -17,7 +17,7 @@ export const PatientCabinetRouter = () => {
           <PublicRoute key={`path-${index}`} path={path} {...props} />
         )
       )}
-      <Redirect from={`${AppPaths.PATIENT_VIEW}`} to={`${path}${PatientPaths.APPOINTMENTS}`} />
+      <Redirect from={`${AppPaths.PATIENT_VIEW}`} to={`${url}${PatientPaths.APPOINTMENTS}`} />
     </Switch>
   );
 };
