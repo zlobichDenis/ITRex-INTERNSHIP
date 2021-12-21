@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { AuthBackGroundImg } from "assets";
 
 export const Section = styled.section`
     display: flex;
