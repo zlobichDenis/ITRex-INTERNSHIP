@@ -28,7 +28,7 @@ export function PasswordInput ({ placeholder, field, icon, role }: PasswordInput
         placeholder={placeholder}
         className="feedback-field__input feedback-field__input_password"
       />
-      <button>
+      <button type="button">
         <img onClick={showPassToggle} src={isShowingPass ? EyeSvg : EyeBlockSvg} width="24" height="24" alt="icon"/>
       </button>
     </InputField>

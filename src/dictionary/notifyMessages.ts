@@ -1,6 +1,6 @@
 export const SuccesMessages = {
   CREATED_APPOINTMENT: 'The appointment has been successfully created!',
-  DELETE_APPOINTMENTS: 'The appointment has been deleted has been deleted!',
+  DELETE_APPOINTMENTS: 'The appointment has been deleted!',
   LOGIN: 'You have successfully entered!',
   REGISTRATION: 'Your account has been successfully created!',
   CREATE_RESOLUTION: 'The resolution has been successfully created!',
