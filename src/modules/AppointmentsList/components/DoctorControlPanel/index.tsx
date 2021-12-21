@@ -1,21 +1,10 @@
-import { useCallback } from "react";
-
-import { useAppDispatch } from "store";
 import { Tittle } from "elements";
 import { SortSelect } from "..";
 import { InputsWrapper, ControlPanel } from "./styles";
-import { fetchDoctorAppointments } from "modules/AppointmentsList/redux";
-import { appointmentsPagination, DoctorCabinetSortTypes } from "modules/AppointmentsList/const";
+import { useSortDoctorAppointments } from "../../hooks";
 
 export function DoctorControlPanel() {
-  const dispatch = useAppDispatch();
-
-  const fetchAppointmentsByLastName = useCallback(() => {
-    dispatch(fetchDoctorAppointments({ ...appointmentsPagination, ...DoctorCabinetSortTypes.LAST_NAME }));
-  }, [dispatch]);
-  const fetchAppointmentsByDate = useCallback(() => {
-    dispatch(fetchDoctorAppointments({ ...appointmentsPagination, ...DoctorCabinetSortTypes.DATE }));
-  }, [dispatch]);
+  const { fetchAppointmentsByDate, fetchAppointmentsByLastName } = useSortDoctorAppointments();
 
   return (
     <ControlPanel>

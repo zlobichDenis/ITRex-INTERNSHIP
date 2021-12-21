@@ -1,10 +1,28 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-import { UserAppointmentsList } from "../index";
+import { UserAppointmentsList } from "..";
 import { doctorAppointments, patientAppointments } from "__mock__";
 import { FetchStatus, UserRoles } from "const";
 import * as useFetchAppointments from "../hooks/useFetchAppointments";
+import * as useCreateNewResolution from "../hooks/useCreateNewResolution";
+import * as useDeleteAppointment from "../hooks/useDeleteAppointment";
+
+jest
+  .spyOn(useDeleteAppointment, 'useDeleteAppointment')
+  .mockImplementation(() => {
+    return {
+      dispatchDeleteAppointment: () => console.log('some')
+    }
+  })
+jest
+  .spyOn(useCreateNewResolution, 'useCreateNewResolution')
+  .mockImplementation(() => {
+    return {
+      dispatchNewResolution: () => console.log('some')
+    }
+  })
+
 
 describe("Appointments list", () => {
   it("should render appointments when role is DoctorAppointment and list is not empty", () => {
@@ -12,7 +30,6 @@ describe("Appointments list", () => {
       .spyOn(useFetchAppointments, "useFetchAppointments")
       // @ts-ignore
       .mockImplementation(() => {
-        console.log('sdfasdfasdf')
         return {
           roleName: UserRoles.DOCTOR,
           appointments: doctorAppointments,
