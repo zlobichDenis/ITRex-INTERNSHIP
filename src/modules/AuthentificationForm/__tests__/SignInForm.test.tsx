@@ -5,13 +5,14 @@ import { ToastContainer } from "react-toastify";
 import "@testing-library/jest-dom";
 
 import { store } from "store";
-import { SignInForm } from "../components/SignInForm";
+import { SignInForm } from "../components";
 import * as useAuthentification from "../hooks/useAuthentification";
 
 
 describe("SignIn form", () => {
   it('should take correct parameters', async () => {
     const loginMock = jest.fn((values) => console.log(values));
+    // @ts-ignore
     jest.spyOn(useAuthentification, 'useAuthentification').mockImplementation(() => {
       return { loginRequest: (values) => loginMock(values) }
     })

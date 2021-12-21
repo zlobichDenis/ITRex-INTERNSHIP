@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import { UserAppointmentsList } from "../index";
-import { doctorAppointments, patientAppointments } from "services";
+import { doctorAppointments, patientAppointments } from "__mock__";
 import { FetchStatus, UserRoles } from "const";
 import * as useFetchAppointments from "../hooks/useFetchAppointments";
 
@@ -10,6 +10,7 @@ describe("Appointments list", () => {
   it("should render appointments when role is DoctorAppointment and list is not empty", () => {
     jest
       .spyOn(useFetchAppointments, "useFetchAppointments")
+      // @ts-ignore
       .mockImplementation(() => {
         return {
           roleName: UserRoles.DOCTOR,

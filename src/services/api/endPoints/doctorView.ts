@@ -54,10 +54,7 @@ export const postDeletedAppointment = (appointmentId: string) =>
     .then((responce) => ({ responce }))
     .catch((error) => ({ error }));
 
-export const pathChangesInAppointment = ({
-                                           id,
-                                           ...body
-                                         }: PathChangesInAppointmentParams) =>
+export const pathChangesInAppointment = ({ id, ...body }: PathChangesInAppointmentParams) =>
   api
     .patch<string>(EndPoints.pathChangesInAppointment(id), body)
     .then((responce) => ({ responce }))
