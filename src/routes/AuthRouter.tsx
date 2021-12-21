@@ -1,5 +1,6 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
+import { AppPaths, AuthPath } from "const";
 import { authRoutes } from "routes";
 
 export const AuthRouter = () => {
@@ -14,6 +15,7 @@ export const AuthRouter = () => {
           />
         );
       })}
+      <Redirect from={AppPaths.AUTH} to={`${AppPaths.AUTH}${AuthPath.SIGN_UP}`} />
     </Switch>
   );
 };

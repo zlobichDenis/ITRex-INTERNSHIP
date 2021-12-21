@@ -54,7 +54,7 @@ export function AppointmentForm() {
                 id="occupation"
                 handleReset={setFieldValue}/>
               {errors.occupation && touched.occupation ? (
-                <AlertMessage position="unset" message={errors.occupation}/>
+                <AlertMessage position="static" message={errors.occupation}/>
               ) : null}
             </InputWrapper>
 
@@ -67,7 +67,7 @@ export function AppointmentForm() {
                 id="doctorName"
                 handleReset={setFieldValue}/>
               {errors.doctorName && touched.doctorName ? (
-                <AlertMessage position="unset" message={errors.doctorName}/>
+                <AlertMessage position="static" message={errors.doctorName}/>
               ) : null}
             </InputWrapper>
 
@@ -75,7 +75,7 @@ export function AppointmentForm() {
               <InputLabel>Reason for the visit</InputLabel>
               <Field component={AuthTextInput} name="reason" id="reason"/>
               {errors.reason && touched.reason ? (
-                <AlertMessage position="absolute" message={errors.reason}/>
+                <AlertMessage position="static" message={errors.reason}/>
               ) : null}
             </InputWrapper>
 
