@@ -30,7 +30,7 @@ api.interceptors.request.use(async config => {
 api.interceptors.response.use(
   (responce) => responce,
   async (error) => {
-    if (error.request.status === 401) {
+    if (error.request.status === 401 || !error.status) {
       localStorage.removeItem('persist:user');
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');

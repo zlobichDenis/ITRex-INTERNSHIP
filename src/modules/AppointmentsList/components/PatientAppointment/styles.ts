@@ -17,7 +17,7 @@ export const AppointmentsItem = styled.li`
   height: 264px;
   background-color: #ffff;
   border-radius: 12px;
-  overflow-y: scroll;
+  overflow: auto;
 
   @media (min-width: 1920px) {
     gap: 24px;
@@ -111,7 +111,7 @@ export const VisitMessageIcon = styled.div`
 
 export const VisitMessageText = styled.span`
   word-break: break-all;
-  overflow-y: scroll;
+  overflow: auto;
 `;
 
 export const UserStatus = styled.div`
