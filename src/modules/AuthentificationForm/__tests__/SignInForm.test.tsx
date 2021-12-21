@@ -30,42 +30,4 @@ describe("SignIn form", () => {
       })
     })
   })
-
-  it('should render succes notification when login is successs', async () => {
-    jest.restoreAllMocks();
-
-    render(
-      <Provider store={store}>
-        <SignInForm />
-        <ToastContainer />
-      </Provider>
-      )
-
-    userEvent.type(screen.getByRole('email-input'), 'dasha@tut.by');
-    userEvent.type(screen.getByRole('password-input'), 'dasha@tut.by');
-    userEvent.click(screen.getByRole('submit-button'));
-
-    await waitFor(() => {
-      expect(screen.getByText('You have successfully entered!')).toBeInTheDocument();
-    })
-  })
-
-  it('should render error notification when login is failse', async () => {
-    jest.restoreAllMocks();
-
-    render(
-      <Provider store={store}>
-        <SignInForm />
-        <ToastContainer />
-      </Provider>
-      )
-
-    userEvent.type(screen.getByRole('email-input'), 'asdfasdf@tut.by');
-    userEvent.type(screen.getByRole('password-input'), 'asdfasdf');
-    userEvent.click(screen.getByRole('submit-button'));
-
-    await waitFor(() => {
-      expect(screen.getByText('Unsuccess login')).toBeInTheDocument();
-    })
-  })
 })

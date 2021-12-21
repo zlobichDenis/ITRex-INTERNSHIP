@@ -1,12 +1,10 @@
 import '@testing-library/jest-dom/extend-expect';
 
+import { server } from '__mock__';
 
 /**************
 * MSW config code
 ***************/
-
-import { server } from 'services';
-
 
 beforeAll(() => server.listen());
 

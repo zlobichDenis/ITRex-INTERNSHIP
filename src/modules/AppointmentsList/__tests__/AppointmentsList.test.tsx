@@ -12,6 +12,7 @@ describe("Appointments list", () => {
       .spyOn(useFetchAppointments, "useFetchAppointments")
       // @ts-ignore
       .mockImplementation(() => {
+        console.log('sdfasdfasdf')
         return {
           roleName: UserRoles.DOCTOR,
           appointments: doctorAppointments,
