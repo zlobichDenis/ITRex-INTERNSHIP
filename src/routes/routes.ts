@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Authentification, DoctorView, PatientView, PageNotFound } from 'pages';
+import { Authentification, DoctorView, PatientView } from 'pages';
 import { UserRoles, AppPaths, AuthPath, PatientPaths, DoctorPaths } from 'const';
 import { UserAppointmentsList } from "modules/AppointmentsList";
 import { ResolutionsList } from "modules/ResolutionsList";
@@ -40,12 +40,6 @@ export const appRoutes: Array<RouteType> = [
     isPrivate: true,
     forRole: UserRoles.PATIENT,
   },
-  {
-    path: '*',
-    component: PageNotFound,
-    isPrivate: false,
-    forRole: null,
-  }
 ];
 
 export const authRoutes: Array<RouteType> = [

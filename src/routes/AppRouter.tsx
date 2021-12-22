@@ -19,7 +19,7 @@ const AppRouter = () => {
         )
       )}
       <Redirect
-        exact
+        // exact
         from="/"
         to={`${AppPaths.AUTH}${AuthPath.SIGN_UP}`}
       />
