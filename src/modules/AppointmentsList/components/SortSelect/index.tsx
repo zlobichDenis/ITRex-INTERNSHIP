@@ -25,4 +25,4 @@ export function SortSelect ({ fetchSortAppointmentsByName, fetchSortAppointments
       </SortList>
     </SortWrapper>
   );
-};
+}

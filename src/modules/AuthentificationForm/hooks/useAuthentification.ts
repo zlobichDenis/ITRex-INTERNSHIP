@@ -1,5 +1,3 @@
-import { useCallback } from 'react';
-
 import { useAppSelector, useAppDispatch } from 'store';
 import { SignInFormValues } from 'types';
 import { fetchLogin, fetchRegistration, getUserProfile, getUserProfileFetchStatus } from '../redux';
@@ -17,15 +15,15 @@ export const useAuthentification = () => {
   const userProfile = useAppSelector(getUserProfile);
   const fetchStatus = useAppSelector(getUserProfileFetchStatus);
 
-  const loginRequest = useCallback((userData: LoginRequestParams) => {
+  const loginRequest = (userData: LoginRequestParams) => {
     dispatch(fetchLogin(userData))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  };
 
-  const registrationRequest = useCallback((userData: RegistrationParams) => {
+  const registrationRequest = (userData: RegistrationParams) => {
     dispatch(fetchRegistration(userData))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  };
 
   return { userProfile, fetchStatus, registrationRequest, loginRequest };
 };
