@@ -5,12 +5,16 @@ import { PatientPaths } from "const";
 import { Tabs } from "./styles";
 import { PatientTabsSchema } from "../../schemes";
 
-export function PatientTabs() {
+type PatientTabsProps = {
+  isDisplay: boolean,
+}
+
+export function PatientTabs({ isDisplay }: PatientTabsProps) {
   const { pathname } = useLocation();
   const { url } = useRouteMatch();
 
   return (
-    <Tabs>
+    <Tabs isDisplay={!isDisplay}>
       <Link to={`${url}${PatientPaths.APPOINTMENTS}`}>
         <CabinetTab
           isActive={pathname === `${url}${PatientPaths.APPOINTMENTS}`}

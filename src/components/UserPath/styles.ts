@@ -23,4 +23,5 @@ export const UserPathLink = styled.a<UserPathLinkProps>`
   line-height: 24px;
   color: ${({ isActive }): string =>
     isActive ? colors.GREY_MEDIUM : colors.BLUE};
+  cursor: pointer;
 `;

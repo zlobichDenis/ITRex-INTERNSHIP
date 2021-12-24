@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-export const Tabs = styled.div`
-    display: flex;
+type TabsProps = {
+  isDisplay: boolean,
+}
+
+export const Tabs = styled.div<TabsProps>`
+    display: ${({ isDisplay }) => isDisplay ? "flex" : "none"};
     flex-direction: row;
     justify-content: center;
     gap: 24px;

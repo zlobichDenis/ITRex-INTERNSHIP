@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from 'store';
 import { UserRoles } from 'const';
@@ -17,15 +17,14 @@ export const useFetchResolutions = () => {
   const resolutions = useAppSelector(getUserResolutions);
   const dispatch = useAppDispatch();
 
-  const fetchResolutionsWithOffset = useCallback((offset: number) => {
+  const fetchResolutionsWithOffset = (offset: number) => {
     const paginationWithOffset = { ...resolutionsPagination, offset}
     if (roleName === UserRoles.PATIENT) {
       dispatch(fetchPatientResolutions(paginationWithOffset));
     } else {
       dispatch(fetchDoctorResolutions(paginationWithOffset));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  };
 
   useEffect(() => {
     if (roleName === UserRoles.PATIENT) {

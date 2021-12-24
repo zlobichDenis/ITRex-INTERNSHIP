@@ -17,12 +17,10 @@ export const useAuthentification = () => {
 
   const loginRequest = (userData: LoginRequestParams) => {
     dispatch(fetchLogin(userData))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   };
 
   const registrationRequest = (userData: RegistrationParams) => {
     dispatch(fetchRegistration(userData))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   };
 
   return { userProfile, fetchStatus, registrationRequest, loginRequest };
