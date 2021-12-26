@@ -1,6 +1,6 @@
 import { Formik, Field } from "formik";
 
-import { actionButtonPaddings, AppPaths, AuthPath } from "const";
+import { actionButtonPaddings, AppPaths, AuthPath } from "enums";
 import { useRedirect } from "hooks";
 import { RestoreMessage } from "../index";
 import {

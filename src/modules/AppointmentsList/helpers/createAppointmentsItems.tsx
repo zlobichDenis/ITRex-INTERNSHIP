@@ -1,4 +1,4 @@
-import { UserRoles } from "const";
+import { UserRoles } from "enums";
 import { PatientAppointment, DoctorAppointment } from "../components";
 
 

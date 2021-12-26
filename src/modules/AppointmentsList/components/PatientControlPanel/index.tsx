@@ -1,7 +1,7 @@
 import { useRouteMatch } from "react-router-dom";
 
 import { ActionButton } from "components";
-import { actionButtonPaddings, AppPaths, PatientPaths } from "const";
+import { actionButtonPaddings, AppPaths, PatientPaths } from "enums";
 import { Tittle } from "elements";
 import { InputsWrapper, ControlPanel } from "./styles";
 import { useRedirect } from "hooks";

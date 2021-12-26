@@ -3,7 +3,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { AppPaths, AuthPath } from "const";
+import { AppPaths, AuthPath } from "enums";
 import { appRoutes } from "routes";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";

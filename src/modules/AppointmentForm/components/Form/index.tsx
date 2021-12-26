@@ -11,7 +11,7 @@ import {
 import { VisitCalendar, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
 import { appointmentSchema } from "modules/AppointmentForm/schemes";
 import { useCreateAppointment } from "modules/AppointmentForm/hooks";
-import { actionButtonPaddings } from "../../../../const";
+import { actionButtonPaddings } from "../../../../enums";
 
 
 export function AppointmentForm() {

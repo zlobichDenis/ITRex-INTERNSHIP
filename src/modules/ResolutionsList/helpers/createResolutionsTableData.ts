@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { UserRoles } from "const";
+import { UserRoles } from "enums";
 import { ResolutionTableData } from "..";
 
 type CreateResolutionsTableDataReturnValue = Array<ResolutionTableData>;

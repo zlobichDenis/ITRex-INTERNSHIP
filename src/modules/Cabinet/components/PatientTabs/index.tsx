@@ -1,7 +1,7 @@
 import { Link, useLocation, useRouteMatch } from "react-router-dom";
 
 import { CabinetTab } from "components";
-import { PatientPaths } from "const";
+import { PatientPaths } from "enums";
 import { Tabs } from "./styles";
 import { PatientTabsSchema } from "../../schemes";
 

@@ -1,6 +1,6 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import { AppPaths, AuthPath } from "const";
+import { AppPaths, AuthPath } from "enums";
 import { authRoutes } from "routes";
 
 export const AuthRouter = () => {

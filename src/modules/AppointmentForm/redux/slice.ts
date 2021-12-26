@@ -1,11 +1,11 @@
 import { createAction, createSlice } from '@reduxjs/toolkit';
 
-import { FetchStatus } from 'const';
+import { FetchStatus } from 'enums';
 import { CreateAppointmentParams, GetAvailableTimeParams } from "services";
 import { Doctor, Specialization } from 'types';
 
 export type AppointmentFormDataState = {
-  fetchStatus: string,
+  fetchStatus: FetchStatus,
   specializations: Array<Specialization> | null,
   doctors: Array<Doctor> | null,
   date: Array<string> | null,
@@ -14,7 +14,7 @@ export type AppointmentFormDataState = {
 type PostNewAppointmentPayload = CreateAppointmentParams;
 
 const initialState = {
-  fetchStatus: '',
+  fetchStatus: FetchStatus.DEFAULT,
   specializations: null,
   doctors: null,
   date: null,
@@ -37,7 +37,7 @@ export const appointmentFormDataSlice = createSlice({
       return { ...state, fetchStatus: FetchStatus.FAILED };
     },
     setDefaultFetchStatus: function (state) {
-      return { ...state, fetchStatus: ''}
+      return { ...state, fetchStatus: FetchStatus.DEFAULT }
     },
     setSpecializations: function(state, { payload }) {
       return { ...state, specializations: payload };

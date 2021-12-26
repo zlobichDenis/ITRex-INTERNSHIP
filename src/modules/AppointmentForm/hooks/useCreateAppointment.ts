@@ -4,7 +4,7 @@ import { push } from 'connected-react-router';
 
 import { useAppSelector, useAppDispatch } from 'store';
 import { postNewAppointment, setDefaultFetchStatus, getAppointmentFormDataFetchStatus } from '../redux';
-import { AppPaths, PatientPaths, FetchStatus } from 'const';
+import { AppPaths, PatientPaths, FetchStatus } from 'enums';
 
 
 type UseCreateAppointmentReturnValues = {

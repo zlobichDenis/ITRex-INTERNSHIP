@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 import { PatientCabinetRouter } from "routes";
-import { PatientPaths } from "const";
+import { PatientPaths } from "enums";
 import { PatientTabs } from "..";
 import { CabinetInfo } from "../../styles";
 

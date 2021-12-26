@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from 'store';
-import { appointmentsPagination, UserRoles } from 'const';
+import { appointmentsPagination, UserRoles } from 'enums';
 import { DoctorAppointment, PatientAppointment } from "types";
 import {
   fetchDoctorAppointments,

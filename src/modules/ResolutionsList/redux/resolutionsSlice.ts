@@ -1,10 +1,10 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
 
 import { DoctorsResolution, PatientResolution } from "types";
-import { FetchStatus } from "const";
+import { FetchStatus } from "enums";
 
 export type ResolutionSliceState = {
-  fetchStatus: string,
+  fetchStatus: FetchStatus,
   resolutions: Array<DoctorsResolution | PatientResolution> | [],
 }
 
@@ -16,7 +16,7 @@ export type FetchResolutionsPayload = {
 }
 
 const initialState: ResolutionSliceState = {
-  fetchStatus: '',
+  fetchStatus: FetchStatus.DEFAULT,
   resolutions: [],
 }
 

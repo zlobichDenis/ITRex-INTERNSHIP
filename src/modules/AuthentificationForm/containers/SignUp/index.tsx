@@ -1,6 +1,6 @@
 import { NavLink} from "react-router-dom";
 
-import { AppPaths, AuthPath } from "const";
+import { AppPaths, AuthPath } from "enums";
 import { SignUpForm } from "../../components";
 import {
   FeedbackButtons,

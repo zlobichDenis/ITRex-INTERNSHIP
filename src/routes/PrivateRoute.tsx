@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, Route } from "react-router-dom";
 
 import { useAppSelector } from "store";
-import { AppPaths, AuthPath } from "const";
+import { AppPaths, AuthPath } from "enums";
 import { getUserProfile } from "modules/AuthentificationForm/redux";
 
 type PrivateRouteParams = {

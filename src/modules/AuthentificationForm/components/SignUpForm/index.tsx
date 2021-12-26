@@ -1,7 +1,7 @@
 import { Formik, Field } from "formik";
 
 import { SignUpFormValues } from "types";
-import { actionButtonPaddings } from "const";
+import { actionButtonPaddings } from "enums";
 import {
   AuthTextInput,
   PasswordInput,

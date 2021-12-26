@@ -3,7 +3,7 @@ import Loader from "react-loader-spinner";
 
 import { SignInFormValues } from "types";
 import { colors } from "styles";
-import { actionButtonPaddings, FetchStatus } from "const";
+import { actionButtonPaddings, FetchStatus } from "enums";
 import {
   AuthTextInput,
   PasswordInput,

@@ -1,6 +1,6 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
 
-import { FetchStatus } from 'const';
+import { FetchStatus } from 'enums';
 import { UserProfile } from 'types';
 
 type RegistrationPayload = {
@@ -16,7 +16,7 @@ type LoginPayload = {
 }
 
 export type UserState = {
-  fetchStatus: string,
+  fetchStatus: FetchStatus,
   userProfile: UserProfile,
 }
 
@@ -24,7 +24,7 @@ export const fetchRegistration = createAction<RegistrationPayload>('auth/registr
 export const fetchLogin = createAction<LoginPayload>('auth/login');
 
 const initialState = {
-  fetchStatus: '',
+  fetchStatus: FetchStatus.DEFAULT,
   userProfile: {},
 } as UserState;
 

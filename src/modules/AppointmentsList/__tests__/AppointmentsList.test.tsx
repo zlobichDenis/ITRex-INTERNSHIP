@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 
 import { UserAppointmentsList } from "..";
 import { doctorAppointments, patientAppointments } from "__mock__";
-import { FetchStatus, UserRoles } from "const";
+import { FetchStatus, UserRoles } from "enums";
 import * as useFetchAppointments from "../hooks/useFetchAppointments";
 import * as useCreateNewResolution from "../hooks/useCreateNewResolution";
 import * as useDeleteAppointment from "../hooks/useDeleteAppointment";

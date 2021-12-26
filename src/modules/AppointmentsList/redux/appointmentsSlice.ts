@@ -1,11 +1,11 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
 
 import { DoctorAppointment, PatientAppointment } from 'types';
-import { FetchStatus } from 'const';
+import { FetchStatus } from 'enums';
 
 
 export type AppointmentSliceState = {
-  fetchStatus: string,
+  fetchStatus: FetchStatus,
   appointments: Array<DoctorAppointment | PatientAppointment> | [],
 }
 
@@ -22,7 +22,7 @@ export type FetchAppointmentsPayload = {
 }
 
 const initialState: AppointmentSliceState = {
-  fetchStatus: '',
+  fetchStatus: FetchStatus.DEFAULT,
   appointments: [],
 }
 

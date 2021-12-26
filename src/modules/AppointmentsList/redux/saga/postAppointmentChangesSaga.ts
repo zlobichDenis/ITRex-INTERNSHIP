@@ -3,7 +3,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 
 import { postDeletedAppointment, postNewResolution  } from 'services';
 import { responceNotify, errorNotify } from "notification";
-import { appointmentsPagination } from 'const';
+import { appointmentsPagination } from 'enums';
 import { SuccesMessages, ErrorMessages } from 'dictionary';
 import { deleteAppointment, fetchDoctorAppointments, CreateResolutionPayload, createResolution } from '..';
 
