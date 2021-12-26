@@ -12,7 +12,7 @@ import {
 } from "..";
 import { SignUpFormValues, SignInFormValues } from "types";
 import { responceNotify, errorNotify } from "notification";
-import { SuccesMessages, ErrorMessages } from "dictionary";
+import { SuccessMessages, ErrorMessages } from "dictionary";
 import { login, fetchUserData, registration } from "services";
 import * as tokenRepository from "store/tokenRepository";
 import { getCorrectPage } from "../../helpers";
@@ -24,7 +24,7 @@ function* registrationWorker({ payload }: PayloadAction<RegistartionSagaParams>)
   const { responce: tokenResponce } = yield call(registration, payload);
 
   if (tokenResponce) {
-    responceNotify(SuccesMessages.REGISTRATION);
+    responceNotify(SuccessMessages.REGISTRATION);
     tokenRepository.setToken(tokenResponce.data.access_token);
     tokenRepository.setRefreshToken(tokenResponce.data.refresh_token);
     yield put(fetchUserProfile());
@@ -38,7 +38,7 @@ function* loginWorker({ payload }: PayloadAction<LoginSagaParams>) {
   const { responce: tokenResponce }  = yield call(login, payload);
 
   if (tokenResponce) {
-    responceNotify(SuccesMessages.LOGIN);
+    responceNotify(SuccessMessages.LOGIN);
     tokenRepository.setToken(tokenResponce.data.access_token);
     tokenRepository.setRefreshToken(tokenResponce.data.refresh_token);
     yield put(fetchUserProfile());

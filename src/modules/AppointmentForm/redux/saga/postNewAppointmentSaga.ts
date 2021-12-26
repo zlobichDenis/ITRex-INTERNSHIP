@@ -3,7 +3,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 
 import { postCreatedAppointment, CreateAppointmentParams } from 'services';
 import { responceNotify, errorNotify } from "notification";
-import { SuccesMessages, ErrorMessages } from 'dictionary';
+import { SuccessMessages, ErrorMessages } from 'dictionary';
 import { postNewAppointment, responcePostAppointment, rejectPostAppointment } from '..';
 
 type CreateAppointmentWorkerParams = CreateAppointmentParams;
@@ -12,7 +12,7 @@ export function* createAppointmentWorker({ payload }: PayloadAction<CreateAppoin
   const { responce } = yield call(postCreatedAppointment, payload);
   
   if (responce) {
-    responceNotify(SuccesMessages.CREATED_APPOINTMENT);
+    responceNotify(SuccessMessages.CREATED_APPOINTMENT);
     yield put(responcePostAppointment());
   } else {
     errorNotify(ErrorMessages.CREATED_APPOINTMENTS)

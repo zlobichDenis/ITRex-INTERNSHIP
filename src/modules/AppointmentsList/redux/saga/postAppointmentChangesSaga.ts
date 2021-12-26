@@ -4,7 +4,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { postDeletedAppointment, postNewResolution  } from 'services';
 import { responceNotify, errorNotify } from "notification";
 import { appointmentsPagination } from 'enums';
-import { SuccesMessages, ErrorMessages } from 'dictionary';
+import { SuccessMessages, ErrorMessages } from 'dictionary';
 import { deleteAppointment, fetchDoctorAppointments, CreateResolutionPayload, createResolution } from '..';
 
 
@@ -14,7 +14,7 @@ function* deleteAppointmentWorker({ payload }: PayloadAction<string>) {
   const { responce: deleteResponce } = yield call(postDeletedAppointment, payload);
 
   if (deleteResponce) {
-    responceNotify(SuccesMessages.DELETE_APPOINTMENTS);
+    responceNotify(SuccessMessages.DELETE_APPOINTMENTS);
     yield put(fetchDoctorAppointments(appointmentsPagination));
   } else {
     errorNotify(ErrorMessages.DELETE_APPOINTMENTS);
@@ -25,7 +25,7 @@ function* createResolutionWorker({ payload }: PayloadAction<CreateResolutionWork
   const { responce: resolutionResponce } = yield call(postNewResolution, payload);
 
   if (resolutionResponce) {
-    responceNotify(SuccesMessages.CREATE_RESOLUTION);
+    responceNotify(SuccessMessages.CREATE_RESOLUTION);
     yield put(fetchDoctorAppointments(appointmentsPagination));
   } else {
     errorNotify(ErrorMessages.CREATE_RESOLUTION);
