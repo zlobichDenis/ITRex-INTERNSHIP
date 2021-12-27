@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useTable, usePagination } from 'react-table';
 import Loader from "react-loader-spinner";
 
-import { FetchStatus } from "const";
+import { FetchStatus } from "enums";
 import { BackArrowSvg, RightArrowSvg } from "assets";
 import {
   ResolutionTable,

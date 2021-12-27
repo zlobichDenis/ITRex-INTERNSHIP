@@ -1,12 +1,12 @@
 import { useAppDispatch } from "store";
-import { createResolution } from "../redux";
+import { postNewResolution } from "../redux";
 
 
 export const useCreateNewResolution = (appointmentID: string) => {
   const dispatch = useAppDispatch();
 
   const dispatchNewResolution = (resolution: string) => {
-    dispatch(createResolution({ resolution, appointmentID }))
+    dispatch(postNewResolution({ resolution, appointmentID }))
   };
 
   return { dispatchNewResolution };

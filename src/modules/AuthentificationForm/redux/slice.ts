@@ -1,30 +1,18 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
 
-import { FetchStatus } from 'const';
-import { UserProfile } from 'types';
-
-type RegistrationPayload = {
-  userName: string,
-  password: string,
-  firstName: string,
-  lastName: string,
-}
-
-type LoginPayload = {
-  userName: string,
-  password: string,
-}
+import { FetchStatus } from 'enums';
+import { UserProfile, SignUp, SignIn } from 'types';
 
 export type UserState = {
-  fetchStatus: string,
+  fetchStatus: FetchStatus,
   userProfile: UserProfile,
 }
 
-export const fetchRegistration = createAction<RegistrationPayload>('auth/registration');
-export const fetchLogin = createAction<LoginPayload>('auth/login');
+export const fetchRegistration = createAction<SignUp>('auth/registration');
+export const fetchLogin = createAction<SignIn>('auth/login');
 
 const initialState = {
-  fetchStatus: '',
+  fetchStatus: FetchStatus.DEFAULT,
   userProfile: {},
 } as UserState;
 
@@ -38,7 +26,7 @@ const userSlice = createSlice({
     fetchUserProfile(state) {
       return {...state, fetchStatus: FetchStatus.PENDING}
     },
-    responceFetchUserProfile(state) {
+    responseFetchUserProfile(state) {
       return {...state, fetchStatus: FetchStatus.SUCCESS};
     },
     rejectFetchUserProfile(state) {
@@ -48,4 +36,4 @@ const userSlice = createSlice({
 });
 
 export const userReducer = userSlice.reducer;
-export const { setCurrentUser, responceFetchUserProfile, fetchUserProfile, rejectFetchUserProfile } = userSlice.actions;
+export const { setCurrentUser, responseFetchUserProfile, fetchUserProfile, rejectFetchUserProfile } = userSlice.actions;

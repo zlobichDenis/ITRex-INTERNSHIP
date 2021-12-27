@@ -1,7 +1,7 @@
 import { useRouteMatch } from "react-router-dom";
 
 import { ActionButton } from "components";
-import { actionButtonPaddings, AppPaths, PatientPaths } from "const";
+import { ActionButtonPaddings, AppPaths, PatientPaths } from "enums";
 import { Tittle } from "elements";
 import { InputsWrapper, ControlPanel } from "./styles";
 import { useRedirect } from "hooks";
@@ -19,7 +19,7 @@ export function PatientControlPanel () {
       <Tittle>My Appointments</Tittle>
       <InputsWrapper>
         <ActionButton
-          padding={actionButtonPaddings.CREATE_APPOINTMENT}
+          padding={ActionButtonPaddings.CREATE_APPOINTMENT}
           role='redirect-button'
           textContent="Create an appointment"
           handleClick={redirectToAppointmentForm}

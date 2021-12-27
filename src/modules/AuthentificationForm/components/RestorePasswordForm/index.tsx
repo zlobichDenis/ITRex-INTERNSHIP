@@ -1,6 +1,6 @@
 import { Formik, Field } from "formik";
 
-import { actionButtonPaddings, AppPaths, AuthPath } from "const";
+import { ActionButtonPaddings, AppPaths, AuthPath } from "enums";
 import { useRedirect } from "hooks";
 import { RestoreMessage } from "../index";
 import {
@@ -45,7 +45,7 @@ export function RestorePassForm() {
             : null}
 
           <ActionButton
-            padding={actionButtonPaddings.AUTH}
+            padding={ActionButtonPaddings.AUTH}
             textContent='Restore Password' />
         </FeedbackForm>
       )}

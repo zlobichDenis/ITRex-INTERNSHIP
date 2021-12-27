@@ -7,4 +7,4 @@ export const DoctorCabinetSortTypes = {
     sortBy: 'dateSort',
     order: 'Desc',
   },
-};
+} as const;

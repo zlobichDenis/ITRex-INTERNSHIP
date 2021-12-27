@@ -1,31 +1,30 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import { postDeletedAppointment, postNewResolution  } from 'services';
+import { postDeletedAppointment  } from 'services';
 import { responceNotify, errorNotify } from "notification";
-import { appointmentsPagination } from 'const';
-import { SuccesMessages, ErrorMessages } from 'dictionary';
-import { deleteAppointment, fetchDoctorAppointments, CreateResolutionPayload, createResolution } from '..';
+import { PostNewResolution } from "types";
+import { appointmentsPagination } from 'enums';
+import { SuccessMessages, ErrorMessages } from 'dictionary';
+import { deleteAppointment, fetchDoctorAppointments, postNewResolution } from '..';
 
-
-export type CreateResolutionWorkerParams = CreateResolutionPayload;
 
 function* deleteAppointmentWorker({ payload }: PayloadAction<string>) {
-  const { responce: deleteResponce } = yield call(postDeletedAppointment, payload);
+  const { response: deleteResponse } = yield call(postDeletedAppointment, payload);
 
-  if (deleteResponce) {
-    responceNotify(SuccesMessages.DELETE_APPOINTMENTS);
+  if (deleteResponse) {
+    responceNotify(SuccessMessages.DELETE_APPOINTMENTS);
     yield put(fetchDoctorAppointments(appointmentsPagination));
   } else {
     errorNotify(ErrorMessages.DELETE_APPOINTMENTS);
   }
 }
 
-function* createResolutionWorker({ payload }: PayloadAction<CreateResolutionWorkerParams>) {
-  const { responce: resolutionResponce } = yield call(postNewResolution, payload);
+function* postNewResolutionWorker({ payload }: PayloadAction<PostNewResolution>) {
+  const { response: resolutionResponse } = yield call(postNewResolution, payload);
 
-  if (resolutionResponce) {
-    responceNotify(SuccesMessages.CREATE_RESOLUTION);
+  if (resolutionResponse) {
+    responceNotify(SuccessMessages.CREATE_RESOLUTION);
     yield put(fetchDoctorAppointments(appointmentsPagination));
   } else {
     errorNotify(ErrorMessages.CREATE_RESOLUTION);
@@ -34,5 +33,5 @@ function* createResolutionWorker({ payload }: PayloadAction<CreateResolutionWork
 
 export function* postAppointmentChangesWatcher() {
   yield takeLatest(deleteAppointment, deleteAppointmentWorker);
-  yield takeLatest(createResolution, createResolutionWorker);
+  yield takeLatest(postNewResolution, postNewResolutionWorker);
 }

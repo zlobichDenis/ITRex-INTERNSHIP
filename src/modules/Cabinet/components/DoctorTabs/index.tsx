@@ -1,6 +1,6 @@
 import { Link, useLocation, useRouteMatch } from "react-router-dom";
 
-import { DoctorPaths} from "const";
+import { DoctorPaths} from "enums";
 import { Tabs } from './styles';
 import { CabinetTab } from 'components';
 import { DoctorTabsSchema } from "../../schemes";

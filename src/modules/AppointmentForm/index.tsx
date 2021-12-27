@@ -1,7 +1,7 @@
 import { useRouteMatch } from "react-router-dom";
 
 import { Tittle } from "elements";
-import { AppPaths, PatientPaths } from "const";
+import { AppPaths, PatientPaths } from "enums";
 import { UserPath } from "components";
 import { useRedirect } from "hooks";
 import { AppointmentForm } from "./components";

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Authentification, DoctorView, PatientView } from 'pages';
-import { UserRoles, AppPaths, AuthPath, PatientPaths, DoctorPaths } from 'const';
+import { UserRoles, AppPaths, AuthPath, PatientPaths, DoctorPaths } from 'enums';
 import { UserAppointmentsList } from "modules/AppointmentsList";
 import { ResolutionsList } from "modules/ResolutionsList";
 import { AppointmentFormContainer } from 'modules/AppointmentForm';

@@ -1,9 +1,9 @@
 import { Formik, Field } from "formik";
 import Loader from "react-loader-spinner";
 
-import { SignInFormValues } from "types";
+import { SignIn } from "types";
 import { colors } from "styles";
-import { actionButtonPaddings, FetchStatus } from "const";
+import { ActionButtonPaddings, FetchStatus } from "enums";
 import {
   AuthTextInput,
   PasswordInput,
@@ -14,11 +14,11 @@ import { PasswordInputSvg, EmailInputSvg } from "assets";
 import { Tittle } from "elements";
 import { FeedbackForm, InputFieldWrapper } from "../../styles";
 import { signInSchema } from "../../schemes";
-import { useAuthentification } from "../../hooks";
+import { useAuthorization } from "../../hooks";
 
 export function SignInForm () {
-  const { loginRequest, fetchStatus } = useAuthentification();
-  const initialValues: SignInFormValues = {
+  const { loginRequest, fetchStatus } = useAuthorization();
+  const initialValues: SignIn = {
     userName: '',
     password: '',
   };
@@ -78,7 +78,7 @@ export function SignInForm () {
             />
           ) : (
             <ActionButton
-              padding={actionButtonPaddings.AUTH}
+              padding={ActionButtonPaddings.AUTH}
               role="submit-button"
               isDisabled={isValid}
               type="submit"

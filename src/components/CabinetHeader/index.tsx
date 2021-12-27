@@ -36,7 +36,7 @@ export function CabinetHeader({ handleClick, userProfile}: CabinetHeaderProps) {
             {roleName}
           </UserSpecialty>
         </UserNameWrapper>
-        <img width="48" height="48" src={photo ? photo : ''} alt="DoctorAppointment's"/>
+        <img width="48" height="48" src={photo ? photo : ''} alt="Doctor's"/>
       </UserInfo>
     </Header>
   );

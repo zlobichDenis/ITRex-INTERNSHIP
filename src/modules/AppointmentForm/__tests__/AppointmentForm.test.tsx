@@ -2,7 +2,7 @@ import { fireEvent, render, screen, act } from "@testing-library/react";
 import selectEvent from 'react-select-event';
 import "@testing-library/jest-dom";
 
-import { FetchStatus } from "const";
+import { FetchStatus } from "enums";
 import { AppointmentForm } from "../components";
 import * as useCreateAppointment from "../hooks/useCreateAppointment";
 import * as useGetFormData from "../hooks/useFetchFormaData";

@@ -1,6 +1,6 @@
 import Loader from "react-loader-spinner";
 
-import { FetchStatus, UserRoles } from "const";
+import { FetchStatus, UserRoles } from "enums";
 import { EmptyList } from "components";
 import { AppointmentsListWrapper, AppointmentsList } from "./styles";
 import { DoctorControlPanel, PatientControlPanel } from "./components";

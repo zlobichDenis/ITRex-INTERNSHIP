@@ -1,5 +1,5 @@
 import { RestorePassForm, RestorePassConfirm } from "../../components";
-import { AppPaths, AuthPath } from "const";
+import { AppPaths, AuthPath } from "enums";
 
 
 export function RestorePass ({ location }: any ) {

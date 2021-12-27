@@ -1,5 +1,4 @@
-import { UserProfile } from 'types';
-import { LoginRequestParams, RegistrationParams } from 'modules/AuthentificationForm/hooks';
+import { UserProfile, SignUp, SignIn } from 'types';
 import { api } from '../instance';
 
 const EndPoints = {
@@ -9,21 +8,21 @@ const EndPoints = {
 
 } as const;
 
-export const registration = (userData: RegistrationParams) =>
+export const registration = (userData: SignUp) =>
   api
     .post<string>(EndPoints.registration(), userData)
-    .then((responce) => ({ responce }))
+    .then((response) => ({ response }))
     .catch((error) => ({ error }));
 
-export const login = (userData: LoginRequestParams) =>
+export const login = (userData: SignIn) =>
   api
     .post<string>(EndPoints.login(), userData)
-    .then((responce) => ({ responce }))
+    .then((response) => ({ response }))
     .catch((error) => ({ error }));
 
 export const fetchUserData = () =>
   api
     .get<UserProfile>(EndPoints.fetchUserData())
-    .then((responce) => ({ responce }))
+    .then((response) => ({ response }))
     .catch((error) => ({ error }));
 

@@ -3,14 +3,14 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 
 import { SignUpForm } from "../components/";
-import * as useAuthentification from "../hooks/useAuthentification";
+import * as useAuthentification from "../hooks/useAuthorization";
 
 
 describe("SignUp form", () => {
   it('should take correct parameters', async () => {
     const registrationMock = jest.fn((values) => console.log(values))
     // @ts-ignore
-    jest.spyOn(useAuthentification, 'useAuthentification').mockImplementation(() => {
+    jest.spyOn(useAuthentification, 'useAuthorization').mockImplementation(() => {
       return ({ 
         registrationRequest: (values) => registrationMock(values),
       })

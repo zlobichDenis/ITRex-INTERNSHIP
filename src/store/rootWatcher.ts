@@ -4,7 +4,7 @@ import { fetchAppointmentsWatcher, postAppointmentChangesWatcher } from 'modules
 import { fetchResolutionsWatcher } from "modules/ResolutionsList/redux";
 import {
   createAppointmentWatcher,
-  getFormaDataWatcher,
+  getFormDataWatcher,
 } from 'modules/AppointmentForm/redux';
 
 export function* rootWatcher() {
@@ -13,7 +13,7 @@ export function* rootWatcher() {
     fetchAppointmentsWatcher(),
     createAppointmentWatcher(),
     fetchResolutionsWatcher(),
-    getFormaDataWatcher(),
+    getFormDataWatcher(),
     postAppointmentChangesWatcher(),
   ]);
 }

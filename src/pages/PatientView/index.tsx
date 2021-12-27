@@ -4,7 +4,7 @@ import { useAppSelector } from "store";
 import { CabinetHeader } from "components";
 import { UserCabinet } from "modules";
 import { useRedirect } from "hooks";
-import { PatientPaths } from "const";
+import { PatientPaths } from "enums";
 import { getUserProfile } from "modules/AuthentificationForm/redux";
 import { CabinetSection, Cabinet } from "../styles";
 

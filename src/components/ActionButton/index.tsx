@@ -1,11 +1,12 @@
 import React from "react";
 
+import { ActionButtonPaddings } from "enums";
 import { ButtonArrowSvg } from "assets";
 import { ButtonWrapper, Button } from "./styles";
 
 type ActionButtonProps = {
   textContent: string,
-  padding: string,
+  padding: ActionButtonPaddings,
   position?: string,
   role?: string, 
   icon?: string, 

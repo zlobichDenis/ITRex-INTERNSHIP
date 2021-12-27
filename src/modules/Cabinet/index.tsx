@@ -1,5 +1,5 @@
 import { useAppSelector } from "store";
-import { UserRoles } from "const";
+import { UserRoles } from "enums";
 import { PatientInfo, DoctorInfo } from "./components";
 import { CabinetContentWrapper } from "./styles";
 

@@ -3,25 +3,12 @@ import { useRouteMatch } from "react-router-dom";
 import { push } from 'connected-react-router';
 
 import { useAppSelector, useAppDispatch } from 'store';
+import { CreateNewAppointmentParams } from "types";
 import { postNewAppointment, setDefaultFetchStatus, getAppointmentFormDataFetchStatus } from '../redux';
-import { AppPaths, PatientPaths, FetchStatus } from 'const';
+import { AppPaths, PatientPaths, FetchStatus } from 'enums';
 
 
-type UseCreateAppointmentReturnValues = {
-  createAppointment(formValues: CreateNewAppointmentParams): void,
-  fetchStatus: string,
-}
-
-type CreateNewAppointmentParams = {
-  occupation: string,
-  date: string,
-  doctorName: string,
-  time: string,
-  note: string,
-  reason: string,
-}
-
-export const useCreateAppointment = (): UseCreateAppointmentReturnValues => {
+export const useCreateAppointment = () => {
   const dispatch =  useAppDispatch();
   const fetchStatus = useAppSelector(getAppointmentFormDataFetchStatus);
   const match = useRouteMatch(AppPaths.PATIENT_VIEW);
@@ -29,7 +16,7 @@ export const useCreateAppointment = (): UseCreateAppointmentReturnValues => {
   const createAppointment = (formValues: CreateNewAppointmentParams) => {
     const { occupation, date: visitDate, doctorName: doctorID, time: date, ...rest } = formValues;
     const appointmentData = { ...rest, doctorID, date }
-    
+
     dispatch(postNewAppointment(appointmentData));
   };
 

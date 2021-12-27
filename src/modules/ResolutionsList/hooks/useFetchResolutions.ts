@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from 'store';
-import { UserRoles } from 'const';
+import { UserRoles } from 'enums';
 import {
   fetchDoctorResolutions,
   fetchPatientResolutions,

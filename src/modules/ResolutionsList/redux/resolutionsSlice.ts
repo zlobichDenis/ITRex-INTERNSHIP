@@ -1,28 +1,21 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
 
-import { DoctorsResolution, PatientResolution } from "types";
-import { FetchStatus } from "const";
+import { DoctorsResolution, PatientResolution, FetchDataList } from "types";
+import { FetchStatus } from "enums";
 
 export type ResolutionSliceState = {
-  fetchStatus: string,
+  fetchStatus: FetchStatus,
   resolutions: Array<DoctorsResolution | PatientResolution> | [],
 }
 
-export type FetchResolutionsPayload = {
-  offset: number,
-  limit: number,
-  sortBy?: string,
-  order?: string,
-}
-
 const initialState: ResolutionSliceState = {
-  fetchStatus: '',
+  fetchStatus: FetchStatus.DEFAULT,
   resolutions: [],
 }
 
-export const fetchDoctorResolutions = createAction<FetchResolutionsPayload>('resolutions/doctor');
-export const fetchPatientResolutions = createAction<FetchResolutionsPayload>('resolutions/patient');
-export const responceFetchResolutions = createAction('resolutions/responce');
+export const fetchDoctorResolutions = createAction<FetchDataList>('resolutions/doctor');
+export const fetchPatientResolutions = createAction<FetchDataList>('resolutions/patient');
+export const responseFetchResolutions = createAction('resolutions/response');
 export const rejectFetchResolutions = createAction('resolutions/reject');
 
 const resolutionsSlice = createSlice({
@@ -40,7 +33,7 @@ const resolutionsSlice = createSlice({
     builder.addCase(fetchPatientResolutions, state => {
       return { ...state, fetchStatus: FetchStatus.PENDING };
     })
-    builder.addCase(responceFetchResolutions, state => {
+    builder.addCase(responseFetchResolutions, state => {
       return { ...state, fetchStatus: FetchStatus.SUCCESS };
     })
     builder.addCase(rejectFetchResolutions, state => {

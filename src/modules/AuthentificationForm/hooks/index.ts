@@ -1,1 +1,1 @@
-export * from './useAuthentification';
+export * from './useAuthorization';

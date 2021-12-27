@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from 'store';
-import { appointmentsPagination, UserRoles } from 'const';
-import { DoctorAppointment, PatientAppointment } from "types";
+import { appointmentsPagination, UserRoles } from 'enums';
 import {
   fetchDoctorAppointments,
   fetchPatientAppointments,
@@ -10,13 +9,7 @@ import {
   getUserAppointments } from '../redux';
 import { getUserRoleName } from "modules/AuthentificationForm/redux";
 
-type UseFetchAppointmentsReturnValues = {
-  fetchStatus: string,
-  appointments: Array<DoctorAppointment | PatientAppointment>,
-  roleName: string | null,
-}
-
-export const useFetchAppointments = (): UseFetchAppointmentsReturnValues => {
+export const useFetchAppointments = () => {
   const fetchStatus = useAppSelector(getAppointmentsFetchStatus);
   const appointments = useAppSelector(getUserAppointments);
   const roleName  = useAppSelector(getUserRoleName);

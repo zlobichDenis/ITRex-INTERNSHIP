@@ -1,18 +1,13 @@
-import { PatientAppointment, PatientResolution } from 'types';
+import { PatientAppointment, PatientResolution, FetchDataList } from 'types';
 import { api } from 'services';
 
-import { FetchResolutionsPayload } from "modules/ResolutionsList/redux";
-import { FetchAppointmentsPayload } from "modules/AppointmentsList/redux";
 
-type fetchAllPatientAppointmentsParams = FetchAppointmentsPayload;
-type fetchAllPatientResolutionsParams = FetchResolutionsPayload;
-
-type PatientAppointmentsResponceData = {
-  appoinments: Array<PatientAppointment>,
+type PatientAppointmentsResponseData = {
+  appointments: Array<PatientAppointment> | [],
   total: number,
 }
 
-type PatientResolutionResponceData = {
+type PatientResolutionResponseData = {
   resolutions: Array<PatientResolution> | [],
   total: number,
 }
@@ -22,20 +17,20 @@ const EndPoints = {
   fetchAllPatientResolutions: () => `/resolutions/patient/me`,
 } as const;
 
-export const fetchAllPatientAppointments = (pagination: fetchAllPatientAppointmentsParams) => (
+export const fetchAllPatientAppointments = (pagination: FetchDataList) => (
   api
-    .get<PatientAppointmentsResponceData>(EndPoints.fetchAllPatientAppointments(), {
+    .get<PatientAppointmentsResponseData>(EndPoints.fetchAllPatientAppointments(), {
       params: pagination,
     })
-    .then((responce) => ({ responce }))
+    .then((response) => ({ response }))
     .catch((error) => ({ error }))
 );
 
-export const fetchAllPatientResolutions = (pagination: fetchAllPatientResolutionsParams) => (
+export const fetchAllPatientResolutions = (pagination: FetchDataList) => (
   api
-    .get<PatientResolutionResponceData>(EndPoints.fetchAllPatientResolutions(), {
+    .get<PatientResolutionResponseData>(EndPoints.fetchAllPatientResolutions(), {
       params: pagination,
     })
-    .then((responce) => ({ responce }))
+    .then((response) => ({ response }))
     .catch((error) => ({ error }))
 )

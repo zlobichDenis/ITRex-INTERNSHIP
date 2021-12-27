@@ -1,7 +1,7 @@
 import { Switch, Redirect, useRouteMatch } from "react-router-dom";
 
 import { doctorCabinetRoutes } from "routes";
-import { AppPaths, DoctorPaths } from "const";
+import { AppPaths, DoctorPaths } from "enums";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 

@@ -2,7 +2,7 @@ import { useRouteMatch } from "react-router-dom";
 
 import { useAppSelector } from "store";
 import { CabinetHeader } from "components";
-import { DoctorPaths } from "const";
+import { DoctorPaths } from "enums";
 import { UserCabinet } from "modules";
 import { useRedirect } from "hooks";
 import { CabinetSection, Cabinet } from "../styles";

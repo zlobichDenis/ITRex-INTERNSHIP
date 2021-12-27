@@ -11,7 +11,7 @@ import {
 import { VisitCalendar, TimeRadioList, DoctorSelect, SpecializationSelect } from "..";
 import { appointmentSchema } from "modules/AppointmentForm/schemes";
 import { useCreateAppointment } from "modules/AppointmentForm/hooks";
-import { actionButtonPaddings } from "../../../../const";
+import { ActionButtonPaddings } from "../../../../enums";
 
 
 export function AppointmentForm() {
@@ -117,7 +117,7 @@ export function AppointmentForm() {
           </StageCreatingWrapper>
 
           <ActionButton
-            padding={actionButtonPaddings.AUTH}
+            padding={ActionButtonPaddings.AUTH}
             role="submit-appointment"
             isDisabled={isValid}
             type="submit"
