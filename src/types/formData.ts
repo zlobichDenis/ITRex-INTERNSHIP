@@ -1,10 +1,10 @@
 export type Specialization = {
-  id: string,
-  specialization_name: string,
+  readonly id: string,
+  readonly specialization_name: string,
 }
 
 export type Doctor = {
-  first_name: string,
-  last_name: string,
-  id: string,
+  readonly first_name: string,
+  readonly last_name: string,
+  readonly id: string,
 }

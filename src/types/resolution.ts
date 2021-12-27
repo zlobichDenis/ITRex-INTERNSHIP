@@ -1,12 +1,12 @@
 import { PatientData, DoctorData } from "./appointment";
 
 type Resolution = {
-  readonly id: string,
-  readonly appointment_id: string,
-  readonly next_appointment_date: string,
-  readonly resolution: string,
-  readonly visit_date: string,
+  id: string,
+  appointment_id: string,
+  next_appointment_date: string,
+  resolution: string,
+  visit_date: string,
 }
 
-export type DoctorsResolution = Resolution & { patient: PatientData };
+export type DoctorsResolution = Readonly<Resolution & { patient: PatientData }>;
 export type PatientResolution = { doctor: DoctorData };
