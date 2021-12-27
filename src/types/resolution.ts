@@ -1,19 +1,12 @@
 import { PatientData, DoctorData } from "./appointment";
 
-export type DoctorsResolution = {
-  id: string,
-  appointment_id: string,
-  next_appointment_date: string,
-  resolution: string,
-  visit_date: string,
-  patient: PatientData,
+type Resolution = {
+  readonly id: string,
+  readonly appointment_id: string,
+  readonly next_appointment_date: string,
+  readonly resolution: string,
+  readonly visit_date: string,
 }
 
-export type PatientResolution = {
-  id: string,
-  appointment_id: string,
-  next_appointment_date: string,
-  resolution: string,
-  visit_date: string,
-  doctor: DoctorData,
-}
+export type DoctorsResolution = Resolution & { patient: PatientData };
+export type PatientResolution = { doctor: DoctorData };
