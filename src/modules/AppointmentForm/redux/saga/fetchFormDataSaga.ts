@@ -10,39 +10,39 @@ import {
   setSpecializations,
 } from '..';
 import {
-  getAllSpecializations,
-  getAvailableTime,
+  fetchAllSpecializations,
+  fetchAvailableTime,
   getDoctorsBySpecialisations,
 } from 'services';
-import { GetAvailableTimeParams } from 'services';
+import { FetchAvailableTimeParams } from 'types';
 
 
-function* getSpecializationWorker() {
-  const { responce, error } = yield call(getAllSpecializations);
+function* fetchSpecializationWorker() {
+  const { response, error } = yield call(fetchAllSpecializations);
 
-  if (responce) {
-    const { data } = responce;
+  if (response) {
+    const { data } = response;
     yield put(setSpecializations(data));
   } else {
     yield put(setSpecializations(error));
   }
 }
 
-function* getDoctorsBySpezialisationsWorker({ payload }: PayloadAction<string>) {
-  const { responce, error } = yield call(getDoctorsBySpecialisations, payload);
+function* fetchDoctorsBySpecialisationsWorker({ payload }: PayloadAction<string>) {
+  const { response, error } = yield call(getDoctorsBySpecialisations, payload);
 
-  if (responce) {
-    const { data } = responce;
+  if (response) {
+    const { data } = response;
     yield put(setDoctorPerSpecialization(data));
   } else {
     yield put(setDoctorPerSpecialization(error));
   }
 }
 
-function* getAvailableTimeWorker({ payload }: PayloadAction<GetAvailableTimeParams>) {
-  const { responce, error } = yield call(getAvailableTime, payload);
-  if (responce) {
-    const { data } = responce;
+function* fetchAvailableTimeWorker({ payload }: PayloadAction<FetchAvailableTimeParams>) {
+  const { response, error } = yield call(fetchAvailableTime, payload);
+  if (response) {
+    const { data } = response;
     yield put(setAvailableTimes(data));
   } else {
     yield put(setAvailableTimes(error));
@@ -50,11 +50,8 @@ function* getAvailableTimeWorker({ payload }: PayloadAction<GetAvailableTimePara
 }
 
 
-export function* getFormaDataWatcher() {
-  yield takeLatest(fetchSpecializations, getSpecializationWorker);
-  yield takeLatest(
-    fetchDoctorPerSpecialization,
-    getDoctorsBySpezialisationsWorker
-  );
-  yield takeLatest(fetchAvailableTimes, getAvailableTimeWorker);
+export function* getFormDataWatcher() {
+  yield takeLatest(fetchSpecializations, fetchSpecializationWorker);
+  yield takeLatest(fetchDoctorPerSpecialization, fetchDoctorsBySpecialisationsWorker);
+  yield takeLatest(fetchAvailableTimes, fetchAvailableTimeWorker);
 }

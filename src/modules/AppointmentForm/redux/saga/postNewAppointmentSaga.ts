@@ -1,19 +1,19 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import { postCreatedAppointment, CreateAppointmentParams } from 'services';
+import { postCreatedAppointment } from 'services';
+import { PostNewAppointmentParams } from "types";
 import { responceNotify, errorNotify } from "notification";
 import { SuccessMessages, ErrorMessages } from 'dictionary';
-import { postNewAppointment, responcePostAppointment, rejectPostAppointment } from '..';
+import { postNewAppointment, responsePostAppointment, rejectPostAppointment } from '..';
 
-type CreateAppointmentWorkerParams = CreateAppointmentParams;
 
-export function* createAppointmentWorker({ payload }: PayloadAction<CreateAppointmentWorkerParams>) {
-  const { responce } = yield call(postCreatedAppointment, payload);
+export function* createAppointmentWorker({ payload }: PayloadAction<PostNewAppointmentParams>) {
+  const { response } = yield call(postCreatedAppointment, payload);
   
-  if (responce) {
+  if (response) {
     responceNotify(SuccessMessages.CREATED_APPOINTMENT);
-    yield put(responcePostAppointment());
+    yield put(responsePostAppointment());
   } else {
     errorNotify(ErrorMessages.CREATED_APPOINTMENTS)
     yield put(rejectPostAppointment());

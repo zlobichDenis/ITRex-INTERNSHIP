@@ -1,8 +1,7 @@
 import { createAction, createSlice } from '@reduxjs/toolkit';
 
 import { FetchStatus } from 'enums';
-import { CreateAppointmentParams, GetAvailableTimeParams } from "services";
-import { Doctor, Specialization } from 'types';
+import { Doctor, Specialization, PostNewAppointmentParams, FetchAvailableTimeParams } from 'types';
 
 export type AppointmentFormDataState = {
   fetchStatus: FetchStatus,
@@ -11,7 +10,6 @@ export type AppointmentFormDataState = {
   date: Array<string> | null,
   availableTimes: Array<string> | null,
 }
-type PostNewAppointmentPayload = CreateAppointmentParams;
 
 const initialState = {
   fetchStatus: FetchStatus.DEFAULT,
@@ -21,16 +19,16 @@ const initialState = {
   availableTimes: null,
 } as AppointmentFormDataState;
 
-export const postNewAppointment = createAction<PostNewAppointmentPayload>('appointments/create')
+export const postNewAppointment = createAction<PostNewAppointmentParams>('appointments/create')
 export const fetchSpecializations = createAction('form/specializations');
 export const fetchDoctorPerSpecialization = createAction<string>('form/doctorPerSpecializations');
-export const fetchAvailableTimes = createAction<GetAvailableTimeParams>('form/availableTime');
+export const fetchAvailableTimes = createAction<FetchAvailableTimeParams>('form/availableTime');
 
 export const appointmentFormDataSlice = createSlice({
   name: 'AppointmentFormData',
   initialState,
   reducers: {
-    responcePostAppointment: function (state) {
+    responsePostAppointment: function (state) {
       return { ...state, fetchStatus: FetchStatus.SUCCESS };
     },
     rejectPostAppointment: function (state) {
@@ -49,7 +47,6 @@ export const appointmentFormDataSlice = createSlice({
       return { ...state, availableTimes: payload };
     },
   },
-
   extraReducers: (builder => {
     builder.addCase(postNewAppointment, (state) => {
       return { ...state, fetchStatus: FetchStatus.PENDING };
@@ -59,7 +56,7 @@ export const appointmentFormDataSlice = createSlice({
 
 export const createAppointmentReducer = appointmentFormDataSlice.reducer;
 export const {
-  responcePostAppointment,
+  responsePostAppointment,
   rejectPostAppointment,
   setAvailableTimes,
   setDoctorPerSpecialization,

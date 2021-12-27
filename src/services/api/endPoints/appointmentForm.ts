@@ -1,17 +1,6 @@
 import { api } from 'services';
-import { Specialization, Doctor } from 'types';
+import { Specialization, Doctor, FetchAvailableTimeParams, PostNewAppointmentParams } from 'types';
 
-export type GetAvailableTimeParams = {
-  doctorId: string,
-  date: string,
-}
-
-export type CreateAppointmentParams = {
-  date: string,
-  reason: string,
-  note: string,
-  doctorID: string,
-}
 
 const EndPoints = {
   getAllSpecializations: () => `specializations`,
@@ -20,31 +9,31 @@ const EndPoints = {
   postCreatedAppointment: () => 'appointments',
 } as const;
 
-export const getAllSpecializations = () =>
+export const fetchAllSpecializations = () =>
   api
     .get<Array<Specialization>>(EndPoints.getAllSpecializations())
-    .then((responce) => ({ responce }))
+    .then((response) => ({ response }))
     .catch((error) => ({ error }));
 
 export const getDoctorsBySpecialisations = (specializationId: string) =>
   api
     .get<Array<Doctor>>(EndPoints.getDoctorsBySpecialisations(specializationId))
-    .then((responce) => ({ responce }))
+    .then((response) => ({ response }))
     .catch((error) => ({ error }));
 
-export const getAvailableTime = ({ doctorId, date }: GetAvailableTimeParams) =>
+export const fetchAvailableTime = ({ doctorID, date }: FetchAvailableTimeParams) =>
   api
     .get<Array<string>>(EndPoints.getAvailableTime(), {
       params: {
-        doctorId: doctorId,
+        doctorID: doctorID,
         date: date,
       },
     })
-    .then((responce) => ({ responce }))
+    .then((response) => ({ response }))
     .catch((error) => ({ error }));
 
-export const postCreatedAppointment = (data: CreateAppointmentParams) =>
+export const postCreatedAppointment = (data: PostNewAppointmentParams) =>
   api
     .post(EndPoints.postCreatedAppointment(), data)
-    .then((responce) => ({ responce }))
+    .then((response) => ({ response }))
     .catch((error) => ({ error }));
