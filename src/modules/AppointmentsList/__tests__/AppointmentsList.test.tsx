@@ -32,7 +32,7 @@ jest.mock("../hooks/useSortDoctorAppointments", () => {
 
 
 describe("Appointments list", () => {
-  it("should render appointments when role is DoctorAppointment and list is not empty", () => {
+  it("should render appointments when role is Doctor and list is not empty", () => {
     jest
       .spyOn(useFetchAppointments, "useFetchAppointments")
       // @ts-ignore

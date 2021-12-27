@@ -1,18 +1,18 @@
 import { UserRoles } from "enums";
-import { PatientAppointment, DoctorAppointment } from "../components";
+import { Patient, Doctor } from "../components";
 
 
-export const createAppointmentsList = (appointments: any[], roleName: string | null) => {
+export const createAppointmentsList = (appointments: Array<any>, roleName: string | null) => {
   if (roleName === UserRoles.PATIENT) {
     return appointments.map((appointment, index) => (
-      <DoctorAppointment
+      <Doctor
         key={`doctor-${appointment.id}-${index}`}
         appointment={appointment}
       />
     ))
   } else {
     return appointments.map((appointment, index) => (
-      <PatientAppointment
+      <Patient
         key={`patient-${appointment.id}-${index}`}
         appointment={appointment}
       />

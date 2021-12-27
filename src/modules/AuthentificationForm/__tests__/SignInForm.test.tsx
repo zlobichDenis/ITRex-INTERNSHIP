@@ -6,14 +6,14 @@ import "@testing-library/jest-dom";
 
 import { store } from "store";
 import { SignInForm } from "../components";
-import * as useAuthentification from "../hooks/useAuthentification";
+import * as useAuthentification from "../hooks/useAuthorization";
 
 
 describe("SignIn form", () => {
   it('should take correct parameters', async () => {
     const loginMock = jest.fn((values) => console.log(values));
     // @ts-ignore
-    jest.spyOn(useAuthentification, 'useAuthentification').mockImplementation(() => {
+    jest.spyOn(useAuthentification, 'useAuthorization').mockImplementation(() => {
       return { loginRequest: (values) => loginMock(values) }
     })
 

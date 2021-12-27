@@ -5,28 +5,26 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import {
   setCurrentUser,
   fetchUserProfile,
-  responceFetchUserProfile,
+  responseFetchUserProfile,
   rejectFetchUserProfile,
   fetchLogin,
   fetchRegistration,
 } from "..";
-import { SignUpFormValues, SignInFormValues } from "types";
+import { SignUp, SignIn } from "types";
 import { responceNotify, errorNotify } from "notification";
 import { SuccessMessages, ErrorMessages } from "dictionary";
 import { login, fetchUserData, registration } from "services";
 import * as tokenRepository from "store/tokenRepository";
 import { getCorrectPage } from "../../helpers";
 
-type RegistartionSagaParams = SignUpFormValues;
-type LoginSagaParams = SignInFormValues;
 
-function* registrationWorker({ payload }: PayloadAction<RegistartionSagaParams>) {
-  const { responce: tokenResponce } = yield call(registration, payload);
+function* registrationWorker({ payload }: PayloadAction<SignUp>) {
+  const { response: tokenResponse } = yield call(registration, payload);
 
-  if (tokenResponce) {
+  if (tokenResponse) {
     responceNotify(SuccessMessages.REGISTRATION);
-    tokenRepository.setToken(tokenResponce.data.access_token);
-    tokenRepository.setRefreshToken(tokenResponce.data.refresh_token);
+    tokenRepository.setToken(tokenResponse.data.access_token);
+    tokenRepository.setRefreshToken(tokenResponse.data.refresh_token);
     yield put(fetchUserProfile());
   } else {
     errorNotify(ErrorMessages.REGISTRATION);
@@ -34,13 +32,13 @@ function* registrationWorker({ payload }: PayloadAction<RegistartionSagaParams>)
   }
 }
 
-function* loginWorker({ payload }: PayloadAction<LoginSagaParams>) {
-  const { responce: tokenResponce }  = yield call(login, payload);
+function* loginWorker({ payload }: PayloadAction<SignIn>) {
+  const { response: tokenResponse }  = yield call(login, payload);
 
-  if (tokenResponce) {
+  if (tokenResponse) {
     responceNotify(SuccessMessages.LOGIN);
-    tokenRepository.setToken(tokenResponce.data.access_token);
-    tokenRepository.setRefreshToken(tokenResponce.data.refresh_token);
+    tokenRepository.setToken(tokenResponse.data.access_token);
+    tokenRepository.setRefreshToken(tokenResponse.data.refresh_token);
     yield put(fetchUserProfile());
   } else {
     errorNotify(ErrorMessages.LOGIN);
@@ -49,11 +47,11 @@ function* loginWorker({ payload }: PayloadAction<LoginSagaParams>) {
 }
 
 function* getUserProfileWorker() {
-  const { responce: userProfileResponce } = yield call(fetchUserData);
+  const { response: userProfileResponse } = yield call(fetchUserData);
 
-  if (userProfileResponce) {
-    yield put(responceFetchUserProfile());
-    const {data: userProfile } = userProfileResponce;
+  if (userProfileResponse) {
+    yield put(responseFetchUserProfile());
+    const {data: userProfile } = userProfileResponse;
     yield put(setCurrentUser(userProfile));
     yield put(push(getCorrectPage(userProfile)));
   } else {

@@ -1,6 +1,5 @@
 import { Formik, Field } from "formik";
 
-import { SignUpFormValues } from "types";
 import { ActionButtonPaddings } from "enums";
 import {
   AuthTextInput,
@@ -17,12 +16,12 @@ import {
 import { Tittle } from "elements";
 import { FeedbackForm, InputFieldWrapper } from "../../styles";
 import { signUpSchema } from "../../schemes";
-import { useAuthentification } from "../../hooks";
+import { useAuthorization } from "../../hooks";
 
 
 export function SignUpForm () {
-  const { registrationRequest } = useAuthentification();
-  const initialValues: SignUpFormValues = {
+  const { registrationRequest } = useAuthorization();
+  const initialValues = {
     firstName: "",
     lastName: "",
     userName: "",

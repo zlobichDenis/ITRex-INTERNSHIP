@@ -23,7 +23,7 @@ type PatientProps = {
   appointment: DoctorAppointment,
 }
 
-export function PatientAppointment ({ appointment }: PatientProps) {
+export function Patient ({ appointment }: PatientProps) {
   const { patient, status, id, visit_date: date, reason } = appointment;
   const { first_name: firstName, last_name: lastName, photo } = patient;
 
@@ -32,7 +32,7 @@ export function PatientAppointment ({ appointment }: PatientProps) {
       <AppointmentsItemHeader>
 
         <UserInfoWrapper>
-          <img width="48" height="48" src={photo} alt="PatientAppointment" />
+          <img width="48" height="48" src={photo} alt="Patient" />
           <UserInfo>
             <UserName>{`${firstName} ${lastName}`}.</UserName>
             <UserStatus>
