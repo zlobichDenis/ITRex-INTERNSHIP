@@ -1,4 +1,4 @@
-import { PatientData, DoctorData } from "./appointment";
+import { PatientData, DoctorData } from "./appointments";
 
 type Resolution = {
   id: string,

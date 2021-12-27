@@ -1,3 +1,10 @@
+export type FetchDataList = {
+  offset: number,
+  limit: number,
+  sortBy?: string,
+  order?: string,
+}
+
 type Appointment = {
   id: string,
   reason: string,
@@ -15,8 +22,15 @@ type AppointmentOwner = {
   photo: string,
 }
 
+export type PostNewResolution = {
+  resolution: string,
+  appointmentID: string,
+}
+
 export type PatientData = Readonly<AppointmentOwner>;
 export type DoctorData = Readonly<AppointmentOwner & { specialization_name: string }>;
 
 export type DoctorAppointment = Readonly<Appointment & { readonly patient: PatientData }>;
 export type PatientAppointment = Readonly<Appointment & { readonly doctor: DoctorData }>;
+
+

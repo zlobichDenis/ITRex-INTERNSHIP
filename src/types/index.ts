@@ -1,4 +1,4 @@
-export * from './appointment';
+export * from './appointments';
 export * from './userProfile';
 export * from './formData';
 export * from './authentification';
